@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。 #一、注册七牛云账号  七牛云注册地址 新增存储空间。注册完成之后，在资源主页中的对象存储里添加对象，如添加image 简单的上传图片，复制外链  #二、使用插件（Mpic）Mpic下载 之前我在没有发现Mpic这款软件的时候，将图片上传到七牛云存储总共分">
+<meta name="description" content="Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。">
 <meta name="keywords" content="-教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown 配置七牛云作为图床">
 <meta property="og:url" content="http://yoursite.com/2018/07/31/Markdown-配置七牛云作为图床/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。 #一、注册七牛云账号  七牛云注册地址 新增存储空间。注册完成之后，在资源主页中的对象存储里添加对象，如添加image 简单的上传图片，复制外链  #二、使用插件（Mpic）Mpic下载 之前我在没有发现Mpic这款软件的时候，将图片上传到七牛云存储总共分">
+<meta property="og:description" content="Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oqiflua2i.bkt.clouddn.com/%E8%B5%84%E6%BA%90%E4%B8%BB%E9%A1%B5.png">
 <meta property="og:image" content="http://oqiflua2i.bkt.clouddn.com/%E6%B7%BB%E5%8A%A0%E5%AF%B9%E8%B1%A1.png">
 <meta property="og:image" content="http://oqiflua2i.bkt.clouddn.com/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.gif">
 <meta property="og:image" content="http://oqiflua2i.bkt.clouddn.com/%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86.png">
-<meta property="og:updated_time" content="2018-07-31T08:59:06.189Z">
+<meta property="og:updated_time" content="2018-07-31T09:11:09.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown 配置七牛云作为图床">
-<meta name="twitter:description" content="Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。 #一、注册七牛云账号  七牛云注册地址 新增存储空间。注册完成之后，在资源主页中的对象存储里添加对象，如添加image 简单的上传图片，复制外链  #二、使用插件（Mpic）Mpic下载 之前我在没有发现Mpic这款软件的时候，将图片上传到七牛云存储总共分">
+<meta name="twitter:description" content="Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。">
 <meta name="twitter:image" content="http://oqiflua2i.bkt.clouddn.com/%E8%B5%84%E6%BA%90%E4%B8%BB%E9%A1%B5.png">
 
 
@@ -351,6 +351,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -369,14 +374,13 @@
       
 
       
-        <p>Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。</p>
-<p>#一、注册七牛云账号</p>
-<ol>
+        <p>Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。<br><a id="more"></a></p>
+<h1 id="一、注册七牛云账号"><a href="#一、注册七牛云账号" class="headerlink" title="一、注册七牛云账号"></a>一、注册七牛云账号</h1><ol>
 <li><a href="https://portal.qiniu.com/signup?code=3lefotin55poy" target="_blank" rel="noopener">七牛云注册地址</a></li>
 <li>新增存储空间。注册完成之后，在<strong>资源主页</strong>中的<strong>对象存储</strong>里添加对象，如添加<strong>image</strong><br><img src="http://oqiflua2i.bkt.clouddn.com/%E8%B5%84%E6%BA%90%E4%B8%BB%E9%A1%B5.png" alt="新增增存储空间"><br><img src="http://oqiflua2i.bkt.clouddn.com/%E6%B7%BB%E5%8A%A0%E5%AF%B9%E8%B1%A1.png" alt="新增增存储空间"></li>
 <li>简单的上传图片，复制外链<br><img src="http://oqiflua2i.bkt.clouddn.com/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.gif" alt="上传图片"></li>
 </ol>
-<p>#二、使用插件（Mpic）<br><a href="http://mpic.lzhaofu.cn/" target="_blank" rel="noopener">Mpic下载</a></p>
+<h1 id="二、使用插件（Mpic）"><a href="#二、使用插件（Mpic）" class="headerlink" title="二、使用插件（Mpic）"></a>二、使用插件（Mpic）</h1><p><a href="http://mpic.lzhaofu.cn/" target="_blank" rel="noopener">Mpic下载</a></p>
 <p>之前我在没有发现Mpic这款软件的时候，将图片上传到七牛云存储总共分四步：</p>
 <ol>
 <li>登录打开七牛云网页个人存储空间</li>
@@ -395,6 +399,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wx.png" alt="田迪生 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ant.jpg" alt="田迪生 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -481,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -543,6 +585,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、注册七牛云账号"><span class="nav-number">1.</span> <span class="nav-text">一、注册七牛云账号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、使用插件（Mpic）"><span class="nav-number">2.</span> <span class="nav-text">二、使用插件（Mpic）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -580,6 +638,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 

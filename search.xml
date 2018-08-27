@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[简述JavaScript中this的指向]]></title>
+    <url>%2F2018%2F08%2F27%2F%E7%AE%80%E8%BF%B0JavaScript%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91%2F</url>
+    <content type="text"><![CDATA[简介：我们重点掌握this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，请牢记一点，this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。 一.背景介绍 在面向对象的语言中（例如Java,C#等)，this含义是明确且具体的，即指向当前对象。一般在编译期绑定。而在javascript中，this是动态绑定的，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式，并且在严格模式下也有不同，这就导致了this具备了多重含义，可以使得javascript更灵活的使用。但是，带来了灵活性的同时也会给我们初学者带来不少困惑。即使是细微的语法变化，都有可能意外改变this的值。 二.知识剖析JavaScript中函数的调用常用的有以下几种方式： 作为对象方法调用 作为函数调用 作为构造函数调用 使用apply 或 call 调用 下面我们将按照调用方式的不同，分别讨论this 的含义 1.纯粹的作为函数调用：全局函数中，this指向window 1234function a()&#123; console.log(this);&#125;a(); 2.作为对象方法的调用：当函数被作为某个对象的方法调用时，this就是那个对象 1234567891011var name = &apos;火影&apos;;var person2 = &#123; name: &apos;水影&apos;, sayName: function() &#123; console.log(this.name); &#125;&#125;;var sayNameWin = person2.sayName;person2.sayName(); //水影sayNameWin(); //火影 作为 window 的方法被调用的 3.作为构造函数调用：this指向新对象 123456function Person3(name) &#123; this.name = name; console.log(this);&#125;var person3 = new Person3(&apos;张飒&apos;);console.log(person3.name); //张飒 4.apply、call调用：this指向改变后的调用这个函数的对象12345678var person4 = &#123; name: &apos;人才&apos;&#125;;function fn() &#123; console.log(this); //Object &#123;name: &quot;人才&quot;&#125; console.log(this.name); //人才&#125;fn.apply(person4); 三.拓展思考如何能加深记忆？this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。 四.参考文献深入浅出 JavaScript 中的 thisJavaScript中的this用法与指向如何理解 JavaScript 中的 this 关键字？ 五.更多讨论1. 如果想让一个this指向函数内部，但是它指向了全局，有什么办法让它指向函数内部？使用call方法或者apply方法给它指定this，或者把他作为对象的方法调用 2. setTimeout、setInterval中的this是指向哪里？《 javascript 高级程序设计》中写到：“超时调用的代码都是在全局执行域中执行的”。setTimeout/setInterval 执行的时候，this 默认指向 window 对象，除非手动改变 this 的指向。 3. 简单说一下this 到底有几种指向？我们重点掌握作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>this</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Markdown 配置七牛云作为图床]]></title>
     <url>%2F2018%2F07%2F31%2FMarkdown-%E9%85%8D%E7%BD%AE%E4%B8%83%E7%89%9B%E4%BA%91%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A%2F</url>
-    <content type="text"><![CDATA[Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。 一、注册七牛云账号 七牛云注册地址 新增存储空间。注册完成之后，在资源主页中的对象存储里添加对象，如添加image 简单的上传图片，复制外链 二、使用插件（Mpic）Mpic下载 之前我在没有发现Mpic这款软件的时候，将图片上传到七牛云存储总共分四步： 登录打开七牛云网页个人存储空间 上传图片 复制外链 粘贴到 Markdown 一张图片的上传整整用了四步，特别麻烦。直到LZ最近发现了Mpic之后，才发现，上传图片原来也能这么简单。使用Mpic，只需要将七牛云存储的账号信息配置一次(参考：如何设置七牛云存储账号？)，就可以将以上这四个步骤合为一个。同时，MPic提供了点击上传、拖曳上传、截图上传、复制上传四种上传图片的方法，更是让人感叹好的软件极大的提高了效率啊。 配置Mpic插件，获取密匙进入七牛云个人中心的密钥管理，获取AccessKey和SecretKey]]></content>
+    <content type="text"><![CDATA[Hexo在使用Markdown编辑发布博客时，经常要上传本地图片，渲染加载图片的效果很不理想。推荐使用云平台作为图床，提高编辑效率和图片效果。 一、注册七牛云账号 七牛云注册地址 新增存储空间。注册完成之后，在资源主页中的对象存储里添加对象，如添加image 简单的上传图片，复制外链 二. 使用插件（Mpic）Mpic下载 之前我在没有发现Mpic这款软件的时候，将图片上传到七牛云存储总共分四步： 登录打开七牛云网页个人存储空间 上传图片 复制外链 粘贴到 Markdown 一张图片的上传整整用了四步，特别麻烦。直到LZ最近发现了Mpic之后，才发现，上传图片原来也能这么简单。使用Mpic，只需要将七牛云存储的账号信息配置一次(参考：如何设置七牛云存储账号？)，就可以将以上这四个步骤合为一个。同时，MPic提供了点击上传、拖曳上传、截图上传、复制上传四种上传图片的方法，更是让人感叹好的软件极大的提高了效率啊。 配置Mpic插件，获取密匙进入七牛云个人中心的密钥管理，获取AccessKey和SecretKey 三. 使用极简图床使用极简图床,关联七牛云账号]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
       <tags>
-        <tag>-教程</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[使用js或css实现瀑布流（Pinterest）布局教程]]></title>
     <url>%2F2018%2F07%2F30%2F%E4%BD%BF%E7%94%A8js%E6%88%96css%E5%AE%9E%E7%8E%B0%E7%80%91%E5%B8%83%E6%B5%81%EF%BC%88Pinterest%EF%BC%89%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[瀑布流，又称瀑布流式布局。这种布局适合于小数据块，每个数据块内容相近且没有侧重。通常，随着页面滚动条向下滚动，这种布局还会不断加载数据块并附加至当前尾部。 瀑布流布局实例一、js实现 代码：js实现瀑布流布局代码 demo：js实现瀑布流布局demo 二、css实现 Multi-columns Flexbox Grid 总结：这篇文章主要介绍了如何实现瀑布流的布局。文章简单介绍了css三种实现方案：Multi-columns、Flexbox和Grid。从上面的示例或者实现手段而言，较为友好的是Flexbox的方案。当然，随着CSS Grid特性的完善，使用Grid实现瀑布流布局将会变得更为简单和友好。以及一种相对简单的js实现方案。]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
       <tags>
-        <tag>css布局</tag>
+        <tag>布局</tag>
       </tags>
   </entry>
   <entry>
@@ -21,15 +38,17 @@
     <url>%2F2018%2F07%2F30%2F%E6%95%8F%E6%8D%B7%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[敏捷软件开发，又称敏捷开发，是一种从1990年代开始逐渐引起广泛关注的一些新型软件开发方法，是一种应对快速变化的需求的一种软件开发能力。它们的具体名称、理念、过程、术语都不尽相同，相对于“非敏捷”，更强调程序员团队与业务专家之间的紧密协作、面对面的沟通（认为比书面的文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好地适应需求变化的代码编写和团队组织方法，也更注重软件开发过程中人的作用。 一、story讲解 制作竞品分析PPT，UE全组参与。（用时：根据产品复杂度，0.5-2小时之内） 制作产品原型，交由客户看，客户没有异议之后禅道录入story 产品在禅道拆分好story，并且定义出优先级，关联需求，后续开发根据优先级进行开发 由产品讲解story，前端和后端都参与。（用时：根据产品的复杂度，1-3小时之内） 二、人员划分 新建wiki项目主页，把PPT和产品原型（HTML文件）上传到wiki 根据产品原型，按照模块划分相关负责人，前端和后端都是，并放到wiki。（由项目负责人新建） 三、定义接口文档（2-3天） 前端后端相关人员一起，对照原型，根据模块及页面大概定义出接口 一个页面中有几个接口，每个接口入参与出参是什么 后端每个模块的负责人，根据开会讨论的结果，在wiki上生成标准的接口文档 将后端做好的接口文档发给前端模块负责人过目，有问题继续修改；没问题开始后续的步骤 。 四、方案设计（1小时-1天左右，根据模块大小定义时间） 后端开发人员，根据原型以及定义的接口，做好方案设计 对有难度或者有疑点的接口，做出方案，尽量给出多个合理方案 每个方案写清楚优点缺点 五、方案评审（2-3小时） 对做出的方案设计，做方案评审，建议全体人员参与（无论做不做该项目） 六、禅道拆分（1-2小时） 相关负责人按照优先级顺序，在禅道拆分自己的任务，单个任务最多不要超过4小时，即拆分要详细 拆分一个task时，以具体写的代码为一个task，并在任务名称中写出该类/方法的名称在任务描述中写出该task的代码块具体有的功能 当拆完task后，这几个task所完成功能的代码已经过了一遍 如果有不了解的功能，在方案评审前先写出一个demo，以方便拆分task的估时 一个task用时应在0.5-2之间，最大最大4个小时 以文件上传功能为例，分成3个task task1.任务名称：公共模块-文件上传-上传文件controller的方法fileUpload任务描述：通过网页获取文件，文件判空，判断文件的归属类型（用户/教材/课时/步骤/咨询）工时：1 task2.任务名称：公共模块-文件上传-添加文件FileUtil 和FileUtilOssImpl任务描述：util处理上传的文件，判断文件类型，大小，设置文件上传的路径，返回的url工时：1.5 task3.任务名称：公共模块-文件上传-文件接口spring-fileOss.xml 配置文件任务描述：oss的文件上传， 调用的spring.xml配置文件（密匙，ID,bucket等）工时：1.5 七、开发 搭建开发服务器 开发人员根据禅道上的任务，按时完成自己的开发工作，具体体现到日报上 每天上午开10分钟左右进度会议，如果有延迟现象出现，拿出解决方案，保证项目按照禅道上的时间点完成 数据库索引(两种索引): 经常查询的，数据散列度比较高的，做一般索引，不需要建联合索引。 数据必须保持唯一的，建唯一索引。(要有文档，文档表明哪些字段要建索引。发邮件。) 八、阶段测试 每天至少发布一次代码到开发环境，并且保证发布完之后程序没问题(与开发并行) 九、性能测试和coderevivew（1天） 对每个接口做好性能测试 每个接口的响应时间不超过200ms，如果有超过的，做优化，尽量缩小到200ms内 完成codereview，根据codereview结论完成修改 十、压力测试 做好压测报告 十一、 Demodemo 发demo申请邮件，收件人包括产品、测试同学、前后端相关开发人员 主题：XX项目demo通知 内容：时间 地点 参会人员 开demo会议：主讲人：某个开发人员 会议途中产品和测试提出问题 发demo结果通知邮件(由产品同学发) demo结果 如果不通过，有哪些问题 如果不通过，召集第二次Demo会议，知道通过为止。第二次会议只需演示之前不通过的部分 测试 demo通过之后 开发人员对代码打tag（参考文档： 如何打tag 。） 开发人员部署测试环境，部署完成之后发邮件，写明域名； 交给测试人员进行测试，测试人员发送全体测试周期邮件 测试期间，如果有测试发现bug，会在禅道上面提出bug，禅道会发送邮件到各自开发人员的邮箱，开发人员要关注BUG邮件 ，及时确认BUG，及时修改 修改BUG之后，开发环境前端代码由前端同学自己部署，后端代码由后端同学自己部署 测试完成之后，测试或产品发送上线通知具体参看： 测试Bug划分及处理流程 。测试和线上环境发布流程： 测试及线上环境发布流程 。 十二、 发布测试环境、集成测试（2-3天） 禅道上建立bug，测试出bug，指派给相关人员修改 十三、发布线上环境，同时停止开发环境和测试环境十四、线上监控 错误报告]]></content>
       <tags>
-        <tag>-敏捷开发</tag>
+        <tag>敏捷开发</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[css常用命名规范]]></title>
     <url>%2F2018%2F07%2F29%2Fcss%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%2F</url>
     <content type="text"><![CDATA[作为一个对代码负责的人，每次看见别人代码里混乱的命名，总是不禁心里一顿暗骂。问及写代码的人，他们的回答总是：我英文不好，不知道如何取名，都想破了脑袋。而一些QQ群里提问题的朋友截图代码，命名也是非常混乱。网上有很多人发表CSS常用命名的文章，也都挺好的，我只是一个收集者，和把自己的常用命名加上去，分享给有需要的人，希望大家以后写的代码自己看着舒服，别人维护着也舒服。 class的命名 头：header 内容：content/container 尾：footer 导航：nav navigation n.航行；航海 侧栏：sidebar 栏目：column 页面外围控制整体佈局宽度：wrapper 左右中：left right center 登录条：loginbar 标志：logo 广告：banner 页面主体：main 热点：hot 新闻：news 下载：download 子导航：subnav 菜单：menu 子菜单：submenu 搜索：search 友情链接：friendlink 页脚：footer 版权：copyright 滚动：scroll 内容：content 标签：tags 文章列表：list 提示信息：msg–message 小技巧：tips 栏目标题：title 加入：joinus 指南：guide 服务：service 注册：regsiter 状态：status 投票：vote 合作伙伴：partner id的命名页面结构 容器: container 页头：header 内容：content/container 页面主体：main 页尾：footer 导航：nav 侧栏：sidebar 栏目：column 页面外围控制整体佈局宽度：wrapper 左右中：left right center 导航 导航：nav 主导航：mainnav 子导航：subnav 顶导航：topnav 边导航：sidebar 左导航：leftsidebar 右导航：rightsidebar 菜单：menu 子菜单：submenu 标题: title 摘要: summary 功能 标志：logo 广告：banner 登陆：login 登录条：loginbar 注册：register 搜索：search 功能区：shop 标题：title 加入：joinus 状态：status 按钮：btn 滚动：scroll 标籤页：tab 文章列表：list 提示信息：msg 当前的: current 小技巧：tips 图标: icon 注释：note 指南：guild 服务：service 热点：hot 新闻：news 下载：download 投票：vote 合作伙伴：partner 友情链接：link 版权：copyright]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
       <tags>
-        <tag>css</tag>
         <tag>命名规范</tag>
       </tags>
   </entry>
@@ -38,10 +57,10 @@
     <url>%2F2018%2F07%2F23%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 快速开始创建一篇新文章1$ hexo new "My New Post" 详细信息: Writing 启用本地预览服务1$ hexo server 详细信息: Server 生成静态文件1$ hexo generate 详细信息: Generating 部署到远程站点1$ hexo deploy 详细信息: Deployment]]></content>
       <categories>
-        <category>tool</category>
+        <category>教程</category>
       </categories>
       <tags>
-        <tag>教程</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>

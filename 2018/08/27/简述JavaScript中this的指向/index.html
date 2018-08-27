@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="简介：我们重点掌握this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，请牢记一点，this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。">
+<meta name="description" content="this的指向：本文重点介绍this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，请牢记一点，this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。">
 <meta name="keywords" content="this">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简述JavaScript中this的指向">
 <meta property="og:url" content="http://yoursite.com/2018/08/27/简述JavaScript中this的指向/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="简介：我们重点掌握this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，请牢记一点，this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。">
+<meta property="og:description" content="this的指向：本文重点介绍this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，请牢记一点，this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-27T08:51:22.482Z">
+<meta property="og:updated_time" content="2018-08-27T12:25:29.334Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简述JavaScript中this的指向">
-<meta name="twitter:description" content="简介：我们重点掌握this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，请牢记一点，this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。">
+<meta name="twitter:description" content="this的指向：本文重点介绍this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，请牢记一点，this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的。">
 
 
 
@@ -391,7 +391,9 @@
       
 
       
-        <p><strong>简介</strong>：我们重点掌握this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，<br>请牢记一点，<strong>this永远指向的是最后调用它的对象</strong>，也就是看它执行的时候是谁调用的。</p>
+        <blockquote>
+<p><strong>this的指向</strong>：本文重点介绍this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，<br>请牢记一点，<strong>this永远指向的是最后调用它的对象</strong>，也就是看它执行的时候是谁调用的。</p>
+</blockquote>
 <a id="more"></a>
 <h1 id="一-背景介绍"><a href="#一-背景介绍" class="headerlink" title="一.背景介绍"></a>一.背景介绍</h1><p>   在面向对象的语言中（例如Java,C#等)，this含义是明确且具体的，即指向当前对象。一般在编译期绑定。而在javascript中，this是动态绑定的，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式，并且在严格模式下也有不同，这就导致了this具备了多重含义，可以使得javascript更灵活的使用。但是，带来了灵活性的同时也会给我们初学者带来不少困惑。即使是细微的语法变化，都有可能意外改变this的值。</p>
 <h1 id="二-知识剖析"><a href="#二-知识剖析" class="headerlink" title="二.知识剖析"></a>二.知识剖析</h1><p>JavaScript中函数的调用常用的有以下几种方式：</p>

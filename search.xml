@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[太吾绘卷大型攻略]]></title>
+    <url>%2F2019%2F03%2F09%2F%E5%A4%AA%E5%90%BE%E7%BB%98%E5%8D%B7%E5%A4%A7%E5%9E%8B%E6%94%BB%E7%95%A5%2F</url>
+    <content type="text"><![CDATA[一.相枢降世-人物创建处世立场（Attitude）决定角色在世界中待人处事的方式。 1.1处事立场概述每一个角色都拥有一种处世立场。玩家可以在创建自己的角色时选择立场，在人物面板中可以查看其处世立场，立场相差越大的角色越难以相处。 立场并不只有五个孤立的取值，而是连续的数轴，创建角色时可以拖动滑块来自定义更细的倾向；在游戏内选择不符合自身立场的选项时，角色的立场值会随着移动，表现出的立场类型可能改变。 1.2处事立场的改变与然山派青琅主互动（需好感达到或超过融洽），可消耗30点地区恩义，改变主角或同道的立场。 1.3处事立场的作用玩家角色立场作用 立场选项 被索要物品 清理外道巢穴 救助入魔人 刚正 大量降低好感；若对方名誉为负，则增加名誉 地区恩义额外+1、所在地图所有城镇安定+1 被救助者入魔值清零 仁善 好感无变化，根据对方名誉增减名誉 所在地图所有城镇文化+1 加大量好感度 中庸 少量降低好感 所在地图所有城镇文化+1、安定+1 被救助者名誉置中（默默无闻） 叛逆 大量降低好感，根据对方名誉反向增减名誉 获得银钱和威望 丢下失心人不管，失心人仍在原地 唯我 大量降低好感，根据对方名誉反向增减名誉 获得新的同道；该同道固定拥有被逼屈从特性，每年好感-60 杀掉失心人且不会被寻仇 立场相同对人物与NPC的关系有促进作用，对立立场容易结仇；刚正、仁善立场在对话时不太会与NPC结仇，也容易提升好感度，但是同样也不可以作恶；中庸立场与任何立场的人都不会结仇叛逆、唯我立场，虽然自身利益方面会有收益，但是极为容易与NPC结仇，带来后续关系链的麻烦； npc立场影响 立场影响闲聊行为的结果：立场相同的角色闲聊时增加大量好感，处世立场不合的角色闲聊时会增加少量好感。 玩家在门派内寻求支持时，不同立场的角色提出的要求不尽相同 立场 对应要求 刚正 接下五招：进行切磋，获胜，或在对方使用第五个攻击功法之后仍然未被击败 仁善 在较艺中获胜 中庸 赠送对银钱(身份越高,所需银钱越多) 叛逆 关系达到喜爱/亲密（视对方身份品级而定） 唯我 在切磋中获胜]]></content>
+      <categories>
+        <category>游戏攻略</category>
+      </categories>
+      <tags>
+        <tag>太吾绘卷</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo快速入门]]></title>
     <url>%2F2019%2F03%2F08%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 快速开始创建一篇新文章1$ hexo new "My New Post" 详细信息: Writing 启用本地预览服务1$ hexo server 详细信息: Server 生成静态文件1$ hexo generate 详细信息: Generating 部署到远程站点1$ hexo deploy 详细信息: Deployment]]></content>

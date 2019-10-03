@@ -20,6 +20,24 @@
       </categories>
   </entry>
   <entry>
+    <title><![CDATA[常见的inline元素、block元素、inline-block元素有哪些？它们之间有什么区别？]]></title>
+    <url>%2F2018%2F10%2F03%2F%E5%B8%B8%E8%A7%81%E7%9A%84inline%E5%85%83%E7%B4%A0%E3%80%81block%E5%85%83%E7%B4%A0%E3%80%81inline-block%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%AE%83%E4%BB%AC%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[每个html标签元素都有其默认的元素类型，主要包括两大类:inline内联元素、block块元素。除默认为以上两种，还有部分标签元素叫可变元素，会根据上下文语境决定该元素为inline元素或是block元素。在css里，有一个display的属性，他规定元素应该生成的框的类型。可能的值有很多，inline、block、inline-block,其中inline-block是在css2.1里新增的值。具有这个值的元素，我们可以把它叫做inline-block元素。 一.inline元素、block元素、inline-block元素的具体解释inline元素inline元素全称Inline Elements，英文原意:An inline element does not start on a new line and only takes up as much width as necessary.一个内联元素不会开始新的一行，并且只占有必要的宽度。 特点: 和其他元素都在一行上； 元素的高度、宽度、行高及顶部和底部边距不可设置； 元素的宽度就是它包含的文字或图片的宽度，不可改变。 block元素block元素全称Block-level Elements，英文原意:A block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can).一个块级元素总是开始新的一行，并且占据可获得的全部宽度(左右都会尽可能的延伸到它能延伸的最远) 特点: 每个块级元素都从新的一行开始，并且其后的元素也另起一行。（一个块级元素独占一行）; 元素的高度、宽度、行高以及顶和底边距都可设置; 元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。 inline-block元素inline-block元素，英文释义:inline-block elements are like inline elements but they can have a width and a height.它像内联元素，但具有宽度和高度。 特点: 和其他元素都在一行上； 元素的高度、宽度、行高以及顶和底边距都可设置 二.常见的inline元素、block元素、inline-block元素常见的inline内联元素：span、img、a、lable、input、abbr（缩写）、em（强调）、big、cite（引用）、i（斜体）、q（短引用）、textarea、select、small、sub、sup，strong、u（下划线）、button（默认display：inline-block）） 常见的block块级元素：div、p、h1…h6、ol、ul、dl、table、address、blockquote、form 常见的inline-block内联块元素：img、input 三.的inline元素、block元素、inline-block元素的区别 块级元素会独占一行，而内联元素和内联块元素则会在一行内显示。 块级元素和内联块元素可以设置 width、height 属性，而内联元素设置无效。 块级元素的 width 默认为 100%，而内联元素则是根据其自身的内容或子元素来决定其宽度。]]></content>
+      <categories>
+        <category>层叠样式表CSS</category>
+        <category>深度思考1</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[如何理解盒模型及其content、padding、border、margin？]]></title>
+    <url>%2F2018%2F10%2F03%2F%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E7%9B%92%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6content%E3%80%81padding%E3%80%81border%E3%80%81margin%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[如何理解盒模型及其content、padding、border、margin？ 当对一个文档进行布局(laying out)的时候，浏览器渲染引擎会根据CSS-Box模型（CSS Basic Box model）将所有元素表示为一个矩形盒子（box)。CSS决定这些盒子的大小，位置以及属性（颜色，背景，边框尺寸…). 一.CSS标准盒子模型。 1. 内容区域content内容区域content area 是包含元素真实内容的区域。它通常包含背景、颜色或者图片等，位于内容边界的内部，它的大小为内容宽度 或 content-box宽及内容高度或content-box高。 如果 box-sizing 为默认值， width, min-width, max-width, height, min-height 与 max-height 控制内容大小。 2. 内边距区域padding内边距区域padding area 延伸到包围padding的边框。如果内容区域content area设置了背景、颜色或者图片，这些样式将会延伸到padding上(而不仅仅是作用于内容区域)。它位于内边距边界内部, 它的大小为 padding-box 宽与 padding-box 高。 内边距与内容边界之间的空间可以由 padding-top, padding-right, padding-bottom, padding-left 和简写属性 padding 控制。 3. 边框区域border边框区域border area 是包含边框的区域，扩展了内边距区域。它位于边框边界内部，大小为 border-box 宽和 border-box 高。由 border-width 及简写属性 border控制。 4. 外边距区域margin外边距区域margin area用空白区域扩展边框区域，以分开相邻的元素。它的大小为 margin-box 的高宽。 外边距区域大小由 margin-top, margin-right, margin-bottom, margin-left 及简写属性 margin 控制。 注意: 在外边距合并 的情况下，由于盒之间共享外边距，外边距不容易弄清楚。 对于非替换的行内元素来说，尽管内容周围存在内边距与边框，但其占用空间（行高）由 line-height 属性决定。 二. 浏览器兼容一旦为页面设置了恰当的 DTD，大多数浏览器都会按照上面的图示来呈现内容。然而 IE 5 和 6 的呈现却是不正确的。根据 W3C 的规范，元素内容占据的空间是由 width 属性设置的，而内容周围的 padding 和 border 值是另外计算的。不幸的是，IE5.X 和 6 在怪异模式中使用自己的非标准模型。这些浏览器的 width 属性不是内容的宽度，而是内容、内边距和边框的宽度的总和。 虽然有方法解决这个问题。但是目前最好的解决方案是回避这个问题。也就是，不要给元素添加具有指定宽度的内边距，而是尝试将内边距或外边距添加到元素的父元素和子元素。 IE8 及更早IE版本不支持设置填充的宽度和边框的宽度属性。 解决IE8及更早版本不兼容问题可以在HTML页面声明&lt;!DOCTYPE html&gt;即可。]]></content>
+      <categories>
+        <category>层叠样式表CSS</category>
+        <category>深度思考1</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[webstorm默认配置下的常用快捷键]]></title>
     <url>%2F2018%2F10%2F03%2Fwebstorm%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE%E4%B8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[mac book 下文的 ctrl 替换成 command 键。 查找/代替 快捷键 说明 ctrl+shift+N 通过文件名快速查找工程内的文件（必记） ctrl+shift+alt+N 通过一个字符快速查找位置（必记） ctrl+F 在文件内快速查找代码 F3 查找下一个 shift+F3 查找上一个 ctrl+R 文件内代码替换 ctrl+shift+R 指定目录内代码批量替换 ctrl+shift+F 指定目录内代码批量查找 ctrl+R 文件内代码替换 界面操作 快捷键 说明 ctrl+shift+A 快速查找并使用编辑器所有功能（必记） alt+[0-9] 快速拆合功能界面模块 ctrl+shift+F12 最大区域显示代码（会隐藏其他的功能界面模块） alt+shift+F 将当前文件加入收藏夹 ctrl+alt+s 打开配置窗口 ctrl+tab 切换代码选项卡（还要进行此选择，效率差些） alt+&lt;-或-&gt; 切换代码选项卡 代码编辑(必记) 快捷键 说明 ctrl+D 复制当前行 ctrl+W 选中单词 ctrl+&lt;-或-&gt; 以单词作为边界跳光标位置 alt+Insert 新建一个文件或其他 ctrl+alt+L 格式化代码 shift+tab/tab 减少/扩大缩进（可以在代码中减少行缩进） ctrl+Y 删除一行 shift+enter 重新开始一行（无论光标在哪个位置） 导航 快捷键 说明 esc 进入代码编辑区域 alt+F1 查找代码在其他界面模块的位置，颇为有用 ctrl+G 到指定行的代码 ctrl+]/[ 光标到代码块的前面或后面 alt+up/down 上一个/下一个方法 建议配置版本控制快捷键 快捷键 说明 ctrl+C 提交代码 ctrl+p 向远程版本库推送更新]]></content>

@@ -41,7 +41,7 @@
     <url>%2F2018%2F10%2F03%2F%E5%8A%A0%E5%92%8C%E4%B8%8D%E5%8A%A0meta%E7%9A%84viewport%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[在使用视窗宽度vw时，需要加入一个&lt;meta&gt;标签，这个标签究竟起什么作用，如果不加对网页有何影响呢？ #简介 什么是viewport？vieport是用户在网页上的可见区域。 什么是meta？&lt;meta&gt;是HTML5中引入的一种使设计人员标记控制vieport的标签。 &lt;meta&gt; 的作用为什么要加入&lt;meta&gt;，不加会有什么影响？vieport随设备而异，并且在移动电话上会比在计算机屏幕上小。 在平板电脑和手机之前，网页仅设计用于计算机屏幕，并且网页具有静态设计和固定大小是很常见的。 然后，当我们开始使用平板电脑和手机上网时，固定大小的网页太大，无法容纳视口。要解决此问题，这些设备上的浏览器会按比例缩小整个网页以适合屏幕大小。这样用户的观看体验会比较差！这不是完美的！ ##如何使用 &lt;meta&gt;？ 1&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;meta&gt;标签是如何控制网页的尺寸和缩放浏览器的说明。 width=device-width部分将页面的宽度设置为跟随设备的屏幕宽度（视设备而定）。 initial-scale=1.0部分设置浏览器首次加载页面时的初始缩放级别。]]></content>
       <categories>
-        <category>CSS</category>
+        <category>C测试</category>
       </categories>
   </entry>
   <entry>
@@ -49,7 +49,7 @@
     <url>%2F2018%2F10%2F03%2FIDE%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E5%92%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E7%9B%B8%E6%AF%94%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[在我们学习it的时候，不可避免的会遇到一个问题，那就是我们使用什么来编写代码呢？ 简介文本编辑器文本编辑器是计算机软件中的一种。主要用于用来编写和查看文本文件。 IDEIDE是带有软件开发功能的“集成开发环境”。 集成开发环境（IDE，Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。集成了代码编写功能、分析功能、编译功能、调试功能等一体化的开发软件服务套。所有具备这一特性的软件或者软件套（组）都可以叫集成开发环境。 优缺点优点 节省时间和精力。IDE的目的就是要让开发更加快捷方便，通过提供工具和各种性能来帮助开发者组织资源，减少失误，提供捷径。 建立统一标准。当一组程序员使用同一个开发环境时，就建立了统一的工作标准，当IDE提供预设的模板，或者不同团队分享代码库时，这一效果就更加明显了。 管理开发工作。首先，IDE提供文档工具，可以自动输入开发者评论，或者迫使开发者在不同区域编写评论。其次，IDE可以展示资源，更便于发现应用所处位置，无需在文件系统里面艰难的搜索。 缺点 学习曲线问题。IDE基本上是比较复杂的工具，为了更好的熟练使用，需要一定的时间和耐心。 初学者的困难。对初学者来说，使用IDE来学习开发有相当的难度，不适合学习一种新语言时使用。 无法修复坏代码或设计。开发者不能完全依赖工具的便捷，还是必须保持专业水准和熟练度，开发的成果好坏主要还是看开发员的技术。]]></content>
       <categories>
-        <category>CSS</category>
+        <category>C测试</category>
       </categories>
   </entry>
   <entry>
@@ -57,7 +57,7 @@
     <url>%2F2018%2F10%2F03%2F%E4%B9%9D%E5%AE%AB%E6%A0%BC%E7%9A%84%E5%B8%83%E5%B1%80%E4%BD%A0%E8%BF%98%E8%83%BD%E6%83%B3%E5%88%B0%E5%93%AA%E4%BA%9B%E5%8A%9E%E6%B3%95%E5%AE%9E%E7%8E%B0%EF%BC%9F%E5%AE%83%E4%BB%AC%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E5%8A%BF%E5%8A%A3%E5%8A%BF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[九宫格布局是我们在网页开发中常用的布局之一，那么如何使用代码完成它呢？ 设置垂直方向的padding撑开容器123456789101112div.box &#123; width: 30%; padding-bottom: 30%; margin: 1%; background-color: orange; float: left; border-radius: 5%;&#125;div &#123; width: 100%; padding-bottom: 30%;&#125; 在 CSS 盒模型中，一个比较容易被忽略的就是 margin, padding 的百分比数值计算。按照规定，margin, padding 的百分比数值是相对 父元素宽度 的宽度计算的。由此可以发现只需将元素垂直方向的一个 padding 值设定为与 width 相同的百分比就可以制作出自适应正方形了： 优点：简洁明了，且兼容性好 缺点：填充内容后会出现问题 viewport 使用vw单位123456789101112div.box &#123; width: 30vw; height: 30vw; margin: 1vw; background-color: orange; float: left; border-radius: 5%;&#125;div &#123; width: 100vw; height: 100vw;&#125; 优点：简洁方便 缺点：浏览器兼容不好]]></content>
       <categories>
-        <category>CSS</category>
+        <category>C测试</category>
       </categories>
       <tags>
         <tag>布局</tag>
@@ -68,7 +68,7 @@
     <url>%2F2018%2F10%2F03%2FHTML%E6%96%87%E4%BB%B6%E9%87%8C%E5%BC%80%E5%A4%B4%E7%9A%84-Doctype%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[每个 HTML 文件里开头都有个很重要的东西&lt;!DOCTYPE html&gt;,DOCTYPE是document type的简写，它并不是 HTML 标签，也没有结束标签，它是一种标记语言的文档类型声明，即告诉浏览器当前 HTML 是用什么版本编写的。 一. 背景介绍什么是DOCTYPE?DOCTYPE是document type的简写，它并不是 HTML 标签，也没有结束标签，它是一种标记语言的文档类型声明，即告诉浏览器当前 HTML 是用什么版本编写的。 注意: DOCTYPE的声明必须是 HTML 文档的第一行，位于html标签之前。大多数Web文档的顶部都有doctype声明，它是在新建一个文档时，由Web创作软件草率处理的众多细节之一。很少人会去注意 doctype ，但在遵循标准的任何Web文档中，它都是一项必需的元素。doctype会影响代码验证，并决定了浏览器最终如何显示你的 Web文档。 二. 知识剖析DOCTYPE的作用?DOCTYPE是document type(文档类型)的简写，在web设计中用来声明文档类型。在所有 HTML 文档中规定 DOCTYPE 是非常重要的，这样浏览器就能了解预期的文档类型， 告诉浏览器要通过哪一种规范（DTD）解析文档（比如HTML或XHTML规范）。DOCTYPE会影响代码验证，并决定了浏览器最终如何显示你的Web文档。 HTML 4.01 和 HTML5 中 DOCTYPE的区别 HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为（html 5简化了这种声明，意在告诉浏览器使用统一的标准即可）。 三. 代码实战如何使用DOCTYPE?HTML 文档的第一行，位于html标签之前 ,引入DOCTYPE声明。123456789&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Title&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt; 注意事项:DOCTYPE的声明必须是 HTML 文档的第一行，位于html标签之前。在DOCTYPE声明前面出现了这些内容：普通文本、HTML 标签、HTML 注释、XML 声明、IE条件注释,会导致HTML 进入怪异模式.]]></content>
       <categories>
-        <category>CSS</category>
+        <category>C测试</category>
       </categories>
       <tags>
         <tag>HTML</tag>
@@ -79,7 +79,7 @@
     <url>%2F2018%2F10%2F03%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84F12%E8%B0%83%E8%AF%95%E9%A1%B5%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[一个程序员按照要求编写一个网页，不可能一次编写就完全达到目的，一般要对自己的的代码修改调试几次后才能到达要求，浏览器的F12开发人员工具就可以很方便的帮助程序员调试自己的代码。 简介F12 开发人员工具是一套按需采用的工具，网站开发人员可以随时在任何网页上使用 F12 工具，从而快速调试 JavaScript、HTML 和级联样式表 (CSS)，还可以跟踪并查明网页或网络的性能问题。 具体内容项目： element（元素）标签页：可以查看代码 sources（软件源）标签页：可以选取css文件、html文件并进行修改 快捷键： ctrl+shift+c 选取元素进行查看 ctrl+shift+m 模拟移动端进行查看]]></content>
       <categories>
-        <category>CSS</category>
+        <category>C测试</category>
       </categories>
       <tags>
         <tag>调试</tag>
@@ -226,7 +226,7 @@
     <url>%2F2018%2F07%2F30%2F%E4%BD%BF%E7%94%A8js%E6%88%96css%E5%AE%9E%E7%8E%B0%E7%80%91%E5%B8%83%E6%B5%81%EF%BC%88Pinterest%EF%BC%89%E5%B8%83%E5%B1%80%E6%95%99%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[瀑布流，又称瀑布流式布局。这种布局适合于小数据块，每个数据块内容相近且没有侧重。通常，随着页面滚动条向下滚动，这种布局还会不断加载数据块并附加至当前尾部。 瀑布流布局实例一、JS实现 代码：js实现瀑布流布局代码 demo：js实现瀑布流布局demo 二、CSS实现 Multi-columns Flexbox Grid 总结：这篇文章主要介绍了如何实现瀑布流的布局。文章简单介绍了css三种实现方案：Multi-columns、Flexbox和Grid。从上面的示例或者实现手段而言，较为友好的是Flexbox的方案。当然，随着CSS Grid特性的完善，使用Grid实现瀑布流布局将会变得更为简单和友好。以及一种相对简单的js实现方案。]]></content>
       <categories>
-        <category>CSS</category>
+        <category>C测试</category>
       </categories>
       <tags>
         <tag>布局</tag>
@@ -245,7 +245,7 @@
     <url>%2F2018%2F07%2F29%2Fcss%E5%B8%B8%E7%94%A8%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%2F</url>
     <content type="text"><![CDATA[作为一个对代码负责的人，每次看见别人代码里混乱的命名，总是不禁心里一顿暗骂。问及写代码的人，他们的回答总是：我英文不好，不知道如何取名，都想破了脑袋。而一些QQ群里提问题的朋友截图代码，命名也是非常混乱。网上有很多人发表CSS常用命名的文章，也都挺好的，我只是一个收集者，和把自己的常用命名加上去，分享给有需要的人，希望大家以后写的代码自己看着舒服，别人维护着也舒服。 class的命名 头：header 内容：content/container 尾：footer 导航：nav navigation n.航行；航海 侧栏：sidebar 栏目：column 页面外围控制整体佈局宽度：wrapper 左右中：left right center 登录条：loginbar 标志：logo 广告：banner 页面主体：main 热点：hot 新闻：news 下载：download 子导航：subnav 菜单：menu 子菜单：submenu 搜索：search 友情链接：friendlink 页脚：footer 版权：copyright 滚动：scroll 内容：content 标签：tags 文章列表：list 提示信息：msg–message 小技巧：tips 栏目标题：title 加入：joinus 指南：guide 服务：service 注册：regsiter 状态：status 投票：vote 合作伙伴：partner id的命名页面结构 容器: container 页头：header 内容：content/container 页面主体：main 页尾：footer 导航：nav 侧栏：sidebar 栏目：column 页面外围控制整体佈局宽度：wrapper 左右中：left right center 导航 导航：nav 主导航：mainnav 子导航：subnav 顶导航：topnav 边导航：sidebar 左导航：leftsidebar 右导航：rightsidebar 菜单：menu 子菜单：submenu 标题: title 摘要: summary 功能 标志：logo 广告：banner 登陆：login 登录条：loginbar 注册：register 搜索：search 功能区：shop 标题：title 加入：joinus 状态：status 按钮：btn 滚动：scroll 标籤页：tab 文章列表：list 提示信息：msg 当前的: current 小技巧：tips 图标: icon 注释：note 指南：guild 服务：service 热点：hot 新闻：news 下载：download 投票：vote 合作伙伴：partner 友情链接：link 版权：copyright]]></content>
       <categories>
-        <category>CSS</category>
+        <category>C测试</category>
       </categories>
       <tags>
         <tag>命名规范</tag>

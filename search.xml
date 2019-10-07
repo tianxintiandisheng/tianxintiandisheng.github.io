@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[css有哪些选择器，优先级如何计算？]]></title>
+    <url>%2F2019%2F10%2F07%2Fcss%E6%9C%89%E5%93%AA%E4%BA%9B%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%8C%E4%BC%98%E5%85%88%E7%BA%A7%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%EF%BC%9F%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>层叠样式表CSS</category>
+        <category>深度思考3</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[如何进行自适应网页设计？]]></title>
+    <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E9%80%82%E5%BA%94%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。 如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。 不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto; 使用相对大小的字体：em、rem 流动布局：各个区块的位置是浮动的，不是固定不变的 图片自适应：图片自动缩放 img { max-width: 100%;} 选择加载css：自适应网页设计”的核心，就是CSS3引入的Media Query模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。 css中的@media媒体查询规则：同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则。 参考资料自适应网页设计]]></content>
+      <categories>
+        <category>层叠样式表CSS</category>
+        <category>深度思考3</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[px、em、rem、%、vw、wh、vm等单位有什么区别？]]></title>
+    <url>%2F2019%2F10%2F07%2Fpx%E3%80%81em%E3%80%81rem%E3%80%81-%E3%80%81vw%E3%80%81wh%E3%80%81vm%E7%AD%89%E5%8D%95%E4%BD%8D%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[px：绝对单位，页面按精确像素展示 em：相对单位，基准点为父级元素字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。 rem：相对单位，为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。 %：相对单位，相对于父级元素的百分比宽度 vw：viewpoint width，视窗宽度，1vw等于视窗宽度的1%。vh：viewpoint height，视窗高度，1vh等于视窗高度的1%。 vm；css3单位，相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为100单位的vm举个例子：浏览器高度900px，宽度1200px，取最小的浏览器高度，1 vm = 900px/100 = 9 px。]]></content>
+      <categories>
+        <category>层叠样式表CSS</category>
+        <category>深度思考3</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[如何利用PS切图以及从UI图中获取所需信息？]]></title>
+    <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8PS%E5%88%87%E5%9B%BE%E4%BB%A5%E5%8F%8A%E4%BB%8EUI%E5%9B%BE%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%89%80%E9%9C%80%E4%BF%A1%E6%81%AF%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[PS切图切片工具使用PS中的切片工具进行所需图片的切割，然后点击文件选项卡，选择其中存储为web所用格式即可完成ps切图。 一键切图下载一键切图工具并载入动作，用移动工具选择图层，按F2一键切图。最后选择保存为web所需格式，注意保存为png格式防止出现兼容性问题。 下载链接及教程： 前端高效开发之“一键切图” 获取UI中的信息 各部分之间的距离 文字的字体，字号颜色 背景的颜色（使用取色器） 注意事项：UI图的px和css中的px不是一个单位，一般来说UI图中大小除以2写在css里]]></content>
+      <categories>
+        <category>层叠样式表CSS</category>
+        <category>深度思考3</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[如何将代码部署至自己的服务器？]]></title>
     <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E5%B0%86%E4%BB%A3%E7%A0%81%E9%83%A8%E7%BD%B2%E8%87%B3%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[1. 买一个服务器2. 下载filezilla3. 连接自己的服务器，将对应代码上传（全中文页面不再赘述）]]></content>

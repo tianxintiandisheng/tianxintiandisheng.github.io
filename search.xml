@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何将代码部署至自己的服务器？]]></title>
+    <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E5%B0%86%E4%BB%A3%E7%A0%81%E9%83%A8%E7%BD%B2%E8%87%B3%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[1. 买一个服务器2. 下载filezilla3. 连接自己的服务器，将对应代码上传（全中文页面不再赘述）]]></content>
+      <categories>
+        <category>深度思考2</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[如何配置nginx，实现在手机上查看页面？]]></title>
+    <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%9F%A5%E7%9C%8B%E9%A1%B5%E9%9D%A2%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[什么是nginx？Nginx（发音同engine x）是异步框架的网页服务器，也可以用作反向代理、负载平衡器和HTTP缓存。该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。2011年成立同名公司以提供支持。2019年3月11日，Nginx公司被F5 Networks以6.7亿美元收购。 Nginx是免费的开源软件，根据类BSD许可证的条款发布。一大部分Web服务器使用Nginx，通常作为负载均衡器。 正向代理正向代理简介一般情况下，如果没有特别说明，代理技术默认说的是正向代理技术。关于正向代理的概念如下： 正向代理(forward)是一个位于客户端【用户A】和原始服务器(origin server)【服务器B】之间的服务器【代理服务器Z】，为了从原始服务器取得内容，用户A向代理服务器Z发送一个请求并指定目标(服务器B)，然后代理服务器Z向服务器B转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。如下图 从上面的概念中，我们看出，文中所谓的正向代理就是代理服务器替代访问方【用户A】去访问目标服务器【服务器B】 ， 总结：代理服务器代替了用户A 正向代理的意义为什么要用通过代理服务器去访问服务器B，而不是用户直接访问？ 访问本无法访问的服务器B 加速访问服务器B Cache（缓存） 作用 客户端访问授权（为什么我们无法直接访问谷歌） 隐藏访问者的行踪（服务器B只知道代理服务器Z访问了它） 反向代理反向代理简介反向代理正好与正向代理相反，对于客户端而言代理服务器就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理的命名空间(name-space)中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端。 总结：代理服务器代替了服务器B 反向代理的意义 保护和隐藏原始资源服务器 用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接受用户A的应答，从原始资源服务器B中取得用户A的需求资源，然后发送给用户A。由于防火墙的作用，只允许代理服务器Z访问原始资源服务器B。尽管在这个虚拟的环境下，防火墙和反向代理的共同作用保护了原始资源服务器B，但用户A并不知情。 负载均衡 当反向代理服务器不止一个的时候，我们甚至可以把它们做成集群，当更多的用户访问资源服务器B的时候，让不同的代理服务器Z（x）去应答不同的用户，然后发送不同用户需要的资源。 当然反向代理服务器像正向代理服务器一样拥有CACHE的作用，它可以缓存原始资源服务器B的资源，而不是每次都要向原始资源服务器B请求数据，特别是一些静态的数据，比如图片和文件，如果这些反向代理服务器能够做到和用户X来自同一个网络，那么用户X访问反向代理服务器X，就会得到很高质量的速度。这正是CDN技术的核心。 如何配置nginx，实现在手机上查看页面？Nginx的配置文件是文件夹中的conf文件下的nginx.conf，其实配置文件默认不修改也是可有用的； 如果你通过浏览器输入localhost出现的页面即为文件夹下HTML文件中的index.html；所以你可以将你想要检测的产品放到HTML文件夹中，并将原本的index.html文件给删了，这个时候打开网页输入localhost，使用ctrl+F5清下浏览器缓存即出现你产品中的index.html(产品的首页都会命名为index.html）页面，然后进行一系列测试看看是否OK； 如果要使用自己文件夹中的文件测试，需要更改Nginx的配置文件是文件夹中的conf文件下的nginx.conf，修改三处root地址为自己的文件夹所在地址，第一处改为 D:\home\www，第二处改为 /home/www,第三处改为/home/www。 注意事项： 左斜杠/与右斜杠\的区别不要打错了！ 参考资料 图解正向代理、反向代理、透明代理 维基百科]]></content>
+      <categories>
+        <category>深度思考2</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[如何利用github搭建自己的个人网站？]]></title>
+    <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8github%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[使用github搭建个人网站 在github上搭建网站 即username.github.io（username是你的github用户名） 把自己的域名（如zhangsan.com）绑定到username.github.io上 具体操作：如何用github搭建自己的个人网站 用Hexo+Github 搭建个人网站 搭建环境准备（包括node.js和git环境，gitHub账户的配置） 安装Hexo 配置Hexo 怎样将Hexo与github page 联系起来 怎样发布文章 主题 推荐 主题Net的简单配置 添加sitemap和feed插件 添加404 公益页面 具体操作：手把手教你用Hexo+Github 搭建属于自己的博客]]></content>
+      <categories>
+        <category>深度思考2</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[svn和git有什么区别?]]></title>
+    <url>%2F2019%2F10%2F07%2Fsvn%E5%92%8Cgit%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[svn与git简介SVN （集中式版本控制系统）SVN是Subversion的简称，是一个开放源代码的版本控制系统,支持大多数常见的操作系统。作为一个开源的版本控制系统,Subversion管理着随时间改变的数据。这些数据放置在一个中央资料档案库(repository)中。这个档案库很像一个普通的文件服务器,不过它会记住每一次文件的变动。这样你就可以把档案恢复到旧的版本,或是浏览文件的变动历史。Subversion是一个通用的系统,可用来管理任何类型的文件,其中包括了程序源码。 工作流程集中式管理的工作流程如下图： 集中式代码管理的核心是服务器，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。如果脱离了服务器，开发者基本上可以说是无法工作的。下面举例说明： 开始新一天的工作： 从服务器下载项目组最新代码。 进入自己的分支，进行工作，每隔一个小时向服务器自己的分支提交一次代码（很多人都有这个习惯。因为有时候自己对代码改来改去，最后又想还原到前一个小时的版本，或者看看前一个小时自己修改了哪些代码，就需要这样做了）。 下班时间快到了，把自己的分支合并到服务器主分支上，一天的工作完成，并反映给服务器。 SVN属于集中化的版本控制系统​ 这种做法带来了许多好处，特别是相较于老式的本地VCS来说。现在，每个人都可以一定程度上看到项目中的其他人正在做些什么。而管理员也可以轻松掌控每个开发者的权限。事分两面，有好有坏。这么做最显而易见的缺点是中央服务器的单点故障。若是宕机一小时，那么在这一小时内，谁都无法提交更新、还原、对比等，也就无法协同工作。如果中央服务器的磁盘发生故障，并且没做过备份或者备份得不够及时的话，还会有丢失数据的风险。最坏的情况是彻底丢失整个项目的所有历史更改记录，被客户端提取出来的某些快照数据除外，但这样的话依然是个问题，你不能保证所有的数据都已经有人提取出来。Subversion原理上只关心文件内容的具体差异。每次记录有哪些文件作了更新，以及都更新了哪些行的什么内容。 Subversion的特点 每个版本库有唯一的URL（官方地址），每个用户都从这个地址获取代码和数据； 获取代码的更新，也只能连接到这个唯一的版本库，同步以取得最新数据； 提交必须有网络连接（非本地版本库）； 提交需要授权，如果没有写权限，提交会失败； 提交并非每次都能够成功。如果有其他人先于你提交，会提示“改动基于过时的版本，先更新再提交”… 诸如此类； 冲突解决是一个提交速度的竞赛：手快者，先提交，平安无事；手慢者，后提交，可能遇到麻烦的冲突解决。 GIT（分布式版本控制系统）Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目 Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 分布式相比于集中式的最大区别在于开发者可以提交到本地，每个开发者通过克隆（git clone），在本地机器上拷贝一个完整的Git仓库. 工作流程下图是经典的git开发过程。 Git的功能特性从一般开发者的角度来看，git有以下功能： 从服务器上克隆完整的Git仓库（包括代码和版本信息）到单机上。 在自己的机器上根据不同的开发目的，创建分支，修改代码。 在单机上自己创建的分支上提交代码。 在单机上合并分支。 把服务器上最新版的代码fetch下来，然后跟自己的主分支合并。 生成补丁（patch），把补丁发送给主开发者。 看主开发者的反馈，如果主开发者发现两个一般开发者之间有冲突（他们之间可以合作解决的冲突），就会要求他们先解决冲突，然后再由其中一个人提交。如果主开发者可以自己解决，或者没有冲突，就通过。 一般开发者之间解决冲突的方法，开发者之间可以使用pull 命令解决冲突，解决完冲突之后再向主开发者提交补丁。 从主开发者的角度（假设主开发者不用开发代码）看，git有以下功能： 查看邮件或者通过其它方式查看一般开发者的提交状态。 打上补丁，解决冲突（可以自己解决，也可以要求开发者之间解决以后再重新提交，如果是开源项目，还要决定哪些补丁有用，哪些不用）。 向公共服务器提交结果，然后通知所有开发人员。 Git属于分布式的版本控制系统​ 自2005年诞生于以来，Git日臻成熟完善，在高度易用的同时，仍然保留着初期设定的目标。它的速度飞快，极其适合管理大项目，它还有着令人难以置信的非线性分支管理系统，可以应付各种复杂的项目开发需求。 与SVN不同，Git记录版本历史只关心文件数据的整体是否发生变化。Git并不保存文件内容前后变化的差异数据。实际上，Git更像是把变化的文件作快照后，记录在一个微型的文件系统中。每次提交更新时，它会纵览一遍所有文件的指纹信息并对文件作一快照，然后保存一个指向这次快照的索引。为提高性能，若文件没有变化，Git不会再次保存，而只对上次保存的快照作一连接。 Git特点 Git中每个克隆(clone)的版本库都是平等的。你可以从任何一个版本库的克隆来创建属于你自己的版本库，同时你的版本库也可以作为源提供给他人，只要你愿意。 Git的每一次提取操作，实际上都是一次对代码仓库的完整备份。提交完全在本地完成，无须别人给你授权，你的版本库你作主，并且提交总是会成功。 甚至基于旧版本的改动也可以成功提交，提交会基于旧的版本创建一个新的分支。 Git的提交不会被打断，直到你的工作完全满意了，PUSH给他人或者他人PULL你的版本库，合并会发生在PULL和PUSH过程中，不能自动解决的冲突会提示您手工完成。 冲突解决不再像是SVN一样的提交竞赛，而是在需要的时候才进行合并和冲突解决。 svn和git的区别 SVN属于集中化的版本控制系统，有个不太精确的比喻:SVN = 版本控制+ 备份服务器SVN使用起来有点像是档案仓库的感觉，支持并行读写文件，支持代码的版本化管理，功能包括取出、导入、更新、分支、改名、还原、合并等。 Git是一个分布式版本控制系统，操作命令包括：clone，pull，push,branch ,merge ,push,rebase，Git擅长的是程序代码的版本化管理。 GIT跟SVN一样有自己的集中式版本库或服务器。但，GIT更倾向于被使用于分布式模式，也就是每个开发人员从中心版本库/服务器上chect out代码后会在自己的机器上克隆一个自己的版本库。 可以这样说，如果你被困在一个不能连接网络的地方时，就像在飞机上，地下室，电梯里等，你仍然能够提交文件，查看历史版本记录，创建项目分支，等。对一些人来说，这好像没多大用处，但当你突然遇到没有网络的环境时，这个将解决你的大麻烦。 GIT把内容按元数据方式存储，而SVN是按文件所有的资源控制系统都是把文件的元信息隐藏在一个类似.svn,.cvs等的文件夹里。 如果你把.git目录的体积大小跟.svn比较，你会发现它们差距很大。因为,.git目录是处于你的机器上的一个克隆版的版本库，它拥有中心版本库上所有的东西，例如标签，分支，版本记录等。 分支在SVN中一点不特别，就是版本库中的另外的一个目录。如果你想知道是否合并了一个分支，你需要手工运行像这样的命令svn propget svn:mergeinfo，来确认代码是否被合并。 然而，处理GIT的分支却是相当的简单和有趣。你可以从同一个工作目录下快速的在几个分支间切换。你很容易发现未被合并的分支，你能简单而快捷的合并这些文件。 GIT没有一个全局的版本号，而SVN有目前为止这是跟SVN相比GIT缺少的最大的一个特征。你也知道，SVN的版本号实际是任何一个相应时间的源代码快照。我认为它是从CVS进化到SVN的最大的一个突破。因为GIT和SVN从概念上就不同，我不知道GIT里是什么特征与之对应。如果你有任何的线索，请在评论里奉献出来与大家共享。 GIT的内容完整性要优于SVN：GIT的内容存储使用的是SHA-1哈希算法。这能确保代码内容的完整性，确保在遇到磁盘故障和网络问题时降低对版本库的破坏。 svn和git的优缺点SVN 的优缺点​ SVN对中文支持好，操作简单，使用没有难度，美工人员，产品人员，测试人员，实施人员都可轻松上手。使用界面统一，功能完善，操作方便。 Git的优缺点​ 对程序源代码进行差异化的版本管理，代码库占极少的空间。易于代码的分支化管理。不支持中文，图形界面支持差，使用难度大。不易推广。 svn和git适用范围的不同 适用对象不同。Git适用于参与开源项目的开发者。他们由于水平高，更在乎的是效率而不是易用性。SVN则不同，它适合普通的公司开发团队。使用起来更加容易。 使用的场合不同。Git适用于通过Internet，有多个开发角色的单个项目开发，SVN适合企业内部由项目经理统一协调的多个并行项目的开发。 权限管理策略不同。Git没有严格的权限管理控制，只要有帐号，就可以导出、导入代码，甚至执行回退操作。SVN则有严格的权限管理，可以按组、按个人进行针对某个子目录的权限控制。区分读、写权限。更严格的，不支持回退操作。保证代码永远可以追踪。 分支(branch)的使用范围不一样。Git中，你只能针对整个仓库作branch,而且一旦删除，便无法恢复。而SVN中，branch可以针对任何子目录，它本质上是一个拷贝操作。所以，可以建立非常多、层次性的branch,并且，在不需要时将其删除，而以后需要时只要checkout老的SVN版本就可以了。 基于第三点，Git适用于单纯的软件项目，典型的就是一些开源项目，比如Linux内核、busybox等。相反，SVN擅长多项目管理。比如，你可以在一个SVN仓库中存放一个手机项目的bsp/设计文档/文件系统/应用程序/自动化编译脚本，或者在一个SVN中存放5款手机项目的文件系统。git中必须建立n(项目数)*m（组件数）个仓库。SVN中只需要最多n或者m个就可以了。 Git使用128位ID作为版本号，而且checkout时要注明是哪个branch,而SVN使用一个递增的序列号作为全局唯一的版本号，更加简明易懂。虽然可以使用gittag来建立一些文字化的别名，但是毕竟那只是针对特殊版本。 可跟踪性，git的典型开发过程为：建立分支，进行开发，提交到本地master，删除分支。这样做的后果是以前的修改细节会丢失。而在SVN下做同样的事情，不会丢失任何细节。这里是一个有趣的链接，表明了git下典型的工作方式：（以master为核心，不断创建新branch,删除旧branch) 局部更新，局部还原。SVN由于是在每个文件夹建立一个.svn文件夹来实现管理，所以可以很简单实现局部更新或者还原。假如你只希望更新某些部分，则svn可以很好实现。同时代码写错了，同时可以很好实现局部还原，当然git也可以通过历史版本还原，但是无法简单地实现局部还原。 SVN 和 Git 哪个更适用于项目管理？​ 首先说一下，我是一个研发团队的项目经理，SVN和Git我都用过，SVN更适用于项目管理， Git仅适用于代码管理。 ​ 一个研发队伍的成员正常包括：需求分析、设计、美工、程序员、测试、实施、运维，每个成员在工作中都有产出物， 包括了文档、设计代码、程序代码，这些都需要按项目集中进行管理的。SVN能清楚的按目录进行分类管理， 使项目组的管理处于有序高效的状态。 总结 总之，公司的开发团队在进行的项目开发管理时，svn是更好的选择，团队成员共同维护公司的中心版本。 若是开源项目，则git更加适合，每个人都可以维护自己专属的版本，同时有github开源社区支持。 参考和转载伯乐在线:http://blog.jobbole.com/31444/ 百度百科:http://baike.baidu.com marko39:http://jingyan.baidu.com/article/676629976401a154d51b8430.html 码迷网:http://www.mamicode.com/info-detail-107111.htm 百度百科:http://baike.baidu.com marko39:http://jingyan.baidu.com/article/676629976401a154d51b8430.html 码迷网:http://www.mamicode.com/info-detail-107111.htm]]></content>
+      <categories>
+        <category>深度思考2</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[如何使用git将代码上传至github?]]></title>
+    <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git%E5%B0%86%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0%E8%87%B3github%2F</url>
+    <content type="text"><![CDATA[代码开发在大多数情况下不是一个人的工作，那么不同人之间如何统一代码共同进行项目开发呢。git 是一款分布式版本控制系统，本文简要介绍了git的基本应用。 git是什么？Git是一款分布式版本控制系统 github是什么？GitHub是一款免费的远程仓库 如何使用git将代码上传至github？关于如何安装git，如何使用git将代码上传至github，廖雪峰的教程已经相当完善且浅显易懂了，我在此不再赘述。 廖雪峰的git教程]]></content>
+      <categories>
+        <category>CSS深度思考2</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[如何用TortoiseSVN将项目代码提交到SVN?]]></title>
+    <url>%2F2019%2F10%2F07%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8svn%E5%B0%86%E4%BB%A3%E7%A0%81%E4%B8%8A%E4%BC%A0%E8%87%B3github%2F</url>
+    <content type="text"><![CDATA[代码开发在大多数情况下不是一个人的工作，那么不同人之间如何统一代码共同进行项目开发呢。Subversion 是一种跨平台的开源版本控制系统，本文简要介绍了svn的基本应用。 目录 导引 安装Subversionn 安装TortoiseSVN 一步步地操作 设置全局忽略文件类型(此步骤为可选)步骤 创建版本库Repository数据库 创建工作目录 - 将你的项目与数据库连接起来 添加忽略 注意事项 参考资料 导引 到目前有很多关于Subversion (SVN) 和 TortoiseSVN的优秀书籍和教程。其中有部分在本文的参考资料区有列出。这篇教程无疑是站在巨人的肩膀上。它只覆盖了subversion (SVN)有限的一部分功能。 然而我希望此文能简化你对SVN的认识。 Subversion 是一种跨平台的开源版本控制系统 (http://subversion.tigris.org/). 它由版本数据库 (FSFS 或 BDB) 和一些命令行工具组成。目前有各种各样的SVN前端工具。 Subversion是为多人参与的项目专门设计的。 但它也可用于管理个人项目。 此文仅限于基于Windows的本地SVN环境(未单独配置远程的服务器)。 安装Subversion打开Tigris.org网站的下载区，选择 开源代码软件工程工具Subversion (http://subversion.tigris.org/)。 Windows下最新的命令行版Subversion的安装文件和库都能在http://www.open.collab.net/downloads/subversion/下载到。下载安装包。SVN的默认安装目录为C:\Program Files\Subversion，当然你也可以修改磁盘路径。 现在你就可以开始使用SVN了。 如果你不习惯使用命令行工具，那你有必要安装一个你觉得合适的GUI前端。 安装TortoiseSVNTortoiseSVN是一种Subversion客户端, Windows下它是一个命令行扩展, Windows资源管理器的一个插件(http://tortoisesvn.tigris.org/)。 最新版本可以在这下载到 http://tortoisesvn.sourceforge.net/downloads. 截止到2015.12.18的最新版本为：TortoiseSVN-1.9.2.26806-x64-svn-1.9.2.msi，如果需要切换语言，还可以在官网上下载相应语言包。 如果你电脑安装的Windows是32位的请选择32位的TortoiseSVN安装包，如果你电脑安装的Windows是x64的请选择x64的TortoiseSVN安装包。 下载区域的另一个文件TortoiseSVN-xxx-xxx.md5, 是安装时不需要的。它包含安装包的验证编号checksum，该验证编号能有效验证你是否下载到了合适的安装包 (且它没有损坏)。 你可以下载程序HashFile (http://www.shokhirev.com/nikolai/programs/progmisc.html) 来验证下载到的安装包的 MD5 哈希值 (checksum). 该验证编号必须和TortoiseSVN-xxx-xxx.md5文件上的信息完全一致。 这个安装也是直接的，同意默认设置即可。 唯一有趣的是ASP.Net hack. 默认情况下, SVN 使用 .svn 工作目录 (正如Linux下隐藏文件的命名风格)。这使得 微软 ASP.Net 和 the hack 强制 SVN 去使用 _svn 作为工作目录。 如果你要使用Subversion对ASP.Net项目进行版本控制，请不要安装ASP.Net hack这一项。 注： 安装完TortoiseSVN后，你的Windows 资源管理器的主目录上会出现下图所示的新的按钮： 同时这些新增按钮也会添加到 (通过鼠标右键单击激活) 的上下文菜单中。 一步步地操作目前有很多Subversion管理方式(参看手册). 现在我们主要考虑如下主要的情形: 你有一个现有的项目，你想将它加入版本控制。 这是你本地电脑上的个人项目。 在这种情形下你不应该会担心安全性和开启一个subversion服务器。 假设你的项目驻放在 C:\Projects\MyProject 路径下，它包含如下文件，或许还有些子文件夹： 步骤0 (可选). 设置全局忽略文件类型。你可能不想跟踪临时文件 或 某些其他格式的文件。鼠标右击任意一个文件夹，然后打开TortoiseSVN的Settings： 当然你也可以鼠标右击文件， 打开Windows资源管理器主目录中的TortoiseSVN/Settings。“General” -&gt; “Subversion”处，你可以列出各种各样的文件类型，并使用空格隔开 (比如上图中示例的 *.bak *.~*). 注意到这个设置会对所有的工作目录有效。参看手册的5.25可了解更多的设置。 步骤1.创建版本库Repository。在你的硬盘上为你的项目创建版本库的目录, 比如 C:\SVN. 在它里面创建一个空的子目录 \MyProject. 鼠标右键点击MyProject，并选择TortoiseSVN -&gt; 在此创建版本库: 选择默认”原生文件系统”(FSFS)选项，并单击OK按钮： 这一步将 C:\SVN\MyProject 转化为含有如下内容的版本库： 到目前为止，它还是一个空的版本库，虽然Subversion已经创建了几个目录和文件 ! 我们需要将我们的项目文件中需要进行版本控制的文件填充进去并将它链接到我们的工作项目的目录。这些操作中可能会有几个和大家的习惯操作不一样、新的操作。 步骤2. 导入初始化。 在你的磁盘的某处 (比如 在 C:\tmp) 创建一个目录 (比如 \new) ，含有如下3个子目录： 123C:\tmp\new\branches C:\tmp\new\tags C:\tmp\new\trunk 相应的文件结构为： 为了能用更多高级的项目管理功能，这个结构是必须的, 如果事先创建它也不会带来什么损害。 有些手册首推先导入此结构到版本库，然后向里面添加项目。我推荐使用如下的快捷方式： 备份你的项目文件 (比如 C:\Projects\MyProject), 以防万一. 删除所有不在全局忽略文件列表中的不需要进行版本控制的文件。 将 文件夹 \MyProject 中需要进行版本控制的内容 移动 进 trunk 子目录 (C:\tmp\new\trunk). 我们之后无论如何都将会需要一个空的文件夹。 将目录”new”导入Import到版本库 (选择”new”，右键依次单击TortoiseSVN-&gt;Import)： URL 选择 file:///C:/SVN/Myproject (左斜杠”/“ !): “Import finished” 消息出现时，表明 C:\tmp\new\下的所有文件及子文件夹都已成功导入版本库 : 不需要担心”tmp\new” 消息, 只要验证哪些文件真正地导入到了版本库中即可。 书表右键单击 C:\SVN\MyProject ，然后打开 TortoiseSVN -&gt; Repo-browser(版本库浏览器)： 导航 至 file///C:/SVN/MyProject/trunk: 注意到全局忽略列表的文件都没被导入。 并且也没有 ‘C:\tmp\new’ 目录的痕迹了， ‘C:\tmp\new’ 目录再没有什么用处了，可以删掉。 步骤3. 创建工作目录 - 将你的项目与数据库连接起来.现在你已经成功增加了你对所有需要进行版本控制的文件添加了版本控制，并且当前的空目录 C:\Projects\MyProject (回忆一下, 我们之前已将改目录中的所有文件 移动 到了 目录 C:\tmp\new\trunk 中，对么?). “为了让你的双手移动文件的这个行为获得”赞美”, 完全得到批准, 并且完全导入Subversion目录, 你需要从版本库中对它进行检出Checkout” . 书表右击 C:\Projects\MyProject 文件夹，并选择 “SVN Checkout”(SVN 检出): 设置 URL 为 file:///C:/SVN/MyProject/trunk ，并设置检出目录为： C:\Projects\MyProject 点击OK. 会提示”Checkout (检出) has finished”： “赞美” 以”对勾Check”小图标的形式反映在你的项目目录和里面所有的文件(和所有的子目录)上。 步骤4.添加忽略的文件在资源管理器中，右键一个未加入版本控制文件或目录，并从弹出菜单选择TortoiseSVN →Add to Ignore List，会出现一个子菜单，允许你仅选择该文件或者所有具有相同后缀的文件。 如果你想从忽略列表中移除一个或多个条目，右击这些条目，选择TortoiseSVN →从忽略列表删除。 几点注意事项 提交 (checking in) 你对版本库的变更: 右击鼠标，然后选择 “SVN Commit”(SVN提交)添加文件到版本库。 除了参考书籍 [4] 和 [5], 我也推荐 Charlie Calvert 的文章 [6]. 如果你使用 Lavasoft Ad-Aware, 不要删除可以忽略的对象: 这一步会删除注册表中的图标设置 ! 祝开开心心 使用Subversion版本控制 ! 这是一个两步的过程: 先右击选中的文件，然后右键依次选择 “TortoiseSVN”-&gt;”Add” 先右击选中的文件，然后右键依次选择 “TortoiseSVN”-&gt;”SVN Commit” 参考资料如何用TortoiseSVN将项目代码提交到SVN 原作者: Bravo Yeung公众号: dotNET匠人]]></content>
+      <categories>
+        <category>CSS深度思考2</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Adobe Photoshop CC ps 2019中文版Win/Mac破解教程]]></title>
     <url>%2F2019%2F10%2F07%2FPS%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B2019%2F</url>
     <content type="text"><![CDATA[使用破解补丁（Win/Mac通用） 下载原版软件Adobe Creative Cloud平台下载正版渠道的Photoshop CC 2019（即V20版本） 下载破解软件ZII目前可以破解的软件： 123456789101112131415161718Adobe Acrobat DC 19.x (universal amtlib)Adobe After Effects CC 2019 v16.1 – 16.1.3Adobe Animate CC 2019 v19.2 – 19.2.1Adobe Audition CC 2019 v12.1 – 12.1.4Adobe Bridge CC 2019 v9.0.3 – 9.1Adobe Character Animator CC 2019 v2.1 – 2.1.1Adobe Dimension CC v2.3Adobe Dreamweaver CC 2019 v19.1 – 19.2.1Adobe Illustrator CC 2019 v23.0.3 – 23.1Adobe InCopy CC 2019 v14.0.2Adobe Indesign CC 2019 v14.0.2 – 14.0.3.433Adobe Lightroom Classic v8.2.1 – 8.4.1Adobe Media Encoder CC 2019 v13.1 – 13.1.5Adobe Photoshop CC 2019 v20.0.4 – 20.0.6Adobe Prelude CC 2019 v8.1 – 8.1.1Adobe Premiere Pro CC 2019 v13.1 – 13.1.5Adobe Premiere Rush CC v1.1 – 1.2.5Adobe XD v21.0.12.11 – 22.5.12.1 Adobe CC 2019 Win/Mac通用破解补丁 Zii v4.4.4 + GenP v1.5.6.2 直接下载破解版软件（仅win可用）Adobe Photoshop CC 2019 v20.0.6 Win/Mac 中文/英文/多语言破解版]]></content>
@@ -18,14 +66,6 @@
       <tags>
         <tag>太吾绘卷</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[hexo快速入门]]></title>
-    <url>%2F2019%2F03%2F08%2Fhexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 快速开始创建一篇新文章1$ hexo new "My New Post" 详细信息: Writing 启用本地预览服务1$ hexo server 详细信息: Server 生成静态文件1$ hexo generate 详细信息: Generating 部署到远程站点1$ hexo deploy 详细信息: Deployment]]></content>
-      <categories>
-        <category>工具使用</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[常见的inline元素、block元素、inline-block元素有哪些？它们之间有什么区别？]]></title>
@@ -106,6 +146,14 @@
       <tags>
         <tag>调试</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo快速入门]]></title>
+    <url>%2F2018%2F09%2F03%2Fhexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 快速开始创建一篇新文章1$ hexo new "My New Post" 详细信息: Writing 启用本地预览服务1$ hexo server 详细信息: Server 生成静态文件1$ hexo generate 详细信息: Generating 部署到远程站点1$ hexo deploy 详细信息: Deployment]]></content>
+      <categories>
+        <category>工具使用</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[js取出事件对象中对应的值显示未定义]]></title>

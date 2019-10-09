@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/CSS层叠样式表/CSS深度思考3/手机分辨率和网页中的px是一回事吗？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/如果是在手机上查看投票页，没有hover效果时应该怎么办？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -315,7 +315,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/08/CSS层叠样式表/CSS深度思考3/手机分辨率和网页中的px是一回事吗？/" itemprop="url">手机分辨率和网页中的px是一回事吗？</a></h1>
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考7/如果是在手机上查看投票页，没有hover效果时应该怎么办？/" itemprop="url">如果是在手机上查看投票页，没有hover效果时应该怎么办？</a></h1>
         
 
         <div class="post-meta">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-08T10:42:04+08:00">
-                2019-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:43:50+08:00">
+                2019-10-09
               </time>
             
 
@@ -361,8 +361,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考3/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考3</span>
+                  <a href="/categories/层叠样式表CSS/深度思考7/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考7</span>
                   </a>
                 </span>
 
@@ -400,26 +400,24 @@
       
         
           
-            <h1 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h1><p>像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 </p>
-<p>px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 </p>
-<h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h1><p>分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。</p>
-<p>分辨率可以分为两方面：屏幕分辨率和图像分辨率。</p>
-<ol>
-<li><p>屏幕分辨率：     </p>
-<p>例如，屏幕分辨率是1024×768，也就是说设备屏幕的水平方向上有1024个像素点，垂直方向上有768个像素点。像素的大小是没有固定长度的，不同设备上一个单位像素色块的大小是不一样的。    例如，尺寸面积大小相同的两块屏幕，分辨率大小可以是不一样的，分辨率高的屏幕上面像素点（色块）就多，所以屏幕内可以展示的画面就更细致，单个色块面积更小。而分辨率低的屏幕上像素点（色块）更少，单个像素面积更大，可以显示的画面就没那么细致。</p>
-</li>
-<li><p>图像分辨率：    </p>
-<p>例如，一张图片分辨率是500x200，也就是说这张图片在屏幕上按1:1放大时，水平方向有500个像素点（色块），垂直方向有200个像素点（色块）。    在同一台设备上，图片分辨率越高，这张图片1:1放大时，图片面积越大；图片分辨率越低，这张图片1:1缩放时，图片面积越小。（可以理解为图片的像素点和屏幕的像素点是一个一个对应的）。    但是，在屏幕上把图片超过100%放大时，为什么图片上像素色块也变的越大，其实是设备通过算法对图像进行了像素补足，我们把图片放的很大后看到的一块一块的方格子，虽然理解为一个图像像素，但是其实是已经补充了很多个屏幕像素；同理，把图片小于100%缩小时，也是通过算法将图片像素进行减少。</p>
-</li>
-</ol>
-<h1 id="移动设备分辨率"><a href="#移动设备分辨率" class="headerlink" title="移动设备分辨率"></a>移动设备分辨率</h1><p>说到移动设备分辨率，这里先提另一个单位dpi(dot per inch)<br>dpi/ppi是表示一个每inch多少个物理像素dot的单位<br>在最开始是160dpi/ppi<br>后来因为技术的提高，为了追求高清屏幕，有了320dpi/ppi以上等等的屏幕<br>下面继续说移动设备分辨率<br>我们可以理解分辨率就是长宽分别有多少个物理像素dot<br>但是设备大小就那么大，所以同样大小的设备，分辨率越高，物理像素堆得越多，屏幕越清晰，也就是dpi越高</p>
-<h1 id="网页中的px（css像素）"><a href="#网页中的px（css像素）" class="headerlink" title="网页中的px（css像素）"></a>网页中的px（css像素）</h1><p>在桌面浏览器：1px（下面我们读成‘css像素’）代表1个物理像素，也就是1css像素 = 1物理像素<br>没有加meta viewport标签时候：移动端viewport宽度为980px或者1024px，这时候1css像素不确定是几个物理像素（根据分辨率来算）<br>写个20px的文字看看效果（见演示）<br>在加了meta viewport标签以后呢？我们引入另外一个单位：密度独立像素dp/dip<br>dp/dip是在不同设备都显示为同一大小的单位（见演示）<br>简单理解，在使用了<code>&lt;xmp&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&lt;/xmp&gt;</code>之后，所有1px = 1dp/dip<br>添加meta标签后20px的文字（见演示）<br>设备的独立像素都是可以查到的</p>
-<h1 id="UI口中的px像素"><a href="#UI口中的px像素" class="headerlink" title="UI口中的px像素"></a>UI口中的px像素</h1><p>UI图中的像素，也就是psd中我们量出来的像素，比如说任务中psd图的宽度为750px或者640px</p>
-<p>UI口中的像素是移动设备分辨率 </p>
-<p><strong>注意事项：</strong> 直接按照UI图上px大小写，会偏大。 因为UI图的px和css中的px不是一个单位，一般来说UI图中大小除以2写在css里</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>手机分辨率和网页中的px不相同，px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 </p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/jnshu_it/article/details/80055739" target="_blank" rel="noopener">手机分辨率和网页中的px是一回事吗？</a></p>
-<p><a href="https://www.zhihu.com/question/21149600" target="_blank" rel="noopener">分辨率和像素是什么关系？</a></p>
+            <h1 id="为什么hover在手机上没效果？"><a href="#为什么hover在手机上没效果？" class="headerlink" title="为什么hover在手机上没效果？"></a>为什么hover在手机上没效果？</h1><p>让我们再回顾一下hover的定义…</p>
+<p><code>:hover</code>用于选择鼠标指针浮动在上面的元素。</p>
+<p>再想一想…</p>
+<p>手机上哪来的鼠标啊伙计？！</p>
+<p>SO,手机端没有hover特效，当你点击的时候就直接触发click。</p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><strong>首先，经试验发现，设置的<code>：hover</code>在Android系统上点击会出现， 但是需要再次点击才会消失；</strong></p>
+<p><strong>IOS系统上点击无法出现；</strong></p>
+<p>手机虽然没有鼠标，但是有触摸事件.</p>
+<p>一开始触摸事件是ios版Safari浏览器为了向开发人员传达一些信息新添加的事件。 因为ios设备既没有鼠标也没有键盘，所以在为移动Safari浏览器开发交互性网页的时候， PC端的鼠标和键盘事件是不够用的。</p>
+<p>在iPhone 3G发布的时候，其自带的移动Safari浏览器就提供了一些与触摸(touch)操作相关的新事件。 随后，Android上的浏览器也实现了相同的事件。触摸事件(touch)会在用户手指放在屏幕上面的时候、 在屏幕上滑动的时候或者是从屏幕上移开的时候触发。</p>
+<p>1.touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。</p>
+<p>2.touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间， 调用preventDefault()事件可以阻止滚动。</p>
+<p>3.touchend事件：当手指从屏幕上离开的时候触发。</p>
+<p>4.touchcancel事件：touchcancel，是在拖动中断时候触发。</p>
+<hr>
+<blockquote>
+<p>版权声明：本文为CSDN博主「jnshu_it」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/jnshu_it/article/details/85759010" target="_blank" rel="noopener">https://blog.csdn.net/jnshu_it/article/details/85759010</a></p>
+</blockquote>
 
           
         
@@ -468,7 +466,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/08/CSS层叠样式表/CSS深度思考3/什么时候用margin好，什么时候用padding好？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/描述下z-index和叠加上下文是如何形成的？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -487,7 +485,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/08/CSS层叠样式表/CSS深度思考3/什么时候用margin好，什么时候用padding好？/" itemprop="url">什么时候用margin好，什么时候用padding好？</a></h1>
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考7/描述下z-index和叠加上下文是如何形成的？/" itemprop="url">描述下z-index和叠加上下文是如何形成的？</a></h1>
         
 
         <div class="post-meta">
@@ -499,8 +497,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-08T00:04:27+08:00">
-                2019-10-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:43:11+08:00">
+                2019-10-09
               </time>
             
 
@@ -533,8 +531,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考3/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考3</span>
+                  <a href="/categories/层叠样式表CSS/深度思考7/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考7</span>
                   </a>
                 </span>
 
@@ -572,10 +570,22 @@
       
         
           
-            <h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>margin始终是透明的；margin是用来隔开元素与元素的间距；</p>
-<p>padding是用来隔开元素与内容的间隔。  </p>
-<h1 id="作用范围"><a href="#作用范围" class="headerlink" title="作用范围"></a>作用范围</h1><p>margin用于<strong>布局</strong>分开元素使元素与元素互不相干；  </p>
-<p>padding用于<strong>元素与内容之间</strong>的间隔，让内容（文字）与（包裹）元素之间有一段“呼吸距离”，还可以调整边框与内容的距离。</p>
+            <h1 id="z-index是什么？"><a href="#z-index是什么？" class="headerlink" title="z-index是什么？"></a>z-index是什么？</h1><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<br>该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。</p>
+<h1 id="z-index和叠加上下文是如何形成的"><a href="#z-index和叠加上下文是如何形成的" class="headerlink" title="z-index和叠加上下文是如何形成的"></a>z-index和叠加上下文是如何形成的</h1><p>一言难尽，献上传送门。</p>
+<p><a href="https://blog.csdn.net/cat_sky/article/details/80302245" target="_blank" rel="noopener">z-index 层叠上下文的关系</a></p>
+<h1 id="使用z-index有什么需要注意的地方？"><a href="#使用z-index有什么需要注意的地方？" class="headerlink" title="使用z-index有什么需要注意的地方？"></a>使用z-index有什么需要注意的地方？</h1><ul>
+<li>在开发中尽量避免层叠上下文的多层嵌套，因为层叠上下文嵌套过多的话容易产生混乱，如果对层叠上下文理解不够的话是不好把控的。</li>
+<li>非浮层元素（对话框等）尽量不要用z-index（通过层叠顺序或者dom顺序或者通过层叠上下文进行处理）</li>
+<li>z-index设置数值时尽量用个位数</li>
+<li>让absolute元素覆盖正常文档流内元素（不用设z-index，自然覆盖）</li>
+<li>让后一个absolute元素覆盖前一个absolute元素（不用设z-index，只要在HTML端正确设置元素顺序即可）</li>
+</ul>
+<h1 id="什么情况下使用z-index？"><a href="#什么情况下使用z-index？" class="headerlink" title="什么情况下使用z-index？"></a>什么情况下使用z-index？</h1><p>当absolute元素覆盖另一个absolute元素，且HTML端不方便调整DOM的先后顺序时，需要设置z-index: 1。非常少见的情况下多个absolute交错覆盖，或者需要显示最高层次的模态对话框时，可以设置z-index &gt; 1。</p>
+<hr>
+<blockquote>
+<p>版权声明：本文为CSDN博主「cat_sky」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。</p>
+<p>原文链接：<a href="https://blog.csdn.net/cat_sky/article/details/80302245" target="_blank" rel="noopener">https://blog.csdn.net/cat_sky/article/details/80302245</a></p>
+</blockquote>
 
           
         
@@ -624,7 +634,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/css有哪些选择器，优先级如何计算？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -643,7 +653,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考3/css有哪些选择器，优先级如何计算？/" itemprop="url">css有哪些选择器，优先级如何计算？</a></h1>
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考7/rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？/" itemprop="url">rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？</a></h1>
         
 
         <div class="post-meta">
@@ -655,8 +665,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:29:21+08:00">
-                2019-10-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:42:40+08:00">
+                2019-10-09
               </time>
             
 
@@ -689,8 +699,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考3/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考3</span>
+                  <a href="/categories/层叠样式表CSS/深度思考7/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考7</span>
                   </a>
                 </span>
 
@@ -728,24 +738,10 @@
       
         
           
-            <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  </p>
-<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><ol>
-<li><p>在属性后面使用！important会覆盖页面内任何位置定义的元素样式。 </p>
-</li>
-<li><p>作为style属性写在元素内的样式 </p>
-</li>
-<li><p>id选择器  </p>
-</li>
-<li><p>类选择器  </p>
-</li>
-<li><p>标签选择器  </p>
-</li>
-<li><p>通配符选择器 </p>
-</li>
-<li><p>浏览器自定义或子元素集成父类的样式  </p>
-</li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.jianshu.com/p/b69de6742357" target="_blank" rel="noopener">简书</a></p>
+            <h1 id="rgba和opacity的透明效果有什么不同"><a href="#rgba和opacity的透明效果有什么不同" class="headerlink" title="rgba和opacity的透明效果有什么不同"></a>rgba和opacity的透明效果有什么不同</h1><p>opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 </p>
+<h1 id="display和visiblity有什么区别"><a href="#display和visiblity有什么区别" class="headerlink" title="display和visiblity有什么区别"></a>display和visiblity有什么区别</h1><p>display：通常可以设置为none、inline、block<br>visblity：通常可以设置为hidden、visible </p>
+<p>当display为none，visibility为hidden时，元素都会不见。不过其还有不同之处。</p>
+<p>区别：<br>display：none:隐藏元素但不占据该元素原来的空间。父级设置值为none后，无论子级设置任何值都无法显示。（<strong>不占空间，可遗传</strong>）<br>visibility：hidden:隐藏元素并且占据该元素原来的空间。子级设置visible后不受父级影响。（<strong>占空间，不遗传</strong>）</p>
 
           
         
@@ -794,7 +790,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/如何进行自适应网页设计？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/什么是浮动？有哪些清除浮动的方法？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -813,7 +809,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考3/如何进行自适应网页设计？/" itemprop="url">如何进行自适应网页设计？</a></h1>
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考7/什么是浮动？有哪些清除浮动的方法？/" itemprop="url">什么是浮动？有哪些清除浮动的方法？</a></h1>
         
 
         <div class="post-meta">
@@ -825,8 +821,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:28:18+08:00">
-                2019-10-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:41:25+08:00">
+                2019-10-09
               </time>
             
 
@@ -859,8 +855,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考3/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考3</span>
+                  <a href="/categories/层叠样式表CSS/深度思考7/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考7</span>
                   </a>
                 </span>
 
@@ -898,678 +894,16 @@
       
         
           
-            <h1 id="什么是自适应网页设计"><a href="#什么是自适应网页设计" class="headerlink" title="什么是自适应网页设计"></a>什么是自适应网页设计</h1><p>“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  </p>
-<h1 id="如何实现自适应网页设计"><a href="#如何实现自适应网页设计" class="headerlink" title="如何实现自适应网页设计"></a>如何实现自适应网页设计</h1><ol>
-<li>允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。 </li>
-<li>不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;  </li>
-<li>使用相对大小的字体：em、rem  </li>
-<li>流动布局：各个区块的位置是浮动的，不是固定不变的 </li>
-<li>图片自适应：图片自动缩放 img { max-width: 100%;} </li>
-<li>选择加载css：自适应网页设计”的核心，就是CSS3引入的Media Query模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。</li>
-<li>css中的@media媒体查询规则：同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则。  </li>
-</ol>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhidao.baidu.com/question/245161275053820324.html?fr=iks&amp;word=%25%2Cvw%2Cwh%2Cvm%B5%A5%CE%BB&amp;ie=gbk" target="_blank" rel="noopener">自适应网页设计</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/px、em、rem、-、vw、wh、vm等单位有什么区别？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考3/px、em、rem、-、vw、wh、vm等单位有什么区别？/" itemprop="url">px、em、rem、%、vw、wh、vm等单位有什么区别？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:22:32+08:00">
-                2019-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">层叠样式表CSS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考3/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考3</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>px：绝对单位，页面按精确像素展示</li>
-<li>em：相对单位，基准点为父级元素字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。</li>
-<li>rem：相对单位，为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。</li>
-<li>%：相对单位，相对于父级元素的百分比宽度</li>
-<li>vw：viewpoint width，视窗宽度，1vw等于视窗宽度的1%。<br>vh：viewpoint height，视窗高度，1vh等于视窗高度的1%。</li>
-<li>vm；css3单位，相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为100单位的vm<br>举个例子：浏览器高度900px，宽度1200px，取最小的浏览器高度，1 vm = 900px/100 = 9 px。</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/如何利用PS切图以及从UI图中获取所需信息？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考3/如何利用PS切图以及从UI图中获取所需信息？/" itemprop="url">如何利用PS切图以及从UI图中获取所需信息？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:20:26+08:00">
-                2019-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">层叠样式表CSS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考3/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考3</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="PS切图"><a href="#PS切图" class="headerlink" title="PS切图"></a>PS切图</h1><h2 id="切片工具"><a href="#切片工具" class="headerlink" title="切片工具"></a>切片工具</h2><p>使用PS中的切片工具进行所需图片的切割，然后点击文件选项卡，选择其中存储为web所用格式即可完成ps切图。</p>
-<h2 id="一键切图"><a href="#一键切图" class="headerlink" title="一键切图"></a>一键切图</h2><p>下载一键切图工具并载入动作，用移动工具选择图层，按F2一键切图。最后选择保存为web所需格式，注意保存为png格式防止出现兼容性问题。  </p>
-<p><strong>下载链接及教程：</strong> <a href="https://www.cnblogs.com/rangzf/p/3279848.html" target="_blank" rel="noopener">前端高效开发之“一键切图”</a></p>
-<h1 id="获取UI中的信息"><a href="#获取UI中的信息" class="headerlink" title="获取UI中的信息"></a>获取UI中的信息</h1><ol>
-<li>各部分之间的距离</li>
-<li>文字的字体，字号颜色</li>
-<li>背景的颜色（使用取色器）</li>
-</ol>
-<p><strong>注意事项</strong>：UI图的px和css中的px不是一个单位，一般来说UI图中大小除以2写在css里</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考2/如何将代码部署至自己的服务器？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考2/如何将代码部署至自己的服务器？/" itemprop="url">如何将代码部署至自己的服务器？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:13:52+08:00">
-                2019-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">层叠样式表CSS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考2/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考2</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="1-买一个服务器"><a href="#1-买一个服务器" class="headerlink" title="1. 买一个服务器"></a>1. 买一个服务器</h1><h1 id="2-下载filezilla"><a href="#2-下载filezilla" class="headerlink" title="2. 下载filezilla"></a>2. 下载filezilla</h1><h1 id="3-连接自己的服务器，将对应代码上传（全中文页面不再赘述）"><a href="#3-连接自己的服务器，将对应代码上传（全中文页面不再赘述）" class="headerlink" title="3. 连接自己的服务器，将对应代码上传（全中文页面不再赘述）"></a>3. 连接自己的服务器，将对应代码上传（全中文页面不再赘述）</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考2/如何配置nginx，实现在手机上查看页面？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考2/如何配置nginx，实现在手机上查看页面？/" itemprop="url">如何配置nginx，实现在手机上查看页面？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:12:38+08:00">
-                2019-10-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">层叠样式表CSS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考2/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考2</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="什么是nginx？"><a href="#什么是nginx？" class="headerlink" title="什么是nginx？"></a>什么是nginx？</h1><p>Nginx（发音同engine x）是异步框架的网页服务器，也可以用作反向代理、负载平衡器和HTTP缓存。该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。2011年成立同名公司以提供支持。2019年3月11日，Nginx公司被F5 Networks以6.7亿美元收购。</p>
-<p>Nginx是免费的开源软件，根据类BSD许可证的条款发布。一大部分Web服务器使用Nginx，通常作为负载均衡器。</p>
-<h1 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h1><h2 id="正向代理简介"><a href="#正向代理简介" class="headerlink" title="正向代理简介"></a>正向代理简介</h2><p>一般情况下，如果没有特别说明，代理技术默认说的是正向代理技术。关于正向代理的概念如下：</p>
-<p>正向代理(forward)是一个位于客户端【用户A】和原始服务器(origin server)【服务器B】之间的服务器【代理服务器Z】，为了从原始服务器取得内容，用户A向代理服务器Z发送一个请求并指定目标(服务器B)，然后代理服务器Z向服务器B转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。如下图</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hc2sucWNsb3VkaW1nLmNvbS9odHRwLXNhdmUveWVoZS0xMDEwNzkyL3ZyM3B6M292emgucG5n?x-oss-process=image/format,png" alt="img"> </p>
-<p>从上面的概念中，我们看出，文中所谓的正向代理就是代理服务器替代访问方【用户A】去访问目标服务器【服务器B】 ，</p>
-<p><strong>总结：代理服务器代替了用户A</strong></p>
-<h2 id="正向代理的意义"><a href="#正向代理的意义" class="headerlink" title="正向代理的意义"></a>正向代理的意义</h2><p><strong>为什么要用通过代理服务器去访问服务器B，而不是用户直接访问？</strong></p>
+            <h1 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h1><p>在了解什么是浮动之前我们先了解一下html元素在普通流排列方式。在普通流中，元素是按照它在 HTML 中的出现的先后顺序自上而下依次排列布局的，在排列过程中所有的行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为一整行。如果没有特殊样式指定，所有元素默认都是按照普通流方式排列布局，即普通流中元素的位置由该元素在 HTML 文档中的位置决定的。</p>
+<p>浮动使元素脱离文档普通流，漂浮在普通流之上的。浮动元素依然按照其在普通流的位置上出现，然后尽可能的根据设置的浮动方向向左或者向右浮动，直到浮动元素的外边缘遇到包含框或者另一个浮动元素为止，且允许文本和内联元素环绕它。浮动会产生块级框（相当于设置了display:block），而不管该元素本身是什么。</p>
+<h1 id="为什么要清除浮动"><a href="#为什么要清除浮动" class="headerlink" title="为什么要清除浮动"></a>为什么要清除浮动</h1><p>如果我们不给父元素设置高度，我们知道如果它里面的元素不浮动的话， 那么这个外层的高是会自动被撑开的。<br>若浮动元素比它的父元素还高，那么它就会溢出父元素外面</p>
+<p>当内层元素所有浮动后，则影响更大：</p>
 <ul>
-<li>访问本无法访问的服务器B</li>
-<li>加速访问服务器B</li>
-<li>Cache（缓存） 作用</li>
-<li>客户端访问授权（为什么我们无法直接访问谷歌）</li>
-<li>隐藏访问者的行踪（服务器B只知道代理服务器Z访问了它）</li>
+<li>背景不能显示</li>
+<li>边框不能撑开</li>
+<li>高度塌陷等<h1 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h1>方法1：脚底插入clear:both;<br>方法2：父元素BFC(ie8+)或haslayout(ie6/ie7)</li>
 </ul>
-<h1 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h1><h2 id="反向代理简介"><a href="#反向代理简介" class="headerlink" title="反向代理简介"></a>反向代理简介</h2><p>反向代理正好与正向代理相反，对于客户端而言代理服务器就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理的命名空间(name-space)中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端。</p>
-<p><strong>总结：代理服务器代替了服务器B</strong></p>
-<h2 id="反向代理的意义"><a href="#反向代理的意义" class="headerlink" title="反向代理的意义"></a>反向代理的意义</h2><ol>
-<li><p>保护和隐藏原始资源服务器<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hc2sucWNsb3VkaW1nLmNvbS9odHRwLXNhdmUveWVoZS0xMDEwNzkyL2xiNmswZzY4ZzUucG5n?x-oss-process=image/format,png" alt="img"> </p>
-<p>用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接受用户A的应答，从原始资源服务器B中取得用户A的需求资源，然后发送给用户A。由于防火墙的作用，只允许代理服务器Z访问原始资源服务器B。尽管在这个虚拟的环境下，防火墙和反向代理的共同作用保护了原始资源服务器B，但用户A并不知情。 </p>
-</li>
-</ol>
-<ol start="2">
-<li><p>负载均衡<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hc2sucWNsb3VkaW1nLmNvbS9odHRwLXNhdmUveWVoZS0xMDEwNzkyL21kMjFlbzFpenMucG5n?x-oss-process=image/format,png" alt="img"></p>
-<p>当反向代理服务器不止一个的时候，我们甚至可以把它们做成集群，当更多的用户访问资源服务器B的时候，让不同的代理服务器Z（x）去应答不同的用户，然后发送不同用户需要的资源。</p>
-<p>当然反向代理服务器像正向代理服务器一样拥有CACHE的作用，它可以缓存原始资源服务器B的资源，而不是每次都要向原始资源服务器B请求数据，特别是一些静态的数据，比如图片和文件，如果这些反向代理服务器能够做到和用户X来自同一个网络，那么用户X访问反向代理服务器X，就会得到很高质量的速度。这正是<a href="https://cloud.tencent.com/product/cdn?from=10680" target="_blank" rel="noopener">CDN</a>技术的核心。 </p>
-</li>
-</ol>
-<h1 id="如何配置nginx，实现在手机上查看页面？"><a href="#如何配置nginx，实现在手机上查看页面？" class="headerlink" title="如何配置nginx，实现在手机上查看页面？"></a>如何配置nginx，实现在手机上查看页面？</h1><p>Nginx的配置文件是文件夹中的conf文件下的nginx.conf，其实配置文件默认不修改也是可有用的；</p>
-<p>如果你通过浏览器输入localhost出现的页面即为文件夹下HTML文件中的index.html；所以你可以将你想要检测的产品放到HTML文件夹中，并将原本的index.html文件给删了，这个时候打开网页输入localhost，使用ctrl+F5清下浏览器缓存即出现你产品中的index.html(产品的首页都会命名为index.html）页面，然后进行一系列测试看看是否OK；</p>
-<p>  如果要使用自己文件夹中的文件测试，需要更改Nginx的配置文件是文件夹中的conf文件下的nginx.conf，修改三处root地址为自己的文件夹所在地址，第一处改为 D:\home\www，第二处改为 /home/www,第三处改为/home/www。</p>
-<p><strong>注意事项：</strong>  左斜杠/与右斜杠\的区别不要打错了！</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://cloud.tencent.com/developer/article/1053668" target="_blank" rel="noopener">图解正向代理、反向代理、透明代理</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/Nginx#cite_note-8" target="_blank" rel="noopener">维基百科</a></li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 现代浏览器clearfix方案，不支持IE6/7 </span><br><span class="line">.clearfix:after &#123; display: table; content: &quot; &quot;; clear: both; &#125; </span><br><span class="line">​</span><br><span class="line">// 全浏览器通用的clearfix方案// 引入了zoom以支持IE6/7</span><br><span class="line">.clearfix:after &#123; display: table; content: &quot; &quot;; clear: both; &#125; </span><br><span class="line">.clearfix&#123; *zoom: 1; &#125; </span><br><span class="line">​</span><br><span class="line">// 全浏览器通用的clearfix方案【推荐】</span><br><span class="line">// 引入了zoom以支持IE6/7 </span><br><span class="line">// 同时加入:before以解决现代浏览器上边距折叠的问题 </span><br><span class="line">.clearfix:before,</span><br><span class="line"> .clearfix:after &#123; display: table; content: &quot; &quot;; &#125;</span><br><span class="line"> .clearfix:after &#123; clear: both; &#125; </span><br><span class="line">.clearfix&#123; *zoom: 1; &#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1618,7 +952,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考2/如何利用github搭建自己的个人网站？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/什么是CSS-sprites？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -1637,7 +971,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考2/如何利用github搭建自己的个人网站？/" itemprop="url">如何利用github搭建自己的个人网站？</a></h1>
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考7/什么是CSS-sprites？/" itemprop="url">什么是CSS sprites？</a></h1>
         
 
         <div class="post-meta">
@@ -1649,8 +983,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:09:48+08:00">
-                2019-10-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:40:15+08:00">
+                2019-10-09
               </time>
             
 
@@ -1683,8 +1017,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考2/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考2</span>
+                  <a href="/categories/层叠样式表CSS/深度思考7/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考7</span>
                   </a>
                 </span>
 
@@ -1722,23 +1056,9 @@
       
         
           
-            <h1 id="使用github搭建个人网站"><a href="#使用github搭建个人网站" class="headerlink" title="使用github搭建个人网站"></a>使用github搭建个人网站</h1><ol>
-<li>在github上搭建网站 即username.github.io（username是你的github用户名）</li>
-<li>把自己的域名（如zhangsan.com）绑定到username.github.io上</li>
-</ol>
-<p>具体操作：<a href="https://blog.csdn.net/u012075670/article/details/54581015" target="_blank" rel="noopener">如何用github搭建自己的个人网站</a></p>
-<h1 id="用Hexo-Github-搭建个人网站"><a href="#用Hexo-Github-搭建个人网站" class="headerlink" title="用Hexo+Github 搭建个人网站"></a>用Hexo+Github 搭建个人网站</h1><ol>
-<li>搭建环境准备（包括node.js和git环境，gitHub账户的配置）</li>
-<li>安装Hexo</li>
-<li>配置Hexo</li>
-<li>怎样将Hexo与github page 联系起来</li>
-<li>怎样发布文章</li>
-<li>主题 推荐</li>
-<li>主题Net的简单配置</li>
-<li>添加sitemap和feed插件</li>
-<li>添加404 公益页面</li>
-</ol>
-<p>具体操作：<a href="https://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">手把手教你用Hexo+Github 搭建属于自己的博客</a></p>
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ss sprites直译过来就是CSS精灵。通常被解释为“CSS图像拼合”或“CSS贴图定位”。其实就是通过将多个图片融合到一张图里面，然后通过CSS background背景定位技术技巧布局网页背景。</p>
+<h1 id="为什么要使用CSS-sprites"><a href="#为什么要使用CSS-sprites" class="headerlink" title="为什么要使用CSS sprites"></a>为什么要使用CSS sprites</h1><p>这样做的好处也是显而易见的，因为图片多的话，会增加http的请求，无疑促使了网站性能的减低，特别是图片特别多的网站，如果能用css sprites降低图片数量，带来的将是速度的提升。 </p>
+<h1 id="如何使用CSS-sprites"><a href="#如何使用CSS-sprites" class="headerlink" title="如何使用CSS sprites"></a>如何使用CSS sprites</h1><p>css sprites是什么通俗解释：CSS Sprites其实就是把网页中一些背景图片整合拼合成一张图片中，再利用DIV CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片在布局盒子对象位置。<br><a href="https://www.jianshu.com/p/84d7aa090ba1" target="_blank" rel="noopener">前端必备 CSS Sprites雪碧图生成工具</a></p>
 
           
         
@@ -1787,7 +1107,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考2/svn和git有什么区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考5/HTML中dl、ul、ol用哪个比较好？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -1806,7 +1126,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/07/CSS层叠样式表/CSS深度思考2/svn和git有什么区别/" itemprop="url">svn和git有什么区别?</a></h1>
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考5/HTML中dl、ul、ol用哪个比较好？/" itemprop="url">HTML中dl、ul、ol用哪个比较好？</a></h1>
         
 
         <div class="post-meta">
@@ -1818,8 +1138,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-07T23:06:06+08:00">
-                2019-10-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:38:26+08:00">
+                2019-10-09
               </time>
             
 
@@ -1852,8 +1172,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考2/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考2</span>
+                  <a href="/categories/层叠样式表CSS/深度思考5/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考5</span>
                   </a>
                 </span>
 
@@ -1891,106 +1211,643 @@
       
         
           
-            <h1 id="svn与git简介"><a href="#svn与git简介" class="headerlink" title="svn与git简介"></a>svn与git简介</h1><h2 id="SVN-（集中式版本控制系统）"><a href="#SVN-（集中式版本控制系统）" class="headerlink" title="SVN （集中式版本控制系统）"></a><strong>SVN</strong> （集中式版本控制系统）</h2><p>SVN是Subversion的简称，是一个开放源代码的版本控制系统,支持大多数常见的操作系统。作为一个开源的版本控制系统,Subversion管理着随时间改变的数据。这些数据放置在一个中央资料档案库(repository)中。这个档案库很像一个普通的文件服务器,不过它会记住每一次文件的变动。这样你就可以把档案恢复到旧的版本,或是浏览文件的变动历史。Subversion是一个通用的系统,可用来管理任何类型的文件,其中包括了程序源码。</p>
-<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a><strong>工作流程</strong></h3><p><a href="http://baike.baidu.com/view/3794518.htm" target="_blank" rel="noopener">集中式管理</a>的工作流程如下图：</p>
-<p>   <img src="https://img-blog.csdn.net/20160129151818496" alt="img"></p>
-<p>集中式代码管理的核心是<a href="http://baike.baidu.com/view/899.htm" target="_blank" rel="noopener">服务器</a>，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。如果脱离了服务器，开发者基本上可以说是无法工作的。下面举例说明：</p>
-<p>开始新一天的工作：</p>
-<ol>
-<li>从服务器下载项目组最新代码。</li>
-<li>进入自己的分支，进行工作，每隔一个小时向服务器自己的分支提交一次代码（很多人都有这个习惯。因为有时候自己对代码改来改去，最后又想还原到前一个小时的版本，或者看看前一个小时自己修改了哪些代码，就需要这样做了）。</li>
-<li>下班时间快到了，把自己的分支合并到服务器主分支上，一天的工作完成，并反映给服务器。</li>
-</ol>
-<h3 id="SVN属于集中化的版本控制系统"><a href="#SVN属于集中化的版本控制系统" class="headerlink" title="SVN属于集中化的版本控制系统"></a>SVN属于集中化的版本控制系统</h3><p>​     这种做法带来了许多好处，特别是相较于老式的本地VCS来说。现在，每个人都可以一定程度上看到项目中的其他人正在做些什么。而管理员也可以轻松掌控每个开发者的权限。<br>事分两面，有好有坏。这么做最显而易见的缺点是中央服务器的单点故障。若是宕机一小时，那么在这一小时内，谁都无法提交更新、还原、对比等，也就无法协同工作。如果中央服务器的磁盘发生故障，并且没做过备份或者备份得不够及时的话，还会有丢失数据的风险。最坏的情况是彻底丢失整个项目的所有历史更改记录，被客户端提取出来的某些快照数据除外，但这样的话依然是个问题，你不能保证所有的数据都已经有人提取出来。<br>Subversion原理上只关心文件内容的具体差异。每次记录有哪些文件作了更新，以及都更新了哪些行的什么内容。</p>
-<h3 id="Subversion的特点"><a href="#Subversion的特点" class="headerlink" title="Subversion的特点"></a>Subversion的特点</h3><ol>
-<li>每个版本库有唯一的URL（官方地址），每个用户都从这个地址获取代码和数据；</li>
-<li>获取代码的更新，也只能连接到这个唯一的版本库，同步以取得最新数据；</li>
-<li>提交必须有网络连接（非本地版本库）；</li>
-<li>提交需要授权，如果没有写权限，提交会失败；</li>
-<li>提交并非每次都能够成功。如果有其他人先于你提交，会提示“改动基于过时的版本，先更新再提交”… 诸如此类；</li>
-<li>冲突解决是一个提交速度的竞赛：手快者，先提交，平安无事；手慢者，后提交，可能遇到麻烦的冲突解决。</li>
-</ol>
-<h2 id="GIT（分布式版本控制系统）"><a href="#GIT（分布式版本控制系统）" class="headerlink" title="GIT（分布式版本控制系统）"></a>GIT（分布式版本控制系统）</h2><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目</p>
-<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
-<p>分布式相比于集中式的最大区别在于开发者可以提交到本地，每个开发者通过克隆（git clone），在本地机器上拷贝一个完整的Git仓库.</p>
-<h3 id="工作流程-1"><a href="#工作流程-1" class="headerlink" title="工作流程"></a><strong>工作流程</strong></h3><p>下图是经典的git开发过程。</p>
-<p><img src="https://img-blog.csdn.net/20160129151822850" alt="img"></p>
-<h3 id="Git的功能特性"><a href="#Git的功能特性" class="headerlink" title="Git的功能特性"></a>Git的功能特性</h3><p>从<strong>一般开发者</strong>的角度来看，git有以下功能：</p>
-<ol>
-<li>从服务器上克隆完整的Git仓库（包括代码和版本信息）到单机上。</li>
-<li>在自己的机器上根据不同的开发目的，创建分支，修改代码。</li>
-<li>在单机上自己创建的分支上提交代码。</li>
-<li>在单机上合并分支。</li>
-<li>把服务器上最新版的代码fetch下来，然后跟自己的主分支合并。</li>
-<li>生成补丁（patch），把补丁发送给主开发者。</li>
-<li>看主开发者的反馈，如果主开发者发现两个一般开发者之间有冲突（他们之间可以合作解决的冲突），就会要求他们先解决冲突，然后再由其中一个人提交。如果主开发者可以自己解决，或者没有冲突，就通过。</li>
-<li>一般开发者之间解决冲突的方法，开发者之间可以使用pull 命令解决冲突，解决完冲突之后再向主开发者提交补丁。</li>
-</ol>
-<p>从<strong>主开发者</strong>的角度（假设主开发者不用开发代码）看，git有以下功能：</p>
-<ol>
-<li><p>查看邮件或者通过其它方式查看一般开发者的提交状态。</p>
-</li>
-<li><p>打上补丁，解决冲突（可以自己解决，也可以要求开发者之间解决以后再重新提交，如果是开源项目，还要决定哪些补丁有用，哪些不用）。</p>
-</li>
-<li><p>向公共服务器提交结果，然后通知所有开发人员。 </p>
-</li>
-</ol>
-<h3 id="Git属于分布式的版本控制系统"><a href="#Git属于分布式的版本控制系统" class="headerlink" title="Git属于分布式的版本控制系统"></a>Git属于分布式的版本控制系统</h3><p>​    自2005年诞生于以来，Git日臻成熟完善，在高度易用的同时，仍然保留着初期设定的目标。它的速度飞快，极其适合管理大项目，它还有着令人难以置信的非线性分支管理系统，可以应付各种复杂的项目开发需求。</p>
-<p>   与SVN不同，Git记录版本历史只关心文件数据的整体是否发生变化。Git并不保存文件内容前后变化的差异数据。实际上，Git更像是把变化的文件作快照后，记录在一个微型的文件系统中。每次提交更新时，它会纵览一遍所有文件的指纹信息并对文件作一快照，然后保存一个指向这次快照的索引。为提高性能，若文件没有变化，Git不会再次保存，而只对上次保存的快照作一连接。</p>
-<h3 id="Git特点"><a href="#Git特点" class="headerlink" title="Git特点"></a>Git特点</h3><ol>
-<li>Git中每个克隆(clone)的版本库都是平等的。你可以从任何一个版本库的克隆来创建属于你自己的版本库，同时你的版本库也可以作为源提供给他人，只要你愿意。</li>
-<li>Git的每一次提取操作，实际上都是一次对代码仓库的完整备份。提交完全在本地完成，无须别人给你授权，你的版本库你作主，并且提交总是会成功。</li>
-<li>甚至基于旧版本的改动也可以成功提交，提交会基于旧的版本创建一个新的分支。</li>
-<li>Git的提交不会被打断，直到你的工作完全满意了，PUSH给他人或者他人PULL你的版本库，合并会发生在PULL和PUSH过程中，不能自动解决的冲突会提示您手工完成。</li>
-<li>冲突解决不再像是SVN一样的提交竞赛，而是在需要的时候才进行合并和冲突解决。</li>
-</ol>
-<h1 id="svn和git的区别"><a href="#svn和git的区别" class="headerlink" title="svn和git的区别"></a>svn和git的区别</h1><ol>
-<li><p>SVN属于集中化的版本控制系统，有个不太精确的比喻:SVN = 版本控制+ 备份服务器SVN使用起来有点像是档案仓库的感觉，支持并行读写文件，支持代码的版本化管理，功能包括取出、导入、更新、分支、改名、还原、合并等。</p>
-<p>Git是一个分布式版本控制系统，操作命令包括：clone，pull，push,branch ,merge ,push,rebase，Git擅长的是程序代码的版本化管理。</p>
-</li>
-<li><p>GIT跟SVN一样有自己的集中式版本库或服务器。但，GIT更倾向于被使用于分布式模式，也就是每个开发人员从中心版本库/服务器上chect out代码后会在自己的机器上克隆一个自己的版本库。</p>
-<p>可以这样说，如果你被困在一个不能连接网络的地方时，就像在飞机上，地下室，电梯里等，你仍然能够提交文件，查看历史版本记录，创建项目分支，等。对一些人来说，这好像没多大用处，但当你突然遇到没有网络的环境时，这个将解决你的大麻烦。</p>
-</li>
-<li><p>GIT把内容按元数据方式存储，而SVN是按文件所有的资源控制系统都是把文件的元信息隐藏在一个类似.svn,.cvs等的文件夹里。</p>
-<p>如果你把.git目录的体积大小跟.svn比较，你会发现它们差距很大。因为,.git目录是处于你的机器上的一个克隆版的版本库，它拥有中心版本库上所有的东西，例如标签，分支，版本记录等。</p>
-</li>
-<li><p>分支在SVN中一点不特别，就是版本库中的另外的一个目录。如果你想知道是否合并了一个分支，你需要手工运行像这样的命令svn propget svn:mergeinfo，来确认代码是否被合并。</p>
-<p>然而，处理GIT的分支却是相当的简单和有趣。你可以从同一个工作目录下快速的在几个分支间切换。你很容易发现未被合并的分支，你能简单而快捷的合并这些文件。</p>
-</li>
-<li><p>GIT没有一个全局的版本号，而SVN有目前为止这是跟SVN相比GIT缺少的最大的一个特征。你也知道，SVN的版本号实际是任何一个相应时间的源代码快照。我认为它是从CVS进化到SVN的最大的一个突破。因为GIT和SVN从概念上就不同，我不知道GIT里是什么特征与之对应。如果你有任何的线索，请在评论里奉献出来与大家共享。</p>
-</li>
-<li><p>GIT的内容完整性要优于SVN：GIT的内容存储使用的是SHA-1哈希算法。这能确保代码内容的完整性，确保在遇到磁盘故障和网络问题时降低对版本库的破坏。 </p>
-</li>
-</ol>
-<h1 id="svn和git的优缺点"><a href="#svn和git的优缺点" class="headerlink" title="svn和git的优缺点"></a>svn和git的优缺点</h1><h2 id="SVN-的优缺点"><a href="#SVN-的优缺点" class="headerlink" title="SVN 的优缺点"></a>SVN 的优缺点</h2><p>​      SVN对中文支持好，操作简单，使用没有难度，美工人员，产品人员，测试人员，实施人员都可轻松上手。使用界面统一，功能完善，操作方便。</p>
-<h2 id="Git的优缺点"><a href="#Git的优缺点" class="headerlink" title="Git的优缺点"></a>Git的优缺点</h2><p>​      对程序源代码进行差异化的版本管理，代码库占极少的空间。易于代码的分支化管理。不支持中文，图形界面支持差，使用难度大。不易推广。 </p>
-<h1 id="svn和git适用范围的不同"><a href="#svn和git适用范围的不同" class="headerlink" title="svn和git适用范围的不同"></a>svn和git适用范围的不同</h1><ol>
-<li><p>适用对象不同。Git适用于参与开源项目的开发者。他们由于水平高，更在乎的是效率而不是易用性。SVN则不同，它适合普通的公司开发团队。使用起来更加容易。</p>
-</li>
-<li><p>使用的场合不同。Git适用于通过Internet，有多个开发角色的单个项目开发，SVN适合企业内部由项目经理统一协调的多个并行项目的开发。</p>
-</li>
-<li><p>权限管理策略不同。Git没有严格的权限管理控制，只要有帐号，就可以导出、导入代码，甚至执行回退操作。SVN则有严格的权限管理，可以按组、按个人进行针对某个子目录的权限控制。区分读、写权限。更严格的，不支持回退操作。保证代码永远可以追踪。</p>
-</li>
-<li><p>分支(branch)的使用范围不一样。Git中，你只能针对整个仓库作branch,而且一旦删除，便无法恢复。而SVN中，branch可以针对任何子目录，它本质上是一个拷贝操作。所以，可以建立非常多、层次性的branch,并且，在不需要时将其删除，而以后需要时只要checkout老的SVN版本就可以了。</p>
-</li>
-<li><p>基于第三点，Git适用于单纯的软件项目，典型的就是一些开源项目，比如Linux内核、busybox等。相反，SVN擅长多项目管理。比如，你可以在一个SVN仓库中存放一个手机项目的bsp/设计文档/文件系统/应用程序/自动化编译脚本，或者在一个SVN中存放5款手机项目的文件系统。git中必须建立n(项目数)*m（组件数）个仓库。SVN中只需要最多n或者m个就可以了。</p>
-</li>
-<li><p><strong>Git使用128位ID作为版本号</strong>，而且checkout时要注明是哪个branch,而SVN使用一个递增的序列号作为全局唯一的版本号，更加简明易懂。虽然可以使用gittag来建立一些文字化的别名，但是毕竟那只是针对特殊版本。</p>
-</li>
-<li>可跟踪性，git的典型开发过程为：建立分支，进行开发，提交到本地master，删除分支。这样做的后果是以前的修改细节会丢失。而在SVN下做同样的事情，不会丢失任何细节。这里是一个有趣的链接，表明了git下典型的工作方式：（以master为核心，不断创建新branch,删除旧branch)</li>
-<li>局部更新，局部还原。SVN由于是在每个文件夹建立一个.svn文件夹来实现管理，所以可以很简单实现局部更新或者还原。假如你只希望更新某些部分，则svn可以很好实现。同时代码写错了，同时可以很好实现局部还原，当然git也可以通过历史版本还原，但是无法简单地实现局部还原。</li>
-</ol>
-<h1 id="SVN-和-Git-哪个更适用于项目管理？"><a href="#SVN-和-Git-哪个更适用于项目管理？" class="headerlink" title="SVN 和 Git 哪个更适用于项目管理？"></a>SVN 和 Git 哪个更适用于项目管理？</h1><p>​      首先说一下，我是一个研发团队的项目经理，SVN和Git我都用过，SVN更适用于项目管理， Git仅适用于代码管理。</p>
-<p>​     一个研发队伍的成员正常包括：需求分析、设计、美工、程序员、测试、实施、运维，每个成员在工作中都有产出物，  包括了文档、设计代码、程序代码，这些都需要按项目集中进行管理的。SVN能清楚的按目录进行分类管理， 使项目组的管理处于有序高效的状态。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> <strong>总之，公司的开发团队在进行的项目开发管理时，svn是更好的选择，团队成员共同维护公司的中心版本。</strong></p>
-<p><strong>若是开源项目，则git更加适合，每个人都可以维护自己专属的版本，同时有github开源社区支持。</strong></p>
-<h1 id="参考和转载"><a href="#参考和转载" class="headerlink" title="参考和转载"></a>参考和转载</h1><p>伯乐在线:<a href="http://blog.jobbole.com/31444/" target="_blank" rel="noopener">http://blog.jobbole.com/31444/</a></p>
-<p>百度百科:<a href="http://baike.baidu.com/" target="_blank" rel="noopener">http://baike.baidu.com</a></p>
-<p>marko39:<a href="http://jingyan.baidu.com/article/676629976401a154d51b8430.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/676629976401a154d51b8430.html</a></p>
-<p>码迷网:<a href="http://www.mamicode.com/info-detail-107111.html" target="_blank" rel="noopener">http://www.mamicode.com/info-detail-107111.htm</a></p>
-<p>百度百科:<a href="http://baike.baidu.com/" target="_blank" rel="noopener">http://baike.baidu.com</a></p>
-<p>marko39:<a href="http://jingyan.baidu.com/article/676629976401a154d51b8430.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/676629976401a154d51b8430.html</a></p>
-<p>码迷网:<a href="http://www.mamicode.com/info-detail-107111.html" target="_blank" rel="noopener">http://www.mamicode.com/info-detail-107111.htm</a></p>
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ul，ol，dl标签是CSS网页布局中常用的列表元素。 列表将具有相似特征或先后顺序的内容按照从上到下的顺序排列起来。</p>
+<h1 id="具体介绍"><a href="#具体介绍" class="headerlink" title="具体介绍"></a>具体介绍</h1><p>1.ul标签：无序列表始于 u l 标签。每个列表项始于l i标签，此列项目默认使用粗体圆点（典型的小黑圆圈）进行标记。</p>
+<p>2.ol标签：有序列表始于ol标签，每个列表项始于li标签，列表项目使用数字进行标记。</p>
+<p>3.dl标签：dl标签是定义列表，自定义列表不仅仅是一列项目，而是项目及其注释的组合。自定义列表以 dl 标签开始。每个自定义列表项以 dt 开始。每个自定义列表项的定义以 dd 开始。</p>
+<h1 id="应用范围"><a href="#应用范围" class="headerlink" title="应用范围"></a>应用范围</h1><p>ul经常用来实现轮播的小按钮，下拉菜单的各种要用来排列的列表，多个a标签排列等，实用范围非常广。</p>
+<p>ol因为它的有序属性，用的范围就比较小了，不是一定要用有序来排列的情况下，一般都是用ul。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考5/如何使用IconFont？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考5/如何使用IconFont？/" itemprop="url">如何使用IconFont？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:37:44+08:00">
+                2019-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">层叠样式表CSS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/深度思考5/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="什么是IconFont"><a href="#什么是IconFont" class="headerlink" title="什么是IconFont?"></a>什么是IconFont?</h1><p>IconFont是阿里巴巴旗下的矢量图标库网站，通过搜索关键字可以获取前端开发所需的各类图标。</p>
+<h1 id="如何使用IconFont？"><a href="#如何使用IconFont？" class="headerlink" title="如何使用IconFont？"></a>如何使用IconFont？</h1><p>step 1:百度iconfont,找到阿里巴巴矢量图标库官网,然后注册登录,或者用github登录也行,此步骤跳过; </p>
+<p>step 2:找到图标管理-&gt;我的项目-&gt;然后新建项目: </p>
+<p>step 3:项目新建完成后,往项目里添加我们要想使用的图标,找到图标库,搜索一个想要的图标,然后添加到购物车; </p>
+<p>step 4:添加到购物车完成后,购物车徽章数字应该显示1了,点击右上角的购物车图标,选择添加至项目,选择我们刚刚创建的项目,确定; </p>
+<p>step 5:接下来一部比较关键,将打包好的字体文件下载到本地添加到你的项目中,在项目中引用文件中的iconfont.css文件; </p>
+<p>step 6:到了最后一步了,如何在项目中使用字体图标呢,其实很简单,创建一个i标签或者span标签,添加两个类名,一个固定的是iconfont,另一个是你想要的那个图标对应的类名:</p>
+<blockquote>
+<p>参考资料：<a href="https://blog.csdn.net/why12345678901/article/details/89633705" target="_blank" rel="noopener">如何使用IconFont</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考5/title与h1、b与strong、i与em、img的alt与title、src与href有什么区别？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考5/title与h1、b与strong、i与em、img的alt与title、src与href有什么区别？/" itemprop="url">title与h1、b与strong、i与em、img的alt与title、src与href有什么区别？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:37:12+08:00">
+                2019-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">层叠样式表CSS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/深度思考5/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="title与h1"><a href="#title与h1" class="headerlink" title="title与h1"></a>title与h1</h1><p><strong>title</strong>的权重高于H1,其适用性要比H1广。</p>
+<h1 id="b与strong、i与em"><a href="#b与strong、i与em" class="headerlink" title="b与strong、i与em"></a>b与strong、i与em</h1><p>物理元素：b、i </p>
+<p>逻辑元素：em、strong </p>
+<p> 物理元素是告诉浏览器我应该以何种格式显示文字，逻辑元素告诉浏览器这些文字有怎么样的重要性。  </p>
+<p><strong>结论</strong>：对于搜索引擎来说<strong>逻辑元素</strong>比物理元素要重视的多。 </p>
+<h1 id="mg的alt与title"><a href="#mg的alt与title" class="headerlink" title="mg的alt与title"></a>mg的alt与title</h1><p>alt 用于图片没显示时在图片显示区域显示一个说明文字。  title 表示鼠标在图片上停留时，显示一个悬浮框，其中显示的文字。  </p>
+<h1 id="src与href"><a href="#src与href" class="headerlink" title="src与href"></a>src与href</h1><p>src是source的缩写，src的内容是页面必不可少的一部分，是引入。src指向的内容会嵌入到文档中当前标签所在的位置。常用的有：img、script、iframe。<br>href是Hypertext Reference的缩写，表示超文本引用。用来建立当前元素和文档之间的链接。常用的有：link、a。</p>
+<p><strong>结论</strong>：src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考5/请解释一下CSS3的Flexbox（弹性盒布局模型）以及适用场景？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考5/请解释一下CSS3的Flexbox（弹性盒布局模型）以及适用场景？/" itemprop="url">请解释一下CSS3的Flexbox（弹性盒布局模型）以及适用场景？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:36:45+08:00">
+                2019-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">层叠样式表CSS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/深度思考5/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Flexbox（弹性盒布局模型）"><a href="#Flexbox（弹性盒布局模型）" class="headerlink" title="Flexbox（弹性盒布局模型）"></a>Flexbox（弹性盒布局模型）</h1><p>2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
+<p>参考资料：<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></p>
+<h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p>布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。–Flex 布局，可以简便、完整、响应式地实现各种页面布局。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考5/如何理解vertical-align与line-height？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/09/CSS层叠样式表/CSS深度思考5/如何理解vertical-align与line-height？/" itemprop="url">如何理解vertical-align与line-height？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T23:36:13+08:00">
+                2019-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">层叠样式表CSS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/深度思考5/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>vertical-align 属性设置元素的垂直对齐方式。<br>line-height 属性设置行间的距离（行高）。</p>
+<p>参考资料：<br><a href="https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/" target="_blank" rel="noopener">CSS深入理解vertical-align和line-height的基友关系</a></p>
 
           
         
@@ -2030,7 +1887,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2076,7 +1933,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2087,7 +1944,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

@@ -2,20 +2,20 @@
 <search>
   <entry>
     <title><![CDATA[请描述 BFC(Block Formatting Context) 及其如何工作？]]></title>
-    <url>%2F2019%2F10%2F11%2FCSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8%2FCSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8312-14%2F%E8%AF%B7%E6%8F%8F%E8%BF%B0-BFC-Block-Formatting-Context-%E5%8F%8A%E5%85%B6%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F%2F</url>
+    <url>%2F2019%2F10%2F11%2FCSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8%2FCSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315%2F%E8%AF%B7%E6%8F%8F%E8%BF%B0-BFC-Block-Formatting-Context-%E5%8F%8A%E5%85%B6%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[什么是BFC BFC(block formatting context）简单来说，BFC 就是一种属性，这种属性会影响着元素的定位以及与其兄弟元素之间的相互作用。 中文常译为块级格式化上下文。是 W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行定位，以及与其他元素的关系和相互作用。 在进行盒子元素布局的时候，BFC提供了一个环境，在这个环境中按照一定规则进行布局不会影响到其它环境中的布局。比如浮动元素会形成BFC，浮动元素内部子元素的主要受该浮动元素影响，两个浮动元素之间是互不影响的。 也就是说，如果一个元素符合了成为BFC的条件，该元素内部元素的布局和定位就和外部元素互不影响(除非内部的盒子建立了新的 BFC)，是一个隔离了的独立容器。（在 CSS3 中，BFC 叫做 Flow Root） 形成 BFC 的条件1、浮动元素，float 除 none 以外的值； 2、绝对定位元素，position（absolute，fixed）； 3、display 为以下其中之一的值 inline-blocks，table-cells，table-captions； 4、overflow 除了 visible 以外的值（hidden，auto，scroll）]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
     <title><![CDATA[谈谈以前端角度出发做好SEO需要考虑什么？]]></title>
-    <url>%2F2019%2F10%2F11%2FCSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8%2FCSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8312-14%2F%E8%B0%88%E8%B0%88%E4%BB%A5%E5%89%8D%E7%AB%AF%E8%A7%92%E5%BA%A6%E5%87%BA%E5%8F%91%E5%81%9A%E5%A5%BDSEO%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E4%BB%80%E4%B9%88%EF%BC%9F%2F</url>
+    <url>%2F2019%2F10%2F11%2FCSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8%2FCSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315%2F%E8%B0%88%E8%B0%88%E4%BB%A5%E5%89%8D%E7%AB%AF%E8%A7%92%E5%BA%A6%E5%87%BA%E5%8F%91%E5%81%9A%E5%A5%BDSEO%E9%9C%80%E8%A6%81%E8%80%83%E8%99%91%E4%BB%80%E4%B9%88%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[谈谈以前端角度出发做好SEO需要考虑什么？搜索引擎工作原理在搜索引擎网站，比如百度，在其后台有一个非常庞大的数据库，里面存储了海量的关键词，而每个关键词又对应着很多网址，这些网址是百度程序从茫茫的互联网上一点一点下载收集而来的，这些程序称之为“搜索引擎蜘蛛”或“网络爬虫”。这些勤劳的“蜘蛛”每天在互联网上爬行，从一个链接到另一个链接，下载其中的内容，进行分析提炼，找到其中的关键词，如果“蜘蛛”认为关键词在数据库中没有而对用户是有用的便存入数据库。反之，如果“蜘蛛”认为是垃圾信息或重复信息，就舍弃不要，继续爬行，寻找最新的、有用的信息保存起来提供用户搜索。当用户搜索时，就能检索出与关键字相关的网址显示给访客。 一个关键词对应多个网址，因此就出现了排序的问题，相应的与关键词吻合权重高的网址就会排在前面了。在“蜘蛛”抓取网页内容，提炼关键词的这个过程中，就存在一个问题：“蜘蛛”能否看懂。如果网站内容都是是flash和js，那么它是看不懂的，会犯迷糊，即使关键字再贴切也没用。相应的，如果网站内容是它的语言，那么它便能看懂，它的语言即SEO。 从宏观的角度来说，SEO有三条最重要的规律，那就是原创的内容、高质量的外部链接和适度的优化。前端是构建网站中很重要的一个环节，本节重点从前端的角度来讲解一下SEO的实施方法。 前端的工作主要是负责页面的HTML+CSS+JS，优化好这几个方面会为SEO工作打好一个坚实的基础。突出重点内容可以让搜索引擎判断当前页面的重点是什么，提升网站的访问速度可以让搜索引擎的蜘蛛顺利、快速、大量的抓取页面内容，所以我就着重以突出重要内容和提升网站速度来总结一下。 搜索引擎的抓取工具百度百度通过一个叫做Baiduspider的程序抓取互联网上的网页，经过处理后建入索引中。 1、对网站抓取的友好性：会制定一个规则最大限度的利用带宽和一切资源获取信息，同时也会仅最大限度降低对所抓取网站的压力。 2、识别url重定向：对互联网众多的url重新识别 3、百度蜘蛛抓取优先级合理使用： 优先抓取的策略主要有：深度优先、宽度优先、反链优先，在我接触这么长时间里，PR优先是经常遇到的。 4、无法抓取数据的获取： 在互联网中可能会出现各种问题导致百度蜘蛛无法抓取信息，在这种情况下百度开通了手动提交数据。 5、对作弊信息的抓取： 百度出台了绿萝、石榴等算法对作弊链接进行过滤，据说内部还有一些其他方法进行判断，这些方法没有对外透露。 谷歌（谷歌使用许多计算机来提取（或“抓取”）网站上的大量网页。Googlebot 使用算法确定抓取过程：计算机程序确定要抓取的网站、抓取频率以及从每个网站抓取的网页数量。 进行抓取时，Googlebot 会先查看以前的抓取过程所生成的一系列网页网址，包含网站站长提供的站点地图数据。 Googlebot 在访问其中的每个网站时，会检测各网页上的链接（SRC 和 HREF），并将这些链接添加到要抓取的网页列表。 它会记录新出现的网站、现有网站的更新以及无效链接，并据此更新 Google 索引。 什么样的网站可以更好的被搜索引擎检索到对搜索引擎越友好，网站权重越高，排名就越高，就更容易被检索到。从拟人化的角度来看待搜索引擎蜘蛛，可以得出一些结论。 首先你需要投其所好，网站结构脉络需要符合蜘蛛阅读的习惯，代码杂乱无章，蜘蛛看着都头疼，就无法给他留个好印象了； 其次，网站深度不能太深，从首页到目标页跳转最好不能超过四次，再多的话蜘蛛就头晕了，转不出来，下次他就不再光顾，我们只能往后站； 再次，当蜘蛛进入一个网站，半天加载不出来，他每天这么繁重的工作量，哪里会有时间慢慢等加载完成，相信印象也不会有多好了； 最后，内容是一个网站存在的基础，蜘蛛循着一个关键词来到我们的网站，转了一圈，发现跟他想找的东西风马牛不相及，他可就头大了，直接就打入冷宫吧。 看到这里相信大家会对SEO充满好奇了吧，到底怎样才能做好SEO呢？虽然说SEO更多的是运营的工作，布关键词发外链是一项繁重而长期的工程，但是作为网站建设人员，我们也有一些点可以注意，一样可以对SEO有所帮助。 前端角度出发有哪些注意事项有利于SEO##1.维护网站，提高内容质量，保持更新 搜索引擎会考评网站的质量，保持网站的经常更新，使网站拥有大量的、有用的、可读性强的优质信息。网站的权重会相应的提升。为了保持更新频率而去抄袭并不可取。 2.网站结构布局优化：尽量简单、开门见山，提倡扁平化结构。一般而言，建立的网站结构层次越少，越容易被“蜘蛛”抓取，也就容易被收录。一般中小型网站目录结构超过三级，“蜘蛛”便不愿意往下爬，并且根据相关调查：访客如果经过跳转3次还没找到需要的信息，很可能离开。因此，三层目录结构也是体验的需要。 3.控制首页链接数量网站首页是权重最高的地方，如果首页链接太少，没有“桥”，“蜘蛛”不能继续往下爬到内页，直接影响网站收录数量。但是首页链接也不能太多，一旦太多，没有实质性的链接，很容易影响用户体验，也会降低网站首页的权重，收录效果也不好。注意链接要建立在用户的良好体验和引导用户获取信息的基础之上。 4.导航优化导航应该尽量采用文字方式，也可以搭配图片导航，但是图片代码一定要进行优化，img标签必须添加“alt”和“title”属性，告诉搜索引擎导航的定位，做到即使图片未能正常显示时，用户也能看到提示文字。其次，在每一个网页上应该加上面包屑导航，好处：从用户体验方面来说，可以让用户了解当前所处的位置以及当前页面在整个网站中的位置，帮助用户很快了解网站组织形式，从而形成更好的位置感，同时提供了返回各个页面的接口，方便用户操作；对“蜘蛛”而言，能够清楚的了解网站结构，同时还增加了大量的内部链接，方便抓取，降低跳出率。 5.控制页面的大小减少http请求，提高网站的加载速度。当速度很慢时，用户体验不好，留不住访客，并且一旦超时，“蜘蛛”也会离开。 6.适量的关键词和网页描述关键词不宜太多也不宜太少，列举出几个页面的重要关键字即可，切记过分堆砌。网页描述要准确，精简地描述网页的内容。 1.title标题：只强调重点即可，尽量把重要的关键词放在前面，关键词不要重复出现，尽量做到每个页面的title标题中不要设置相同的内容。 2.meta keywords标签：关键词，列举出几个页面的重要关键字即可，切记过分堆砌。 3.meta description标签：网页描述，需要高度概括网页内容，切记不能太长，过分堆砌关键词，每个页面也要有所不同。 4.body中的标签：尽量让代码语义化，在适当的位置使用适当的标签，用正确的标签做正确的事。让阅读源码者和“蜘蛛”都一目了然。比如：h1-h6 是用于标题类的，nav标签是用来设置页面主导航的等。 对于搜索引擎来说，最直接面对的就是网页HTML代码，如果代码写的语义化，搜索引擎就会很容易的读懂该网页要表达的意思。例如文本模块要有大标题，合理利用h1-h6，列表形式的代码使用ul或ol，重要的文字使用strong等等。总之就是要充分利用各种HTML标签完成他们本职的工作，当然要兼容IE、火狐、Chrome等主流浏览器。我们来看看著名的禅意花园网站（http://www.csszengarden.com/），在没有样式的情况下，代码非常语义化，看起来很工整，加载不同的样式之后可以随心所欲的改变页面外观。 5.a标签：页内链接，要加 “title” 属性加以说明，让访客和 “蜘蛛” 知道。而外部链接，链接到其他网站的，则需要加上 el=”nofollow” 属性, 告诉 “蜘蛛” 不要爬，因为一旦“蜘蛛”爬了外部链接之后，就不会再回来了。 6.img应使用 “alt” 属性加以说明。为图片加上alt属性,当网络速度很慢，或者图片地址失效的时候，就可以体现出alt属性的作用，他可以让用户在图片没有显示的时候知道这个图片的作用。 7.strong、em标签 : 需要强调时使用。strong标签在搜索引擎中能够得到高度的重视，它能突出关键词，表现重要的内容，em标签强调效果仅次于strong标签。 9.巧妙利用CSS布局，将重要内容的HTML代码放在最前面，最前面的内容被认为是最重要的，优先让“蜘蛛”读取，进行内容关键词抓取。搜索引擎抓取HTML内容是从上到下，利用这一特点，可以让主要代码优先读取，广告等不重要代码放在下边。例如，在左栏和右栏的代码不变的情况下，只需改一下样式，利用float:left;和float:right;就可以随意让两栏在展现上位置互换，这样就可以保证重要代码在最前，让爬虫最先抓取。同样也适用于多栏的情况。 10.谨慎使用 display：none ：对于不想显示的文字内容，应当设置z-index或设置到浏览器显示器之外。因为搜索引擎会过滤掉display:none其中的内容。 11.保留文字效果 如果需要兼顾用户体验和SEO效果，在必须用图片的地方，例如个性字体的标题，我们可以利用样式控制，让文本文字不会出现在浏览器上，但在网页代码中是有该标题的。例如这里的“电视剧分类”，为了完美还原设计图，前端工程师可以把文字做成背景图，之后用样式让html中的文字的缩进设置成足够大的负数，偏离出浏览器之外，也可以利用设置行高的方法让文字隐藏。 12.利用CSS截取字符 如果文字长度过长，可以用样式截取，设置高度，超出的部分隐藏即可。这样做的好处是让文字完整呈现给搜索引擎，同时在表现上也保证了美观。 版权声明：本文为CSDN博主「jnshu_it」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。 原文链接：https://blog.csdn.net/jnshu_it/article/details/80029988]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -24,7 +24,7 @@
     <content type="text"><![CDATA[CSS contentcontent 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。 实例： 12345678910111213&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;a:after &#123;content: &quot; (&quot; attr(href) &quot;)&quot;;&#125;&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://tianxintiandisheng.github.io&quot;&gt;天心天地生的个人博客&lt;/a&gt; - 免费的在线笔记&lt;/p&gt;&lt;p&gt;&lt;b&gt;注意:&lt;/b&gt;仅当 !DOCTYPE已经定义 IE8支持 content属性&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; 应用 最基本的 – 生成内容 content属性与:before及:after伪元素配合使用生成文本内容 嵌入文字符号 使用计数器创建号码内容 为多语言内容插入正确的引号 用图片替换文字 显示相对应的链接图标 使用属性值作为content内容]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -33,7 +33,7 @@
     <content type="text"><![CDATA[微格式建立在已有的、被广泛采用的标准基础之上的一组简单的、开放的数据格式（microformats.org官方定义）。 是把语义嵌入到HTML以便有助于分离式开发而制定的一些简单约定，是兼顾人机可读性设计的数据表达方式，对Web网页进行语义注解的方法。 这种方法依托于标准的Web页面写作技术，例如，XHTML，这样引入语义信息对浏览器等所有现存的Web技术冲击最小。采用Microformat的 Web页面，在XHTML文档中给一些标签（Tag）增加一些属性（attribute），这些属性对信息的语义结构进行注解，处理XHTML文档的软件， 实例简单的微格式我们从上面的描述知道，微格式实际就是为现有的(X)HTML元素添加元数据和其他属性，增强语义。那么我们就来看一个简单的微格式应用吧。 以前我们是这样写一个链接到首页的&lt;a&gt;&lt;/a&gt;代码的： 1&lt;a href=”http://www.bbon.cn”&gt;Web Design Blog&lt;/a&gt; 而现在我们要为这个代码元素&lt;a&gt;加上 rel属性。1&lt;a href=”http://www.bbon.cn“ rel=”homepage”&gt;Web Design Blog&lt;/a&gt; 上面的链接标记&lt;a&gt;包括rel=”home”属性，该属性显示链接的目标页面是该网站的首页。通过为已有的链接元素添加语义化属性，就为这个链接添加了具体的结构和意义。 hCard 微格式hCard是一种微格式，用来发布个人，公司，组织，地点等详细的联系信息。它可以包含在(X)HTML，Atom，RSS等可扩展置标语言中。hCard使用vCard（RFC 2426）的属性和值来实现这些功能。 它可以使分析器（比如其他网站，Firefox的Operator插件）获得详细的信息，并通过别的网站或者地图工具进行显示，或者载入到地址簿等其他程序。 示例一如下HTML代码： 123456&lt;div&gt;&lt;div&gt;Joe Doe&lt;/div&gt;&lt;div&gt;The Example Company&lt;/div&gt;&lt;div&gt;604-555-1234&lt;/div&gt;&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;&lt;/div&gt; 加入微格式后，成为： 123456&lt;div class=&quot;vcard&quot;&gt;&lt;div class=&quot;fn&quot;&gt;Joe Doe&lt;/div&gt;&lt;div class=&quot;org&quot;&gt;The Example Company&lt;/div&gt;&lt;div class=&quot;tel&quot;&gt;604-555-1234&lt;/div&gt;&lt;a class=&quot;url&quot; href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;&lt;/div&gt; 这里，正式名称（class=”fn”），组织（class=”org”），电话号码（class=”tel”）和url（class=”url”）分别用相应的class标示；同时，所有内容都包含在class=”vcard”里。 示例二这里是维基媒体基金会的联系方式，可以作为hCard的一个真实示例： 12345678910111213Wikimedia Foundation Inc.200 2nd Ave. South #358St. Petersburg, FL 33701-4313USAPhone: +1-727-231-0101Email: info@wikimedia.orgFax: +1-727-258-0207 加入微格式后，成为： 1234567891011121314151617&lt;div class=&quot;vcard&quot;&gt;&lt;div class=&quot;fn org&quot;&gt;Wikimedia Foundation Inc.&lt;/div&gt;&lt;div class=&quot;adr&quot;&gt;&lt;div class=&quot;street-address&quot;&gt;200 2nd Ave. South #358&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;locality&quot;&gt;St. Petersburg&lt;/span&gt;,&lt;span class=&quot;region&quot;&gt;FL&lt;/span&gt; &lt;span class=&quot;postal-code&quot;&gt;33701-4313&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;country-name&quot;&gt;USA&lt;/div&gt;&lt;/div&gt;&lt;div&gt;Phone: &lt;span class=&quot;tel&quot;&gt;+1-727-231-0101&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Email: &lt;span class=&quot;email&quot;&gt;info@wikimedia.org&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;tel&quot;&gt;&lt;span class=&quot;type&quot;&gt;Fax&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;+1-727-258-0207&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt; 注意，在这个例子中，正式名称（class=”fn”）和组织（class=”org”）写在了一个属性中，表示这是一个组织，而不是个人。 在前端构建中微格式的意义那么，微格式在实际应用中的意义和作用又是什么呢？微格式按照某种已有的被广泛应用的标准，通过对内容块的语义标记，可以让外部应用程序、聚合程序和搜索引擎能够做以下事情： 在爬取Web内容时，能够更为准确地识别内容块的语义； 对内容进行操作，包括提供访问、校对，还可以将其转化成其他的相关格式，提供给外部程序和Web服务使用。 总结： 可以对网站进行SEO优化，如果需要可以考虑。 参考资料什么是微格式及实例 版权声明：本文为CSDN博主「deng131」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。原文链接：https://blog.csdn.net/deng131/article/details/83632737]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -42,7 +42,7 @@
     <content type="text"><![CDATA[HTML5 提拱更好的本地存储规范 localStorage 和 sessionStorage , 它们将数据存储在本地，而且在http请求时不会携带 Storage 里的信息, 使用方式也很简单: 123456localStorage.setItem(&apos;key&apos;, &apos;value&apos;);localStorage.getItem(&apos;key&apos;);localStorage.removeItem(&apos;key&apos;);sessionStorage.setItem(&apos;key&apos;, &apos;value&apos;);sessionStorage.getItem(&apos;key&apos;);sessionStorage.removeItem(&apos;key&apos;); sessionStorage 和 localStorage 使用方式及特性基本一致， 唯一的区别是： localStorage - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。 sessionStorage - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。 参考资料：HTML5 Web 存储]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -51,7 +51,7 @@
     <content type="text"><![CDATA[渐进增强在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。 总结： 以最低要求，实现最基础功能为基本，向上兼容. 优雅降级在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏览器被认为“简陋却无妨 (poor, but passable)” 可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。 总结： 以高要求，高版本为基准，向下兼容。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -60,16 +60,16 @@
     <content type="text"><![CDATA[Quirks怪癖模式是什么 从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。 在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？ 在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD（文档类型定义）当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。 Quirks和Standards模式有什么区别总体会有布局、样式解析和脚本执行三个方面的区别。 盒模型：在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks 模式下，IE的宽度和高度还包含了padding和border。 设置行内元素的高宽：在Standards模式下，给等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。 设置百分比的高度：在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的 用margin:0 auto设置水平居中：使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
     <title><![CDATA[经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？]]></title>
-    <url>%2F2019%2F10%2F11%2FCSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8%2FCSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8312-14%2F%E7%BB%8F%E5%B8%B8%E9%81%87%E5%88%B0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%8E%9F%E5%9B%A0%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E5%B8%B8%E7%94%A8hack%E7%9A%84%E6%8A%80%E5%B7%A7-%EF%BC%9F%2F</url>
+    <url>%2F2019%2F10%2F11%2FCSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8%2FCSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315%2F%E7%BB%8F%E5%B8%B8%E9%81%87%E5%88%B0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%8E%9F%E5%9B%A0%EF%BC%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E5%B8%B8%E7%94%A8hack%E7%9A%84%E6%8A%80%E5%B7%A7-%EF%BC%9F%2F</url>
     <content type="text"><![CDATA[浏览器兼容性问题出现浏览器兼容性问题的主要原因，是不同浏览器对同一段代码的有不同解析，造成的页面显示效果不统一。 在大多数情况下，我们的需求是，无论用户在什么浏览器上查看我们的网站或登录我们的系统，显示效果都应该是一致的。所以浏览器兼容性问题是我们web前端开发人员经常会碰到和必须解决的问题。 什么是css hack不同的浏览器对CSS的解析结果是不同的，因此会导致相同的CSS输出的页面效果不同，这就需要CSS Hack来解决浏览器局部的兼容性问题。而这个针对不同的浏览器写不同的CSS 代码的过程，就叫CSS Hack。 常见的兼容性问题 浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。 png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8. Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示, 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。 （可通过加入 CSS 属性transform: scale(0.75,0.75); 解决） IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。解决方案是在float的标签样式控制中加入 display:inline;将其转化为行内属性。 在ie6，ie7中元素高度超出自己设置高度。原因是IE8以前的浏览器中会给元素设置默认的行高的高度导致的。解决方案是加上overflow:hidden或设置line-height为更小的高度。 min-height在IE6下不起作用。解决方案是添加 height:auto !important;height:xxpx;其中xx就是min-height设置的值。 透明性IE用filter:Alpha(Opacity=60)，而其他主流浏览器用 opacity:0.6; a(有href属性)标签嵌套下的img标签，在IE下会带有边框。解决办法是加上a img{border:none;}样式。 input边框问题。去掉input边框一般用border:none;就可以，但由于IE6在解析input样式时的BUG(优先级问题)，在IE6下无效。 ie6的默认CSS样式，涉及到border的有border-style:inset;border-width:2px;浏览器根据自己的内核解析规则，先解析自身的默认CS再 解析开发者书写的CSS，达到渲染标签的目的。IE6对INPUT的渲染存在bug，border:none;不被解析，当有border-width或border-colo r设置的时候才会令IE6去解析border-style:none;。解决方案是用:border:0或border:0 none;或border:none:border-color:transparent;，推荐用第三种方案。 常用hack的技巧CSS Hack常见的有三种形式CSS属性Hack、CSS选择符Hack以及IE条件注释Hack， Hack主要针对IE浏览器。 1、属性级Hack：比如IE6能识别下划线””和星号” “，IE7能识别星号” “，但不能识别下划线””，而firefox两个都不能认识。 2、选择符级Hack：比如IE6能识别html .class{}，IE7能识别+html .class{}或者*:first-child+html .class{}。 3、IE条件注释Hack：IE条件注释是微软从IE5开始就提供的一种非标准逻辑语句。比如针对所有IE：&lt;!–[if IE]&gt;&lt;!–您的代码–&gt;&lt;![endif]–&gt;，针对IE6及以下版本：&lt;!–[if lt IE 7]&gt;&lt;!–您的代码–&gt;&lt;![endif]–&gt;，这类Hack不仅对CSS生效，对写在判断语句里面的所有代码都 会生效。 PS：条件注释只有在IE浏览器下才能执行，这个代码在非IE浏览下被当做注释视而不见。可以通过IE条件注释载入不同的CSS、JS、HTML和服务器代码等。 常用的CSS Hack123456789101112131415161718192021222324252627282930/* CSS属性级Hack */color:red; /* 所有浏览器可识别*/_color:red; /* 仅IE6 识别 */*color:red; /* IE6、IE7 识别 */+color:red; /* IE6、IE7 识别 */*+color:red; /* IE6、IE7 识别 */[color:red; /* IE6、IE7 识别 */color:red9; /* IE6、IE7、IE8、IE9 识别 */color:red; /* IE8、IE9 识别*/color:red9; /* 仅IE9识别 */color:red ; /* 仅IE9识别 */color:red!important; /* IE6 不识别!important*/-------------------------------------------------------------/* CSS选择符级Hack */*html #demo &#123; color:red;&#125; /* 仅IE6 识别 */*+html #demo &#123; color:red;&#125; /* 仅IE7 识别 */body:nth-of-type(1) #demo &#123; color:red;&#125; /* IE9+、FF3.5+、Chrome、Safari、Opera 可以识别 */head:first-child+body #demo &#123; color:red; &#125; /* IE7+、FF、Chrome、Safari、Opera 可以识别 */:root #demo &#123; color:red9; &#125; : /* 仅IE9识别 */--------------------------------------------------------------/* IE条件注释Hack */&lt;!--[if IE]&gt;此处内容只有IE可见&lt;![endif]--&gt;&lt;!--[if IE 6]&gt;此处内容只有IE6.0可见&lt;![endif]--&gt;&lt;!--[if IE 7]&gt;此处内容只有IE7.0可见&lt;![endif]--&gt;&lt;!--[if !IE 7]&gt;此处内容只有IE7不能识别，其他版本都能识别，当然要在IE5以上。&lt;![endif]--&gt;&lt;!--[if gt IE 6]&gt; IE6以上版本可识别,IE6无法识别 &lt;![endif]--&gt;&lt;!--[if gte IE 7]&gt; IE7以及IE7以上版本可识别 &lt;![endif]--&gt;&lt;!--[if lt IE 7]&gt; 低于IE7的版本才能识别，IE7无法识别。 &lt;![endif]--&gt;&lt;!--[if lte IE 7]&gt; IE7以及IE7以下版本可识别&lt;![endif]--&gt;&lt;!--[if !IE]&gt;此处内容只有非IE可见&lt;![endif]--&gt;]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -78,7 +78,7 @@
     <content type="text"><![CDATA[CSS流行组件库BootstrapBootstrap，让你的页面更简洁、直观、强悍、移动设备优先的前端开发框架,让web开发更迅速、更简单。它还提供了更优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。有着丰富的网格布局系统以及丰富的可重用组件，还有强大的支持十几的JavaScript、jQuery插件以及组件定制等。 Bootstrap中文网地址：http://www.bootcss.com/ JS流行组件库jQueryjQuery是最常用的JavaScript库，它革命性的在客户端开发，将CSS选择器引入到DOM节点检索加链接来应用事件处理程序，动画和Ajax调用.jQuery近年来备受青睐，对于一个很需要的的JavaScript的功能的项目来说，jQuery的的的绝对是一个可行的选择。 官网地址： https://jquery.com/ ElementUIElement-Ul是饿了么前端团队推出的一款基于Vue.js 2.0 的桌面端UI框架，手机端有对应框架是Mint UI 。适合于Vue的UI框架； 官网地址：http://element-cn.eleme.io/#/zh-CN Ant Design服务于企业级产品的设计体系，基于确定和自然的设计价值观上的模块化解决方案，让设计者和开发者专注于更好的用户体验。 官网地址：https://ant.design/index-cn UI Bootstrap基于Angular2的一款组件库，有手风琴，日期选择器，弹出窗口等组件。 官网地址：https://angular-ui.github.io/bootstrap/]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考15</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -87,7 +87,7 @@
     <content type="text"><![CDATA[传统开发方式的弊端在大型软件系统中，web应用的前后端已经实现了分离，而随着REST软件架构的发展，后端服务逐步倾向于微服务，简单来说就是将一个大型后端服务，拆分成多个小服务，它们分别部署，降低了开发的复杂性，而且提高了系统的可伸缩性。而前端方面，随着技术的发展，开发的复杂度也越来越高，传统开发模式总是存在着开发效率低，维护成本高等的弊端。 弊端产生的原因传统开发方式效率低以及维护成本高的主要原因在于很多时候是将一个系统做成了整块应用，而且往往随着业务的增长或者变更，系统的复杂度会呈现指数级的增长，经常出现的情况就是一个小小的改动或者一个小功能的增加可能会引起整体逻辑的修改，造成牵一发而动全身。 针对此弊端，其实业界早就有了一些探索，我们希望一个大且复杂的场景能够被分解成几个小的部分，这些小的部分彼此之间互不干扰，可以单独开发，单独维护，而且他们之间可以随意的进行组合。就拿电脑主机来说，一台整机包括CPU，主板，内存，硬盘等等，而这些部件其实都是由不同的公司进行生产的，他们彼此之间根据一套标准分别生产，最后组装在一起。当某个部件出现问题时，不需要将整台主机都进行维修，只需要将坏的部件拿下来，维修之后再将其组合上就可以了。这种化繁为简的思想在后端开发中的体现是微服务，而在前端开发中的体现就是组件化。 组件化随着React，angular等以组件（指令等）为主的优秀前端框架的出现，前端组件化逐渐成为前端开发的迫切需求，当然这一迫切需求也逐渐成为一种主流，一种共识，它不仅提高了前端的开发效率，同时也降低了维护成本。开发者们不需要再面对一堆复杂且难阅读的代码，转而只需要关注以组件方式存在的代码片段。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考12-14</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -96,7 +96,7 @@
     <content type="text"><![CDATA[现在人通过手机浏览网页占了大多数，随着浏览方式的改变，网页在webapp下面实现多终端自适应，无论对于避免工程师无谓的重复劳动或者是项目管理的便捷性上来说重要性都是十分巨大的。 固定宽度布局固定宽度式布局是目前国内最常用的布局方法，优点就是固定宽度使得其布局最简便，使得开发人员对布局和定位有更大的控制能力。 但是，固定宽度的布局也有缺点，因为它的宽度是固定的，无论窗口尺寸有多大，它的尺寸总是不变，所以无法充分利用可用空间。因此，它们也常常被认为是糟糕的权宜之计。 固定宽度的布局的示例，这个大家都是拿手布局方法。 html代码： 1234567&lt;div class=&quot;content&quot;&gt; &lt;div class=&quot;primary&quot;&gt; &lt;div class=&quot;primary&quot;&gt;&lt;/div&gt; &lt;div class=&quot;secondary&quot;&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;secondary&quot;&gt;&lt;/div&gt;&lt;/div&gt; css样式代码： 1234567891011121314151617181920212223242526272829.wrapper &#123; width: 920px; margin: 0 auto; &#125;.content &#123; overflow: hidden;&#125;.content .primary &#123; width: 670px; float: right;&#125;.content .secondary &#123; width: 230px; float: left; &#125; .content .primary .primary &#123; width: 400px; float: left;&#125;.content .primary .secondary &#123; width: 230px; padding-right: 20px; float: right;&#125; 参考资料：网页的三种布局(固定宽度式,流体式,弹性式) 固定宽度多终端自适应固定宽度布局在移动端遇到的问题默认viewoort导致横向滚动条移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。 CSS中的1PX并不等于设备的1PX在css中我们一般使用px作为单位，在桌面浏览器中css的1个像素往往都是对应着电脑屏幕的1个物理像素，这可能会造成我们的一个错觉，那就是css中的像素就是设备的物理像素。但实际情况却并非如此，css中的像素只是一个抽象的单位，在不同的设备或不同的环境中，css中的1px所代表的设备物理像素是不同的。 还有一个因素也会引起css中px的变化，那就是用户缩放。例如，当用户把页面放大一倍，那么css中1px所代表的物理像素也会增加一倍；反之把页面缩小一倍，css中1px所代表的物理像素也会减少一倍。 解决方案1&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;meta&gt;标签是如何控制网页的尺寸和缩放浏览器的说明。 width=device-width部分将页面的宽度设置为跟随设备的屏幕宽度（视设备而定）。 initial-scale=1.0部分设置浏览器首次加载页面时的初始缩放级别。 参考资料定宽网页设计下，固定宽度布局开发WebApp并实现多终端下WebApp布局自适应]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考12-14</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -105,7 +105,7 @@
     <content type="text"><![CDATA[响应式布局。 可以用px作为像素，网页进行平铺。全屏的用100%。高度可以用px写死，宽度可以用百分比。不管网页怎么拉伸，高度不变，宽度会相应的扩大。 em/rem 方式布局。 可以设置好html，body的字体大小，然后用不同的尺寸手机访问的时候，我们可以去修改body的字体大小，网页（网页的内容用rem设置宽度、高度）的之内容会自动进行缩放。 可以按照设计稿的宽 高 来写css，然后通过js判断不同尺寸屏幕，修改 里面 scale的比例大小。 比如设计稿是 640 * 1136我们可以按 640宽度写网页 也可以按320宽度写网页。然后默认宽度可以设置为你写网页的宽度。然后再通过js 来控制scale的比例缩放即可 也可以控制 最小宽度 跟 最大宽度。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考12-14</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -114,7 +114,7 @@
     <content type="text"><![CDATA[什么是CSS resetting？在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法就是一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。 CSS Reset的作用CSS Reset让各个浏览器的CSS样式有一个统一的基准，而实现这一基准最主要的方式就是“清零” 什么是normalizing？Normalize.css 只是一个很小的CSS文件，但它在默认的HTML元素样式上 提供了跨浏览器的高度一致性。相比于传统的CSS reset，Normalize.css 是一种现代的、为HTML5准备的优质替代方案。Normalize.css现在已经被 用于Twitter Bootstrap、HTML5 Boilerplate、GOV.UK、Rdio、CSS Tricks 以及许许多多其他框架、工具和网站上。 normalize创造的目的保护有用的浏览器默认样式而不是完全去掉它们 resetting 和 normalizing 之间有什么区别？ Normalize.css 保护了有价值的默认值Reset通过为几乎所有的元素施加默认样式，强行使得元素有相同的视觉效果。 相比之下，Normalize.css保持了许多默认的浏览器样式。这就意味着你不用再 为所有公共的排版元素重新设置样式。当一个元素在不同的浏览器中有不同的默认值时， Normalize.css会力求让这些样式保持一致并尽可能与现代标准相符合。 Normalize.css 修复了浏览器的bug它修复了常见的桌面端和移动端浏览器的bug。 这往往超出了Reset所能做到的范畴。关于这一点， Normalize.css修复的问题包含了HTML5元素的显示设置、 预格式化文字的font-size问题、在IE9中SVG的溢出、许多 出现在各浏览器和操作系统中的与表单相关的bug。 Normalize.css 不会让你的调试工具变的杂乱使用Reset最让人困扰的地方莫过于在浏览器调试工具中大段大段的继承链， 如下图所示。在Normalize.css中就不会有这样的问题，因为在我们的准则中 对多选择器的使用时非常谨慎的，我们仅会有目的地对目标元素设置样式。 Normalize.css 是模块化的这个项目已经被拆分为多个相关却又独立的部分， 这使得你能够很容易也很清楚地知道哪些元素被设置了特定的值。 因此这能让你自己选择性地移除掉某些永远不会用到部分（比如表单的一般化）。 Normalize.css 拥有详细的文档Normalize.css的代码基于详细而全面的跨浏览器研究与测试。 这个文件中拥有详细的代码说明并在Github Wiki中有进一步的说明。 这意味着你可以找到每一行代码具体完成了什么工作、为什么要写这句代码、 浏览器之间的差异，并且你可以更容易地进行自己的测试。总得来说，CSS Reset 是革命党 ，CSS Reset 里最激进那一派提倡不管你有用没用， 通通给我脱了衣服，于是 *{margin:0;} 等等运动，把人家全拍了。看似是众生平等了， 实则是浪费了资源又占不到便宜，有求于人家的时候还得给加回去，实在需要人家的默认 样式了怎么办？自己看着办吧。Normalize.css 是改良派。他们提倡，各个元素都有其存在的道理， 简单粗暴地一视同仁是不好的。谁都有谁的作用，给他们制定个规范，确保他们 在任何浏览器里都干好自己的活儿就好了。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考12-14</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -131,7 +131,7 @@
     <content type="text"><![CDATA[真正阅读程序的是人，而不是计算机，所以所写代码具有良好的可读性，是优秀程序员必备的素质之一。在大型的系统开发中，往往需要很多人的通力配合，例如，开源软件Linux 之所以能够为全球顶尖程序员共享、协作开发，也得益于规范化和标准化的编码规范。规范应该尽量一致；即使有例外，也只能是少数情况，而不能是很多例外。好的代码规范能够提高代码的可读性便于协作沟通，好的模式能够在上层设计上避免不必要的 bug 出现。 编码规范HTML规范 参考资料:开发过程中应该遵守哪些编码规范和class命名规范？ CSS规范css规范目录如下,详细内容点击查看 1 前言 2 代码风格 2.1 文件 2.2 缩进 2.3 空格 2.4 行长度 2.5 选择器 2.6 属性 3 通用 3.1 选择器 3.2 属性缩写 3.3 属性书写顺序 3.4 清除浮动 3.5 !important 3.6 z-index 4 值与单位 4.1 文本 4.2 数值 4.3 url() 4.4 长度 4.5 颜色 4.6 2D 位置 5 文本编排 5.1 字体族 5.2 字号 5.3 字体风格 5.4 字重 5.5 行高 6 变换与动画 7 响应式 8 兼容性 8.1 属性前缀 8.2 Hack 8.3 Expression #class命名规范 class命名的常用方式原子类命名规则将复用性高的单条属性直接命名成类 1.ml5&#123;margin-left:5px;&#125; 模块命名规则按照职能划分命名规则 例如，模块是nav，便可以命名nav-tittle、nav-left BEMBEM思想是由于项目开发中，每个组件都是唯一无二的，其名字也是独一无二的，组件内部元素的名字都加上组件名，并用元素的名字作为选择器，自然组件内的样式就不会与组件外的样式冲突了。这是通过组件名的唯一性来保证选择器的唯一性，从而保证样式不会污染到组件外。 BEM的命名规矩很容易记：block-name__element-name–modifier-name，也就是模块名+元素名+修饰器名 注意事项1、规则命名中，一律采用小写加中划线的方式，不允许使用大写字母或_ 2、命名避免使用中文拼音，应该采用更简明有语义的英文单词进行组合 3、不允许通过1、2、3等序号进行命名；避免class与id重名 4、class用于标识某一个类型的对象，命名必须言简意赅 5、尽可能提高代码模块的复用，样式尽量用组合的方式 6、规则名称中不应该包含颜色（red/blue）、定位（left/right）等与具体显示效果相关的信息。应该用意义命名，而不是样式显示结果命名]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考12-14</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -140,7 +140,7 @@
     <content type="text"><![CDATA[什么是gulpgulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 安装gulpgulp 是基于 node 实现的，那么我们就需要先安装 node。 打开 https://nodejs.org/ 点击绿色的 INSTALL 按钮下载安装 node。 npm 是 node 的包管理工具，可以利用它安装 gulp 所需的包。（在安装 node 时已经自动安装了 npm） 在命令行输入 1npm install -g gulp 若一直没安装成功，请使用 cnpm 安装(npm的国内加速镜像) 意思是：使用 npm 安装全局性的(-g) gulp 包。 如果你安装失败，请输入sudo npm install -g gulp使用管理员权限安装。（可能会要求输入密码） 安装时请注意命令行的提示信息，安装完成后可在命令行输入 gulp -v 以确认安装成功。 如何使用gulp编译less你可以 下载所有示例代码 - 或在线查看代码 12345678910111213141516171819202122232425// 获取 gulpvar gulp = require(&apos;gulp&apos;)// 获取 gulp-less 模块var less = require(&apos;gulp-less&apos;)// 编译less// 在命令行输入 gulp images 启动此任务gulp.task(&apos;less&apos;, function () &#123; // 1. 找到 less 文件 gulp.src(&apos;less/**.less&apos;) // 2. 编译为css .pipe(less()) // 3. 另存文件 .pipe(gulp.dest(&apos;dist/css&apos;))&#125;);// 在命令行使用 gulp auto 启动此任务gulp.task(&apos;auto&apos;, function () &#123; // 监听文件修改，当文件被修改则执行 images 任务 gulp.watch(&apos;less/**.less&apos;, [&apos;less&apos;])&#125;)// 使用 gulp.task(&apos;default&apos;) 定义默认任务// 在命令行使用 gulp 启动 less 任务和 auto 任务gulp.task(&apos;default&apos;, [&apos;less&apos;, &apos;auto&apos;]) 你可以访问 gulp-less 以查看更多用法。 参考资料gulp入门指南]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考11</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -149,7 +149,7 @@
     <content type="text"><![CDATA[1.编译环境不一样Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。 2.变量符不一样Less是@，而Scss是$，而且变量的作用域也不一样。 3.输出设置Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。输出样式的风格可以有四种选择，默认为nestednested：嵌套缩进的css代码expanded：展开的多行css代码compact：简洁格式的css代码compressed：压缩后的css代码 4.条件语句Sass支持条件语句，可以使用if{}else{},for{}循环等等。而Less不支持。 5.引用外部CSS文件引用外部CSS文件 scss引用的外部文件命名必须以_开头, 如下例所示:其中_test1.scss,test2.scss、test3.scss文件分别设置的h1 h2 h3。文件名如果以下划线开头的话，Sass会认为该文件是一个引用文件，不会将其编译为css文件. 6.工具库的不同Sass和Less的工具库不同 . Sass有工具库Compass, 简单说，Sass和Compass的关系有点像Javascript和jQuery的关系,Compass是Sass的工具库。在它的基础上，封装了一系列有用的模块和模板，补充强化了Sass的功能。 Less有UI组件库Bootstrap,Bootstrap是web前端开发中一个比较有名的前端UI组件库，Bootstrap的样式文件部分源码就是采用Less语法编写。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考11</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -158,7 +158,7 @@
     <content type="text"><![CDATA[什么是sass简介Sass 是一门高于 CSS 的元语言，它能用来清晰地、结构化地描述文件样式，有着比普通 CSS 更加强大的功能。Sass 能够提供更简洁、更优雅的语法，同时提供多种功能来创建可维护和管理的样式表。 sass和scss有什么区别？Sass 和 SCSS 其实是同一种东西，我们平时都称之为 Sass，两者之间不同之处有以下两点：文件扩展名不同，Sass 是以“.sass”后缀为扩展名，而 SCSS 是以“.scss”后缀为扩展名语法书写方式不同，Sass 是以严格的缩进式语法规则来书写，不带大括号({})和分号(;)，而 SCSS 的语法书写和我们的 CSS 语法书写方式非常类似。 安装sass1.安装环境ruby2.打开的Ruby 的 Command 控制面板命令终端，输入下面的命令：gem install sass sass转译因为 Sass 开发之后，要让 Web 页面能调用 Sass 写好的东西，就得有这么一个过程，这个过程就称之为 Sass 编译过程。Sass 的编译有多种方法： 命令编译 工具编译 eg：koala 使用webstorm关联scss自动转译1.找到setting下的tools（工具），tools下有一个file watchers，找到并点击。2.点击右侧工具栏中的“+”按钮，添加所需要监控的文件类型3.进行相关设置 参考资料具体语法及使用见sass中文文档 sass中文文档]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考11</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -167,7 +167,7 @@
     <content type="text"><![CDATA[什么是lessless是一门动态的css语言，使得css样式更加灵活地作用于html标签。 less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。 为什么使用lesscss是一门非程序式语言，没有变量，没有函数，SCOPE（作用域），需要书写大量看似没有逻辑的代码，即不方便维护与扩展，也不利于复用。 为了方便前端开发的工作量，出现了sass和less. 如何使用less在 Node.js 环境中使用 Lessnpm install -g less &gt; lessc styles.less styles.css 在浏览器环境中使用 Less12&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/3.10.0-beta/less.min.js&quot; &gt;&lt;/script&gt; less样式文件一定要在引入less.js前先引入。 备注：请在服务器环境下使用！本地直接打开可能会报错！ 编译 命令编译 工具编译 eg：koala 使用webstorm关联less自动转译 参考资料less快速入门]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考11</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -176,7 +176,7 @@
     <content type="text"><![CDATA[什么时自适应网页设计页面能适配众多不同的终端设备，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局. 2010年，Ethan Marcotte提出了”自适应网页设计”（Responsive Web Design）这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。响应式网页设计是自适应网页设计的子集。响应式网页设计指的是页面的布局（流动网格、灵活的图像及媒介查询）。总体目标就是去解决设备多样化问题。响应式布局等于流动网格布局，而自适应布局等于使用固定分割点来进行布局。当固定宽度与流动宽度结合起来时，自适应布局就是一种响应式设计，而不仅仅是它的一种替代方法。 如何进行自适应网页设计1.学会运用 css3 Media Queries，根据不同的屏幕分辨率，选择应用不同的css规则 123456789@media screen and (max-width:400px)&#123; .class &#123; background:#ccc; &#125; &#125; 2.在网页头部加上viewport标签 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; 该属性可以控制视窗口宽度的大小。它可以被设置为实际的具体像素width= 600或为特殊设备设置宽度值。 viewport设置属性如下： width：可设定数值，或者指定为 device-width height：可设定数值，或者指定為 device-height initial-scale：第一次进入页面的初始比例 minimum-scale：允许缩小最小比例 maximum-scale：允许放大最大比例 user-scalable：允许使用者缩放，1 or 0 (yes or no) 3.不使用绝对宽度 4.字体最好不要用绝对大小(px)，而使用相对大小(em) 5.流动布局（fluid grid） 123.main &#123; float: rightright; width: 70%; &#125;.leftBar &#123; float: left; width: 25%; &#125; 6 图片的自动缩放，等比缩放 img{ max-width: 100%; }]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考10</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -185,7 +185,7 @@
     <content type="text"><![CDATA[改变默认radio样式思路：step1.可以为&lt;label&gt;元素添加生成性内容(伪元素)，并基于单选按钮的状态来为其设置样式；step2. 然后把真正的单选按钮隐藏起来；step3. 最后把生成内容美化一下。 编码实战1、可以为&lt;label&gt;元素添加生成性内容(伪元素)，并基于单选按钮的状态来为其设置样式；为label设置样式12345678label::before&#123;display: inline-block;content: &quot;&quot;;width: 10rem;height: 10rem;border: 10px solid #d7d7d7;border-radius: 50%;&#125; 然后把真正的单选按钮隐藏起来； 1input[type=&quot;radio&quot;] &#123; position: absolute; clip: rect(0, 0, 0, 0); &#125; 最后把生成内容美化一下。为label选中时设置样式 1input[type=&quot;radio&quot;]:checked + label::before &#123; background-color: #01cd78; background-clip: content-box; padding: .2em; &#125; 改变默认select样式HTML代码1&lt;div&gt; &lt;select name=&quot;&quot;&gt; &lt;option value=&quot;芝士&quot;&gt;芝士&lt;/option&gt; &lt;option value=&quot;奶油&quot;&gt;奶油&lt;/option&gt; &lt;/select&gt;&lt;/div&gt; 给select添加父元素div目的是为了，用div的样式覆盖住select样式。 CSS代码1234567891011121314151617181920212223242526272829303132333435363738div&#123; //用div的样式代替select的样式 width: 200px; height: 40px; border-radius: 5px; //盒子阴影修饰作用,自己随意 box-shadow: 0 0 5px #ccc; position: relative; &#125; select&#123; //清除select的边框样式 border: none; //清除select聚焦时候的边框颜色 outline: none; //将select的宽高等于div的宽高 width: 100%; height: 40px; line-height: 40px; //隐藏select的下拉图标 appearance: none; -webkit-appearance: none; -moz-appearance: none; //通过padding-left的值让文字居中 padding-left: 60px; &#125; //使用伪类给select添加自己想用的图标 div:after&#123; content: &quot;&quot;; width: 14px; height: 8px; background: url(img/xiala.png) no-repeat center; //通过定位将图标放在合适的位置 position: absolute; right: 20px; top: 45%; //给自定义的图标实现点击下来功能 pointer-events: none; &#125;]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考10</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -194,7 +194,7 @@
     <content type="text"><![CDATA[媒体查询媒体查询是非常别致的”有条件的 CSS 规则”。它只适用于一些基于某些规定条件的 CSS。如果满足那些条件，则应用相应的样式。 为什么使用媒体查询使用@media媒体查询，可以针对不同的媒体类型定义不同的样式。 媒体查询的使用引入方式 媒体查询有两种引入方法： link元素中的CSS媒体查询 css样式表中媒体查询 语法基本语法1234567891011&lt;!-- link元素中的CSS媒体查询 --&gt;&lt;link rel=&quot;stylesheet&quot; media=&quot;(max-width: 800px)&quot; href=&quot;example.css&quot; /&gt;&lt;!-- 样式表中的CSS媒体查询 --&gt;&lt;style&gt;@media (max-width: 600px) &#123; .facet_sidebar &#123; display: none; &#125;&#125;&lt;/style&gt; 逻辑操作符你可以使用逻辑操作符，包括not、and和only等，构建复杂的媒体查询。and操作符用来把多个媒体属性组合成一条媒体查询，对成链式的特征进行请求，只有当每个属性都为真时，结果才为真。not操作符用来对一条媒体查询的结果进行取反。only操作符仅在媒体查询匹配成功的情况下被用于应用一个样式，这对于防止让选中的样式在老式浏览器中被应用到。若使用了not或only操作符，必须明确指定一个媒体类型。 你也可以将多个媒体查询以逗号分隔放在一起；只要其中任何一个为真，整个媒体语句就返回真。相当于or操作符。 eg：and 关键字用于合并多个媒体属性或合并媒体属性与媒体类型,只有当每个属性都为真时，结果才为真 @media and (max-width:600px) and (min-width: 800px;){......},此代码表示屏幕宽度在600-800px时，使用上述样式。 注意事项最好在使用媒体查询时引入如下meta标签保证媒体查询的精准. &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt; width = device-width：宽度等于当前设备的宽度initial-scale:初始的缩放比例(默认设置为1.0)minimum-scale:允许用户缩放到的最小比例(默认设置为1.0)maximum-scale:允许用户缩放到的最大比例(默认设置为1.0)user-scalable:用户是否可以手动缩放(默认设置为no，因为我们不希望用户放大缩小页面) 参考资料MDN-CSS媒体查询]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考9</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -203,7 +203,7 @@
     <content type="text"><![CDATA[响应式网站是在2010年提出来的，是为了能让网页在不同设备下兼容多个终端，而不是为每个终端特定一种版本。 优点1.在不同设备下能有不同的页面排版，这也是响应式最大的优点，在分辨率不同，设备环境进行一些不同的设计，所有开发维护和运营上，相对多个版本成本会降低很多。 2.兼容性好，能在不同的设备下浏览。 3.方便后期维护页面，只需要对必要的页面进行修改，不会影响其他页面。 缺点1.页面加载过多的代码，当你在pc端加载的时候，css样式也会将手机端的冗余代码一块加载，这样就直接影响了加载速度。 2.在响应式设计中，图片和视频都是统一加载的，当你在设备低的手机上加载不符合当前需要的图片或者视频，就会过多的消耗用户的流量。 3.局限性，对于响应式，局限性较大，不适合一些大型的门户网或者电商网站，一般门户网或电商网站一个界面内容较多，而响应式最忌讳较多内容，代码过多会影响运行速度。对大型门户或电商网站来说，响应式设计目前确实不太适合。因为响应式设计的基本原则是不会因设备不同而给予用户不同的内容（比如在低分辩率设备上删减某些内容），而大型门户或电商网站的单页内容非常多，当缩减到低分辨率设备上，又要保证内容全部可浏览时，必然导致页面拉长，浏览困难度增加。所以很多大型门户或电商网站都会提供一个移动设备版的网站，或者干脆直接让用户缩放网页进行浏览。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考9</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -212,7 +212,7 @@
     <content type="text"><![CDATA[bootstrap栅格系统bootstrapBootstrap 是一个用于快速开发 Web 应用程序和网站的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的。 bootstrap栅格系统Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。 使用规则1、数据行(.row)必须包含在容器（.container）中，以便为其赋予合适的对齐方式和内距(padding)。 2、在行(.row)中可以添加列(.column)，但列数之和不能超过平分的总列数，比如12。 3、具体内容应当放置在列容器（column）之内，而且只有列（column）才可以作为行容器(.row)的直接子元素 4、通过设置内距（padding）从而创建列与列之间的间距。然后通过为第一列和最后一列设置负值的外距（margin）来抵消内距(padding)的影响 。 编码实战HTML代码 12345678&lt;div class=&quot;container&quot;&gt; &lt;div class=&quot;row&quot;&gt; &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt; &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt; &lt;/div&gt; &lt;div class=&quot;row&quot;&gt;...&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;container&quot;&gt;.... 参考资料菜鸟教程bootstrap栅格系统]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考9</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -221,7 +221,7 @@
     <content type="text"><![CDATA[左右列固定，中间列自适应布局 此例适用于左右栏宽度固定，中间栏宽度自适应的布局。由于网页的主体部分一般在中间，很多网页都需要中间列优先加载，而这种布局刚好满足此需求。 去除列表右边框 项目中经常会使用浮动列表展示信息，为了美观通常为每个列表之间设置一定的间距（margin-right）,当父元素的宽度固定式，每一行的最右端的li元素的右边距就多余了，去除的方法通常是为最右端的li添加class，设置margin-right:0; 这种方法需要动态判断为哪些li元素添加class，麻烦！！！利用负margin就可以实现下面这种效果： 负边距+定位：水平垂直居中 使用绝对定位将div定位到body的中心，然后使用负margin（content宽高的一半），将div的中心拉回到body的中心，已到达水平垂直居中的效果。 去除列表最后一个li元素的border-bottom 列表中我们经常会添加border-bottom值，最后一个li的border-bottom往往会与外边框重合，视觉上不雅观，往往要移除。 多列等高 此例关键是给每个框设置大的底部内边距，然后用数值相似的负外边距消除这个高度。这会导致每一列溢出容器元素，如果把外包容器的overflow属性设为hidden，列就在最高点被裁切。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -230,7 +230,7 @@
     <content type="text"><![CDATA[背景介绍前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。 水平居中设置1.行内元素设置 text-align:center 2.定宽块状元素设置 左右 margin 值为 auto 3.不定宽块状元素 在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td 内，然后设置 margin 的值为 auto 给该元素设置 display:in-line 方法 父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left:50% 垂直居中设置1.父元素高度确定的单行文本​ 设置 height = line-height 2.父元素高度确定的多行文本 插入 table （插入方法和水平居中一样），然后设置 vertical-align:middle 先设置 display:table-cell 再设置 vertical-align:middle 总结Flex大法好！]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -239,7 +239,7 @@
     <content type="text"><![CDATA[什么是组件组件:一般是指软件系统的一部分，承担了特定的职责，可以独立于整个系统进行开发和测试， 一个良好设计的组件应该可以在不同的软件系统中被使用(可复用)。 目前常用的bootstrap组件：1.轮播图 2.下拉菜单 3.响应式导航栏]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -248,7 +248,7 @@
     <content type="text"><![CDATA[背景介绍tableE布局是WEB早期CSS不存在的时候兴起的，是对TABLE标签的不正规使用，Table标签就是表格，是用来显示数据的，而不是用来布局网页的，虽然它有时候布局网页很简单。现在绝大多数的网站都是用DIV+CSS布局，现在的网页越来越倾向于使用DIV的方法来布局网页了。 这两种布局各有各的优缺点。 div+css布局div+css布局的优点可以通过css样式给框架进行功能强大的属性设置以及给网页的局部进行任意的定位，制作出来的页面浏览速度较快，同时页面的风格可以通过修改单独的css文件进行随意的修改和更新； 1.符合W3C标准，代码结构清晰明了，结构、样式和行为分离，带来足够好的可维护性。 2.布局精准，网站版面布局修改简单。 3.加快了页面的加载速度（最重要的）（在IE中要将整个table加载完了才显示内容）。 4.节约站点所占的空间和站点的流量。 5.用只包含结构化内容的HTML代替嵌套的标签，提高另外搜索引擎对网页的搜索效率。 div+css布局的缺点每个div容器都需要定义css样式来控制，制作过程相比table方式要复杂。 table布局table布局的优点1.容易上手。 2.可以形成复杂的变化，简单快速。 3.表现上更加“严谨”，在不同浏览器中都能得到很好的兼容。 table布局的缺点由于html文件中的table标签的浏览速度较慢，所以，使用嵌套表格的方法来布局网页框架会使网页浏览的速度变慢。因为table是中的内容是自适应的，为了自适应，它要计算嵌套最深的节点以满足自适应，所以有可能会有一断时间出现空白才显示。所以是会有问题的。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -257,7 +257,7 @@
     <content type="text"><![CDATA[外边距重叠边界重叠是指两个或多个盒子(可能相邻也可能嵌套)的相邻边界(其间没有任何非空内容、补白、边框)重合在一起而形成一个单一边界。两个或多个块级盒子的垂直相邻边界会重合。 外边距重叠的结果结果的边界宽度是相邻边界宽度中最大的值。 如果出现负边界，则在最大的正边界中减去绝对值最大的负边界。 如果没有正边界，则从零中减去绝对值最大的负边界。 外边距重叠的意义外边距的重叠只产生在普通流文档的上下外边距之间，这个看起来有点奇怪的规则，其实有其现实意义。设想，当我们上下排列一系列规则的块级元素（如段落P）时，那么块元素之间因为外边距重叠的存在，段落之间就不会产生双倍的距离。 防止外边距重叠解决方案虽然外边距的重叠有其一定的意义，但有时候我们在设计上却不想让元素之间产生重叠，那么可以有如下几个建议可供参考： 外层元素padding代替 内层元素透明边框 border:1px solid transparent; 内层元素绝对定位 postion:absolute: 外层元素 overflow:hidden; 内层元素 加float:left;或display:inline-block; 内层元素padding:1px; 版权声明：本文为CSDN博主「jnshu_it」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。原文链接：https://blog.csdn.net/jnshu_it/article/details/85370693]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -266,7 +266,7 @@
     <content type="text"><![CDATA[浏览器内核浏览器内核又可以分成两部分：渲染引擎(layout engineer 或者 Rendering Engine)和 JS 引擎。它负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入 CSS 等），以及计算网页的显示方式，然后会输出至显示器或打印机。JS 引擎则是解析 Javascript 语言，执行 javascript 语言来实现网页的动态效果。 浏览器最重要或者说最核心的部分是“Rendering Engine”，可大概译为“渲染引擎”，不过一般习惯将之称为“浏览器内核”，负责对网页语法的解释并渲染网页。所以，通常所谓的浏览器内核也就是浏览器所采用的渲染引擎，渲染引擎决定了浏览器如何显示网页的内容以及页面的格式信息。 主流浏览器内核1.Trident/IE内核该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，并沿用到IE11，也被普遍称作”IE内核”。Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现。由于IE本身的“垄断性”（虽然名义上IE并非垄断，但实际上，特别是从Windows 95年代一直到XP初期，就市场占有率来说IE的确借助Windows的东风处于“垄断”的地位）而使得Trident内核的长期一家独大，微软很长时间都并没有更新Trident内核，这也导致了后面的两个后果： 一是Trident内核曾经几乎与W3C标准脱节（2005年） 二是Trident内核的大量 Bug等安全性问题没有得到及时解决，然后加上一些致力于开源的开发者和一些学者们公开自己认为IE浏览器不安全的观点，也有很多用户转向了其他浏览 器，Firefox和Opera就是这个时候兴起的。 Trident内核的常见浏览器有：IE6、IE7、IE8（Trident 4.0）、IE9（Trident 5.0）、IE10（Trident 6.0）、2345浏览器、腾讯TT、淘宝浏览器、阿云浏览器（早期版本）、瑞星安全浏览器、蚂蚁浏览器、飞腾浏览器、速达浏览器、佐罗浏览器、海豚浏览器等等 2.Gecko/Firefox内核Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器) 也采用了该内核，Gecko的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。因为这是个开源内核，因此受到许多人的青睐，Gecko内核的浏览器也很多，这也是Gecko内核虽然年轻但市场占有率能够迅速提高的重要原因。事实上，Gecko引擎的由来跟IE不无关系，前面说过IE没有使用W3C的标准，这导致了微软内部一些开发人员的不满；他们与当时已经停止更新了的 Netscape的一些员工一起创办了Mozilla，以当时的Mosaic内核为基础重新编写内核，于是开发出了Gecko。不过事实上，Gecko 内核的浏览器仍然还是Firefox (火狐) 用户最多，所以有时也会被称为Firefox内核。Gecko核心设计的相对成熟，在无法获取源码的情况下，开放程度仅次于IE。由于其本身Open Source。实际上是目前开发程度最好的浏览器。Firefox的扩展能够给浏览者带来完全不同的浏览体验。市面上Gecko内核的浏览器主要分两类，一类是以Mozilla Firefox为代表的，用XUL作为界面描述语言的浏览器：这类浏览器往往继承了Firefox扩展性好的优点，早前的Madfox和Albatross就是这一类型的浏览器。所以，Gecko内核也被称为Firefox内核。 Gecko内核常见的浏览器： Mozilla Firefox、Mozilla SeaMonkey、waterfox（Firefox的64位开源版）、Iceweasel、Epiphany（早期版本）、Flock（早期版本）等等 3.WebKit内核Webkit(Safari内核,Chrome内核原型,开源):它是苹果公司自己的内核，也是苹果的Safari浏览器使用的内核。 Webkit引擎包含WebCore排版引擎及JavaScriptCore解析引擎，均是从KDE的KHTML及KJS引擎衍生而来，它们都是自由软件，在GPL条约下授权，同时支持BSD系统的开发。WebKit 内核在手机上的应用也十分广泛，例如 Google 的手机 Gphone、 Apple 的 iPhone, Nokia’s Series 60 browser 等所使用的 Browser 内核引擎，都是基于 WebKit。2003年，Apple 宣布发布首款他们自主开发的 web 浏览器：Safari。它的呈现引擎叫 WebKit。它是 Linux 中的 web 浏览器 Konqueror 呈现引擎 KHTML 的一个分支，几年后，WebKit 的开源吸引了呈现引擎的开发人员。根据最新的浏览器调查表明，该浏览器的市场甚至已经超过了Opera的Presto了——当然这一方面得益于苹果转到x86架构之后的人气暴涨，另外也是因为Safari 3终于推出了Windows版的缘故吧。Google Chrome、360极速浏览器以及搜狗高速浏览器高速模式也使用Webkit作为内核(在脚本理解方面，Chrome使用自己研发的V8引擎)。WebKit 内核在手机上的应用也十分广泛，例如 Google 的手机 Gphone、 Apple 的iPhone， Nokia’s Series 60 browser 等所使用的 Browser 内核引擎，都是基于 WebKit。 WebKit内核常见的浏览器：傲游浏览器3、[1] Apple Safari (Win/Mac/iPhone/iPad)、Symbian手机浏览器、Android 默认浏览器， 4.Presto内核Presto是一个由Opera Software开发的浏览器排版引擎，供Opera 7.0及以上使用。该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内核，然而代价是牺牲了网页的兼容性。实际上它是一个动态内核，与其它几个内核的最大的区别就在脚本处理上，Presto有着天生的 优势，页面的全部或者部分都能够在回应脚本事件时等情况下被重新解析。此外该内核在执行Javascrīpt的时候有着最快的速度，根据在同等条件下的测 试，Presto内核执行同等Javascrīpt所需的时间仅有Trident和Gecko内核的约1/3（Trident内核最慢，不过两者相差没有多大）。由于Presto是商业引擎，使用Presto的除开Opera以外，只剩下NDSBrowser、Wii Internet Channle、Nokia 770网络浏览器等，这很大程度上限制了Presto的发展。 5.Blink内核2013 年 4 月 3 日，谷歌在 Chromium Blog 上发表 博客，称将与苹果的开源浏览器核心 Webkit 分道扬镳，在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。其实Blink引擎就是也就是Webkit的分支，就像Webkit是KHTML的分支一样。Blink引擎现在是谷歌公司与Opera Software共同研发，]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -275,7 +275,7 @@
     <content type="text"><![CDATA[CSS3属性中有关于制作动画的三个属性：Transform,Transition,Animation。 transform属性向元素应用2D或3D转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。 transition是令一个或多个可以用数值表示的css属性值发生变化时产生过渡效果。 Animation字面上的意思，就是“动画”的意思. 我们使用CSS3的Animation制作动画，实现简单的幻灯片效果，可以省去复杂的js,jquery代码。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -284,7 +284,7 @@
     <content type="text"><![CDATA[通过以下的5个过程，实现轮播图的轮播效果 1.动态生成结构创建元素和插入元素的方法分别是什么？创建元素：document.creatElement( tagName ) var li = document.creatElement(“li”)；插入元素：appendChild( element ) ol.appendChild(“li”);通过什么方法复制第一张图片元素？通过cloneNode()方法来复制元素：eg . var firstImg = ulLis[0].cloneNode(true)； 其中cloneNode方法中，如果传递给它的参数是 true，它还将递归复制当前节点的所有子孙节点。否则，它只复制当前节点 2.鼠标经过按钮鼠标经过时如何改变按钮样式？a. 清除所有按钮的样式 for (var j = 0; j &lt; olLis.length; j++) { olLis[j].className = “”; }b. 给当前鼠标所在按钮添加特殊样式this.className = “current”;鼠标经过按钮时如何计算图片盒子移动的距离?通过按钮索引值（this.index）和图片的宽度（imgWidth）来计算图片盒子要移动的距离（target） target = - this.index * imgWidth 3.鼠标点击箭头通过什么属性改变左右箭头的隐藏和显示？通过控制左右箭头盒子的display属性来控制左右箭头盒子的显示（block）和隐藏（none）通过什么机制来统一左/右箭头点击时图片切换为当前图片的上/下一张？利用全局变量来统一左右箭头切换图片，在左右箭头点击时，通过pic来计算图片盒子移动的目标位置 var target = -pic * imgWidth;当点击左箭头时：pic– –这样target比当前位置数值大imgWidth 图片盒子向右移动一张图片的距离 显示出上一张图片当点击右箭头时：pic++ 这样target比当前位置数值小imgWidth 图片盒子向左移动一张图片的距离 显示出下一张图片 4.按钮随之变化square的取值范围以及其与pic对应情况 5.添加自动滚动图片自动播放下一张和点击右箭头的操作相同图片轮播主要技术点为：一、&lt;ul&gt; &lt;li&gt; 来作导航栏；二、通过设置其属性为overflow:none，使照片集部分隐藏； 三、CSS3的transition 结合 transform 来做动画变换；四、JQUERY通过选择器，控制动画元素属性。 动画描述一、鼠标放在图片上，会出现左右滑动箭头；二、点击箭头会使图片集左右移动，中间图片会旋转360度，并放大1.2倍；三、图片到边界时不能再滑动]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考8</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -293,7 +293,7 @@
     <content type="text"><![CDATA[为什么hover在手机上没效果？让我们再回顾一下hover的定义… :hover用于选择鼠标指针浮动在上面的元素。 再想一想… 手机上哪来的鼠标啊伙计？！ SO,手机端没有hover特效，当你点击的时候就直接触发click。 解决方案首先，经试验发现，设置的：hover在Android系统上点击会出现， 但是需要再次点击才会消失； IOS系统上点击无法出现； 手机虽然没有鼠标，但是有触摸事件. 一开始触摸事件是ios版Safari浏览器为了向开发人员传达一些信息新添加的事件。 因为ios设备既没有鼠标也没有键盘，所以在为移动Safari浏览器开发交互性网页的时候， PC端的鼠标和键盘事件是不够用的。 在iPhone 3G发布的时候，其自带的移动Safari浏览器就提供了一些与触摸(touch)操作相关的新事件。 随后，Android上的浏览器也实现了相同的事件。触摸事件(touch)会在用户手指放在屏幕上面的时候、 在屏幕上滑动的时候或者是从屏幕上移开的时候触发。 1.touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。 2.touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间， 调用preventDefault()事件可以阻止滚动。 3.touchend事件：当手指从屏幕上离开的时候触发。 4.touchcancel事件：touchcancel，是在拖动中断时候触发。 版权声明：本文为CSDN博主「jnshu_it」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。原文链接：https://blog.csdn.net/jnshu_it/article/details/85759010]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考7</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -302,7 +302,7 @@
     <content type="text"><![CDATA[z-index是什么？z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。 z-index和叠加上下文是如何形成的一言难尽，献上传送门。 z-index 层叠上下文的关系 使用z-index有什么需要注意的地方？ 在开发中尽量避免层叠上下文的多层嵌套，因为层叠上下文嵌套过多的话容易产生混乱，如果对层叠上下文理解不够的话是不好把控的。 非浮层元素（对话框等）尽量不要用z-index（通过层叠顺序或者dom顺序或者通过层叠上下文进行处理） z-index设置数值时尽量用个位数 让absolute元素覆盖正常文档流内元素（不用设z-index，自然覆盖） 让后一个absolute元素覆盖前一个absolute元素（不用设z-index，只要在HTML端正确设置元素顺序即可） 什么情况下使用z-index？当absolute元素覆盖另一个absolute元素，且HTML端不方便调整DOM的先后顺序时，需要设置z-index: 1。非常少见的情况下多个absolute交错覆盖，或者需要显示最高层次的模态对话框时，可以设置z-index &gt; 1。 版权声明：本文为CSDN博主「cat_sky」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。 原文链接：https://blog.csdn.net/cat_sky/article/details/80302245]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考7</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -311,7 +311,7 @@
     <content type="text"><![CDATA[rgba和opacity的透明效果有什么不同opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 display和visiblity有什么区别display：通常可以设置为none、inline、blockvisblity：通常可以设置为hidden、visible 当display为none，visibility为hidden时，元素都会不见。不过其还有不同之处。 区别：display：none:隐藏元素但不占据该元素原来的空间。父级设置值为none后，无论子级设置任何值都无法显示。（不占空间，可遗传）visibility：hidden:隐藏元素并且占据该元素原来的空间。子级设置visible后不受父级影响。（占空间，不遗传）]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考7</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -320,7 +320,7 @@
     <content type="text"><![CDATA[浮动在了解什么是浮动之前我们先了解一下html元素在普通流排列方式。在普通流中，元素是按照它在 HTML 中的出现的先后顺序自上而下依次排列布局的，在排列过程中所有的行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为一整行。如果没有特殊样式指定，所有元素默认都是按照普通流方式排列布局，即普通流中元素的位置由该元素在 HTML 文档中的位置决定的。 浮动使元素脱离文档普通流，漂浮在普通流之上的。浮动元素依然按照其在普通流的位置上出现，然后尽可能的根据设置的浮动方向向左或者向右浮动，直到浮动元素的外边缘遇到包含框或者另一个浮动元素为止，且允许文本和内联元素环绕它。浮动会产生块级框（相当于设置了display:block），而不管该元素本身是什么。 为什么要清除浮动如果我们不给父元素设置高度，我们知道如果它里面的元素不浮动的话， 那么这个外层的高是会自动被撑开的。若浮动元素比它的父元素还高，那么它就会溢出父元素外面 当内层元素所有浮动后，则影响更大： 背景不能显示 边框不能撑开 高度塌陷等清除浮动方法1：脚底插入clear:both;方法2：父元素BFC(ie8+)或haslayout(ie6/ie7) 1234567891011121314// 现代浏览器clearfix方案，不支持IE6/7 .clearfix:after &#123; display: table; content: &quot; &quot;; clear: both; &#125; ​// 全浏览器通用的clearfix方案// 引入了zoom以支持IE6/7.clearfix:after &#123; display: table; content: &quot; &quot;; clear: both; &#125; .clearfix&#123; *zoom: 1; &#125; ​// 全浏览器通用的clearfix方案【推荐】// 引入了zoom以支持IE6/7 // 同时加入:before以解决现代浏览器上边距折叠的问题 .clearfix:before, .clearfix:after &#123; display: table; content: &quot; &quot;; &#125; .clearfix:after &#123; clear: both; &#125; .clearfix&#123; *zoom: 1; &#125;]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考7</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -329,7 +329,7 @@
     <content type="text"><![CDATA[简介ss sprites直译过来就是CSS精灵。通常被解释为“CSS图像拼合”或“CSS贴图定位”。其实就是通过将多个图片融合到一张图里面，然后通过CSS background背景定位技术技巧布局网页背景。 为什么要使用CSS sprites这样做的好处也是显而易见的，因为图片多的话，会增加http的请求，无疑促使了网站性能的减低，特别是图片特别多的网站，如果能用css sprites降低图片数量，带来的将是速度的提升。 如何使用CSS spritescss sprites是什么通俗解释：CSS Sprites其实就是把网页中一些背景图片整合拼合成一张图片中，再利用DIV CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片在布局盒子对象位置。前端必备 CSS Sprites雪碧图生成工具]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考7</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -338,7 +338,7 @@
     <content type="text"><![CDATA[简介ul，ol，dl标签是CSS网页布局中常用的列表元素。 列表将具有相似特征或先后顺序的内容按照从上到下的顺序排列起来。 具体介绍1.ul标签：无序列表始于 u l 标签。每个列表项始于l i标签，此列项目默认使用粗体圆点（典型的小黑圆圈）进行标记。 2.ol标签：有序列表始于ol标签，每个列表项始于li标签，列表项目使用数字进行标记。 3.dl标签：dl标签是定义列表，自定义列表不仅仅是一列项目，而是项目及其注释的组合。自定义列表以 dl 标签开始。每个自定义列表项以 dt 开始。每个自定义列表项的定义以 dd 开始。 应用范围ul经常用来实现轮播的小按钮，下拉菜单的各种要用来排列的列表，多个a标签排列等，实用范围非常广。 ol因为它的有序属性，用的范围就比较小了，不是一定要用有序来排列的情况下，一般都是用ul。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考5</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -347,7 +347,7 @@
     <content type="text"><![CDATA[什么是IconFont?IconFont是阿里巴巴旗下的矢量图标库网站，通过搜索关键字可以获取前端开发所需的各类图标。 如何使用IconFont？step 1:百度iconfont,找到阿里巴巴矢量图标库官网,然后注册登录,或者用github登录也行,此步骤跳过; step 2:找到图标管理-&gt;我的项目-&gt;然后新建项目: step 3:项目新建完成后,往项目里添加我们要想使用的图标,找到图标库,搜索一个想要的图标,然后添加到购物车; step 4:添加到购物车完成后,购物车徽章数字应该显示1了,点击右上角的购物车图标,选择添加至项目,选择我们刚刚创建的项目,确定; step 5:接下来一部比较关键,将打包好的字体文件下载到本地添加到你的项目中,在项目中引用文件中的iconfont.css文件; step 6:到了最后一步了,如何在项目中使用字体图标呢,其实很简单,创建一个i标签或者span标签,添加两个类名,一个固定的是iconfont,另一个是你想要的那个图标对应的类名: 参考资料：如何使用IconFont]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考5</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -356,7 +356,7 @@
     <content type="text"><![CDATA[title与h1title的权重高于H1,其适用性要比H1广。 b与strong、i与em物理元素：b、i 逻辑元素：em、strong 物理元素是告诉浏览器我应该以何种格式显示文字，逻辑元素告诉浏览器这些文字有怎么样的重要性。 结论：对于搜索引擎来说逻辑元素比物理元素要重视的多。 mg的alt与titlealt 用于图片没显示时在图片显示区域显示一个说明文字。 title 表示鼠标在图片上停留时，显示一个悬浮框，其中显示的文字。 src与hrefsrc是source的缩写，src的内容是页面必不可少的一部分，是引入。src指向的内容会嵌入到文档中当前标签所在的位置。常用的有：img、script、iframe。href是Hypertext Reference的缩写，表示超文本引用。用来建立当前元素和文档之间的链接。常用的有：link、a。 结论：src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考5</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -365,7 +365,7 @@
     <content type="text"><![CDATA[Flexbox（弹性盒布局模型）2009年，W3C 提出了一种新的方案—-Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。 参考资料：Flex 布局教程：语法篇 适用场景布局的传统解决方案，基于盒状模型，依赖 display 属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。–Flex 布局，可以简便、完整、响应式地实现各种页面布局。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考5</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -374,7 +374,7 @@
     <content type="text"><![CDATA[vertical-align 属性设置元素的垂直对齐方式。line-height 属性设置行间的距离（行高）。 参考资料：CSS深入理解vertical-align和line-height的基友关系]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考5</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -383,7 +383,7 @@
     <content type="text"><![CDATA[为什么使用CSS绘制图形在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 CSS绘制图形圆形/椭圆形1234567891011.circle&#123;width:10rem;height:10rem;border-radius:50%;background:orange;&#125; 椭圆形只需改变矩形的边长 三角形/梯形12345678910111213.triangle&#123;margin-top:5rem;width:0;border-bottom:5rem solid#00a000;border-left:5rem solid transparent;border-right:5rem solid transparent;&#125; 梯形只需设定width的值即可 平行四边形12345678910111213.parallelogram&#123;margin:5rem;width:10rem;height:5rem;transform:skew(30deg);background:orange;&#125;]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考5</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -392,7 +392,7 @@
     <content type="text"><![CDATA[问题苹果会对position: fixed的元素位置做调整 解决方案尽量避免在移动端开发中使用position: fixed，而是更多使用更现代的布局方式和position: absolute来实现类似需求。 详细解析使用fixed的时候，在手机上查看是否会有问题，怎么解决]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考4</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -401,7 +401,7 @@
     <content type="text"><![CDATA[背景介绍HTML结构语义化，是最近几年才提出来的，以前的html结构，都是一堆的没有语义的冷冰冰的标签。最泛滥的就是div+css,以前的页面，一上来就是一堆的div+css, 为了改变这种这种状况，开发者们和官方提出了让HTML结构语义化的概念，并且官方w3c，也在HTML5给出了几个新的语义化的标签。 什么是语义化字面意思就是说根据我们所说的话，就能了解其中的含义。 语义化，故名思意，就是你写的HTml结构，是用相对应的有一定语义的英文字母（标签）表示的，标记的，因为HTML本身就是标记语言。不仅对自己来说，容易阅读，书写。别人看你的代码和结构也容易理解，甚至对一些不是做网页开发的人来说，也容易阅读。 什么是HTML语义化首先标签语义化是指HTML，不是CSS, 语义化标签只是HTML，CSS不存在语义化。HTML是标签，CSS是属性。 在最初html里标签的语义，我们看到table,就会知道这是列表，看到p，就知道这是段落，看到img知道是图片，看到input就知道这是一个表单，h1~h6是标题。 机器和人类相比笨多了，但是只要我们设定好程序，上面的标签的意思机器也能读懂。 但是也有些是无语义化的如div—division并不能表示div标签里面内容的属性和表现样式 HTML 标签语义化是让大家直观的通过标签(markup)和属性(attribute)来知道其用途和作用。 怎样判断标签是否语义化去掉样式，看网页结构是否组织良好有序，是否仍然有很好的可读性。 写HTML代码时应注意什么 尽可能少的使用无语义的标签div和span； 在语义不明显时，既可以使用div或者p时，尽量用p, 因为p在默认情况下有上下间距，对兼容特殊终端有利； 不要使用纯样式标签，如：b、font、u等，改用css设置。 需要强调的文本，可以包含在strong或者em标签中（浏览器预设样式，能用CSS指定就不用他们），strong默认样式是加粗（不要用b），em是斜体（不用i）； 使用表格时，标题要用caption，表头用thead，主体部分用tbody包围，尾部用tfoot包围。表头和一般单元格要区分开，表头用th，单元格用td； 每个input标签对应的说明文本都需要使用label标签，并且通过为input设置id属性，在lable标签中设置for=someld来让说明文本和相对应的input关联起来 实现HTML语义化好处有哪些 清晰的页面结构。去掉或样式丢失的时候,也能让页面呈现清晰的结构，增强页面的可读性。 支持更多的设备。屏幕阅读器会完全根据你的标记来“读”你的网页。更好的支持浏览器的阅读模式等。 有利于SEO(搜索引擎优化)。和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息，搜索引擎的爬虫也依赖于标记来确定上下文和各个关键字的权重。 便于团队开发和维护。在团队中大家都遵循同一个标准，可以减少很多差异化的东西，方便开发和维护，提高开发效率，甚至实现模块化开发。 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页； 参考资料如何理解HTML结构的语义化？]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考4</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -410,7 +410,7 @@
     <content type="text"><![CDATA[常用的表单元素 form: 定义供用户输入的表单。 fieldset: 定义域。即输入区加有文字的边框。 legend：定义域的标题，即边框上的文字。 label：定义一个控制的标签。如输入框前的文字，用以关联用户的选择。 input: 定义输入域，常用。可设置type属性，从而具有不同功能。 textarea: 定义文本域(一个多行的输入控件)，默认可通过鼠标拖动调整大小。 button: 定义一个按钮。 select: 定义一个选择列表，即下拉列表。 option: 定义下拉列表中的选项。 表单元素的具体属性form&lt;form name=&quot;&quot; action=&quot;&quot; method=&quot;get&quot;&gt;……&lt;/form&gt; name : 表单名称；action : 用来指定表单处理程序的位置（url）；method : 定义表单结果从浏览器传送到服务器的方式，默认为”get”（也可以是post） input&lt;input type=&quot;&quot; name=&quot;&quot; value=&quot;&quot; size=&quot;&quot;&gt; name:控件名称；value:input控件默认文本值；size:input控件在页面中的显示宽度（必须是正整数） input常用type属性如下： text：单行文本输入框，可以通过正整数的size控制框长度。 password：密码输入框。 radio：单选按钮，同一组的单选按钮必须要有相同的name。 checkbox：复选框，同一组的单选按钮必须要有相同的name。 button：普通按钮。 submit：提交按钮，每出现一次，一个 Submit 对象就会被创建。 reset：重置按钮，会重置当前表单中全部的内容。 image：图像形式的提交按钮，写法是“”。 hidden：隐藏域，隐藏字段对于用户是不可见的。 file：文件域，用于文件上传。 select1234567&lt;select size=&quot;&quot; multiple=&quot;multiple&quot;&gt;&lt;option hidden&gt;选项1&lt;/option&gt;……&lt;/select&gt; size：下拉菜单的可见选项数；multiple：多选。 在最新的html5中，有一些表单的新增属性，多用于js，如 datalist : 定义填写一个input时，提示几个option用于提示。可通过input的list特性与此元素作关联。 output : 表示计算的结果。可通过for特性与其它能够影响运算的元素（如input）作关联。 版权声明：本文为CSDN博主「jnshu_it」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。 原文链接：https://blog.csdn.net/jnshu_it/article/details/85370309]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考4</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -419,7 +419,7 @@
     <content type="text"><![CDATA[定位属性top, right, bottom, left;计算原则：基于父元素 盒模型属性height, width, margin, padding; height：基于包含它的块级对象的百分比高度width：基于包含它的块级对象的百分比宽度margin，padding：百分数是相对与父元素的width计算 背景属性background-position; background-position 的默认值是 0% 0%，在功能上相当于 top left。这就解释了背景图像为什么总是从元素内边距区的左上角开始平铺，除非您设置了不同的位置值。 文本属性text-indent, line-height, vertical-align; 字体属性font-size;]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考4</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -428,7 +428,7 @@
     <content type="text"><![CDATA[relative简介：生成相对定位的元素，相对于其正常位置进行定位。 生成相对定位的元素，相对于其正常位置进行定位。元素的位置通过left、right、top、button属性进行规定，可以通过z-index进行层次分级。 元素仍保持其未定位前的形状，原本所占的空间仍将保留。（如果没有定位偏移量，对元素本身没有任何影响。所以可以设置父元素的position属性为relative，使其成为子元素的包含块） absolute简介：生成绝对定位元素。使元素脱离文档流，并相对于其包含块进行定位，包含块可能是文档中的另一个元素或者是初始包含块，元素原先在正常文档流中所占的空间会会被后面元素占据； 元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框；绝对定位元素的包含块由离它最近的 ‘position’ 属性为 ‘absolute’、’relative’ 或者 ‘fixed’ 的祖先元素创建。只要父级元素设置了position并且不是static（默认既是static），那么设定了absolute的子元素即以此为包含块（最近的）。如果都没有定义，那么就相对于整个文档body定位（注意不是相对于浏览器窗口定位） fixed简介：生成绝对定位元素，相对于浏览器窗口的定位。 通常配合z-index一起来使用。比如说网页上悬挂的聊天图标或者广告就是用fixed]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考4</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -437,7 +437,7 @@
     <content type="text"><![CDATA[像素像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 分辨率分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。 分辨率可以分为两方面：屏幕分辨率和图像分辨率。 屏幕分辨率： 例如，屏幕分辨率是1024×768，也就是说设备屏幕的水平方向上有1024个像素点，垂直方向上有768个像素点。像素的大小是没有固定长度的，不同设备上一个单位像素色块的大小是不一样的。 例如，尺寸面积大小相同的两块屏幕，分辨率大小可以是不一样的，分辨率高的屏幕上面像素点（色块）就多，所以屏幕内可以展示的画面就更细致，单个色块面积更小。而分辨率低的屏幕上像素点（色块）更少，单个像素面积更大，可以显示的画面就没那么细致。 图像分辨率： 例如，一张图片分辨率是500x200，也就是说这张图片在屏幕上按1:1放大时，水平方向有500个像素点（色块），垂直方向有200个像素点（色块）。 在同一台设备上，图片分辨率越高，这张图片1:1放大时，图片面积越大；图片分辨率越低，这张图片1:1缩放时，图片面积越小。（可以理解为图片的像素点和屏幕的像素点是一个一个对应的）。 但是，在屏幕上把图片超过100%放大时，为什么图片上像素色块也变的越大，其实是设备通过算法对图像进行了像素补足，我们把图片放的很大后看到的一块一块的方格子，虽然理解为一个图像像素，但是其实是已经补充了很多个屏幕像素；同理，把图片小于100%缩小时，也是通过算法将图片像素进行减少。 移动设备分辨率说到移动设备分辨率，这里先提另一个单位dpi(dot per inch)dpi/ppi是表示一个每inch多少个物理像素dot的单位在最开始是160dpi/ppi后来因为技术的提高，为了追求高清屏幕，有了320dpi/ppi以上等等的屏幕下面继续说移动设备分辨率我们可以理解分辨率就是长宽分别有多少个物理像素dot但是设备大小就那么大，所以同样大小的设备，分辨率越高，物理像素堆得越多，屏幕越清晰，也就是dpi越高 网页中的px（css像素）在桌面浏览器：1px（下面我们读成‘css像素’）代表1个物理像素，也就是1css像素 = 1物理像素没有加meta viewport标签时候：移动端viewport宽度为980px或者1024px，这时候1css像素不确定是几个物理像素（根据分辨率来算）写个20px的文字看看效果（见演示）在加了meta viewport标签以后呢？我们引入另外一个单位：密度独立像素dp/dipdp/dip是在不同设备都显示为同一大小的单位（见演示）简单理解，在使用了&lt;xmp&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&lt;/xmp&gt;之后，所有1px = 1dp/dip添加meta标签后20px的文字（见演示）设备的独立像素都是可以查到的 UI口中的px像素UI图中的像素，也就是psd中我们量出来的像素，比如说任务中psd图的宽度为750px或者640px UI口中的像素是移动设备分辨率 注意事项： 直接按照UI图上px大小写，会偏大。 因为UI图的px和css中的px不是一个单位，一般来说UI图中大小除以2写在css里 总结手机分辨率和网页中的px不相同，px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 参考资料手机分辨率和网页中的px是一回事吗？ 分辨率和像素是什么关系？]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考3</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -446,7 +446,7 @@
     <content type="text"><![CDATA[区别margin始终是透明的；margin是用来隔开元素与元素的间距； padding是用来隔开元素与内容的间隔。 作用范围margin用于布局分开元素使元素与元素互不相干； padding用于元素与内容之间的间隔，让内容（文字）与（包裹）元素之间有一段“呼吸距离”，还可以调整边框与内容的距离。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考3</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -455,7 +455,7 @@
     <content type="text"><![CDATA[选择器类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器 优先级 在属性后面使用！important会覆盖页面内任何位置定义的元素样式。 作为style属性写在元素内的样式 id选择器 类选择器 标签选择器 通配符选择器 浏览器自定义或子元素集成父类的样式 参考资料简书]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考3</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -464,7 +464,7 @@
     <content type="text"><![CDATA[什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。 如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。 不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto; 使用相对大小的字体：em、rem 流动布局：各个区块的位置是浮动的，不是固定不变的 图片自适应：图片自动缩放 img { max-width: 100%;} 选择加载css：自适应网页设计”的核心，就是CSS3引入的Media Query模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。 css中的@media媒体查询规则：同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则。 参考资料自适应网页设计]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考3</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -473,7 +473,7 @@
     <content type="text"><![CDATA[px：绝对单位，页面按精确像素展示 em：相对单位，基准点为父级元素字体的大小，如果自身定义了font-size按自身来计算（浏览器默认字体是16px），整个页面内1em不是一个固定的值。 rem：相对单位，为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。 %：相对单位，相对于父级元素的百分比宽度 vw：viewpoint width，视窗宽度，1vw等于视窗宽度的1%。vh：viewpoint height，视窗高度，1vh等于视窗高度的1%。 vm；css3单位，相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为100单位的vm举个例子：浏览器高度900px，宽度1200px，取最小的浏览器高度，1 vm = 900px/100 = 9 px。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考3</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -482,7 +482,7 @@
     <content type="text"><![CDATA[PS切图切片工具使用PS中的切片工具进行所需图片的切割，然后点击文件选项卡，选择其中存储为web所用格式即可完成ps切图。 一键切图下载一键切图工具并载入动作，用移动工具选择图层，按F2一键切图。最后选择保存为web所需格式，注意保存为png格式防止出现兼容性问题。 下载链接及教程： 前端高效开发之“一键切图” 获取UI中的信息 各部分之间的距离 文字的字体，字号颜色 背景的颜色（使用取色器） 注意事项：UI图的px和css中的px不是一个单位，一般来说UI图中大小除以2写在css里]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考3</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -491,7 +491,7 @@
     <content type="text"><![CDATA[1. 买一个服务器2. 下载filezilla3. 连接自己的服务器，将对应代码上传（全中文页面不再赘述）]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考2</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -500,7 +500,7 @@
     <content type="text"><![CDATA[什么是nginx？Nginx（发音同engine x）是异步框架的网页服务器，也可以用作反向代理、负载平衡器和HTTP缓存。该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。2011年成立同名公司以提供支持。2019年3月11日，Nginx公司被F5 Networks以6.7亿美元收购。 Nginx是免费的开源软件，根据类BSD许可证的条款发布。一大部分Web服务器使用Nginx，通常作为负载均衡器。 正向代理正向代理简介一般情况下，如果没有特别说明，代理技术默认说的是正向代理技术。关于正向代理的概念如下： 正向代理(forward)是一个位于客户端【用户A】和原始服务器(origin server)【服务器B】之间的服务器【代理服务器Z】，为了从原始服务器取得内容，用户A向代理服务器Z发送一个请求并指定目标(服务器B)，然后代理服务器Z向服务器B转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。如下图 从上面的概念中，我们看出，文中所谓的正向代理就是代理服务器替代访问方【用户A】去访问目标服务器【服务器B】 ， 总结：代理服务器代替了用户A 正向代理的意义为什么要用通过代理服务器去访问服务器B，而不是用户直接访问？ 访问本无法访问的服务器B 加速访问服务器B Cache（缓存） 作用 客户端访问授权（为什么我们无法直接访问谷歌） 隐藏访问者的行踪（服务器B只知道代理服务器Z访问了它） 反向代理反向代理简介反向代理正好与正向代理相反，对于客户端而言代理服务器就像是原始服务器，并且客户端不需要进行任何特别的设置。客户端向反向代理的命名空间(name-space)中的内容发送普通请求，接着反向代理将判断向何处(原始服务器)转交请求，并将获得的内容返回给客户端。 总结：代理服务器代替了服务器B 反向代理的意义 保护和隐藏原始资源服务器 用户A始终认为它访问的是原始服务器B而不是代理服务器Z，但实用际上反向代理服务器接受用户A的应答，从原始资源服务器B中取得用户A的需求资源，然后发送给用户A。由于防火墙的作用，只允许代理服务器Z访问原始资源服务器B。尽管在这个虚拟的环境下，防火墙和反向代理的共同作用保护了原始资源服务器B，但用户A并不知情。 负载均衡 当反向代理服务器不止一个的时候，我们甚至可以把它们做成集群，当更多的用户访问资源服务器B的时候，让不同的代理服务器Z（x）去应答不同的用户，然后发送不同用户需要的资源。 当然反向代理服务器像正向代理服务器一样拥有CACHE的作用，它可以缓存原始资源服务器B的资源，而不是每次都要向原始资源服务器B请求数据，特别是一些静态的数据，比如图片和文件，如果这些反向代理服务器能够做到和用户X来自同一个网络，那么用户X访问反向代理服务器X，就会得到很高质量的速度。这正是CDN技术的核心。 如何配置nginx，实现在手机上查看页面？Nginx的配置文件是文件夹中的conf文件下的nginx.conf，其实配置文件默认不修改也是可有用的； 如果你通过浏览器输入localhost出现的页面即为文件夹下HTML文件中的index.html；所以你可以将你想要检测的产品放到HTML文件夹中，并将原本的index.html文件给删了，这个时候打开网页输入localhost，使用ctrl+F5清下浏览器缓存即出现你产品中的index.html(产品的首页都会命名为index.html）页面，然后进行一系列测试看看是否OK； 如果要使用自己文件夹中的文件测试，需要更改Nginx的配置文件是文件夹中的conf文件下的nginx.conf，修改三处root地址为自己的文件夹所在地址，第一处改为 D:\home\www，第二处改为 /home/www,第三处改为/home/www。 注意事项： 左斜杠/与右斜杠\的区别不要打错了！ 参考资料 图解正向代理、反向代理、透明代理 维基百科]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考2</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -509,7 +509,7 @@
     <content type="text"><![CDATA[使用github搭建个人网站 在github上搭建网站 即username.github.io（username是你的github用户名） 把自己的域名（如zhangsan.com）绑定到username.github.io上 具体操作：如何用github搭建自己的个人网站 用Hexo+Github 搭建个人网站 搭建环境准备（包括node.js和git环境，gitHub账户的配置） 安装Hexo 配置Hexo 怎样将Hexo与github page 联系起来 怎样发布文章 主题 推荐 主题Net的简单配置 添加sitemap和feed插件 添加404 公益页面 具体操作：手把手教你用Hexo+Github 搭建属于自己的博客]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考2</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -518,7 +518,7 @@
     <content type="text"><![CDATA[svn与git简介SVN （集中式版本控制系统）SVN是Subversion的简称，是一个开放源代码的版本控制系统,支持大多数常见的操作系统。作为一个开源的版本控制系统,Subversion管理着随时间改变的数据。这些数据放置在一个中央资料档案库(repository)中。这个档案库很像一个普通的文件服务器,不过它会记住每一次文件的变动。这样你就可以把档案恢复到旧的版本,或是浏览文件的变动历史。Subversion是一个通用的系统,可用来管理任何类型的文件,其中包括了程序源码。 工作流程集中式管理的工作流程如下图： 集中式代码管理的核心是服务器，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。如果脱离了服务器，开发者基本上可以说是无法工作的。下面举例说明： 开始新一天的工作： 从服务器下载项目组最新代码。 进入自己的分支，进行工作，每隔一个小时向服务器自己的分支提交一次代码（很多人都有这个习惯。因为有时候自己对代码改来改去，最后又想还原到前一个小时的版本，或者看看前一个小时自己修改了哪些代码，就需要这样做了）。 下班时间快到了，把自己的分支合并到服务器主分支上，一天的工作完成，并反映给服务器。 SVN属于集中化的版本控制系统​ 这种做法带来了许多好处，特别是相较于老式的本地VCS来说。现在，每个人都可以一定程度上看到项目中的其他人正在做些什么。而管理员也可以轻松掌控每个开发者的权限。事分两面，有好有坏。这么做最显而易见的缺点是中央服务器的单点故障。若是宕机一小时，那么在这一小时内，谁都无法提交更新、还原、对比等，也就无法协同工作。如果中央服务器的磁盘发生故障，并且没做过备份或者备份得不够及时的话，还会有丢失数据的风险。最坏的情况是彻底丢失整个项目的所有历史更改记录，被客户端提取出来的某些快照数据除外，但这样的话依然是个问题，你不能保证所有的数据都已经有人提取出来。Subversion原理上只关心文件内容的具体差异。每次记录有哪些文件作了更新，以及都更新了哪些行的什么内容。 Subversion的特点 每个版本库有唯一的URL（官方地址），每个用户都从这个地址获取代码和数据； 获取代码的更新，也只能连接到这个唯一的版本库，同步以取得最新数据； 提交必须有网络连接（非本地版本库）； 提交需要授权，如果没有写权限，提交会失败； 提交并非每次都能够成功。如果有其他人先于你提交，会提示“改动基于过时的版本，先更新再提交”… 诸如此类； 冲突解决是一个提交速度的竞赛：手快者，先提交，平安无事；手慢者，后提交，可能遇到麻烦的冲突解决。 GIT（分布式版本控制系统）Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目 Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 分布式相比于集中式的最大区别在于开发者可以提交到本地，每个开发者通过克隆（git clone），在本地机器上拷贝一个完整的Git仓库. 工作流程下图是经典的git开发过程。 Git的功能特性从一般开发者的角度来看，git有以下功能： 从服务器上克隆完整的Git仓库（包括代码和版本信息）到单机上。 在自己的机器上根据不同的开发目的，创建分支，修改代码。 在单机上自己创建的分支上提交代码。 在单机上合并分支。 把服务器上最新版的代码fetch下来，然后跟自己的主分支合并。 生成补丁（patch），把补丁发送给主开发者。 看主开发者的反馈，如果主开发者发现两个一般开发者之间有冲突（他们之间可以合作解决的冲突），就会要求他们先解决冲突，然后再由其中一个人提交。如果主开发者可以自己解决，或者没有冲突，就通过。 一般开发者之间解决冲突的方法，开发者之间可以使用pull 命令解决冲突，解决完冲突之后再向主开发者提交补丁。 从主开发者的角度（假设主开发者不用开发代码）看，git有以下功能： 查看邮件或者通过其它方式查看一般开发者的提交状态。 打上补丁，解决冲突（可以自己解决，也可以要求开发者之间解决以后再重新提交，如果是开源项目，还要决定哪些补丁有用，哪些不用）。 向公共服务器提交结果，然后通知所有开发人员。 Git属于分布式的版本控制系统​ 自2005年诞生于以来，Git日臻成熟完善，在高度易用的同时，仍然保留着初期设定的目标。它的速度飞快，极其适合管理大项目，它还有着令人难以置信的非线性分支管理系统，可以应付各种复杂的项目开发需求。 与SVN不同，Git记录版本历史只关心文件数据的整体是否发生变化。Git并不保存文件内容前后变化的差异数据。实际上，Git更像是把变化的文件作快照后，记录在一个微型的文件系统中。每次提交更新时，它会纵览一遍所有文件的指纹信息并对文件作一快照，然后保存一个指向这次快照的索引。为提高性能，若文件没有变化，Git不会再次保存，而只对上次保存的快照作一连接。 Git特点 Git中每个克隆(clone)的版本库都是平等的。你可以从任何一个版本库的克隆来创建属于你自己的版本库，同时你的版本库也可以作为源提供给他人，只要你愿意。 Git的每一次提取操作，实际上都是一次对代码仓库的完整备份。提交完全在本地完成，无须别人给你授权，你的版本库你作主，并且提交总是会成功。 甚至基于旧版本的改动也可以成功提交，提交会基于旧的版本创建一个新的分支。 Git的提交不会被打断，直到你的工作完全满意了，PUSH给他人或者他人PULL你的版本库，合并会发生在PULL和PUSH过程中，不能自动解决的冲突会提示您手工完成。 冲突解决不再像是SVN一样的提交竞赛，而是在需要的时候才进行合并和冲突解决。 svn和git的区别 SVN属于集中化的版本控制系统，有个不太精确的比喻:SVN = 版本控制+ 备份服务器SVN使用起来有点像是档案仓库的感觉，支持并行读写文件，支持代码的版本化管理，功能包括取出、导入、更新、分支、改名、还原、合并等。 Git是一个分布式版本控制系统，操作命令包括：clone，pull，push,branch ,merge ,push,rebase，Git擅长的是程序代码的版本化管理。 GIT跟SVN一样有自己的集中式版本库或服务器。但，GIT更倾向于被使用于分布式模式，也就是每个开发人员从中心版本库/服务器上chect out代码后会在自己的机器上克隆一个自己的版本库。 可以这样说，如果你被困在一个不能连接网络的地方时，就像在飞机上，地下室，电梯里等，你仍然能够提交文件，查看历史版本记录，创建项目分支，等。对一些人来说，这好像没多大用处，但当你突然遇到没有网络的环境时，这个将解决你的大麻烦。 GIT把内容按元数据方式存储，而SVN是按文件所有的资源控制系统都是把文件的元信息隐藏在一个类似.svn,.cvs等的文件夹里。 如果你把.git目录的体积大小跟.svn比较，你会发现它们差距很大。因为,.git目录是处于你的机器上的一个克隆版的版本库，它拥有中心版本库上所有的东西，例如标签，分支，版本记录等。 分支在SVN中一点不特别，就是版本库中的另外的一个目录。如果你想知道是否合并了一个分支，你需要手工运行像这样的命令svn propget svn:mergeinfo，来确认代码是否被合并。 然而，处理GIT的分支却是相当的简单和有趣。你可以从同一个工作目录下快速的在几个分支间切换。你很容易发现未被合并的分支，你能简单而快捷的合并这些文件。 GIT没有一个全局的版本号，而SVN有目前为止这是跟SVN相比GIT缺少的最大的一个特征。你也知道，SVN的版本号实际是任何一个相应时间的源代码快照。我认为它是从CVS进化到SVN的最大的一个突破。因为GIT和SVN从概念上就不同，我不知道GIT里是什么特征与之对应。如果你有任何的线索，请在评论里奉献出来与大家共享。 GIT的内容完整性要优于SVN：GIT的内容存储使用的是SHA-1哈希算法。这能确保代码内容的完整性，确保在遇到磁盘故障和网络问题时降低对版本库的破坏。 svn和git的优缺点SVN 的优缺点​ SVN对中文支持好，操作简单，使用没有难度，美工人员，产品人员，测试人员，实施人员都可轻松上手。使用界面统一，功能完善，操作方便。 Git的优缺点​ 对程序源代码进行差异化的版本管理，代码库占极少的空间。易于代码的分支化管理。不支持中文，图形界面支持差，使用难度大。不易推广。 svn和git适用范围的不同 适用对象不同。Git适用于参与开源项目的开发者。他们由于水平高，更在乎的是效率而不是易用性。SVN则不同，它适合普通的公司开发团队。使用起来更加容易。 使用的场合不同。Git适用于通过Internet，有多个开发角色的单个项目开发，SVN适合企业内部由项目经理统一协调的多个并行项目的开发。 权限管理策略不同。Git没有严格的权限管理控制，只要有帐号，就可以导出、导入代码，甚至执行回退操作。SVN则有严格的权限管理，可以按组、按个人进行针对某个子目录的权限控制。区分读、写权限。更严格的，不支持回退操作。保证代码永远可以追踪。 分支(branch)的使用范围不一样。Git中，你只能针对整个仓库作branch,而且一旦删除，便无法恢复。而SVN中，branch可以针对任何子目录，它本质上是一个拷贝操作。所以，可以建立非常多、层次性的branch,并且，在不需要时将其删除，而以后需要时只要checkout老的SVN版本就可以了。 基于第三点，Git适用于单纯的软件项目，典型的就是一些开源项目，比如Linux内核、busybox等。相反，SVN擅长多项目管理。比如，你可以在一个SVN仓库中存放一个手机项目的bsp/设计文档/文件系统/应用程序/自动化编译脚本，或者在一个SVN中存放5款手机项目的文件系统。git中必须建立n(项目数)*m（组件数）个仓库。SVN中只需要最多n或者m个就可以了。 Git使用128位ID作为版本号，而且checkout时要注明是哪个branch,而SVN使用一个递增的序列号作为全局唯一的版本号，更加简明易懂。虽然可以使用gittag来建立一些文字化的别名，但是毕竟那只是针对特殊版本。 可跟踪性，git的典型开发过程为：建立分支，进行开发，提交到本地master，删除分支。这样做的后果是以前的修改细节会丢失。而在SVN下做同样的事情，不会丢失任何细节。这里是一个有趣的链接，表明了git下典型的工作方式：（以master为核心，不断创建新branch,删除旧branch) 局部更新，局部还原。SVN由于是在每个文件夹建立一个.svn文件夹来实现管理，所以可以很简单实现局部更新或者还原。假如你只希望更新某些部分，则svn可以很好实现。同时代码写错了，同时可以很好实现局部还原，当然git也可以通过历史版本还原，但是无法简单地实现局部还原。 SVN 和 Git 哪个更适用于项目管理？​ 首先说一下，我是一个研发团队的项目经理，SVN和Git我都用过，SVN更适用于项目管理， Git仅适用于代码管理。 ​ 一个研发队伍的成员正常包括：需求分析、设计、美工、程序员、测试、实施、运维，每个成员在工作中都有产出物， 包括了文档、设计代码、程序代码，这些都需要按项目集中进行管理的。SVN能清楚的按目录进行分类管理， 使项目组的管理处于有序高效的状态。 总结 总之，公司的开发团队在进行的项目开发管理时，svn是更好的选择，团队成员共同维护公司的中心版本。 若是开源项目，则git更加适合，每个人都可以维护自己专属的版本，同时有github开源社区支持。 参考和转载伯乐在线:http://blog.jobbole.com/31444/ 百度百科:http://baike.baidu.com marko39:http://jingyan.baidu.com/article/676629976401a154d51b8430.html 码迷网:http://www.mamicode.com/info-detail-107111.htm 百度百科:http://baike.baidu.com marko39:http://jingyan.baidu.com/article/676629976401a154d51b8430.html 码迷网:http://www.mamicode.com/info-detail-107111.htm]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考2</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -527,7 +527,7 @@
     <content type="text"><![CDATA[代码开发在大多数情况下不是一个人的工作，那么不同人之间如何统一代码共同进行项目开发呢。git 是一款分布式版本控制系统，本文简要介绍了git的基本应用。 git是什么？Git是一款分布式版本控制系统 github是什么？GitHub是一款免费的远程仓库 如何使用git将代码上传至github？关于如何安装git，如何使用git将代码上传至github，廖雪峰的教程已经相当完善且浅显易懂了，我在此不再赘述。 廖雪峰的git教程]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考2</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -536,7 +536,7 @@
     <content type="text"><![CDATA[代码开发在大多数情况下不是一个人的工作，那么不同人之间如何统一代码共同进行项目开发呢。Subversion 是一种跨平台的开源版本控制系统，本文简要介绍了svn的基本应用。 目录 导引 安装Subversionn 安装TortoiseSVN 一步步地操作 设置全局忽略文件类型(此步骤为可选)步骤 创建版本库Repository数据库 创建工作目录 - 将你的项目与数据库连接起来 添加忽略 注意事项 参考资料 导引 到目前有很多关于Subversion (SVN) 和 TortoiseSVN的优秀书籍和教程。其中有部分在本文的参考资料区有列出。这篇教程无疑是站在巨人的肩膀上。它只覆盖了subversion (SVN)有限的一部分功能。 然而我希望此文能简化你对SVN的认识。 Subversion 是一种跨平台的开源版本控制系统 (http://subversion.tigris.org/). 它由版本数据库 (FSFS 或 BDB) 和一些命令行工具组成。目前有各种各样的SVN前端工具。 Subversion是为多人参与的项目专门设计的。 但它也可用于管理个人项目。 此文仅限于基于Windows的本地SVN环境(未单独配置远程的服务器)。 安装Subversion打开Tigris.org网站的下载区，选择 开源代码软件工程工具Subversion (http://subversion.tigris.org/)。 Windows下最新的命令行版Subversion的安装文件和库都能在http://www.open.collab.net/downloads/subversion/下载到。下载安装包。SVN的默认安装目录为C:\Program Files\Subversion，当然你也可以修改磁盘路径。 现在你就可以开始使用SVN了。 如果你不习惯使用命令行工具，那你有必要安装一个你觉得合适的GUI前端。 安装TortoiseSVNTortoiseSVN是一种Subversion客户端, Windows下它是一个命令行扩展, Windows资源管理器的一个插件(http://tortoisesvn.tigris.org/)。 最新版本可以在这下载到 http://tortoisesvn.sourceforge.net/downloads. 截止到2015.12.18的最新版本为：TortoiseSVN-1.9.2.26806-x64-svn-1.9.2.msi，如果需要切换语言，还可以在官网上下载相应语言包。 如果你电脑安装的Windows是32位的请选择32位的TortoiseSVN安装包，如果你电脑安装的Windows是x64的请选择x64的TortoiseSVN安装包。 下载区域的另一个文件TortoiseSVN-xxx-xxx.md5, 是安装时不需要的。它包含安装包的验证编号checksum，该验证编号能有效验证你是否下载到了合适的安装包 (且它没有损坏)。 你可以下载程序HashFile (http://www.shokhirev.com/nikolai/programs/progmisc.html) 来验证下载到的安装包的 MD5 哈希值 (checksum). 该验证编号必须和TortoiseSVN-xxx-xxx.md5文件上的信息完全一致。 这个安装也是直接的，同意默认设置即可。 唯一有趣的是ASP.Net hack. 默认情况下, SVN 使用 .svn 工作目录 (正如Linux下隐藏文件的命名风格)。这使得 微软 ASP.Net 和 the hack 强制 SVN 去使用 _svn 作为工作目录。 如果你要使用Subversion对ASP.Net项目进行版本控制，请不要安装ASP.Net hack这一项。 注： 安装完TortoiseSVN后，你的Windows 资源管理器的主目录上会出现下图所示的新的按钮： 同时这些新增按钮也会添加到 (通过鼠标右键单击激活) 的上下文菜单中。 一步步地操作目前有很多Subversion管理方式(参看手册). 现在我们主要考虑如下主要的情形: 你有一个现有的项目，你想将它加入版本控制。 这是你本地电脑上的个人项目。 在这种情形下你不应该会担心安全性和开启一个subversion服务器。 假设你的项目驻放在 C:\Projects\MyProject 路径下，它包含如下文件，或许还有些子文件夹： 步骤0 (可选). 设置全局忽略文件类型。你可能不想跟踪临时文件 或 某些其他格式的文件。鼠标右击任意一个文件夹，然后打开TortoiseSVN的Settings： 当然你也可以鼠标右击文件， 打开Windows资源管理器主目录中的TortoiseSVN/Settings。“General” -&gt; “Subversion”处，你可以列出各种各样的文件类型，并使用空格隔开 (比如上图中示例的 *.bak *.~*). 注意到这个设置会对所有的工作目录有效。参看手册的5.25可了解更多的设置。 步骤1.创建版本库Repository。在你的硬盘上为你的项目创建版本库的目录, 比如 C:\SVN. 在它里面创建一个空的子目录 \MyProject. 鼠标右键点击MyProject，并选择TortoiseSVN -&gt; 在此创建版本库: 选择默认”原生文件系统”(FSFS)选项，并单击OK按钮： 这一步将 C:\SVN\MyProject 转化为含有如下内容的版本库： 到目前为止，它还是一个空的版本库，虽然Subversion已经创建了几个目录和文件 ! 我们需要将我们的项目文件中需要进行版本控制的文件填充进去并将它链接到我们的工作项目的目录。这些操作中可能会有几个和大家的习惯操作不一样、新的操作。 步骤2. 导入初始化。 在你的磁盘的某处 (比如 在 C:\tmp) 创建一个目录 (比如 \new) ，含有如下3个子目录： 123C:\tmp\new\branches C:\tmp\new\tags C:\tmp\new\trunk 相应的文件结构为： 为了能用更多高级的项目管理功能，这个结构是必须的, 如果事先创建它也不会带来什么损害。 有些手册首推先导入此结构到版本库，然后向里面添加项目。我推荐使用如下的快捷方式： 备份你的项目文件 (比如 C:\Projects\MyProject), 以防万一. 删除所有不在全局忽略文件列表中的不需要进行版本控制的文件。 将 文件夹 \MyProject 中需要进行版本控制的内容 移动 进 trunk 子目录 (C:\tmp\new\trunk). 我们之后无论如何都将会需要一个空的文件夹。 将目录”new”导入Import到版本库 (选择”new”，右键依次单击TortoiseSVN-&gt;Import)： URL 选择 file:///C:/SVN/Myproject (左斜杠”/“ !): “Import finished” 消息出现时，表明 C:\tmp\new\下的所有文件及子文件夹都已成功导入版本库 : 不需要担心”tmp\new” 消息, 只要验证哪些文件真正地导入到了版本库中即可。 书表右键单击 C:\SVN\MyProject ，然后打开 TortoiseSVN -&gt; Repo-browser(版本库浏览器)： 导航 至 file///C:/SVN/MyProject/trunk: 注意到全局忽略列表的文件都没被导入。 并且也没有 ‘C:\tmp\new’ 目录的痕迹了， ‘C:\tmp\new’ 目录再没有什么用处了，可以删掉。 步骤3. 创建工作目录 - 将你的项目与数据库连接起来.现在你已经成功增加了你对所有需要进行版本控制的文件添加了版本控制，并且当前的空目录 C:\Projects\MyProject (回忆一下, 我们之前已将改目录中的所有文件 移动 到了 目录 C:\tmp\new\trunk 中，对么?). “为了让你的双手移动文件的这个行为获得”赞美”, 完全得到批准, 并且完全导入Subversion目录, 你需要从版本库中对它进行检出Checkout” . 书表右击 C:\Projects\MyProject 文件夹，并选择 “SVN Checkout”(SVN 检出): 设置 URL 为 file:///C:/SVN/MyProject/trunk ，并设置检出目录为： C:\Projects\MyProject 点击OK. 会提示”Checkout (检出) has finished”： “赞美” 以”对勾Check”小图标的形式反映在你的项目目录和里面所有的文件(和所有的子目录)上。 步骤4.添加忽略的文件在资源管理器中，右键一个未加入版本控制文件或目录，并从弹出菜单选择TortoiseSVN →Add to Ignore List，会出现一个子菜单，允许你仅选择该文件或者所有具有相同后缀的文件。 如果你想从忽略列表中移除一个或多个条目，右击这些条目，选择TortoiseSVN →从忽略列表删除。 几点注意事项 提交 (checking in) 你对版本库的变更: 右击鼠标，然后选择 “SVN Commit”(SVN提交)添加文件到版本库。 除了参考书籍 [4] 和 [5], 我也推荐 Charlie Calvert 的文章 [6]. 如果你使用 Lavasoft Ad-Aware, 不要删除可以忽略的对象: 这一步会删除注册表中的图标设置 ! 祝开开心心 使用Subversion版本控制 ! 这是一个两步的过程: 先右击选中的文件，然后右键依次选择 “TortoiseSVN”-&gt;”Add” 先右击选中的文件，然后右键依次选择 “TortoiseSVN”-&gt;”SVN Commit” 参考资料如何用TortoiseSVN将项目代码提交到SVN 原作者: Bravo Yeung公众号: dotNET匠人]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考2</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -564,7 +564,7 @@
     <content type="text"><![CDATA[每个html标签元素都有其默认的元素类型，主要包括两大类:inline内联元素、block块元素。除默认为以上两种，还有部分标签元素叫可变元素，会根据上下文语境决定该元素为inline元素或是block元素。在css里，有一个display的属性，他规定元素应该生成的框的类型。可能的值有很多，inline、block、inline-block,其中inline-block是在css2.1里新增的值。具有这个值的元素，我们可以把它叫做inline-block元素。 一.inline元素、block元素、inline-block元素的具体解释inline元素inline元素全称Inline Elements，英文原意:An inline element does not start on a new line and only takes up as much width as necessary.一个内联元素不会开始新的一行，并且只占有必要的宽度。 特点: 和其他元素都在一行上； 元素的高度、宽度、行高及顶部和底部边距不可设置； 元素的宽度就是它包含的文字或图片的宽度，不可改变。 block元素block元素全称Block-level Elements，英文原意:A block-level element always starts on a new line and takes up the full width available (stretches out to the left and right as far as it can).一个块级元素总是开始新的一行，并且占据可获得的全部宽度(左右都会尽可能的延伸到它能延伸的最远) 特点: 每个块级元素都从新的一行开始，并且其后的元素也另起一行。（一个块级元素独占一行）; 元素的高度、宽度、行高以及顶和底边距都可设置; 元素宽度在不设置的情况下，是它本身父容器的100%（和父元素的宽度一致），除非设定一个宽度。 inline-block元素inline-block元素，英文释义:inline-block elements are like inline elements but they can have a width and a height.它像内联元素，但具有宽度和高度。 特点: 和其他元素都在一行上； 元素的高度、宽度、行高以及顶和底边距都可设置 二.常见的inline元素、block元素、inline-block元素常见的inline内联元素：span、img、a、lable、input、abbr（缩写）、em（强调）、big、cite（引用）、i（斜体）、q（短引用）、textarea、select、small、sub、sup，strong、u（下划线）、button（默认display：inline-block）） 常见的block块级元素：div、p、h1…h6、ol、ul、dl、table、address、blockquote、form 常见的inline-block内联块元素：img、input 三.的inline元素、block元素、inline-block元素的区别 块级元素会独占一行，而内联元素和内联块元素则会在一行内显示。 块级元素和内联块元素可以设置 width、height 属性，而内联元素设置无效。 块级元素的 width 默认为 100%，而内联元素则是根据其自身的内容或子元素来决定其宽度。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考1</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -573,7 +573,7 @@
     <content type="text"><![CDATA[如何理解盒模型及其content、padding、border、margin？ 当对一个文档进行布局(laying out)的时候，浏览器渲染引擎会根据CSS-Box模型（CSS Basic Box model）将所有元素表示为一个矩形盒子（box)。CSS决定这些盒子的大小，位置以及属性（颜色，背景，边框尺寸…). 一.CSS标准盒子模型。 1. 内容区域content内容区域content area 是包含元素真实内容的区域。它通常包含背景、颜色或者图片等，位于内容边界的内部，它的大小为内容宽度 或 content-box宽及内容高度或content-box高。 如果 box-sizing 为默认值， width, min-width, max-width, height, min-height 与 max-height 控制内容大小。 2. 内边距区域padding内边距区域padding area 延伸到包围padding的边框。如果内容区域content area设置了背景、颜色或者图片，这些样式将会延伸到padding上(而不仅仅是作用于内容区域)。它位于内边距边界内部, 它的大小为 padding-box 宽与 padding-box 高。 内边距与内容边界之间的空间可以由 padding-top, padding-right, padding-bottom, padding-left 和简写属性 padding 控制。 3. 边框区域border边框区域border area 是包含边框的区域，扩展了内边距区域。它位于边框边界内部，大小为 border-box 宽和 border-box 高。由 border-width 及简写属性 border控制。 4. 外边距区域margin外边距区域margin area用空白区域扩展边框区域，以分开相邻的元素。它的大小为 margin-box 的高宽。 外边距区域大小由 margin-top, margin-right, margin-bottom, margin-left 及简写属性 margin 控制。 注意: 在外边距合并 的情况下，由于盒之间共享外边距，外边距不容易弄清楚。 对于非替换的行内元素来说，尽管内容周围存在内边距与边框，但其占用空间（行高）由 line-height 属性决定。 二. 浏览器兼容一旦为页面设置了恰当的 DTD，大多数浏览器都会按照上面的图示来呈现内容。然而 IE 5 和 6 的呈现却是不正确的。根据 W3C 的规范，元素内容占据的空间是由 width 属性设置的，而内容周围的 padding 和 border 值是另外计算的。不幸的是，IE5.X 和 6 在怪异模式中使用自己的非标准模型。这些浏览器的 width 属性不是内容的宽度，而是内容、内边距和边框的宽度的总和。 虽然有方法解决这个问题。但是目前最好的解决方案是回避这个问题。也就是，不要给元素添加具有指定宽度的内边距，而是尝试将内边距或外边距添加到元素的父元素和子元素。 IE8 及更早IE版本不支持设置填充的宽度和边框的宽度属性。 解决IE8及更早版本不兼容问题可以在HTML页面声明&lt;!DOCTYPE html&gt;即可。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考1</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -590,7 +590,7 @@
     <content type="text"><![CDATA[在使用视窗宽度vw时，需要加入一个&lt;meta&gt;标签，这个标签究竟起什么作用，如果不加对网页有何影响呢？ 什么是viewport？vieport是用户在网页上的可见区域。 什么是meta？w&lt;meta&gt;是HTML5中引入的一种使设计人员标记控制vieport的标签。 为什么要加入&lt;meta&gt;，不加会有什么影响？vieport随设备而异，并且在移动电话上会比在计算机屏幕上小。 在平板电脑和手机之前，网页仅设计用于计算机屏幕，并且网页具有静态设计和固定大小是很常见的。 然后，当我们开始使用平板电脑和手机上网时，固定大小的网页太大，无法容纳视口。要解决此问题，这些设备上的浏览器会按比例缩小整个网页以适合屏幕大小。这样用户的观看体验会比较差！这不是完美的！ 如何使用 &lt;meta&gt;？1&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt; &lt;meta&gt;标签是如何控制网页的尺寸和缩放浏览器的说明。 width=device-width部分将页面的宽度设置为跟随设备的屏幕宽度（视设备而定）。 initial-scale=1.0部分设置浏览器首次加载页面时的初始缩放级别。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考1</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -599,7 +599,7 @@
     <content type="text"><![CDATA[在我们学习it的时候，不可避免的会遇到一个问题，那就是我们使用什么来编写代码呢？ 简介文本编辑器文本编辑器是计算机软件中的一种。主要用于用来编写和查看文本文件。 IDEIDE是带有软件开发功能的“集成开发环境”。 集成开发环境（IDE，Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。集成了代码编写功能、分析功能、编译功能、调试功能等一体化的开发软件服务套。所有具备这一特性的软件或者软件套（组）都可以叫集成开发环境。 优缺点优点 节省时间和精力。IDE的目的就是要让开发更加快捷方便，通过提供工具和各种性能来帮助开发者组织资源，减少失误，提供捷径。 建立统一标准。当一组程序员使用同一个开发环境时，就建立了统一的工作标准，当IDE提供预设的模板，或者不同团队分享代码库时，这一效果就更加明显了。 管理开发工作。首先，IDE提供文档工具，可以自动输入开发者评论，或者迫使开发者在不同区域编写评论。其次，IDE可以展示资源，更便于发现应用所处位置，无需在文件系统里面艰难的搜索。 缺点 学习曲线问题。IDE基本上是比较复杂的工具，为了更好的熟练使用，需要一定的时间和耐心。 初学者的困难。对初学者来说，使用IDE来学习开发有相当的难度，不适合学习一种新语言时使用。 无法修复坏代码或设计。开发者不能完全依赖工具的便捷，还是必须保持专业水准和熟练度，开发的成果好坏主要还是看开发员的技术。]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考1</category>
+        <category>深度思考</category>
       </categories>
   </entry>
   <entry>
@@ -608,7 +608,7 @@
     <content type="text"><![CDATA[九宫格布局是我们在网页开发中常用的布局之一，那么如何使用代码完成它呢？ 设置垂直方向的padding撑开容器123456789101112div.box &#123; width: 30%; padding-bottom: 30%; margin: 1%; background-color: orange; float: left; border-radius: 5%;&#125;div &#123; width: 100%; padding-bottom: 30%;&#125; 在 CSS 盒模型中，一个比较容易被忽略的就是 margin, padding 的百分比数值计算。按照规定，margin, padding 的百分比数值是相对 父元素宽度 的宽度计算的。由此可以发现只需将元素垂直方向的一个 padding 值设定为与 width 相同的百分比就可以制作出自适应正方形了： 优点：简洁明了，且兼容性好 缺点：填充内容后会出现问题 viewport 使用vw单位123456789101112div.box &#123; width: 30vw; height: 30vw; margin: 1vw; background-color: orange; float: left; border-radius: 5%;&#125;div &#123; width: 100vw; height: 100vw;&#125; 优点：简洁方便 缺点：浏览器兼容不好]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考1</category>
+        <category>深度思考</category>
       </categories>
       <tags>
         <tag>布局</tag>
@@ -620,7 +620,7 @@
     <content type="text"><![CDATA[每个 HTML 文件里开头都有个很重要的东西&lt;!DOCTYPE html&gt;,DOCTYPE是document type的简写，它并不是 HTML 标签，也没有结束标签，它是一种标记语言的文档类型声明，即告诉浏览器当前 HTML 是用什么版本编写的。 一. 背景介绍什么是DOCTYPE?DOCTYPE是document type的简写，它并不是 HTML 标签，也没有结束标签，它是一种标记语言的文档类型声明，即告诉浏览器当前 HTML 是用什么版本编写的。 注意: DOCTYPE的声明必须是 HTML 文档的第一行，位于html标签之前。大多数Web文档的顶部都有doctype声明，它是在新建一个文档时，由Web创作软件草率处理的众多细节之一。很少人会去注意 doctype ，但在遵循标准的任何Web文档中，它都是一项必需的元素。doctype会影响代码验证，并决定了浏览器最终如何显示你的 Web文档。 二. 知识剖析DOCTYPE的作用?DOCTYPE是document type(文档类型)的简写，在web设计中用来声明文档类型。在所有 HTML 文档中规定 DOCTYPE 是非常重要的，这样浏览器就能了解预期的文档类型， 告诉浏览器要通过哪一种规范（DTD）解析文档（比如HTML或XHTML规范）。DOCTYPE会影响代码验证，并决定了浏览器最终如何显示你的Web文档。 HTML 4.01 和 HTML5 中 DOCTYPE的区别 HTML 4.01 中的 doctype 需要对 DTD 进行引用，因为 HTML 4.01 基于 SGML。 HTML 5 不基于 SGML，因此不需要对 DTD 进行引用，但是需要 doctype 来规范浏览器的行为（html 5简化了这种声明，意在告诉浏览器使用统一的标准即可）。 三. 代码实战如何使用DOCTYPE?HTML 文档的第一行，位于html标签之前 ,引入DOCTYPE声明。123456789&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;Title&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt; 注意事项:DOCTYPE的声明必须是 HTML 文档的第一行，位于html标签之前。在DOCTYPE声明前面出现了这些内容：普通文本、HTML 标签、HTML 注释、XML 声明、IE条件注释,会导致HTML 进入怪异模式.]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考1</category>
+        <category>深度思考</category>
       </categories>
       <tags>
         <tag>HTML</tag>
@@ -632,7 +632,7 @@
     <content type="text"><![CDATA[一个程序员按照要求编写一个网页，不可能一次编写就完全达到目的，一般要对自己的的代码修改调试几次后才能到达要求，浏览器的F12开发人员工具就可以很方便的帮助程序员调试自己的代码。 简介F12 开发人员工具是一套按需采用的工具，网站开发人员可以随时在任何网页上使用 F12 工具，从而快速调试 JavaScript、HTML 和级联样式表 (CSS)，还可以跟踪并查明网页或网络的性能问题。 具体内容项目： element（元素）标签页：可以查看代码 sources（软件源）标签页：可以选取css文件、html文件并进行修改 快捷键： ctrl+shift+c 选取元素进行查看 ctrl+shift+m 模拟移动端进行查看]]></content>
       <categories>
         <category>层叠样式表CSS</category>
-        <category>深度思考1</category>
+        <category>深度思考</category>
       </categories>
       <tags>
         <tag>调试</tag>

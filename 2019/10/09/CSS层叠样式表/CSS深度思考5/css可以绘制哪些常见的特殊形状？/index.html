@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="为什么使用CSS绘制图形在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。  CSS绘制图形圆形/椭圆形1234567891011.circle&amp;#123;width:10rem;height:10rem;border-radius:50%;background:orange;&amp;#12">
+  <meta name="description" content="为什么使用CSS绘制图形在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 CSS绘制图形圆形/椭圆形1234567891011.circle&amp;#123;width:10rem;height:10rem;border-radius:50%;background:orange;&amp;#125">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css可以绘制哪些常见的特殊形状？">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考5/css可以绘制哪些常见的特殊形状？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="为什么使用CSS绘制图形在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。  CSS绘制图形圆形/椭圆形1234567891011.circle&amp;#123;width:10rem;height:10rem;border-radius:50%;background:orange;&amp;#12">
+<meta property="og:description" content="为什么使用CSS绘制图形在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 CSS绘制图形圆形/椭圆形1234567891011.circle&amp;#123;width:10rem;height:10rem;border-radius:50%;background:orange;&amp;#125">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css可以绘制哪些常见的特殊形状？">
-<meta name="twitter:description" content="为什么使用CSS绘制图形在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。  CSS绘制图形圆形/椭圆形1234567891011.circle&amp;#123;width:10rem;height:10rem;border-radius:50%;background:orange;&amp;#12">
+<meta name="twitter:description" content="为什么使用CSS绘制图形在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 CSS绘制图形圆形/椭圆形1234567891011.circle&amp;#123;width:10rem;height:10rem;border-radius:50%;background:orange;&amp;#125">
   <link rel="canonical" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考5/css可以绘制哪些常见的特殊形状？/">
 
 
@@ -367,8 +367,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="为什么使用CSS绘制图形"><a href="#为什么使用CSS绘制图形" class="headerlink" title="为什么使用CSS绘制图形"></a>为什么使用CSS绘制图形</h1><p>在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 </p>
-<h1 id="CSS绘制图形"><a href="#CSS绘制图形" class="headerlink" title="CSS绘制图形"></a>CSS绘制图形</h1><h2 id="圆形-椭圆形"><a href="#圆形-椭圆形" class="headerlink" title="圆形/椭圆形"></a>圆形/椭圆形</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.circle&#123;</span><br><span class="line"></span><br><span class="line">width:10rem;</span><br><span class="line"></span><br><span class="line">height:10rem;</span><br><span class="line"></span><br><span class="line">border-radius:50%;</span><br><span class="line"></span><br><span class="line">background:orange;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="为什么使用CSS绘制图形"><a href="#为什么使用CSS绘制图形" class="headerlink" title="为什么使用CSS绘制图形"></a>为什么使用CSS绘制图形</h1><p>在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 </p><h1 id="CSS绘制图形"><a href="#CSS绘制图形" class="headerlink" title="CSS绘制图形"></a>CSS绘制图形</h1><h2 id="圆形-椭圆形"><a href="#圆形-椭圆形" class="headerlink" title="圆形/椭圆形"></a>圆形/椭圆形</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.circle&#123;</span><br><span class="line"></span><br><span class="line">width:10rem;</span><br><span class="line"></span><br><span class="line">height:10rem;</span><br><span class="line"></span><br><span class="line">border-radius:50%;</span><br><span class="line"></span><br><span class="line">background:orange;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
+
 <p>椭圆形只需改变矩形的边长 </p>
 <h2 id="三角形-梯形"><a href="#三角形-梯形" class="headerlink" title="三角形/梯形"></a>三角形/梯形</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.triangle&#123;</span><br><span class="line"></span><br><span class="line">margin-top:5rem;</span><br><span class="line"></span><br><span class="line">width:0;</span><br><span class="line"></span><br><span class="line">border-bottom:5rem solid#00a000;</span><br><span class="line"></span><br><span class="line">border-left:5rem solid transparent;</span><br><span class="line"></span><br><span class="line">border-right:5rem solid transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>梯形只需设定width的值即可 </p>
@@ -550,8 +550,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="渐进增强在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。 总结： 以最低要求，实现最基础功能为基本，向上兼容.   优雅降级在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低">
+  <meta name="description" content="渐进增强在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。总结： 以最低要求，实现最基础功能为基本，向上兼容.  优雅降级在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="渐进增强和优雅降级之间有什么不同?">
 <meta property="og:url" content="http://yoursite.com/2019/10/11/CSS层叠样式表/CSS深度思考15/渐进增强和优雅降级之间有什么不同/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="渐进增强在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。 总结： 以最低要求，实现最基础功能为基本，向上兼容.   优雅降级在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低">
+<meta property="og:description" content="渐进增强在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。总结： 以最低要求，实现最基础功能为基本，向上兼容.  优雅降级在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-18T03:08:14.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渐进增强和优雅降级之间有什么不同?">
-<meta name="twitter:description" content="渐进增强在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。 总结： 以最低要求，实现最基础功能为基本，向上兼容.   优雅降级在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低">
+<meta name="twitter:description" content="渐进增强在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。总结： 以最低要求，实现最基础功能为基本，向上兼容.  优雅降级在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏">
   <link rel="canonical" href="http://yoursite.com/2019/10/11/CSS层叠样式表/CSS深度思考15/渐进增强和优雅降级之间有什么不同/">
 
 
@@ -367,9 +367,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h1><p>在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。</p>
-<p><strong>总结： 以最低要求，实现最基础功能为基本，向上兼容.</strong>  </p>
-<h1 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h1><p>在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏览器被认为“简陋却无妨 (poor, but passable)” 可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。</p>
+        <h1 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h1><p>在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。</p><p><strong>总结： 以最低要求，实现最基础功能为基本，向上兼容.</strong>  </p><h1 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h1><p>在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏览器被认为“简陋却无妨 (poor, but passable)” 可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。</p><a id="more"></a>
+
+
 <p><strong>总结： 以高要求，高版本为基准，向下兼容。</strong>  </p>
 
     </div>
@@ -548,8 +548,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

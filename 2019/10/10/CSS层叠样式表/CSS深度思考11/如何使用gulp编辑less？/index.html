@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="什么是gulpgulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。  安装gulpgulp 是基于 node 实现的，那么我们就需要先安装 node。  打开 https://nodejs.org/ 点击绿色的 INSTALL 按钮下载安装 node。  npm 是 nod">
+  <meta name="description" content="什么是gulpgulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 安装gulpgulp 是基于 node 实现的，那么我们就需要先安装 node。 打开 https://nodejs.org/ 点击绿色的 INSTALL 按钮下载安装 node。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何使用gulp编辑(编译)less？">
 <meta property="og:url" content="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考11/如何使用gulp编辑less？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="什么是gulpgulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。  安装gulpgulp 是基于 node 实现的，那么我们就需要先安装 node。  打开 https://nodejs.org/ 点击绿色的 INSTALL 按钮下载安装 node。  npm 是 nod">
+<meta property="og:description" content="什么是gulpgulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 安装gulpgulp 是基于 node 实现的，那么我们就需要先安装 node。 打开 https://nodejs.org/ 点击绿色的 INSTALL 按钮下载安装 node。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何使用gulp编辑(编译)less？">
-<meta name="twitter:description" content="什么是gulpgulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。  安装gulpgulp 是基于 node 实现的，那么我们就需要先安装 node。  打开 https://nodejs.org/ 点击绿色的 INSTALL 按钮下载安装 node。  npm 是 nod">
+<meta name="twitter:description" content="什么是gulpgulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 安装gulpgulp 是基于 node 实现的，那么我们就需要先安装 node。 打开 https://nodejs.org/ 点击绿色的 INSTALL 按钮下载安装 node。">
   <link rel="canonical" href="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考11/如何使用gulp编辑less？/">
 
 
@@ -367,9 +367,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h1><p>gulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 </p>
-<h1 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h1><p>gulp 是基于 node 实现的，那么我们就需要先安装 node。 </p>
-<p>打开 <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a> 点击绿色的 <strong>INSTALL</strong> 按钮下载安装 node。 </p>
+        <h1 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h1><p>gulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 </p><h1 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h1><p>gulp 是基于 node 实现的，那么我们就需要先安装 node。 </p><p>打开 <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a> 点击绿色的 <strong>INSTALL</strong> 按钮下载安装 node。 </p><a id="more"></a>
+
+
 <p>npm 是 node 的包管理工具，可以利用它安装 gulp 所需的包。（在安装 node 时已经自动安装了 npm）</p>
 <p>在命令行输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gulp</span><br></pre></td></tr></table></figure>
@@ -560,8 +560,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

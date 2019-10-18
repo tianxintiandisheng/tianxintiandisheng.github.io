@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="背景介绍前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。 水平居中设置1.行内元素设置 text-align:center   2.定宽块状元素设置 左右 margin 值为 auto   3.不定宽块状元素 在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在">
+  <meta name="description" content="背景介绍前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。水平居中设置1.行内元素设置 text-align:center  2.定宽块状元素设置 左右 margin 值为 auto  3.不定宽块状元素 在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css有哪些方式可以实现垂直居中？">
 <meta property="og:url" content="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考8/css有哪些方式可以实现垂直居中？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="背景介绍前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。 水平居中设置1.行内元素设置 text-align:center   2.定宽块状元素设置 左右 margin 值为 auto   3.不定宽块状元素 在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在">
+<meta property="og:description" content="背景介绍前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。水平居中设置1.行内元素设置 text-align:center  2.定宽块状元素设置 左右 margin 值为 auto  3.不定宽块状元素 在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css有哪些方式可以实现垂直居中？">
-<meta name="twitter:description" content="背景介绍前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。 水平居中设置1.行内元素设置 text-align:center   2.定宽块状元素设置 左右 margin 值为 auto   3.不定宽块状元素 在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在">
+<meta name="twitter:description" content="背景介绍前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。水平居中设置1.行内元素设置 text-align:center  2.定宽块状元素设置 左右 margin 值为 auto  3.不定宽块状元素 在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td">
   <link rel="canonical" href="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考8/css有哪些方式可以实现垂直居中？/">
 
 
@@ -367,14 +367,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。</p>
-<h1 id="水平居中设置"><a href="#水平居中设置" class="headerlink" title="水平居中设置"></a>水平居中设置</h1><h2 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1.行内元素"></a>1.行内元素</h2><p>设置 text-align:center  </p>
-<h2 id="2-定宽块状元素"><a href="#2-定宽块状元素" class="headerlink" title="2.定宽块状元素"></a>2.定宽块状元素</h2><p>设置 左右 margin 值为 auto  </p>
-<h2 id="3-不定宽块状元素"><a href="#3-不定宽块状元素" class="headerlink" title="3.不定宽块状元素"></a>3.不定宽块状元素</h2><ul>
+        <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。</p><h1 id="水平居中设置"><a href="#水平居中设置" class="headerlink" title="水平居中设置"></a>水平居中设置</h1><h2 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1.行内元素"></a>1.行内元素</h2><p>设置 text-align:center  </p><h2 id="2-定宽块状元素"><a href="#2-定宽块状元素" class="headerlink" title="2.定宽块状元素"></a>2.定宽块状元素</h2><p>设置 左右 margin 值为 auto  </p><h2 id="3-不定宽块状元素"><a href="#3-不定宽块状元素" class="headerlink" title="3.不定宽块状元素"></a>3.不定宽块状元素</h2><ul>
 <li>在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td 内，然后设置 margin 的值为 auto  </li>
 <li>给该元素设置 display:in-line 方法 </li>
 <li>父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left:50%  </li>
-</ul>
+</ul><a id="more"></a>
+
+
+
 <h1 id="垂直居中设置"><a href="#垂直居中设置" class="headerlink" title="垂直居中设置"></a>垂直居中设置</h1><h2 id="1-父元素高度确定的单行文本"><a href="#1-父元素高度确定的单行文本" class="headerlink" title="1.父元素高度确定的单行文本"></a>1.父元素高度确定的单行文本</h2><p>​    设置 height = line-height  </p>
 <h2 id="2-父元素高度确定的多行文本"><a href="#2-父元素高度确定的多行文本" class="headerlink" title="2.父元素高度确定的多行文本"></a>2.父元素高度确定的多行文本</h2><ul>
 <li>插入 table （插入方法和水平居中一样），然后设置 vertical-align:middle </li>
@@ -558,8 +558,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

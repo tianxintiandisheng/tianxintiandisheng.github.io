@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -371,7 +371,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>真正阅读程序的是人，而不是计算机，所以所写代码具有良好的可读性，是优秀程序员必备的素质之一。在大型的系统开发中，往往需要很多人的通力配合，例如，开源软件Linux 之所以能够为全球顶尖程序员共享、协作开发，也得益于规范化和标准化的编码规范。规范应该尽量一致；即使有例外，也只能是少数情况，而不能是很多例外。好的代码规范能够提高代码的可读性便于协作沟通，好的模式能够在上层设计上避免不必要的 bug 出现。 </p>
+        <p>真正阅读程序的是人，而不是计算机，所以所写代码具有良好的可读性，是优秀程序员必备的素质之一。在大型的系统开发中，往往需要很多人的通力配合，例如，开源软件Linux 之所以能够为全球顶尖程序员共享、协作开发，也得益于规范化和标准化的编码规范。规范应该尽量一致；即使有例外，也只能是少数情况，而不能是很多例外。好的代码规范能够提高代码的可读性便于协作沟通，好的模式能够在上层设计上避免不必要的 bug 出现。 </p><a id="more"></a>
 <h1 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h1><h2 id="HTML规范"><a href="#HTML规范" class="headerlink" title="HTML规范"></a>HTML规范</h2><p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g7tjm466ilj30qv0cj74i.jpg" alt="html规范1.png"></p>
 <p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g7tjmyv3lgj311m0n175l.jpg" alt="html规范2.png"></p>
 <p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g7tjnbe90ij315b0mxta4.jpg" alt="html规范3.png"> </p>
@@ -601,8 +601,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

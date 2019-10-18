@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="选择器类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器   优先级 在属性后面使用！important会覆盖页面内任何位置定义的元素样式。   作为style属性写在元素内的样式   id选择器    类选择器    标签选择器    通配符选择器   浏览器自定义或子元素集成父类的样式     参考资料简书">
+  <meta name="description" content="选择器类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  优先级 在属性后面使用！important会覆盖页面内任何位置定义的元素样式。   作为style属性写在元素内的样式   id选择器    类选择器    标签选择器    通配符选择器   浏览器自定义或子元素集成父类的样式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css有哪些选择器，优先级如何计算？">
 <meta property="og:url" content="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/css有哪些选择器，优先级如何计算？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="选择器类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器   优先级 在属性后面使用！important会覆盖页面内任何位置定义的元素样式。   作为style属性写在元素内的样式   id选择器    类选择器    标签选择器    通配符选择器   浏览器自定义或子元素集成父类的样式     参考资料简书">
+<meta property="og:description" content="选择器类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  优先级 在属性后面使用！important会覆盖页面内任何位置定义的元素样式。   作为style属性写在元素内的样式   id选择器    类选择器    标签选择器    通配符选择器   浏览器自定义或子元素集成父类的样式">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css有哪些选择器，优先级如何计算？">
-<meta name="twitter:description" content="选择器类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器   优先级 在属性后面使用！important会覆盖页面内任何位置定义的元素样式。   作为style属性写在元素内的样式   id选择器    类选择器    标签选择器    通配符选择器   浏览器自定义或子元素集成父类的样式     参考资料简书">
+<meta name="twitter:description" content="选择器类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  优先级 在属性后面使用！important会覆盖页面内任何位置定义的元素样式。   作为style属性写在元素内的样式   id选择器    类选择器    标签选择器    通配符选择器   浏览器自定义或子元素集成父类的样式">
   <link rel="canonical" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/css有哪些选择器，优先级如何计算？/">
 
 
@@ -367,8 +367,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  </p>
-<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><ol>
+        <h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  </p><h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><ol>
 <li><p>在属性后面使用！important会覆盖页面内任何位置定义的元素样式。 </p>
 </li>
 <li><p>作为style属性写在元素内的样式 </p>
@@ -383,7 +382,8 @@
 </li>
 <li><p>浏览器自定义或子元素集成父类的样式  </p>
 </li>
-</ol>
+</ol><a id="more"></a>
+
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.jianshu.com/p/b69de6742357" target="_blank" rel="noopener">简书</a></p>
 
     </div>
@@ -562,8 +562,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

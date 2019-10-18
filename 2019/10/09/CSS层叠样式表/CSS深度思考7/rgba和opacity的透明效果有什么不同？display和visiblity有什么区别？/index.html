@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="rgba和opacity的透明效果有什么不同opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。  display和visiblity有什么区别display：通常可以设置为none、inline、blockvisblity：通常可以设置为hidden、visible  当display为none，visibility为hidd">
+  <meta name="description" content="rgba和opacity的透明效果有什么不同opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 display和visiblity有什么区别display：通常可以设置为none、inline、blockvisblity：通常可以设置为hidden、visible">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="rgba和opacity的透明效果有什么不同opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。  display和visiblity有什么区别display：通常可以设置为none、inline、blockvisblity：通常可以设置为hidden、visible  当display为none，visibility为hidd">
+<meta property="og:description" content="rgba和opacity的透明效果有什么不同opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 display和visiblity有什么区别display：通常可以设置为none、inline、blockvisblity：通常可以设置为hidden、visible">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？">
-<meta name="twitter:description" content="rgba和opacity的透明效果有什么不同opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。  display和visiblity有什么区别display：通常可以设置为none、inline、blockvisblity：通常可以设置为hidden、visible  当display为none，visibility为hidd">
+<meta name="twitter:description" content="rgba和opacity的透明效果有什么不同opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 display和visiblity有什么区别display：通常可以设置为none、inline、blockvisblity：通常可以设置为hidden、visible">
   <link rel="canonical" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？/">
 
 
@@ -367,8 +367,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="rgba和opacity的透明效果有什么不同"><a href="#rgba和opacity的透明效果有什么不同" class="headerlink" title="rgba和opacity的透明效果有什么不同"></a>rgba和opacity的透明效果有什么不同</h1><p>opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 </p>
-<h1 id="display和visiblity有什么区别"><a href="#display和visiblity有什么区别" class="headerlink" title="display和visiblity有什么区别"></a>display和visiblity有什么区别</h1><p>display：通常可以设置为none、inline、block<br>visblity：通常可以设置为hidden、visible </p>
+        <h1 id="rgba和opacity的透明效果有什么不同"><a href="#rgba和opacity的透明效果有什么不同" class="headerlink" title="rgba和opacity的透明效果有什么不同"></a>rgba和opacity的透明效果有什么不同</h1><p>opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 </p><h1 id="display和visiblity有什么区别"><a href="#display和visiblity有什么区别" class="headerlink" title="display和visiblity有什么区别"></a>display和visiblity有什么区别</h1><p>display：通常可以设置为none、inline、block<br>visblity：通常可以设置为hidden、visible </p><a id="more"></a>
+
 <p>当display为none，visibility为hidden时，元素都会不见。不过其还有不同之处。</p>
 <p>区别：<br>display：none:隐藏元素但不占据该元素原来的空间。父级设置值为none后，无论子级设置任何值都无法显示。（<strong>不占空间，可遗传</strong>）<br>visibility：hidden:隐藏元素并且占据该元素原来的空间。子级设置visible后不受父级影响。（<strong>占空间，不遗传</strong>）</p>
 
@@ -548,8 +548,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

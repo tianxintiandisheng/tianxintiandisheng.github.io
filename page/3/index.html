@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -357,16 +357,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="bootstrap栅格系统"><a href="#bootstrap栅格系统" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h1><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><p>Bootstrap 是一个用于快速开发 Web 应用程序和网站的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的。 </p>
-<h2 id="bootstrap栅格系统-1"><a href="#bootstrap栅格系统-1" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h2><p>Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。 </p>
-<h1 id="使用规则"><a href="#使用规则" class="headerlink" title="使用规则"></a>使用规则</h1><p>1、数据行(.row)必须包含在容器（.container）中，以便为其赋予合适的对齐方式和内距(padding)。  </p>
-<p>2、在行(.row)中可以添加列(.column)，但列数之和不能超过平分的总列数，比如12。  </p>
-<p>3、具体内容应当放置在列容器（column）之内，而且只有列（column）才可以作为行容器(.row)的直接子元素  </p>
-<p>4、通过设置内距（padding）从而创建列与列之间的间距。然后通过为第一列和最后一列设置负值的外距（margin）来抵消内距(padding)的影响 。</p>
-<h1 id="编码实战"><a href="#编码实战" class="headerlink" title="编码实战"></a>编码实战</h1><p>HTML代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">   &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;col-*-*&quot;&gt;&lt;/div&gt;      </span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">   &lt;div class=&quot;row&quot;&gt;...&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;container&quot;&gt;....</span><br></pre></td></tr></table></figure>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.runoob.com/bootstrap/bootstrap-grid-system.html" target="_blank" rel="noopener">菜鸟教程bootstrap栅格系统</a></p>
-
+          <h1 id="bootstrap栅格系统"><a href="#bootstrap栅格系统" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h1><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><p>Bootstrap 是一个用于快速开发 Web 应用程序和网站的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的。 </p><h2 id="bootstrap栅格系统-1"><a href="#bootstrap栅格系统-1" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h2><p>Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。 </p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/10/CSS层叠样式表/CSS深度思考9/如何使用bootstrap栅格系统？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -637,21 +637,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。</p>
-<h1 id="水平居中设置"><a href="#水平居中设置" class="headerlink" title="水平居中设置"></a>水平居中设置</h1><h2 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1.行内元素"></a>1.行内元素</h2><p>设置 text-align:center  </p>
-<h2 id="2-定宽块状元素"><a href="#2-定宽块状元素" class="headerlink" title="2.定宽块状元素"></a>2.定宽块状元素</h2><p>设置 左右 margin 值为 auto  </p>
-<h2 id="3-不定宽块状元素"><a href="#3-不定宽块状元素" class="headerlink" title="3.不定宽块状元素"></a>3.不定宽块状元素</h2><ul>
+          <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。</p><h1 id="水平居中设置"><a href="#水平居中设置" class="headerlink" title="水平居中设置"></a>水平居中设置</h1><h2 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1.行内元素"></a>1.行内元素</h2><p>设置 text-align:center  </p><h2 id="2-定宽块状元素"><a href="#2-定宽块状元素" class="headerlink" title="2.定宽块状元素"></a>2.定宽块状元素</h2><p>设置 左右 margin 值为 auto  </p><h2 id="3-不定宽块状元素"><a href="#3-不定宽块状元素" class="headerlink" title="3.不定宽块状元素"></a>3.不定宽块状元素</h2><ul>
 <li>在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td 内，然后设置 margin 的值为 auto  </li>
 <li>给该元素设置 display:in-line 方法 </li>
 <li>父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left:50%  </li>
 </ul>
-<h1 id="垂直居中设置"><a href="#垂直居中设置" class="headerlink" title="垂直居中设置"></a>垂直居中设置</h1><h2 id="1-父元素高度确定的单行文本"><a href="#1-父元素高度确定的单行文本" class="headerlink" title="1.父元素高度确定的单行文本"></a>1.父元素高度确定的单行文本</h2><p>​    设置 height = line-height  </p>
-<h2 id="2-父元素高度确定的多行文本"><a href="#2-父元素高度确定的多行文本" class="headerlink" title="2.父元素高度确定的多行文本"></a>2.父元素高度确定的多行文本</h2><ul>
-<li>插入 table （插入方法和水平居中一样），然后设置 vertical-align:middle </li>
-<li>先设置 display:table-cell 再设置 vertical-align:middle </li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><a href="https://tianxintiandisheng.github.io/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%835/%E8%AF%B7%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%8BCSS3%E7%9A%84Flexbox%EF%BC%88%E5%BC%B9%E6%80%A7%E7%9B%92%E5%B8%83%E5%B1%80%E6%A8%A1%E5%9E%8B%EF%BC%89%E4%BB%A5%E5%8F%8A%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F/" target="_blank" rel="noopener">Flex大法好！</a></p>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/10/CSS层叠样式表/CSS深度思考8/css有哪些方式可以实现垂直居中？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -910,18 +909,15 @@
 
       
           <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>tableE布局是WEB早期CSS不存在的时候兴起的，是对TABLE标签的不正规使用，Table标签就是表格，是用来显示数据的，而不是用来布局网页的，虽然它有时候布局网页很简单。现在绝大多数的网站都是用DIV+CSS布局，现在的网页越来越倾向于使用DIV的方法来布局网页了。  这两种布局各有各的优缺点。 </p>
-<h1 id="div-css布局"><a href="#div-css布局" class="headerlink" title="div+css布局"></a>div+css布局</h1><h2 id="div-css布局的优点"><a href="#div-css布局的优点" class="headerlink" title="div+css布局的优点"></a>div+css布局的优点</h2><p>可以通过css样式给框架进行功能强大的属性设置以及给网页的局部进行任意的定位，制作出来的页面浏览速度较快，同时页面的风格可以通过修改单独的css文件进行随意的修改和更新；</p>
-<p>1.符合W3C标准，代码结构清晰明了，结构、样式和行为分离，带来足够好的可维护性。 </p>
-<p>2.布局精准，网站版面布局修改简单。 </p>
-<p>3.加快了页面的加载速度（最重要的）（在IE中要将整个table加载完了才显示内容）。  </p>
-<p>4.节约站点所占的空间和站点的流量。  </p>
-<p>5.用只包含结构化内容的HTML代替嵌套的标签，提高另外搜索引擎对网页的搜索效率。 </p>
-<h2 id="div-css布局的缺点"><a href="#div-css布局的缺点" class="headerlink" title="div+css布局的缺点"></a>div+css布局的缺点</h2><p>每个div容器都需要定义css样式来控制，制作过程相比table方式要复杂。</p>
-<h1 id="table布局"><a href="#table布局" class="headerlink" title="table布局"></a>table布局</h1><h2 id="table布局的优点"><a href="#table布局的优点" class="headerlink" title="table布局的优点"></a>table布局的优点</h2><p>1.容易上手。</p>
-<p>2.可以形成复杂的变化，简单快速。</p>
-<p>3.表现上更加“严谨”，在不同浏览器中都能得到很好的兼容。 </p>
-<h2 id="table布局的缺点"><a href="#table布局的缺点" class="headerlink" title="table布局的缺点"></a>table布局的缺点</h2><p>由于html文件中的table标签的浏览速度较慢，所以，使用嵌套表格的方法来布局网页框架会使网页浏览的速度变慢。因为table是中的内容是自适应的，为了自适应，它要计算嵌套最深的节点以满足自适应，所以有可能会有一断时间出现空白才显示。所以是会有问题的。</p>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/10/CSS层叠样式表/CSS深度思考8/div-css的布局较table布局有什么优点？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1048,25 +1044,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="外边距重叠"><a href="#外边距重叠" class="headerlink" title="外边距重叠"></a>外边距重叠</h1><p>边界重叠是指两个或多个盒子(可能相邻也可能嵌套)的相邻边界(其间没有任何非空内容、补白、边框)重合在一起而形成一个单一边界。两个或多个块级盒子的垂直相邻边界会重合。</p>
-<h1 id="外边距重叠的结果"><a href="#外边距重叠的结果" class="headerlink" title="外边距重叠的结果"></a>外边距重叠的结果</h1><p>结果的边界宽度是相邻边界宽度中最大的值。</p>
-<p>如果出现负边界，则在最大的正边界中减去绝对值最大的负边界。</p>
-<p>如果没有正边界，则从零中减去绝对值最大的负边界。  </p>
-<h1 id="外边距重叠的意义"><a href="#外边距重叠的意义" class="headerlink" title="外边距重叠的意义"></a>外边距重叠的意义</h1><p>外边距的重叠只产生在普通流文档的上下外边距之间，这个看起来有点奇怪的规则，其实有其现实意义。设想，当我们上下排列一系列规则的块级元素（如段落P）时，那么块元素之间因为外边距重叠的存在，段落之间就不会产生双倍的距离。  </p>
-<h1 id="防止外边距重叠解决方案"><a href="#防止外边距重叠解决方案" class="headerlink" title="防止外边距重叠解决方案"></a>防止外边距重叠解决方案</h1><p>虽然外边距的重叠有其一定的意义，但有时候我们在设计上却不想让元素之间产生重叠，那么可以有如下几个建议可供参考： </p>
-<ul>
-<li>外层元素padding代替  </li>
-<li>内层元素透明边框 border:1px solid transparent;  </li>
-<li>内层元素绝对定位 postion:absolute:  </li>
-<li>外层元素 overflow:hidden;  </li>
-<li>内层元素 加float:left;或display:inline-block;  </li>
-<li>内层元素padding:1px; </li>
-</ul>
-<hr>
-<blockquote>
-<p>版权声明：本文为CSDN博主「jnshu_it」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/jnshu_it/article/details/85370693" target="_blank" rel="noopener">https://blog.csdn.net/jnshu_it/article/details/85370693</a></p>
-</blockquote>
-
+          <h1 id="外边距重叠"><a href="#外边距重叠" class="headerlink" title="外边距重叠"></a>外边距重叠</h1><p>边界重叠是指两个或多个盒子(可能相邻也可能嵌套)的相邻边界(其间没有任何非空内容、补白、边框)重合在一起而形成一个单一边界。两个或多个块级盒子的垂直相邻边界会重合。</p><h1 id="外边距重叠的结果"><a href="#外边距重叠的结果" class="headerlink" title="外边距重叠的结果"></a>外边距重叠的结果</h1><p>结果的边界宽度是相邻边界宽度中最大的值。</p><p>如果出现负边界，则在最大的正边界中减去绝对值最大的负边界。</p><p>如果没有正边界，则从零中减去绝对值最大的负边界。  </p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/10/CSS层叠样式表/CSS深度思考8/什么是外边距重叠？重叠的结果是什么？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1194,13 +1181,15 @@
 
       
           <h1 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h1><p>浏览器内核又可以分成两部分：渲染引擎(layout engineer 或者 Rendering Engine)和 JS 引擎。它负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入 CSS 等），以及计算网页的显示方式，然后会输出至显示器或打印机。JS 引擎则是解析 Javascript 语言，执行 javascript 语言来实现网页的动态效果。</p>
-<p>浏览器最重要或者说最核心的部分是“Rendering Engine”，可大概译为“渲染引擎”，不过一般习惯将之称为“浏览器内核”，负责对网页语法的解释并渲染网页。所以，通常所谓的浏览器内核也就是浏览器所采用的渲染引擎，渲染引擎决定了浏览器如何显示网页的内容以及页面的格式信息。  </p>
-<h1 id="主流浏览器内核"><a href="#主流浏览器内核" class="headerlink" title="主流浏览器内核"></a>主流浏览器内核</h1><h2 id="1-Trident-IE内核"><a href="#1-Trident-IE内核" class="headerlink" title="1.Trident/IE内核"></a>1.Trident/IE内核</h2><p>该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，并沿用到IE11，也被普遍称作”IE内核”。Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现。由于IE本身的“垄断性”（虽然名义上IE并非垄断，但实际上，特别是从Windows 95年代一直到XP初期，就市场占有率来说IE的确借助Windows的东风处于“垄断”的地位）而使得Trident内核的长期一家独大，微软很长时间都并没有更新Trident内核，这也导致了后面的两个后果： 一是Trident内核曾经几乎与W3C标准脱节（2005年） 二是Trident内核的大量 Bug等安全性问题没有得到及时解决，然后加上一些致力于开源的开发者和一些学者们公开自己认为IE浏览器不安全的观点，也有很多用户转向了其他浏览 器，Firefox和Opera就是这个时候兴起的。 Trident内核的常见浏览器有：IE6、IE7、IE8（Trident 4.0）、IE9（Trident 5.0）、IE10（Trident 6.0）、2345浏览器、腾讯TT、淘宝浏览器、阿云浏览器（早期版本）、瑞星安全浏览器、蚂蚁浏览器、飞腾浏览器、速达浏览器、佐罗浏览器、海豚浏览器等等  </p>
-<h2 id="2-Gecko-Firefox内核"><a href="#2-Gecko-Firefox内核" class="headerlink" title="2.Gecko/Firefox内核"></a>2.Gecko/Firefox内核</h2><p>Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器) 也采用了该内核，Gecko的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。因为这是个开源内核，因此受到许多人的青睐，Gecko内核的浏览器也很多，这也是Gecko内核虽然年轻但市场占有率能够迅速提高的重要原因。事实上，Gecko引擎的由来跟IE不无关系，前面说过IE没有使用W3C的标准，这导致了微软内部一些开发人员的不满；他们与当时已经停止更新了的 Netscape的一些员工一起创办了Mozilla，以当时的Mosaic内核为基础重新编写内核，于是开发出了Gecko。不过事实上，Gecko 内核的浏览器仍然还是Firefox (火狐) 用户最多，所以有时也会被称为Firefox内核。Gecko核心设计的相对成熟，在无法获取源码的情况下，开放程度仅次于IE。由于其本身Open Source。实际上是目前开发程度最好的浏览器。Firefox的扩展能够给浏览者带来完全不同的浏览体验。市面上Gecko内核的浏览器主要分两类，一类是以Mozilla Firefox为代表的，用XUL作为界面描述语言的浏览器：这类浏览器往往继承了Firefox扩展性好的优点，早前的Madfox和Albatross就是这一类型的浏览器。所以，Gecko内核也被称为Firefox内核。 Gecko内核常见的浏览器： Mozilla Firefox、Mozilla SeaMonkey、waterfox（Firefox的64位开源版）、Iceweasel、Epiphany（早期版本）、Flock（早期版本）等等</p>
-<h2 id="3-WebKit内核"><a href="#3-WebKit内核" class="headerlink" title="3.WebKit内核"></a>3.WebKit内核</h2><p>Webkit(Safari内核,Chrome内核原型,开源):它是苹果公司自己的内核，也是苹果的Safari浏览器使用的内核。 Webkit引擎包含WebCore排版引擎及JavaScriptCore解析引擎，均是从KDE的KHTML及KJS引擎衍生而来，它们都是自由软件，在GPL条约下授权，同时支持BSD系统的开发。WebKit 内核在手机上的应用也十分广泛，例如 Google 的手机 Gphone、 Apple 的 iPhone, Nokia’s Series 60 browser 等所使用的 Browser 内核引擎，都是基于 WebKit。2003年，Apple 宣布发布首款他们自主开发的 web 浏览器：Safari。它的呈现引擎叫 WebKit。它是 Linux 中的 web 浏览器 Konqueror 呈现引擎 KHTML 的一个分支，几年后，WebKit 的开源吸引了呈现引擎的开发人员。根据最新的浏览器调查表明，该浏览器的市场甚至已经超过了Opera的Presto了——当然这一方面得益于苹果转到x86架构之后的人气暴涨，另外也是因为Safari 3终于推出了Windows版的缘故吧。Google Chrome、360极速浏览器以及搜狗高速浏览器高速模式也使用Webkit作为内核(在脚本理解方面，Chrome使用自己研发的V8引擎)。WebKit 内核在手机上的应用也十分广泛，例如 Google 的手机 Gphone、 Apple 的iPhone， Nokia’s Series 60 browser 等所使用的 Browser 内核引擎，都是基于 WebKit。 WebKit内核常见的浏览器：傲游浏览器3、[1] Apple Safari (Win/Mac/iPhone/iPad)、Symbian手机浏览器、Android 默认浏览器，  </p>
-<h2 id="4-Presto内核"><a href="#4-Presto内核" class="headerlink" title="4.Presto内核"></a>4.Presto内核</h2><p>Presto是一个由Opera Software开发的浏览器排版引擎，供Opera 7.0及以上使用。该款引擎的特点就是渲染速度的优化达到了极致，也是目前公认网页浏览速度最快的浏览器内核，然而代价是牺牲了网页的兼容性。实际上它是一个动态内核，与其它几个内核的最大的区别就在脚本处理上，Presto有着天生的 优势，页面的全部或者部分都能够在回应脚本事件时等情况下被重新解析。此外该内核在执行Javascrīpt的时候有着最快的速度，根据在同等条件下的测 试，Presto内核执行同等Javascrīpt所需的时间仅有Trident和Gecko内核的约1/3（Trident内核最慢，不过两者相差没有多大）。由于Presto是商业引擎，使用Presto的除开Opera以外，只剩下NDSBrowser、Wii Internet Channle、Nokia 770网络浏览器等，这很大程度上限制了Presto的发展。  </p>
-<h2 id="5-Blink内核"><a href="#5-Blink内核" class="headerlink" title="5.Blink内核"></a>5.Blink内核</h2><p>2013 年 4 月 3 日，谷歌在 Chromium Blog 上发表 博客，称将与苹果的开源浏览器核心 Webkit 分道扬镳，在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。其实Blink引擎就是也就是Webkit的分支，就像Webkit是KHTML的分支一样。Blink引擎现在是谷歌公司与Opera Software共同研发， </p>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/10/CSS层叠样式表/CSS深度思考8/主流浏览器内核有哪几种？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1327,12 +1316,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>CSS3属性中有关于制作动画的三个属性：Transform,Transition,Animation。</p>
-<p>transform属性向元素应用2D或3D转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。</p>
-<p>transition是令一个或多个可以用数值表示的css属性值发生变化时产生过渡效果。</p>
-<p>Animation字面上的意思，就是“动画”的意思.</p>
-<p>我们使用CSS3的Animation制作动画，实现简单的幻灯片效果，可以省去复杂的js,jquery代码。</p>
-
+          <p>CSS3属性中有关于制作动画的三个属性：Transform,Transition,Animation。</p><p>transform属性向元素应用2D或3D转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。</p><p>transition是令一个或多个可以用数值表示的css属性值发生变化时产生过渡效果。</p><p>Animation字面上的意思，就是“动画”的意思.</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/09/CSS层叠样式表/CSS深度思考8/如何用css写一个简单的幻灯片效果页面？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1459,15 +1452,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>通过以下的5个过程，实现轮播图的轮播效果 </p>
-<h1 id="1-动态生成结构"><a href="#1-动态生成结构" class="headerlink" title="1.动态生成结构"></a>1.动态生成结构</h1><p>创建元素和插入元素的方法分别是什么？<br>创建元素：<code>document.creatElement( tagName ) var li = document.creatElement(“li”)；</code><br>插入元素：<code>appendChild( element ) ol.appendChild(“li”);</code><br>通过什么方法复制第一张图片元素？<br>通过<code>cloneNode()</code>方法来复制元素：<code>eg . var firstImg = ulLis[0].cloneNode(true)</code>； 其中<code>cloneNode</code>方法中，如果传递给它的参数是 true，它还将递归复制当前节点的所有子孙节点。否则，它只复制当前节点 </p>
-<h1 id="2-鼠标经过按钮"><a href="#2-鼠标经过按钮" class="headerlink" title="2.鼠标经过按钮"></a>2.鼠标经过按钮</h1><p>鼠标经过时如何改变按钮样式？<br>a. 清除所有按钮的样式 <code>for (var j = 0; j &lt; olLis.length; j++) { olLis[j].className = “”; }</code><br>b. 给当前鼠标所在按钮添加特殊样式<code>this.className = “current”;</code><br>鼠标经过按钮时如何计算图片盒子移动的距离?<br>通过按钮索引值（this.index）和图片的宽度（imgWidth）来计算图片盒子要移动的距离（target） <code>target = - this.index * imgWidth</code> </p>
-<h1 id="3-鼠标点击箭头"><a href="#3-鼠标点击箭头" class="headerlink" title="3.鼠标点击箭头"></a>3.鼠标点击箭头</h1><p><strong>通过什么属性改变左右箭头的隐藏和显示？</strong><br>通过控制左右箭头盒子的display属性来控制左右箭头盒子的显示（block）和隐藏（none）<br>通过什么机制来统一左/右箭头点击时图片切换为当前图片的上/下一张？<br>利用全局变量来统一左右箭头切换图片，在左右箭头点击时，通过pic来计算图片盒子移动的目标位置 <code>var target = -pic * imgWidth;</code><br>当点击左箭头时：pic– –这样target比当前位置数值大imgWidth 图片盒子向右移动一张图片的距离 显示出上一张图片<br>当点击右箭头时：pic++ 这样target比当前位置数值小imgWidth 图片盒子向左移动一张图片的距离 显示出下一张图片 </p>
-<h1 id="4-按钮随之变化"><a href="#4-按钮随之变化" class="headerlink" title="4.按钮随之变化"></a>4.按钮随之变化</h1><p>square的取值范围以及其与pic对应情况 </p>
-<h1 id="5-添加自动滚动"><a href="#5-添加自动滚动" class="headerlink" title="5.添加自动滚动"></a>5.添加自动滚动</h1><p>图片自动播放下一张和点击右箭头的操作相同<br>图片轮播主要技术点为：<br>一、<code>&lt;ul&gt; &lt;li&gt;</code> 来作导航栏；<br>二、通过设置其属性为<code>overflow:none</code>，使照片集部分隐藏； </p>
-<p>三、CSS3的transition 结合 transform 来做动画变换；<br>四、JQUERY通过选择器，控制动画元素属性。 </p>
-<p>动画描述<br>一、鼠标放在图片上，会出现左右滑动箭头；<br>二、点击箭头会使图片集左右移动，中间图片会旋转360度，并放大1.2倍；<br>三、图片到边界时不能再滑动</p>
-
+          <p>通过以下的5个过程，实现轮播图的轮播效果 </p><h1 id="1-动态生成结构"><a href="#1-动态生成结构" class="headerlink" title="1.动态生成结构"></a>1.动态生成结构</h1><p>创建元素和插入元素的方法分别是什么？<br>创建元素：<code>document.creatElement( tagName ) var li = document.creatElement(“li”)；</code><br>插入元素：<code>appendChild( element ) ol.appendChild(“li”);</code><br>通过什么方法复制第一张图片元素？<br>通过<code>cloneNode()</code>方法来复制元素：<code>eg . var firstImg = ulLis[0].cloneNode(true)</code>； 其中<code>cloneNode</code>方法中，如果传递给它的参数是 true，它还将递归复制当前节点的所有子孙节点。否则，它只复制当前节点 </p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/09/CSS层叠样式表/CSS深度思考8/如何实现轮播图？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1594,25 +1588,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="为什么hover在手机上没效果？"><a href="#为什么hover在手机上没效果？" class="headerlink" title="为什么hover在手机上没效果？"></a>为什么hover在手机上没效果？</h1><p>让我们再回顾一下hover的定义…</p>
-<p><code>:hover</code>用于选择鼠标指针浮动在上面的元素。</p>
-<p>再想一想…</p>
-<p>手机上哪来的鼠标啊伙计？！</p>
-<p>SO,手机端没有hover特效，当你点击的时候就直接触发click。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><strong>首先，经试验发现，设置的<code>：hover</code>在Android系统上点击会出现， 但是需要再次点击才会消失；</strong></p>
-<p><strong>IOS系统上点击无法出现；</strong></p>
-<p>手机虽然没有鼠标，但是有触摸事件.</p>
-<p>一开始触摸事件是ios版Safari浏览器为了向开发人员传达一些信息新添加的事件。 因为ios设备既没有鼠标也没有键盘，所以在为移动Safari浏览器开发交互性网页的时候， PC端的鼠标和键盘事件是不够用的。</p>
-<p>在iPhone 3G发布的时候，其自带的移动Safari浏览器就提供了一些与触摸(touch)操作相关的新事件。 随后，Android上的浏览器也实现了相同的事件。触摸事件(touch)会在用户手指放在屏幕上面的时候、 在屏幕上滑动的时候或者是从屏幕上移开的时候触发。</p>
-<p>1.touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。</p>
-<p>2.touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间， 调用preventDefault()事件可以阻止滚动。</p>
-<p>3.touchend事件：当手指从屏幕上离开的时候触发。</p>
-<p>4.touchcancel事件：touchcancel，是在拖动中断时候触发。</p>
-<hr>
-<blockquote>
-<p>版权声明：本文为CSDN博主「jnshu_it」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/jnshu_it/article/details/85759010" target="_blank" rel="noopener">https://blog.csdn.net/jnshu_it/article/details/85759010</a></p>
-</blockquote>
-
+          <h1 id="为什么hover在手机上没效果？"><a href="#为什么hover在手机上没效果？" class="headerlink" title="为什么hover在手机上没效果？"></a>为什么hover在手机上没效果？</h1><p>让我们再回顾一下hover的定义…</p><p><code>:hover</code>用于选择鼠标指针浮动在上面的元素。</p><p>再想一想…</p><p>手机上哪来的鼠标啊伙计？！</p><p>SO,手机端没有hover特效，当你点击的时候就直接触发click。</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><strong>首先，经试验发现，设置的<code>：hover</code>在Android系统上点击会出现， 但是需要再次点击才会消失；</strong></p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/09/CSS层叠样式表/CSS深度思考7/如果是在手机上查看投票页，没有hover效果时应该怎么办？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1742,8 +1727,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

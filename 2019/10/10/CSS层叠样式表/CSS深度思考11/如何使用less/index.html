@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="什么是lessless是一门动态的css语言，使得css样式更加灵活地作用于html标签。 less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。 为什么使用lesscss是一门非程序式语言，没有变量，">
+  <meta name="description" content="什么是lessless是一门动态的css语言，使得css样式更加灵活地作用于html标签。less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何使用less?">
 <meta property="og:url" content="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考11/如何使用less/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="什么是lessless是一门动态的css语言，使得css样式更加灵活地作用于html标签。 less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。 为什么使用lesscss是一门非程序式语言，没有变量，">
+<meta property="og:description" content="什么是lessless是一门动态的css语言，使得css样式更加灵活地作用于html标签。less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何使用less?">
-<meta name="twitter:description" content="什么是lessless是一门动态的css语言，使得css样式更加灵活地作用于html标签。 less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。 为什么使用lesscss是一门非程序式语言，没有变量，">
+<meta name="twitter:description" content="什么是lessless是一门动态的css语言，使得css样式更加灵活地作用于html标签。less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。">
   <link rel="canonical" href="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考11/如何使用less/">
 
 
@@ -367,8 +367,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="什么是less"><a href="#什么是less" class="headerlink" title="什么是less"></a>什么是less</h1><p>less是一门动态的css语言，使得css样式更加灵活地作用于html标签。</p>
-<p>less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。</p>
+        <h1 id="什么是less"><a href="#什么是less" class="headerlink" title="什么是less"></a>什么是less</h1><p>less是一门动态的css语言，使得css样式更加灵活地作用于html标签。</p><p>less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。</p><a id="more"></a>
+
 <h1 id="为什么使用less"><a href="#为什么使用less" class="headerlink" title="为什么使用less"></a>为什么使用less</h1><p>css是一门非程序式语言，没有变量，没有函数，SCOPE（作用域），需要书写大量看似没有逻辑的代码，即不方便维护与扩展，也不利于复用。 为了方便前端开发的工作量，出现了sass和less. </p>
 <h1 id="如何使用less"><a href="#如何使用less" class="headerlink" title="如何使用less"></a>如何使用less</h1><h2 id="在-Node-js-环境中使用-Less"><a href="#在-Node-js-环境中使用-Less" class="headerlink" title="在 Node.js 环境中使用 Less"></a>在 Node.js 环境中使用 Less</h2><p><code>npm install -g less</code> <code>&gt; lessc styles.less styles.css</code> </p>
 <h2 id="在浏览器环境中使用-Less"><a href="#在浏览器环境中使用-Less" class="headerlink" title="在浏览器环境中使用 Less"></a>在浏览器环境中使用 Less</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;</span><br><span class="line">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/3.10.0-beta/less.min.js&quot; &gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -557,8 +557,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

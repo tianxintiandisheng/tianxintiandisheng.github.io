@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -357,19 +357,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="CSS-content"><a href="#CSS-content" class="headerlink" title="CSS content"></a>CSS content</h1><p>content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。 </p>
-<p>实例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">a:after &#123;content: &quot; (&quot; attr(href) &quot;)&quot;;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=&quot;https://tianxintiandisheng.github.io&quot;&gt;天心天地生的个人博客&lt;/a&gt; - 免费的在线笔记&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;注意:&lt;/b&gt;仅当 !DOCTYPE已经定义 IE8支持 content属性&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><ul>
-<li>最基本的 – 生成内容  content属性与:before及:after伪元素配合使用生成文本内容 </li>
-<li>嵌入文字符号 </li>
-<li>使用计数器创建号码内容  </li>
-<li>为多语言内容插入正确的引号  </li>
-<li>用图片替换文字  </li>
-<li>显示相对应的链接图标  </li>
-<li>使用属性值作为content内容 </li>
-</ul>
-
+          <h1 id="CSS-content"><a href="#CSS-content" class="headerlink" title="CSS content"></a>CSS content</h1><p>content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。 </p><p>实例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">a:after &#123;content: &quot; (&quot; attr(href) &quot;)&quot;;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=&quot;https://tianxintiandisheng.github.io&quot;&gt;天心天地生的个人博客&lt;/a&gt; - 免费的在线笔记&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;注意:&lt;/b&gt;仅当 !DOCTYPE已经定义 IE8支持 content属性&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考15/知道css有个content属性吗？有什么作用？有什么应用？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -496,35 +493,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="微格式"><a href="#微格式" class="headerlink" title="微格式"></a>微格式</h1><p>建立在已有的、被广泛采用的标准基础之上的一组简单的、开放的数据格式（microformats.org官方定义）。</p>
-<p>是把语义嵌入到HTML以便有助于分离式开发而制定的一些简单约定，是兼顾人机可读性设计的数据表达方式，对Web网页进行语义注解的方法。</p>
-<p>这种方法依托于标准的Web页面写作技术，例如，XHTML，这样引入语义信息对浏览器等所有现存的Web技术冲击最小。采用Microformat的 Web页面，在XHTML文档中给一些标签（Tag）增加一些属性（attribute），这些属性对信息的语义结构进行注解，处理XHTML文档的软件，</p>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="简单的微格式"><a href="#简单的微格式" class="headerlink" title="简单的微格式"></a>简单的微格式</h2><p>我们从上面的描述知道，微格式实际就是为现有的(X)HTML元素添加元数据和其他属性，增强语义。那么我们就来看一个简单的微格式应用吧。</p>
-<p>以前我们是这样写一个链接到首页的<code>&lt;a&gt;&lt;/a&gt;</code>代码的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=”http://www.bbon.cn”&gt;Web Design Blog&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>而现在我们要为这个代码元素<code>&lt;a&gt;</code>加上 rel属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=”http://www.bbon.cn“ rel=”homepage”&gt;Web Design Blog&lt;/a&gt;</span><br></pre></td></tr></table></figure></p>
-<p>上面的链接标记<code>&lt;a&gt;</code>包括rel=”home”属性，该属性显示链接的目标页面是该网站的首页。通过为已有的链接元素添加语义化属性，就为这个链接添加了具体的结构和意义。</p>
-<h2 id="hCard-微格式"><a href="#hCard-微格式" class="headerlink" title="hCard 微格式"></a>hCard 微格式</h2><p>hCard是一种微格式，用来发布个人，公司，组织，地点等详细的联系信息。它可以包含在(X)HTML，Atom，RSS等可扩展置标语言中。hCard使用vCard（RFC 2426）的属性和值来实现这些功能。</p>
-<p>它可以使分析器（比如其他网站，Firefox的Operator插件）获得详细的信息，并通过别的网站或者地图工具进行显示，或者载入到地址簿等其他程序。</p>
-<h3 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h3><p>如下HTML代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">&lt;div&gt;Joe Doe&lt;/div&gt;</span><br><span class="line">&lt;div&gt;The Example Company&lt;/div&gt;</span><br><span class="line">&lt;div&gt;604-555-1234&lt;/div&gt;</span><br><span class="line">&lt;a href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p> 加入微格式后，成为： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;vcard&quot;&gt;</span><br><span class="line">&lt;div class=&quot;fn&quot;&gt;Joe Doe&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;org&quot;&gt;The Example Company&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;tel&quot;&gt;604-555-1234&lt;/div&gt;</span><br><span class="line">&lt;a class=&quot;url&quot; href=&quot;http://example.com/&quot;&gt;http://example.com/&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>这里，正式名称（class=”fn”），组织（class=”org”），电话号码（class=”tel”）和url（class=”url”）分别用相应的class标示；同时，所有内容都包含在class=”vcard”里。 </p>
-<h3 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h3><p>这里是维基媒体基金会的联系方式，可以作为hCard的一个真实示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Wikimedia Foundation Inc.</span><br><span class="line"></span><br><span class="line">200 2nd Ave. South #358</span><br><span class="line"></span><br><span class="line">St. Petersburg, FL 33701-4313</span><br><span class="line"></span><br><span class="line">USA</span><br><span class="line"></span><br><span class="line">Phone: +1-727-231-0101</span><br><span class="line"></span><br><span class="line">Email: info@wikimedia.org</span><br><span class="line"></span><br><span class="line">Fax: +1-727-258-0207</span><br></pre></td></tr></table></figure>
-<p>加入微格式后，成为： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;vcard&quot;&gt;</span><br><span class="line">&lt;div class=&quot;fn org&quot;&gt;Wikimedia Foundation Inc.&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;adr&quot;&gt;</span><br><span class="line">&lt;div class=&quot;street-address&quot;&gt;200 2nd Ave. South #358&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;span class=&quot;locality&quot;&gt;St. Petersburg&lt;/span&gt;,</span><br><span class="line">&lt;span class=&quot;region&quot;&gt;FL&lt;/span&gt; &lt;span class=&quot;postal-code&quot;&gt;33701-4313&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;country-name&quot;&gt;USA&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;Phone: &lt;span class=&quot;tel&quot;&gt;+1-727-231-0101&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">&lt;div&gt;Email: &lt;span class=&quot;email&quot;&gt;info@wikimedia.org&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;span class=&quot;tel&quot;&gt;&lt;span class=&quot;type&quot;&gt;Fax&lt;/span&gt;:</span><br><span class="line">&lt;span class=&quot;value&quot;&gt;+1-727-258-0207&lt;/span&gt;&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>注意，在这个例子中，正式名称（class=”fn”）和组织（class=”org”）写在了一个属性中，表示这是一个组织，而不是个人。 </p>
-<h1 id="在前端构建中微格式的意义"><a href="#在前端构建中微格式的意义" class="headerlink" title="在前端构建中微格式的意义"></a>在前端构建中微格式的意义</h1><p>那么，微格式在实际应用中的意义和作用又是什么呢？微格式按照某种已有的被广泛应用的标准，通过对内容块的语义标记，可以让外部应用程序、聚合程序和搜索引擎能够做以下事情：</p>
-<ol>
-<li>在爬取Web内容时，能够更为准确地识别内容块的语义；</li>
-<li>对内容进行操作，包括提供访问、校对，还可以将其转化成其他的相关格式，提供给外部程序和Web服务使用。</li>
-</ol>
-<p>总结： 可以对网站进行SEO优化，如果需要可以考虑。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/deng131/article/details/83632737" target="_blank" rel="noopener">什么是微格式及实例</a></p>
-<p>版权声明：本文为CSDN博主「deng131」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/deng131/article/details/83632737" target="_blank" rel="noopener">https://blog.csdn.net/deng131/article/details/83632737</a></p>
-
+          <h1 id="微格式"><a href="#微格式" class="headerlink" title="微格式"></a>微格式</h1><p>建立在已有的、被广泛采用的标准基础之上的一组简单的、开放的数据格式（microformats.org官方定义）。</p><p>是把语义嵌入到HTML以便有助于分离式开发而制定的一些简单约定，是兼顾人机可读性设计的数据表达方式，对Web网页进行语义注解的方法。</p><p>这种方法依托于标准的Web页面写作技术，例如，XHTML，这样引入语义信息对浏览器等所有现存的Web技术冲击最小。采用Microformat的 Web页面，在XHTML文档中给一些标签（Tag）增加一些属性（attribute），这些属性对信息的语义结构进行注解，处理XHTML文档的软件，</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考15/知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -651,16 +629,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>HTML5 提拱更好的本地存储规范 localStorage 和 sessionStorage , 它们将数据存储在本地，而且在http请求时不会携带 Storage 里的信息, 使用方式也很简单: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">localStorage.getItem(&apos;key&apos;);</span><br><span class="line">localStorage.removeItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">sessionStorage.getItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.removeItem(&apos;key&apos;);</span><br></pre></td></tr></table></figure>
-<p>sessionStorage 和 localStorage 使用方式及特性基本一致，</p>
-<p>唯一的区别是：</p>
-<ul>
-<li>localStorage - 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。</li>
-<li>sessionStorage - 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</li>
-</ul>
-<p>参考资料：<a href="https://www.runoob.com/html/html5-webstorage.html" target="_blank" rel="noopener">HTML5 Web 存储</a></p>
-
+          <p>HTML5 提拱更好的本地存储规范 localStorage 和 sessionStorage , 它们将数据存储在本地，而且在http请求时不会携带 Storage 里的信息, 使用方式也很简单: </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">localStorage.getItem(&apos;key&apos;);</span><br><span class="line">localStorage.removeItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">sessionStorage.getItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.removeItem(&apos;key&apos;);</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考15/HTML5的离线储存怎么使用？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -787,11 +765,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h1><p>在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。</p>
-<p><strong>总结： 以最低要求，实现最基础功能为基本，向上兼容.</strong>  </p>
-<h1 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h1><p>在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏览器被认为“简陋却无妨 (poor, but passable)” 可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。</p>
-<p><strong>总结： 以高要求，高版本为基准，向下兼容。</strong>  </p>
-
+          <h1 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h1><p>在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。</p><p><strong>总结： 以最低要求，实现最基础功能为基本，向上兼容.</strong>  </p><h1 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h1><p>在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏览器被认为“简陋却无妨 (poor, but passable)” 可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考15/渐进增强和优雅降级之间有什么不同/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -918,13 +901,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Quirks怪癖模式是什么"><a href="#Quirks怪癖模式是什么" class="headerlink" title="Quirks怪癖模式是什么"></a>Quirks怪癖模式是什么</h1><p> 从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。 </p>
-<p> 在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？  在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD（文档类型定义）当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。 </p>
-<h1 id="Quirks和Standards模式有什么区别"><a href="#Quirks和Standards模式有什么区别" class="headerlink" title="Quirks和Standards模式有什么区别"></a>Quirks和Standards模式有什么区别</h1><p>总体会有布局、样式解析和脚本执行三个方面的区别。</p>
-<p>盒模型：在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks 模式下，IE的宽度和高度还包含了padding和border。  </p>
-<p>设置行内元素的高宽：在Standards模式下，给等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。  </p>
-<p>设置百分比的高度：在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置百分比的高度，子元素设置一个百分比的高度是无效的  用margin:0 auto设置水平居中：使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效。 </p>
-
+          <h1 id="Quirks怪癖模式是什么"><a href="#Quirks怪癖模式是什么" class="headerlink" title="Quirks怪癖模式是什么"></a>Quirks怪癖模式是什么</h1><p> 从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。 </p><p> 在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？  在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD（文档类型定义）当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。 </p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考15/Quirks模式是什么？它和Standards模式有什么区别？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1052,16 +1038,15 @@
 
       
           <h1 id="CSS流行组件库"><a href="#CSS流行组件库" class="headerlink" title="CSS流行组件库"></a>CSS流行组件库</h1><h2 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h2><p>Bootstrap，让你的页面更简洁、直观、强悍、移动设备优先的前端开发框架,让web开发更迅速、更简单。它还提供了更优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。有着丰富的网格布局系统以及丰富的可重用组件，还有强大的支持十几的JavaScript、jQuery插件以及组件定制等。</p>
-<p>Bootstrap中文网地址：<a href="http://www.bootcss.com/" target="_blank" rel="noopener">http://www.bootcss.com/</a></p>
-<h1 id="JS流行组件库"><a href="#JS流行组件库" class="headerlink" title="JS流行组件库"></a>JS流行组件库</h1><h2 id="Js库jQuery"><a href="#Js库jQuery" class="headerlink" title="Js库jQuery"></a>Js库jQuery</h2><p>jQuery是最常用的JavaScript库，它革命性的在客户端开发，将CSS选择器引入到DOM节点检索加链接来应用事件处理程序，动画和Ajax调用.jQuery近年来备受青睐，对于一个很需要的的JavaScript的功能的项目来说，jQuery的的的绝对是一个可行的选择。</p>
-<p>官网地址： <a href="https://jquery.com/" target="_blank" rel="noopener">https://jquery.com/</a> </p>
-<h2 id="ElementUI"><a href="#ElementUI" class="headerlink" title="ElementUI"></a>ElementUI</h2><p>Element-Ul是饿了么前端团队推出的一款基于Vue.js 2.0 的桌面端UI框架，手机端有对应框架是Mint UI 。适合于Vue的UI框架；</p>
-<p>官网地址：<a href="http://element-cn.eleme.io/#/zh-CN" target="_blank" rel="noopener">http://element-cn.eleme.io/#/zh-CN</a></p>
-<h2 id="Ant-Design"><a href="#Ant-Design" class="headerlink" title="Ant Design"></a>Ant Design</h2><p>服务于企业级产品的设计体系，基于确定和自然的设计价值观上的模块化解决方案，让设计者和开发者专注于更好的用户体验。 </p>
-<p>官网地址：<a href="https://ant.design/index-cn" target="_blank" rel="noopener">https://ant.design/index-cn</a> </p>
-<h2 id="UI-Bootstrap"><a href="#UI-Bootstrap" class="headerlink" title="UI Bootstrap"></a>UI Bootstrap</h2><p>基于Angular2的一款组件库，有手风琴，日期选择器，弹出窗口等组件。</p>
-<p>官网地址：<a href="https://angular-ui.github.io/bootstrap/" target="_blank" rel="noopener">https://angular-ui.github.io/bootstrap/</a> </p>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考15/目前流行的组件库有哪些？css，js各有哪些流行的库？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1189,10 +1174,15 @@
 
       
           <h1 id="传统开发方式的弊端"><a href="#传统开发方式的弊端" class="headerlink" title="传统开发方式的弊端"></a>传统开发方式的弊端</h1><p>在大型软件系统中，web应用的前后端已经实现了分离，而随着REST软件架构的发展，后端服务逐步倾向于微服务，简单来说就是将一个大型后端服务，拆分成多个小服务，它们分别部署，降低了开发的复杂性，而且提高了系统的可伸缩性。而前端方面，随着技术的发展，开发的复杂度也越来越高，传统开发模式总是存在着开发效率低，维护成本高等的弊端。  </p>
-<h1 id="弊端产生的原因"><a href="#弊端产生的原因" class="headerlink" title="弊端产生的原因"></a>弊端产生的原因</h1><p>传统开发方式效率低以及维护成本高的主要原因在于很多时候是将一个系统做成了整块应用，而且往往随着业务的增长或者变更，系统的复杂度会呈现指数级的增长，经常出现的情况就是一个小小的改动或者一个小功能的增加可能会引起整体逻辑的修改，造成牵一发而动全身。  </p>
-<p>针对此弊端，其实业界早就有了一些探索，我们希望一个大且复杂的场景能够被分解成几个小的部分，这些小的部分彼此之间互不干扰，可以单独开发，单独维护，而且他们之间可以随意的进行组合。就拿电脑主机来说，一台整机包括CPU，主板，内存，硬盘等等，而这些部件其实都是由不同的公司进行生产的，他们彼此之间根据一套标准分别生产，最后组装在一起。当某个部件出现问题时，不需要将整台主机都进行维修，只需要将坏的部件拿下来，维修之后再将其组合上就可以了。这种化繁为简的思想在后端开发中的体现是微服务，而在前端开发中的体现就是组件化。  </p>
-<h1 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h1><p>随着React，angular等以组件（指令等）为主的优秀前端框架的出现，前端组件化逐渐成为前端开发的迫切需求，当然这一迫切需求也逐渐成为一种主流，一种共识，它不仅提高了前端的开发效率，同时也降低了维护成本。开发者们不需要再面对一堆复杂且难阅读的代码，转而只需要关注以组件方式存在的代码片段。 </p>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考12-14/为什么要做组件库？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1319,24 +1309,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>现在人通过手机浏览网页占了大多数，随着浏览方式的改变，网页在webapp下面实现多终端自适应，无论对于避免工程师无谓的重复劳动或者是项目管理的便捷性上来说重要性都是十分巨大的。 </p>
-<h1 id="固定宽度布局"><a href="#固定宽度布局" class="headerlink" title="固定宽度布局"></a>固定宽度布局</h1><p>固定宽度式布局是目前国内最常用的布局方法，优点就是固定宽度使得其布局最简便，使得开发人员对布局和定位有更大的控制能力。</p>
-<p>但是，固定宽度的布局也有缺点，因为它的宽度是固定的，无论窗口尺寸有多大，它的尺寸总是不变，所以无法充分利用可用空间。因此，它们也常常被认为是糟糕的权宜之计。</p>
-<p>固定宽度的布局的示例，这个大家都是拿手布局方法。</p>
-<p>html代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;content&quot;&gt;</span><br><span class="line">     &lt;div class=&quot;primary&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;primary&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;secondary&quot;&gt;&lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div class=&quot;secondary&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>css样式代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.wrapper &#123;</span><br><span class="line">  width: 920px; </span><br><span class="line">  margin: 0 auto; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content .primary &#123; </span><br><span class="line">  width: 670px;</span><br><span class="line">  float: right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content .secondary &#123; </span><br><span class="line">  width: 230px;</span><br><span class="line">  float: left; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">.content .primary .primary &#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content .primary .secondary &#123;</span><br><span class="line">    width: 230px;</span><br><span class="line">    padding-right: 20px;</span><br><span class="line">    float: right;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参考资料：<a href="https://www.cnblogs.com/qiheng/archive/2014/04/21/3676904.html" target="_blank" rel="noopener">网页的三种布局(固定宽度式,流体式,弹性式) </a></p>
-<h1 id="固定宽度多终端自适应"><a href="#固定宽度多终端自适应" class="headerlink" title="固定宽度多终端自适应"></a>固定宽度多终端自适应</h1><h2 id="固定宽度布局在移动端遇到的问题"><a href="#固定宽度布局在移动端遇到的问题" class="headerlink" title="固定宽度布局在移动端遇到的问题"></a>固定宽度布局在移动端遇到的问题</h2><h3 id="默认viewoort导致横向滚动条"><a href="#默认viewoort导致横向滚动条" class="headerlink" title="默认viewoort导致横向滚动条"></a>默认viewoort导致横向滚动条</h3><p>移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是<strong>浏览器会出现横向滚动条</strong>，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。 </p>
-<h3 id="CSS中的1PX并不等于设备的1PX"><a href="#CSS中的1PX并不等于设备的1PX" class="headerlink" title="CSS中的1PX并不等于设备的1PX"></a>CSS中的1PX并不等于设备的1PX</h3><p>在css中我们一般使用px作为单位，在桌面浏览器中css的1个像素往往都是对应着电脑屏幕的1个物理像素，这可能会造成我们的一个错觉，那就是css中的像素就是设备的物理像素。但实际情况却并非如此，css中的像素只是一个抽象的单位，在不同的设备或不同的环境中，css中的1px所代表的设备物理像素是不同的。</p>
-<p>还有一个因素也会引起css中px的变化，那就是用户缩放。例如，当用户把页面放大一倍，那么css中1px所代表的物理像素也会增加一倍；反之把页面缩小一倍，css中1px所代表的物理像素也会减少一倍。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p><code>&lt;meta&gt;</code>标签是如何控制网页的尺寸和缩放浏览器的说明。</p>
-<p><strong>width=device-width</strong>部分将页面的宽度设置为跟随设备的屏幕宽度（视设备而定）。</p>
-<p><strong>initial-scale=1.0</strong>部分设置浏览器首次加载页面时的初始缩放级别。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/jnshu_it/article/details/85758753" target="_blank" rel="noopener">定宽网页设计下，固定宽度布局开发WebApp并实现多终端下WebApp布局自适应</a></p>
-
+          <p>现在人通过手机浏览网页占了大多数，随着浏览方式的改变，网页在webapp下面实现多终端自适应，无论对于避免工程师无谓的重复劳动或者是项目管理的便捷性上来说重要性都是十分巨大的。 </p><h1 id="固定宽度布局"><a href="#固定宽度布局" class="headerlink" title="固定宽度布局"></a>固定宽度布局</h1><p>固定宽度式布局是目前国内最常用的布局方法，优点就是固定宽度使得其布局最简便，使得开发人员对布局和定位有更大的控制能力。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/11/CSS层叠样式表/CSS深度思考12-14/固定宽度布局开发WebApp如何实现多终端下自适应？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1602,17 +1584,15 @@
 
       
           <h1 id="什么是CSS-resetting？"><a href="#什么是CSS-resetting？" class="headerlink" title="什么是CSS resetting？"></a>什么是CSS resetting？</h1><p>在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法就是一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p>
-<h2 id="CSS-Reset的作用"><a href="#CSS-Reset的作用" class="headerlink" title="CSS Reset的作用"></a>CSS Reset的作用</h2><p>CSS Reset让各个浏览器的CSS样式有一个统一的基准，而实现这一基准最主要的方式就是“清零”</p>
-<h1 id="什么是normalizing？"><a href="#什么是normalizing？" class="headerlink" title="什么是normalizing？"></a>什么是normalizing？</h1><p>Normalize.css 只是一个很小的CSS文件，但它在默认的HTML元素样式上 提供了跨浏览器的高度一致性。相比于传统的CSS reset，Normalize.css 是一种现代的、为HTML5准备的优质替代方案。Normalize.css现在已经被 用于Twitter Bootstrap、HTML5 Boilerplate、GOV.UK、Rdio、CSS Tricks 以及许许多多其他框架、工具和网站上。</p>
-<h2 id="normalize创造的目的"><a href="#normalize创造的目的" class="headerlink" title="normalize创造的目的"></a>normalize创造的目的</h2><p>保护有用的浏览器默认样式而不是完全去掉它们</p>
-<h1 id="resetting-和-normalizing-之间有什么区别？"><a href="#resetting-和-normalizing-之间有什么区别？" class="headerlink" title="resetting 和 normalizing 之间有什么区别？"></a>resetting 和 normalizing 之间有什么区别？</h1><ol>
-<li>Normalize.css 保护了有价值的默认值<br>Reset通过为几乎所有的元素施加默认样式，强行使得元素有相同的视觉效果。 相比之下，Normalize.css保持了许多默认的浏览器样式。这就意味着你不用再 为所有公共的排版元素重新设置样式。当一个元素在不同的浏览器中有不同的默认值时， Normalize.css会力求让这些样式保持一致并尽可能与现代标准相符合。</li>
-<li>Normalize.css 修复了浏览器的bug<br>它修复了常见的桌面端和移动端浏览器的bug。 这往往超出了Reset所能做到的范畴。关于这一点， Normalize.css修复的问题包含了HTML5元素的显示设置、 预格式化文字的font-size问题、在IE9中SVG的溢出、许多 出现在各浏览器和操作系统中的与表单相关的bug。</li>
-<li>Normalize.css 不会让你的调试工具变的杂乱<br>使用Reset最让人困扰的地方莫过于在浏览器调试工具中大段大段的继承链， 如下图所示。在Normalize.css中就不会有这样的问题，因为在我们的准则中 对多选择器的使用时非常谨慎的，我们仅会有目的地对目标元素设置样式。</li>
-<li>Normalize.css 是模块化的<br>这个项目已经被拆分为多个相关却又独立的部分， 这使得你能够很容易也很清楚地知道哪些元素被设置了特定的值。 因此这能让你自己选择性地移除掉某些永远不会用到部分（比如表单的一般化）。</li>
-<li>Normalize.css 拥有详细的文档<br>Normalize.css的代码基于详细而全面的跨浏览器研究与测试。 这个文件中拥有详细的代码说明并在Github Wiki中有进一步的说明。 这意味着你可以找到每一行代码具体完成了什么工作、为什么要写这句代码、 浏览器之间的差异，并且你可以更容易地进行自己的测试。<br>总得来说，CSS Reset 是革命党 ，CSS Reset 里最激进那一派提倡不管你有用没用， 通通给我脱了衣服，于是 *{margin:0;} 等等运动，把人家全拍了。看似是众生平等了， 实则是浪费了资源又占不到便宜，有求于人家的时候还得给加回去，实在需要人家的默认 样式了怎么办？自己看着办吧。<br>Normalize.css 是改良派。他们提倡，各个元素都有其存在的道理， 简单粗暴地一视同仁是不好的。谁都有谁的作用，给他们制定个规范，确保他们 在任何浏览器里都干好自己的活儿就好了。</li>
-</ol>
-
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/10/CSS层叠样式表/CSS深度思考12-14/如何做默认样式重置？resetting-和-normalizing-之间有什么区别？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1742,8 +1722,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

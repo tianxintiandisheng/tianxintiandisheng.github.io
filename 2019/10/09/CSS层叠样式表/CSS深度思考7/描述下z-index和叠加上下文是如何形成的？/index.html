@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="z-index是什么？z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。 z-index和叠加上下文是如何形成的一言难尽，献上传送门。 z-index 层叠上下文的关系 使用z-index有什么需要注意的地方？ 在开发中尽量避免">
+  <meta name="description" content="z-index是什么？z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。z-index和叠加上下文是如何形成的一言难尽，献上传送门。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="描述下z-index和叠加上下文是如何形成的？">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/描述下z-index和叠加上下文是如何形成的？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="z-index是什么？z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。 z-index和叠加上下文是如何形成的一言难尽，献上传送门。 z-index 层叠上下文的关系 使用z-index有什么需要注意的地方？ 在开发中尽量避免">
+<meta property="og:description" content="z-index是什么？z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。z-index和叠加上下文是如何形成的一言难尽，献上传送门。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="描述下z-index和叠加上下文是如何形成的？">
-<meta name="twitter:description" content="z-index是什么？z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。 z-index和叠加上下文是如何形成的一言难尽，献上传送门。 z-index 层叠上下文的关系 使用z-index有什么需要注意的地方？ 在开发中尽量避免">
+<meta name="twitter:description" content="z-index是什么？z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。z-index和叠加上下文是如何形成的一言难尽，献上传送门。">
   <link rel="canonical" href="http://yoursite.com/2019/10/09/CSS层叠样式表/CSS深度思考7/描述下z-index和叠加上下文是如何形成的？/">
 
 
@@ -367,8 +367,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="z-index是什么？"><a href="#z-index是什么？" class="headerlink" title="z-index是什么？"></a>z-index是什么？</h1><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<br>该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。</p>
-<h1 id="z-index和叠加上下文是如何形成的"><a href="#z-index和叠加上下文是如何形成的" class="headerlink" title="z-index和叠加上下文是如何形成的"></a>z-index和叠加上下文是如何形成的</h1><p>一言难尽，献上传送门。</p>
+        <h1 id="z-index是什么？"><a href="#z-index是什么？" class="headerlink" title="z-index是什么？"></a>z-index是什么？</h1><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<br>该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。</p><h1 id="z-index和叠加上下文是如何形成的"><a href="#z-index和叠加上下文是如何形成的" class="headerlink" title="z-index和叠加上下文是如何形成的"></a>z-index和叠加上下文是如何形成的</h1><p>一言难尽，献上传送门。</p><a id="more"></a>
+
 <p><a href="https://blog.csdn.net/cat_sky/article/details/80302245" target="_blank" rel="noopener">z-index 层叠上下文的关系</a></p>
 <h1 id="使用z-index有什么需要注意的地方？"><a href="#使用z-index有什么需要注意的地方？" class="headerlink" title="使用z-index有什么需要注意的地方？"></a>使用z-index有什么需要注意的地方？</h1><ul>
 <li>在开发中尽量避免层叠上下文的多层嵌套，因为层叠上下文嵌套过多的话容易产生混乱，如果对层叠上下文理解不够的话是不好把控的。</li>
@@ -560,8 +560,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

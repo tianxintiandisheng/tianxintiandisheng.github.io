@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -386,7 +386,7 @@
 </li>
 <li><p>option: 定义下拉列表中的选项。</p>
 </li>
-</ol>
+</ol><a id="more"></a>
 <h1 id="表单元素的具体属性"><a href="#表单元素的具体属性" class="headerlink" title="表单元素的具体属性"></a>表单元素的具体属性</h1><h2 id="form"><a href="#form" class="headerlink" title="form"></a>form</h2><p><code>&lt;form name=&quot;&quot; action=&quot;&quot; method=&quot;get&quot;&gt;……&lt;/form&gt;</code></p>
 <p>name : 表单名称；action : 用来指定表单处理程序的位置（url）；method : 定义表单结果从浏览器传送到服务器的方式，默认为”get”（也可以是post）</p>
 <h2 id="input"><a href="#input" class="headerlink" title="input"></a>input</h2><p><code>&lt;input type=&quot;&quot; name=&quot;&quot; value=&quot;&quot; size=&quot;&quot;&gt;</code></p>
@@ -591,8 +591,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

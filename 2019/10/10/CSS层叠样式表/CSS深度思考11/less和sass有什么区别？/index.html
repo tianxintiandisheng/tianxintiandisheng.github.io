@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="1.编译环境不一样Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。  2.变量符不一样Less是@，而Scss是$，而且变量的作用域也不一样。  3.输出设置L">
+  <meta name="description" content="1.编译环境不一样Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="less和sass有什么区别？">
 <meta property="og:url" content="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考11/less和sass有什么区别？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="1.编译环境不一样Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。  2.变量符不一样Less是@，而Scss是$，而且变量的作用域也不一样。  3.输出设置L">
+<meta property="og:description" content="1.编译环境不一样Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="less和sass有什么区别？">
-<meta name="twitter:description" content="1.编译环境不一样Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。  2.变量符不一样Less是@，而Scss是$，而且变量的作用域也不一样。  3.输出设置L">
+<meta name="twitter:description" content="1.编译环境不一样Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。">
   <link rel="canonical" href="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考11/less和sass有什么区别？/">
 
 
@@ -367,7 +367,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-编译环境不一样"><a href="#1-编译环境不一样" class="headerlink" title="1.编译环境不一样"></a>1.编译环境不一样</h1><p>Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。 </p>
+        <h1 id="1-编译环境不一样"><a href="#1-编译环境不一样" class="headerlink" title="1.编译环境不一样"></a>1.编译环境不一样</h1><p>Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。 </p><a id="more"></a>
 <h1 id="2-变量符不一样"><a href="#2-变量符不一样" class="headerlink" title="2.变量符不一样"></a>2.变量符不一样</h1><p>Less是@，而Scss是$，而且变量的作用域也不一样。 </p>
 <h1 id="3-输出设置"><a href="#3-输出设置" class="headerlink" title="3.输出设置"></a>3.输出设置</h1><p>Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。<br>输出样式的风格可以有四种选择，默认为nested<br>nested：嵌套缩进的css代码<br>expanded：展开的多行css代码<br>compact：简洁格式的css代码<br>compressed：压缩后的css代码 </p>
 <h1 id="4-条件语句"><a href="#4-条件语句" class="headerlink" title="4.条件语句"></a>4.条件语句</h1><p>Sass支持条件语句，可以使用if{}else{},for{}循环等等。而Less不支持。</p>
@@ -552,8 +552,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

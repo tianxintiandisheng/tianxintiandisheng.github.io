@@ -3,9 +3,9 @@
   <entry>
     <title>知道css有个content属性吗？有什么作用？有什么应用？</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315/%E7%9F%A5%E9%81%93css%E6%9C%89%E4%B8%AAcontent%E5%B1%9E%E6%80%A7%E5%90%97%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F%E6%9C%89%E4%BB%80%E4%B9%88%E5%BA%94%E7%94%A8%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="CSS-content"><a href="#CSS-content" class="headerlink" title="CSS content"></a>CSS content</h1><p>content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。 </p>
-<p>实例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">a:after &#123;content: &quot; (&quot; attr(href) &quot;)&quot;;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=&quot;https://tianxintiandisheng.github.io&quot;&gt;天心天地生的个人博客&lt;/a&gt; - 免费的在线笔记&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;注意:&lt;/b&gt;仅当 !DOCTYPE已经定义 IE8支持 content属性&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="CSS-content"><a href="#CSS-content" class="headerlink" title="CSS content"></a>CSS content</h1><p>content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。 </p><p>实例：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">a:after &#123;content: &quot; (&quot; attr(href) &quot;)&quot;;&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;p&gt;&lt;a href=&quot;https://tianxintiandisheng.github.io&quot;&gt;天心天地生的个人博客&lt;/a&gt; - 免费的在线笔记&lt;/p&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;注意:&lt;/b&gt;仅当 !DOCTYPE已经定义 IE8支持 content属性&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
 <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><ul>
 <li>最基本的 – 生成内容  content属性与:before及:after伪元素配合使用生成文本内容 </li>
 <li>嵌入文字符号 </li>
@@ -24,9 +24,9 @@
   <entry>
     <title>知道什么是微格式吗？谈谈理解。在前端构建中应该考虑微格式吗？</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315/%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%A0%BC%E5%BC%8F%E5%90%97%EF%BC%9F%E8%B0%88%E8%B0%88%E7%90%86%E8%A7%A3%E3%80%82%E5%9C%A8%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA%E4%B8%AD%E5%BA%94%E8%AF%A5%E8%80%83%E8%99%91%E5%BE%AE%E6%A0%BC%E5%BC%8F%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="微格式"><a href="#微格式" class="headerlink" title="微格式"></a>微格式</h1><p>建立在已有的、被广泛采用的标准基础之上的一组简单的、开放的数据格式（microformats.org官方定义）。</p>
-<p>是把语义嵌入到HTML以便有助于分离式开发而制定的一些简单约定，是兼顾人机可读性设计的数据表达方式，对Web网页进行语义注解的方法。</p>
-<p>这种方法依托于标准的Web页面写作技术，例如，XHTML，这样引入语义信息对浏览器等所有现存的Web技术冲击最小。采用Microformat的 Web页面，在XHTML文档中给一些标签（Tag）增加一些属性（attribute），这些属性对信息的语义结构进行注解，处理XHTML文档的软件，</p>
+    <content><![CDATA[<h1 id="微格式"><a href="#微格式" class="headerlink" title="微格式"></a>微格式</h1><p>建立在已有的、被广泛采用的标准基础之上的一组简单的、开放的数据格式（microformats.org官方定义）。</p><p>是把语义嵌入到HTML以便有助于分离式开发而制定的一些简单约定，是兼顾人机可读性设计的数据表达方式，对Web网页进行语义注解的方法。</p><p>这种方法依托于标准的Web页面写作技术，例如，XHTML，这样引入语义信息对浏览器等所有现存的Web技术冲击最小。采用Microformat的 Web页面，在XHTML文档中给一些标签（Tag）增加一些属性（attribute），这些属性对信息的语义结构进行注解，处理XHTML文档的软件，</p><a id="more"></a>
+
+
 <h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><h2 id="简单的微格式"><a href="#简单的微格式" class="headerlink" title="简单的微格式"></a>简单的微格式</h2><p>我们从上面的描述知道，微格式实际就是为现有的(X)HTML元素添加元数据和其他属性，增强语义。那么我们就来看一个简单的微格式应用吧。</p>
 <p>以前我们是这样写一个链接到首页的<code>&lt;a&gt;&lt;/a&gt;</code>代码的：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;a href=”http://www.bbon.cn”&gt;Web Design Blog&lt;/a&gt;</span><br></pre></td></tr></table></figure>
@@ -61,8 +61,8 @@
   <entry>
     <title>HTML5的离线储存怎么使用？</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315/HTML5%E7%9A%84%E7%A6%BB%E7%BA%BF%E5%82%A8%E5%AD%98%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%EF%BC%9F/</url>
-    <content><![CDATA[<p>HTML5 提拱更好的本地存储规范 localStorage 和 sessionStorage , 它们将数据存储在本地，而且在http请求时不会携带 Storage 里的信息, 使用方式也很简单: </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">localStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">localStorage.getItem(&apos;key&apos;);</span><br><span class="line">localStorage.removeItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">sessionStorage.getItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.removeItem(&apos;key&apos;);</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>HTML5 提拱更好的本地存储规范 localStorage 和 sessionStorage , 它们将数据存储在本地，而且在http请求时不会携带 Storage 里的信息, 使用方式也很简单: </p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">localStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">localStorage.getItem(&apos;key&apos;);</span><br><span class="line">localStorage.removeItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.setItem(&apos;key&apos;, &apos;value&apos;);</span><br><span class="line">sessionStorage.getItem(&apos;key&apos;);</span><br><span class="line">sessionStorage.removeItem(&apos;key&apos;);</span><br></pre></td></tr></table></figure><a id="more"></a>
+
 <p>sessionStorage 和 localStorage 使用方式及特性基本一致，</p>
 <p>唯一的区别是：</p>
 <ul>
@@ -79,9 +79,9 @@
   <entry>
     <title>渐进增强和优雅降级之间有什么不同?</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315/%E6%B8%90%E8%BF%9B%E5%A2%9E%E5%BC%BA%E5%92%8C%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C/</url>
-    <content><![CDATA[<h1 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h1><p>在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。</p>
-<p><strong>总结： 以最低要求，实现最基础功能为基本，向上兼容.</strong>  </p>
-<h1 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h1><p>在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏览器被认为“简陋却无妨 (poor, but passable)” 可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。</p>
+    <content><![CDATA[<h1 id="渐进增强"><a href="#渐进增强" class="headerlink" title="渐进增强"></a>渐进增强</h1><p>在网页开发中，渐进增强认为应该专注于内容本身。一开始针对低版本的浏览器构建页面，满足最基本的功能，再针对高级浏 览器进行效果，交互，追加各种功能以达到更好用户体验。</p><p><strong>总结： 以最低要求，实现最基础功能为基本，向上兼容.</strong>  </p><h1 id="优雅降级"><a href="#优雅降级" class="headerlink" title="优雅降级"></a>优雅降级</h1><p>在网页开发中，优雅降级指的是一开始针对一个高版本的浏览器构建页面，先完善所有的功能。然后针对各个不同的浏览器进行测试，修复，保证低级浏览器也有基本功能 就好，低级浏览器被认为“简陋却无妨 (poor, but passable)” 可以做一些小的调整来适应某个特定的浏览器。但由于它们并非我们所关注的焦点，因此除了修复较 大的错误之外，其它的差异将被直接忽略。</p><a id="more"></a>
+
+
 <p><strong>总结： 以高要求，高版本为基准，向下兼容。</strong>  </p>
 ]]></content>
       <categories>
@@ -92,8 +92,8 @@
   <entry>
     <title>Quirks模式是什么？它和Standards模式有什么区别？</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315/Quirks%E6%A8%A1%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E5%92%8CStandards%E6%A8%A1%E5%BC%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="Quirks怪癖模式是什么"><a href="#Quirks怪癖模式是什么" class="headerlink" title="Quirks怪癖模式是什么"></a>Quirks怪癖模式是什么</h1><p> 从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。 </p>
-<p> 在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？  在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD（文档类型定义）当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。 </p>
+    <content><![CDATA[<h1 id="Quirks怪癖模式是什么"><a href="#Quirks怪癖模式是什么" class="headerlink" title="Quirks怪癖模式是什么"></a>Quirks怪癖模式是什么</h1><p> 从IE6开始，引入了Standards模式，标准模式中，浏览器尝试给符合标准的文档在规范上的正确处理达到在指定浏览器中的程度。 </p><p> 在IE6之前CSS还不够成熟，所以IE5等之前的浏览器对CSS的支持很差， IE6将对CSS提供更好的支持，然而这时的问题就来了，因为有很多页面是基于旧的布局方式写的，而如果IE6 支持CSS则将令这些页面显示不正常，如何在即保证不破坏现有页面，又提供新的渲染机制呢？  在写程序时我们也会经常遇到这样的问题，如何保证原来的接口不变，又提供更强大的功能，尤其是新功能不兼容旧功能时。遇到这种问题时的一个常见做法是增加参数和分支，即当某个参数为真时，我们就使用新功能，而如果这个参数 不为真时，就使用旧功能，这样就能不破坏原有的程序，又提供新功能。IE6也是类似这样做的，它将DTD（文档类型定义）当成了这个“参数”，因为以前的页面大家都不会去写DTD，所以IE6就假定 如果写了DTD，就意味着这个页面将采用对CSS支持更好的布局，而如果没有，则采用兼容之前的布局方式。这就是Quirks模式（怪癖模式，诡异模式，怪异模式）。 </p><a id="more"></a>
+
 <h1 id="Quirks和Standards模式有什么区别"><a href="#Quirks和Standards模式有什么区别" class="headerlink" title="Quirks和Standards模式有什么区别"></a>Quirks和Standards模式有什么区别</h1><p>总体会有布局、样式解析和脚本执行三个方面的区别。</p>
 <p>盒模型：在W3C标准中，如果设置一个元素的宽度和高度，指的是元素内容的宽度和高度，而在Quirks 模式下，IE的宽度和高度还包含了padding和border。  </p>
 <p>设置行内元素的高宽：在Standards模式下，给等行内元素设置wdith和height都不会生效，而在quirks模式下，则会生效。  </p>
@@ -107,7 +107,7 @@
   <entry>
     <title>目前流行的组件库有哪些？css，js各有哪些流行的库？</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8315/%E7%9B%AE%E5%89%8D%E6%B5%81%E8%A1%8C%E7%9A%84%E7%BB%84%E4%BB%B6%E5%BA%93%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9Fcss%EF%BC%8Cjs%E5%90%84%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B5%81%E8%A1%8C%E7%9A%84%E5%BA%93%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="CSS流行组件库"><a href="#CSS流行组件库" class="headerlink" title="CSS流行组件库"></a>CSS流行组件库</h1><h2 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h2><p>Bootstrap，让你的页面更简洁、直观、强悍、移动设备优先的前端开发框架,让web开发更迅速、更简单。它还提供了更优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。有着丰富的网格布局系统以及丰富的可重用组件，还有强大的支持十几的JavaScript、jQuery插件以及组件定制等。</p>
+    <content><![CDATA[<h1 id="CSS流行组件库"><a href="#CSS流行组件库" class="headerlink" title="CSS流行组件库"></a>CSS流行组件库</h1><h2 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h2><p>Bootstrap，让你的页面更简洁、直观、强悍、移动设备优先的前端开发框架,让web开发更迅速、更简单。它还提供了更优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。有着丰富的网格布局系统以及丰富的可重用组件，还有强大的支持十几的JavaScript、jQuery插件以及组件定制等。</p><a id="more"></a>
 <p>Bootstrap中文网地址：<a href="http://www.bootcss.com/" target="_blank" rel="noopener">http://www.bootcss.com/</a></p>
 <h1 id="JS流行组件库"><a href="#JS流行组件库" class="headerlink" title="JS流行组件库"></a>JS流行组件库</h1><h2 id="Js库jQuery"><a href="#Js库jQuery" class="headerlink" title="Js库jQuery"></a>Js库jQuery</h2><p>jQuery是最常用的JavaScript库，它革命性的在客户端开发，将CSS选择器引入到DOM节点检索加链接来应用事件处理程序，动画和Ajax调用.jQuery近年来备受青睐，对于一个很需要的的JavaScript的功能的项目来说，jQuery的的的绝对是一个可行的选择。</p>
 <p>官网地址： <a href="https://jquery.com/" target="_blank" rel="noopener">https://jquery.com/</a> </p>
@@ -126,7 +126,7 @@
   <entry>
     <title>为什么要做组件库？</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8312-14/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E7%BB%84%E4%BB%B6%E5%BA%93%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="传统开发方式的弊端"><a href="#传统开发方式的弊端" class="headerlink" title="传统开发方式的弊端"></a>传统开发方式的弊端</h1><p>在大型软件系统中，web应用的前后端已经实现了分离，而随着REST软件架构的发展，后端服务逐步倾向于微服务，简单来说就是将一个大型后端服务，拆分成多个小服务，它们分别部署，降低了开发的复杂性，而且提高了系统的可伸缩性。而前端方面，随着技术的发展，开发的复杂度也越来越高，传统开发模式总是存在着开发效率低，维护成本高等的弊端。  </p>
+    <content><![CDATA[<h1 id="传统开发方式的弊端"><a href="#传统开发方式的弊端" class="headerlink" title="传统开发方式的弊端"></a>传统开发方式的弊端</h1><p>在大型软件系统中，web应用的前后端已经实现了分离，而随着REST软件架构的发展，后端服务逐步倾向于微服务，简单来说就是将一个大型后端服务，拆分成多个小服务，它们分别部署，降低了开发的复杂性，而且提高了系统的可伸缩性。而前端方面，随着技术的发展，开发的复杂度也越来越高，传统开发模式总是存在着开发效率低，维护成本高等的弊端。  </p><a id="more"></a>
 <h1 id="弊端产生的原因"><a href="#弊端产生的原因" class="headerlink" title="弊端产生的原因"></a>弊端产生的原因</h1><p>传统开发方式效率低以及维护成本高的主要原因在于很多时候是将一个系统做成了整块应用，而且往往随着业务的增长或者变更，系统的复杂度会呈现指数级的增长，经常出现的情况就是一个小小的改动或者一个小功能的增加可能会引起整体逻辑的修改，造成牵一发而动全身。  </p>
 <p>针对此弊端，其实业界早就有了一些探索，我们希望一个大且复杂的场景能够被分解成几个小的部分，这些小的部分彼此之间互不干扰，可以单独开发，单独维护，而且他们之间可以随意的进行组合。就拿电脑主机来说，一台整机包括CPU，主板，内存，硬盘等等，而这些部件其实都是由不同的公司进行生产的，他们彼此之间根据一套标准分别生产，最后组装在一起。当某个部件出现问题时，不需要将整台主机都进行维修，只需要将坏的部件拿下来，维修之后再将其组合上就可以了。这种化繁为简的思想在后端开发中的体现是微服务，而在前端开发中的体现就是组件化。  </p>
 <h1 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h1><p>随着React，angular等以组件（指令等）为主的优秀前端框架的出现，前端组件化逐渐成为前端开发的迫切需求，当然这一迫切需求也逐渐成为一种主流，一种共识，它不仅提高了前端的开发效率，同时也降低了维护成本。开发者们不需要再面对一堆复杂且难阅读的代码，转而只需要关注以组件方式存在的代码片段。 </p>
@@ -139,8 +139,8 @@
   <entry>
     <title>固定宽度布局开发WebApp如何实现多终端下自适应？</title>
     <url>/2019/10/11/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8312-14/%E5%9B%BA%E5%AE%9A%E5%AE%BD%E5%BA%A6%E5%B8%83%E5%B1%80%E5%BC%80%E5%8F%91WebApp%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BB%88%E7%AB%AF%E4%B8%8B%E8%87%AA%E9%80%82%E5%BA%94%EF%BC%9F/</url>
-    <content><![CDATA[<p>现在人通过手机浏览网页占了大多数，随着浏览方式的改变，网页在webapp下面实现多终端自适应，无论对于避免工程师无谓的重复劳动或者是项目管理的便捷性上来说重要性都是十分巨大的。 </p>
-<h1 id="固定宽度布局"><a href="#固定宽度布局" class="headerlink" title="固定宽度布局"></a>固定宽度布局</h1><p>固定宽度式布局是目前国内最常用的布局方法，优点就是固定宽度使得其布局最简便，使得开发人员对布局和定位有更大的控制能力。</p>
+    <content><![CDATA[<p>现在人通过手机浏览网页占了大多数，随着浏览方式的改变，网页在webapp下面实现多终端自适应，无论对于避免工程师无谓的重复劳动或者是项目管理的便捷性上来说重要性都是十分巨大的。 </p><h1 id="固定宽度布局"><a href="#固定宽度布局" class="headerlink" title="固定宽度布局"></a>固定宽度布局</h1><p>固定宽度式布局是目前国内最常用的布局方法，优点就是固定宽度使得其布局最简便，使得开发人员对布局和定位有更大的控制能力。</p><a id="more"></a>
+
 <p>但是，固定宽度的布局也有缺点，因为它的宽度是固定的，无论窗口尺寸有多大，它的尺寸总是不变，所以无法充分利用可用空间。因此，它们也常常被认为是糟糕的权宜之计。</p>
 <p>固定宽度的布局的示例，这个大家都是拿手布局方法。</p>
 <p>html代码：</p>
@@ -185,7 +185,7 @@
   <entry>
     <title>如何做默认样式重置？resetting 和 normalizing 之间有什么区别？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8312-14/%E5%A6%82%E4%BD%95%E5%81%9A%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F%E9%87%8D%E7%BD%AE%EF%BC%9Fresetting-%E5%92%8C-normalizing-%E4%B9%8B%E9%97%B4%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="什么是CSS-resetting？"><a href="#什么是CSS-resetting？" class="headerlink" title="什么是CSS resetting？"></a>什么是CSS resetting？</h1><p>在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法就是一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p>
+    <content><![CDATA[<h1 id="什么是CSS-resetting？"><a href="#什么是CSS-resetting？" class="headerlink" title="什么是CSS resetting？"></a>什么是CSS resetting？</h1><p>在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法就是一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p><a id="more"></a>
 <h2 id="CSS-Reset的作用"><a href="#CSS-Reset的作用" class="headerlink" title="CSS Reset的作用"></a>CSS Reset的作用</h2><p>CSS Reset让各个浏览器的CSS样式有一个统一的基准，而实现这一基准最主要的方式就是“清零”</p>
 <h1 id="什么是normalizing？"><a href="#什么是normalizing？" class="headerlink" title="什么是normalizing？"></a>什么是normalizing？</h1><p>Normalize.css 只是一个很小的CSS文件，但它在默认的HTML元素样式上 提供了跨浏览器的高度一致性。相比于传统的CSS reset，Normalize.css 是一种现代的、为HTML5准备的优质替代方案。Normalize.css现在已经被 用于Twitter Bootstrap、HTML5 Boilerplate、GOV.UK、Rdio、CSS Tricks 以及许许多多其他框架、工具和网站上。</p>
 <h2 id="normalize创造的目的"><a href="#normalize创造的目的" class="headerlink" title="normalize创造的目的"></a>normalize创造的目的</h2><p>保护有用的浏览器默认样式而不是完全去掉它们</p>
@@ -205,9 +205,9 @@
   <entry>
     <title>CSS编码规范</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/</url>
-    <content><![CDATA[<h1 id="CSS编码规范"><a href="#CSS编码规范" class="headerlink" title="CSS编码规范"></a>CSS编码规范</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>CSS作为网页样式的描述语言，在百度一直有着广泛的应用。本文档的目标是使CSS代码风格保持一致，容易被理解和被维护。</p>
-<p>虽然本文档是针对CSS设计的，但是在使用各种CSS的预编译器(如less、sass、stylus等)时，适用的部分也应尽量遵循本文档的约定。</p>
-<h2 id="2-代码风格"><a href="#2-代码风格" class="headerlink" title="2 代码风格"></a>2 代码风格</h2><h3 id="2-1-文件"><a href="#2-1-文件" class="headerlink" title="2.1 文件"></a>2.1 文件</h3><h4 id="建议-CSS-文件使用无-BOM-的-UTF-8-编码。"><a href="#建议-CSS-文件使用无-BOM-的-UTF-8-编码。" class="headerlink" title="[建议] CSS 文件使用无 BOM 的 UTF-8 编码。"></a>[建议] <code>CSS</code> 文件使用无 <code>BOM</code> 的 <code>UTF-8</code> 编码。</h4><p>解释：</p>
+    <content><![CDATA[<h1 id="CSS编码规范"><a href="#CSS编码规范" class="headerlink" title="CSS编码规范"></a>CSS编码规范</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>CSS作为网页样式的描述语言，在百度一直有着广泛的应用。本文档的目标是使CSS代码风格保持一致，容易被理解和被维护。</p><p>虽然本文档是针对CSS设计的，但是在使用各种CSS的预编译器(如less、sass、stylus等)时，适用的部分也应尽量遵循本文档的约定。</p><h2 id="2-代码风格"><a href="#2-代码风格" class="headerlink" title="2 代码风格"></a>2 代码风格</h2><h3 id="2-1-文件"><a href="#2-1-文件" class="headerlink" title="2.1 文件"></a>2.1 文件</h3><a id="more"></a>
+
+<h4 id="建议-CSS-文件使用无-BOM-的-UTF-8-编码。"><a href="#建议-CSS-文件使用无-BOM-的-UTF-8-编码。" class="headerlink" title="[建议] CSS 文件使用无 BOM 的 UTF-8 编码。"></a>[建议] <code>CSS</code> 文件使用无 <code>BOM</code> 的 <code>UTF-8</code> 编码。</h4><p>解释：</p>
 <p>UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。</p>
 <h3 id="2-2-缩进"><a href="#2-2-缩进" class="headerlink" title="2.2 缩进"></a>2.2 缩进</h3><h4 id="强制-使用-4-个空格做为一个缩进层级，不允许使用-2-个空格-或-tab-字符。"><a href="#强制-使用-4-个空格做为一个缩进层级，不允许使用-2-个空格-或-tab-字符。" class="headerlink" title="[强制] 使用 4 个空格做为一个缩进层级，不允许使用 2 个空格 或 tab 字符。"></a>[强制] 使用 <code>4</code> 个空格做为一个缩进层级，不允许使用 <code>2</code> 个空格 或 <code>tab</code> 字符。</h4><p>示例：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.selector</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -415,7 +415,7 @@
   <entry>
     <title>开发过程中应该遵守哪些编码规范和class命名规范？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8312-14/%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%BA%94%E8%AF%A5%E9%81%B5%E5%AE%88%E5%93%AA%E4%BA%9B%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E5%92%8Cclass%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%EF%BC%9F/</url>
-    <content><![CDATA[<p>真正阅读程序的是人，而不是计算机，所以所写代码具有良好的可读性，是优秀程序员必备的素质之一。在大型的系统开发中，往往需要很多人的通力配合，例如，开源软件Linux 之所以能够为全球顶尖程序员共享、协作开发，也得益于规范化和标准化的编码规范。规范应该尽量一致；即使有例外，也只能是少数情况，而不能是很多例外。好的代码规范能够提高代码的可读性便于协作沟通，好的模式能够在上层设计上避免不必要的 bug 出现。 </p>
+    <content><![CDATA[<p>真正阅读程序的是人，而不是计算机，所以所写代码具有良好的可读性，是优秀程序员必备的素质之一。在大型的系统开发中，往往需要很多人的通力配合，例如，开源软件Linux 之所以能够为全球顶尖程序员共享、协作开发，也得益于规范化和标准化的编码规范。规范应该尽量一致；即使有例外，也只能是少数情况，而不能是很多例外。好的代码规范能够提高代码的可读性便于协作沟通，好的模式能够在上层设计上避免不必要的 bug 出现。 </p><a id="more"></a>
 <h1 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h1><h2 id="HTML规范"><a href="#HTML规范" class="headerlink" title="HTML规范"></a>HTML规范</h2><p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g7tjm466ilj30qv0cj74i.jpg" alt="html规范1.png"></p>
 <p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g7tjmyv3lgj311m0n175l.jpg" alt="html规范2.png"></p>
 <p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g7tjnbe90ij315b0mxta4.jpg" alt="html规范3.png"> </p>
@@ -477,9 +477,9 @@
   <entry>
     <title>如何使用gulp编辑(编译)less？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8311/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gulp%E7%BC%96%E8%BE%91less%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h1><p>gulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 </p>
-<h1 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h1><p>gulp 是基于 node 实现的，那么我们就需要先安装 node。 </p>
-<p>打开 <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a> 点击绿色的 <strong>INSTALL</strong> 按钮下载安装 node。 </p>
+    <content><![CDATA[<h1 id="什么是gulp"><a href="#什么是gulp" class="headerlink" title="什么是gulp"></a>什么是gulp</h1><p>gulp是自动化构建工具,构建工具可以使繁琐的工作简单化，提高开发人员的工作效率，对于前端开发开发人员来说，我们通常用gulp来合并文件，压缩文件，编译less和sass文件等。 </p><h1 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h1><p>gulp 是基于 node 实现的，那么我们就需要先安装 node。 </p><p>打开 <a href="https://nodejs.org/" target="_blank" rel="noopener">https://nodejs.org/</a> 点击绿色的 <strong>INSTALL</strong> 按钮下载安装 node。 </p><a id="more"></a>
+
+
 <p>npm 是 node 的包管理工具，可以利用它安装 gulp 所需的包。（在安装 node 时已经自动安装了 npm）</p>
 <p>在命令行输入</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g gulp</span><br></pre></td></tr></table></figure>
@@ -502,7 +502,7 @@
   <entry>
     <title>less和sass有什么区别？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8311/less%E5%92%8Csass%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="1-编译环境不一样"><a href="#1-编译环境不一样" class="headerlink" title="1.编译环境不一样"></a>1.编译环境不一样</h1><p>Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。 </p>
+    <content><![CDATA[<h1 id="1-编译环境不一样"><a href="#1-编译环境不一样" class="headerlink" title="1.编译环境不一样"></a>1.编译环境不一样</h1><p>Sass的安装需要Ruby环境，是在服务端处理的，而Less是需要引入less.js来处理Less代码输出css到浏览器，也可以在开发环节使用Less，然后编译成css文件，直接放到项目中，也有 Less.app、SimpleLess、CodeKit.app这样的工具，也有在线编译地址。 </p><a id="more"></a>
 <h1 id="2-变量符不一样"><a href="#2-变量符不一样" class="headerlink" title="2.变量符不一样"></a>2.变量符不一样</h1><p>Less是@，而Scss是$，而且变量的作用域也不一样。 </p>
 <h1 id="3-输出设置"><a href="#3-输出设置" class="headerlink" title="3.输出设置"></a>3.输出设置</h1><p>Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。<br>输出样式的风格可以有四种选择，默认为nested<br>nested：嵌套缩进的css代码<br>expanded：展开的多行css代码<br>compact：简洁格式的css代码<br>compressed：压缩后的css代码 </p>
 <h1 id="4-条件语句"><a href="#4-条件语句" class="headerlink" title="4.条件语句"></a>4.条件语句</h1><p>Sass支持条件语句，可以使用if{}else{},for{}循环等等。而Less不支持。</p>
@@ -519,8 +519,8 @@
   <entry>
     <title>如何使用sass?</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8311/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8sass/</url>
-    <content><![CDATA[<h1 id="什么是sass"><a href="#什么是sass" class="headerlink" title="什么是sass"></a>什么是sass</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Sass 是一门高于 CSS 的元语言，它能用来清晰地、结构化地描述文件样式，有着比普通 CSS 更加强大的功能。<br>Sass 能够提供更简洁、更优雅的语法，同时提供多种功能来创建可维护和管理的样式表。 </p>
-<h2 id="sass和scss有什么区别？"><a href="#sass和scss有什么区别？" class="headerlink" title="sass和scss有什么区别？"></a>sass和scss有什么区别？</h2><p>Sass 和 SCSS 其实是同一种东西，我们平时都称之为 Sass，两者之间不同之处有以下两点：<br>文件扩展名不同，Sass 是以“.sass”后缀为扩展名，而 SCSS 是以“.scss”后缀为扩展名<br>语法书写方式不同，Sass 是以严格的缩进式语法规则来书写，不带大括号({})和分号(;)，而 SCSS 的语法书写和我们的 CSS 语法书写方式非常类似。</p>
+    <content><![CDATA[<h1 id="什么是sass"><a href="#什么是sass" class="headerlink" title="什么是sass"></a>什么是sass</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Sass 是一门高于 CSS 的元语言，它能用来清晰地、结构化地描述文件样式，有着比普通 CSS 更加强大的功能。<br>Sass 能够提供更简洁、更优雅的语法，同时提供多种功能来创建可维护和管理的样式表。 </p><h2 id="sass和scss有什么区别？"><a href="#sass和scss有什么区别？" class="headerlink" title="sass和scss有什么区别？"></a>sass和scss有什么区别？</h2><p>Sass 和 SCSS 其实是同一种东西，我们平时都称之为 Sass，两者之间不同之处有以下两点：<br>文件扩展名不同，Sass 是以“.sass”后缀为扩展名，而 SCSS 是以“.scss”后缀为扩展名<br>语法书写方式不同，Sass 是以严格的缩进式语法规则来书写，不带大括号({})和分号(;)，而 SCSS 的语法书写和我们的 CSS 语法书写方式非常类似。</p><a id="more"></a>
+
 <h1 id="安装sass"><a href="#安装sass" class="headerlink" title="安装sass"></a>安装sass</h1><p>1.安装环境ruby<br>2.打开的Ruby 的 Command 控制面板命令终端，输入下面的命令：<br>gem install sass</p>
 <h1 id="sass转译"><a href="#sass转译" class="headerlink" title="sass转译"></a>sass转译</h1><p>因为 Sass 开发之后，要让 Web 页面能调用 Sass 写好的东西，就得有这么一个过程，这个过程就称之为 Sass 编译过程。Sass 的编译有多种方法：</p>
 <ul>
@@ -539,8 +539,8 @@
   <entry>
     <title>如何使用less?</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8311/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8less/</url>
-    <content><![CDATA[<h1 id="什么是less"><a href="#什么是less" class="headerlink" title="什么是less"></a>什么是less</h1><p>less是一门动态的css语言，使得css样式更加灵活地作用于html标签。</p>
-<p>less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。</p>
+    <content><![CDATA[<h1 id="什么是less"><a href="#什么是less" class="headerlink" title="什么是less"></a>什么是less</h1><p>less是一门动态的css语言，使得css样式更加灵活地作用于html标签。</p><p>less作为css的一种形式扩展，它并没有减少css的功能，而是在现有的css语法上，为css加入了程序是式语言的特性。less包含一套自定义的语法及一个解析器， 用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的css文件。</p><a id="more"></a>
+
 <h1 id="为什么使用less"><a href="#为什么使用less" class="headerlink" title="为什么使用less"></a>为什么使用less</h1><p>css是一门非程序式语言，没有变量，没有函数，SCOPE（作用域），需要书写大量看似没有逻辑的代码，即不方便维护与扩展，也不利于复用。 为了方便前端开发的工作量，出现了sass和less. </p>
 <h1 id="如何使用less"><a href="#如何使用less" class="headerlink" title="如何使用less"></a>如何使用less</h1><h2 id="在-Node-js-环境中使用-Less"><a href="#在-Node-js-环境中使用-Less" class="headerlink" title="在 Node.js 环境中使用 Less"></a>在 Node.js 环境中使用 Less</h2><p><code>npm install -g less</code> <code>&gt; lessc styles.less styles.css</code> </p>
 <h2 id="在浏览器环境中使用-Less"><a href="#在浏览器环境中使用-Less" class="headerlink" title="在浏览器环境中使用 Less"></a>在浏览器环境中使用 Less</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;</span><br><span class="line">&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/3.10.0-beta/less.min.js&quot; &gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -561,8 +561,8 @@
   <entry>
     <title>自适应小屏幕设备时，该如何布局？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8310/%E8%87%AA%E9%80%82%E5%BA%94%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%AE%BE%E5%A4%87%E6%97%B6%EF%BC%8C%E8%AF%A5%E5%A6%82%E4%BD%95%E5%B8%83%E5%B1%80%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="什么时自适应网页设计"><a href="#什么时自适应网页设计" class="headerlink" title="什么时自适应网页设计"></a>什么时自适应网页设计</h1><p>页面能适配众多不同的终端设备，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局.</p>
-<p>2010年，Ethan Marcotte提出了”自适应网页设计”（Responsive Web Design）这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。响应式网页设计是自适应网页设计的子集。响应式网页设计指的是页面的布局（流动网格、灵活的图像及媒介查询）。总体目标就是去解决设备多样化问题。响应式布局等于流动网格布局，而自适应布局等于使用固定分割点来进行布局。当固定宽度与流动宽度结合起来时，自适应布局就是一种响应式设计，而不仅仅是它的一种替代方法。</p>
+    <content><![CDATA[<h1 id="什么时自适应网页设计"><a href="#什么时自适应网页设计" class="headerlink" title="什么时自适应网页设计"></a>什么时自适应网页设计</h1><p>页面能适配众多不同的终端设备，让同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整布局.</p><p>2010年，Ethan Marcotte提出了”自适应网页设计”（Responsive Web Design）这个名词，指可以自动识别屏幕宽度、并做出相应调整的网页设计。响应式网页设计是自适应网页设计的子集。响应式网页设计指的是页面的布局（流动网格、灵活的图像及媒介查询）。总体目标就是去解决设备多样化问题。响应式布局等于流动网格布局，而自适应布局等于使用固定分割点来进行布局。当固定宽度与流动宽度结合起来时，自适应布局就是一种响应式设计，而不仅仅是它的一种替代方法。</p><a id="more"></a>
+
 <h1 id="如何进行自适应网页设计"><a href="#如何进行自适应网页设计" class="headerlink" title="如何进行自适应网页设计"></a>如何进行自适应网页设计</h1><p>1.学会运用 css3 Media Queries，根据不同的屏幕分辨率，选择应用不同的css规则</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@media screen and (max-width:400px)&#123;</span><br><span class="line"></span><br><span class="line">    .class &#123;</span><br><span class="line"></span><br><span class="line">         background:#ccc;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <p>2.在网页头部加上viewport标签</p>
@@ -589,8 +589,8 @@
   <entry>
     <title>如何改变默认radio和select的样式？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%8310/%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E9%BB%98%E8%AE%A4radio%E5%92%8Cselect%E7%9A%84%E6%A0%B7%E5%BC%8F%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="改变默认radio样式"><a href="#改变默认radio样式" class="headerlink" title="改变默认radio样式"></a>改变默认radio样式</h1><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>step1.可以为<code>&lt;label&gt;</code>元素添加生成性内容(伪元素)，并基于单选按钮的状态来为其设置样式；<br>step2. 然后把真正的单选按钮隐藏起来；<br>step3. 最后把生成内容美化一下。</p>
-<h2 id="编码实战"><a href="#编码实战" class="headerlink" title="编码实战"></a>编码实战</h2><p>1、可以为<code>&lt;label&gt;</code>元素添加生成性内容(伪元素)，并基于单选按钮的状态来为其设置样式；<br>为label设置样式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">label::before&#123;</span><br><span class="line">display: inline-block;</span><br><span class="line">content: &quot;&quot;;</span><br><span class="line">width: 10rem;</span><br><span class="line">height: 10rem;</span><br><span class="line">border: 10px solid #d7d7d7;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <content><![CDATA[<h1 id="改变默认radio样式"><a href="#改变默认radio样式" class="headerlink" title="改变默认radio样式"></a>改变默认radio样式</h1><h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>step1.可以为<code>&lt;label&gt;</code>元素添加生成性内容(伪元素)，并基于单选按钮的状态来为其设置样式；<br>step2. 然后把真正的单选按钮隐藏起来；<br>step3. 最后把生成内容美化一下。</p><h2 id="编码实战"><a href="#编码实战" class="headerlink" title="编码实战"></a>编码实战</h2><p>1、可以为<code>&lt;label&gt;</code>元素添加生成性内容(伪元素)，并基于单选按钮的状态来为其设置样式；<br>为label设置样式<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">label::before&#123;</span><br><span class="line">display: inline-block;</span><br><span class="line">content: &quot;&quot;;</span><br><span class="line">width: 10rem;</span><br><span class="line">height: 10rem;</span><br><span class="line">border: 10px solid #d7d7d7;</span><br><span class="line">border-radius: 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><a id="more"></a>
+
 <ol start="2">
 <li><p>然后把真正的单选按钮隐藏起来；</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">input[type=&quot;radio&quot;] &#123; position: absolute; clip: rect(0, 0, 0, 0); &#125;</span><br></pre></td></tr></table></figure>
@@ -610,11 +610,11 @@
   <entry>
     <title>媒体查询如何使用？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%839/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><p>媒体查询是非常别致的”有条件的 CSS 规则”。它只适用于一些基于某些规定条件的 CSS。如果满足那些条件，则应用相应的样式。 </p>
-<h1 id="为什么使用媒体查询"><a href="#为什么使用媒体查询" class="headerlink" title="为什么使用媒体查询"></a>为什么使用媒体查询</h1><p>使用@media媒体查询，可以针对不同的媒体类型定义不同的样式。</p>
-<h1 id="媒体查询的使用"><a href="#媒体查询的使用" class="headerlink" title="媒体查询的使用"></a>媒体查询的使用</h1><h2 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h2><p> 媒体查询有两种引入方法：</p>
-<p>link元素中的CSS媒体查询 </p>
-<p>css样式表中媒体查询 </p>
+    <content><![CDATA[<h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><p>媒体查询是非常别致的”有条件的 CSS 规则”。它只适用于一些基于某些规定条件的 CSS。如果满足那些条件，则应用相应的样式。 </p><h1 id="为什么使用媒体查询"><a href="#为什么使用媒体查询" class="headerlink" title="为什么使用媒体查询"></a>为什么使用媒体查询</h1><p>使用@media媒体查询，可以针对不同的媒体类型定义不同的样式。</p><h1 id="媒体查询的使用"><a href="#媒体查询的使用" class="headerlink" title="媒体查询的使用"></a>媒体查询的使用</h1><h2 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h2><p> 媒体查询有两种引入方法：</p><p>link元素中的CSS媒体查询 </p><p>css样式表中媒体查询 </p><a id="more"></a>
+
+
+
+
 <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- link元素中的CSS媒体查询 --&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; media=&quot;(max-width: 800px)&quot; href=&quot;example.css&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 样式表中的CSS媒体查询 --&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">@media (max-width: 600px) &#123;</span><br><span class="line">  .facet_sidebar &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h3><p>你可以使用逻辑操作符，包括<code>not</code>、<code>and</code>和<code>only</code>等，构建复杂的媒体查询。<code>and</code>操作符用来把多个<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries#Media_features" target="_blank" rel="noopener">媒体属性</a>组合成一条媒体查询，对成链式的特征进行请求，只有当每个属性都为真时，结果才为真。<code>not</code>操作符用来对一条媒体查询的结果进行取反。<code>only</code>操作符仅在媒体查询匹配成功的情况下被用于应用一个样式，这对于防止让选中的样式在老式浏览器中被应用到。若使用了<code>not</code>或<code>only</code>操作符，必须明确指定一个媒体类型。</p>
 <p>你也可以将多个媒体查询以逗号分隔放在一起；只要其中任何一个为真，整个媒体语句就返回真。相当于<code>or</code>操作符。</p>
@@ -632,9 +632,9 @@
   <entry>
     <title>响应式的优点与缺点？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%839/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84%E4%BC%98%E7%82%B9%E4%B8%8E%E7%BC%BA%E7%82%B9%EF%BC%9F/</url>
-    <content><![CDATA[<p>响应式网站是在2010年提出来的，是为了能让网页在不同设备下兼容多个终端，而不是为每个终端特定一种版本。 </p>
-<h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><p>1.在不同设备下能有不同的页面排版，这也是响应式最大的优点，在分辨率不同，设备环境进行一些不同的设计，所有开发维护和运营上，相对多个版本成本会降低很多。 </p>
-<p>2.兼容性好，能在不同的设备下浏览。 </p>
+    <content><![CDATA[<p>响应式网站是在2010年提出来的，是为了能让网页在不同设备下兼容多个终端，而不是为每个终端特定一种版本。 </p><h1 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h1><p>1.在不同设备下能有不同的页面排版，这也是响应式最大的优点，在分辨率不同，设备环境进行一些不同的设计，所有开发维护和运营上，相对多个版本成本会降低很多。 </p><p>2.兼容性好，能在不同的设备下浏览。 </p><a id="more"></a>
+
+
 <p>3.方便后期维护页面，只需要对必要的页面进行修改，不会影响其他页面。 </p>
 <h1 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h1><p>1.页面加载过多的代码，当你在pc端加载的时候，css样式也会将手机端的冗余代码一块加载，这样就直接影响了加载速度。 </p>
 <p>2.在响应式设计中，图片和视频都是统一加载的，当你在设备低的手机上加载不符合当前需要的图片或者视频，就会过多的消耗用户的流量。 </p>
@@ -648,8 +648,8 @@
   <entry>
     <title>如何使用bootstrap栅格系统？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%839/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8bootstrap%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="bootstrap栅格系统"><a href="#bootstrap栅格系统" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h1><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><p>Bootstrap 是一个用于快速开发 Web 应用程序和网站的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的。 </p>
-<h2 id="bootstrap栅格系统-1"><a href="#bootstrap栅格系统-1" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h2><p>Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。 </p>
+    <content><![CDATA[<h1 id="bootstrap栅格系统"><a href="#bootstrap栅格系统" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h1><h2 id="bootstrap"><a href="#bootstrap" class="headerlink" title="bootstrap"></a>bootstrap</h2><p>Bootstrap 是一个用于快速开发 Web 应用程序和网站的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的。 </p><h2 id="bootstrap栅格系统-1"><a href="#bootstrap栅格系统-1" class="headerlink" title="bootstrap栅格系统"></a>bootstrap栅格系统</h2><p>Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。 </p><a id="more"></a>
+
 <h1 id="使用规则"><a href="#使用规则" class="headerlink" title="使用规则"></a>使用规则</h1><p>1、数据行(.row)必须包含在容器（.container）中，以便为其赋予合适的对齐方式和内距(padding)。  </p>
 <p>2、在行(.row)中可以添加列(.column)，但列数之和不能超过平分的总列数，比如12。  </p>
 <p>3、具体内容应当放置在列容器（column）之内，而且只有列（column）才可以作为行容器(.row)的直接子元素  </p>
@@ -692,14 +692,14 @@
   <entry>
     <title>css有哪些方式可以实现垂直居中？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%838/css%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。</p>
-<h1 id="水平居中设置"><a href="#水平居中设置" class="headerlink" title="水平居中设置"></a>水平居中设置</h1><h2 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1.行内元素"></a>1.行内元素</h2><p>设置 text-align:center  </p>
-<h2 id="2-定宽块状元素"><a href="#2-定宽块状元素" class="headerlink" title="2.定宽块状元素"></a>2.定宽块状元素</h2><p>设置 左右 margin 值为 auto  </p>
-<h2 id="3-不定宽块状元素"><a href="#3-不定宽块状元素" class="headerlink" title="3.不定宽块状元素"></a>3.不定宽块状元素</h2><ul>
+    <content><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>前端在设计一个版面时，通常都会用到水平，垂直居中，水平居中相对来说比较好处理，而垂直居中就稍微复杂点，但他们两个都是我们需要熟练掌握的知识点。</p><h1 id="水平居中设置"><a href="#水平居中设置" class="headerlink" title="水平居中设置"></a>水平居中设置</h1><h2 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1.行内元素"></a>1.行内元素</h2><p>设置 text-align:center  </p><h2 id="2-定宽块状元素"><a href="#2-定宽块状元素" class="headerlink" title="2.定宽块状元素"></a>2.定宽块状元素</h2><p>设置 左右 margin 值为 auto  </p><h2 id="3-不定宽块状元素"><a href="#3-不定宽块状元素" class="headerlink" title="3.不定宽块状元素"></a>3.不定宽块状元素</h2><ul>
 <li>在元素外加入 table 标签（完整的，包括 table、tbody、tr、td），该元素写在 td 内，然后设置 margin 的值为 auto  </li>
 <li>给该元素设置 display:in-line 方法 </li>
 <li>父元素设置 position:relative 和 left:50%，子元素设置 position:relative 和 left:50%  </li>
-</ul>
+</ul><a id="more"></a>
+
+
+
 <h1 id="垂直居中设置"><a href="#垂直居中设置" class="headerlink" title="垂直居中设置"></a>垂直居中设置</h1><h2 id="1-父元素高度确定的单行文本"><a href="#1-父元素高度确定的单行文本" class="headerlink" title="1.父元素高度确定的单行文本"></a>1.父元素高度确定的单行文本</h2><p>​    设置 height = line-height  </p>
 <h2 id="2-父元素高度确定的多行文本"><a href="#2-父元素高度确定的多行文本" class="headerlink" title="2.父元素高度确定的多行文本"></a>2.父元素高度确定的多行文本</h2><ul>
 <li>插入 table （插入方法和水平居中一样），然后设置 vertical-align:middle </li>
@@ -728,7 +728,7 @@
   <entry>
     <title>div+css的布局较table布局有什么优点？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%838/div-css%E7%9A%84%E5%B8%83%E5%B1%80%E8%BE%83table%E5%B8%83%E5%B1%80%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>tableE布局是WEB早期CSS不存在的时候兴起的，是对TABLE标签的不正规使用，Table标签就是表格，是用来显示数据的，而不是用来布局网页的，虽然它有时候布局网页很简单。现在绝大多数的网站都是用DIV+CSS布局，现在的网页越来越倾向于使用DIV的方法来布局网页了。  这两种布局各有各的优缺点。 </p>
+    <content><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>tableE布局是WEB早期CSS不存在的时候兴起的，是对TABLE标签的不正规使用，Table标签就是表格，是用来显示数据的，而不是用来布局网页的，虽然它有时候布局网页很简单。现在绝大多数的网站都是用DIV+CSS布局，现在的网页越来越倾向于使用DIV的方法来布局网页了。  这两种布局各有各的优缺点。 </p><a id="more"></a>
 <h1 id="div-css布局"><a href="#div-css布局" class="headerlink" title="div+css布局"></a>div+css布局</h1><h2 id="div-css布局的优点"><a href="#div-css布局的优点" class="headerlink" title="div+css布局的优点"></a>div+css布局的优点</h2><p>可以通过css样式给框架进行功能强大的属性设置以及给网页的局部进行任意的定位，制作出来的页面浏览速度较快，同时页面的风格可以通过修改单独的css文件进行随意的修改和更新；</p>
 <p>1.符合W3C标准，代码结构清晰明了，结构、样式和行为分离，带来足够好的可维护性。 </p>
 <p>2.布局精准，网站版面布局修改简单。 </p>
@@ -749,10 +749,10 @@
   <entry>
     <title>什么是外边距重叠？重叠的结果是什么？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%838/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%EF%BC%9F%E9%87%8D%E5%8F%A0%E7%9A%84%E7%BB%93%E6%9E%9C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="外边距重叠"><a href="#外边距重叠" class="headerlink" title="外边距重叠"></a>外边距重叠</h1><p>边界重叠是指两个或多个盒子(可能相邻也可能嵌套)的相邻边界(其间没有任何非空内容、补白、边框)重合在一起而形成一个单一边界。两个或多个块级盒子的垂直相邻边界会重合。</p>
-<h1 id="外边距重叠的结果"><a href="#外边距重叠的结果" class="headerlink" title="外边距重叠的结果"></a>外边距重叠的结果</h1><p>结果的边界宽度是相邻边界宽度中最大的值。</p>
-<p>如果出现负边界，则在最大的正边界中减去绝对值最大的负边界。</p>
-<p>如果没有正边界，则从零中减去绝对值最大的负边界。  </p>
+    <content><![CDATA[<h1 id="外边距重叠"><a href="#外边距重叠" class="headerlink" title="外边距重叠"></a>外边距重叠</h1><p>边界重叠是指两个或多个盒子(可能相邻也可能嵌套)的相邻边界(其间没有任何非空内容、补白、边框)重合在一起而形成一个单一边界。两个或多个块级盒子的垂直相邻边界会重合。</p><h1 id="外边距重叠的结果"><a href="#外边距重叠的结果" class="headerlink" title="外边距重叠的结果"></a>外边距重叠的结果</h1><p>结果的边界宽度是相邻边界宽度中最大的值。</p><p>如果出现负边界，则在最大的正边界中减去绝对值最大的负边界。</p><p>如果没有正边界，则从零中减去绝对值最大的负边界。  </p><a id="more"></a>
+
+
+
 <h1 id="外边距重叠的意义"><a href="#外边距重叠的意义" class="headerlink" title="外边距重叠的意义"></a>外边距重叠的意义</h1><p>外边距的重叠只产生在普通流文档的上下外边距之间，这个看起来有点奇怪的规则，其实有其现实意义。设想，当我们上下排列一系列规则的块级元素（如段落P）时，那么块元素之间因为外边距重叠的存在，段落之间就不会产生双倍的距离。  </p>
 <h1 id="防止外边距重叠解决方案"><a href="#防止外边距重叠解决方案" class="headerlink" title="防止外边距重叠解决方案"></a>防止外边距重叠解决方案</h1><p>虽然外边距的重叠有其一定的意义，但有时候我们在设计上却不想让元素之间产生重叠，那么可以有如下几个建议可供参考： </p>
 <ul>
@@ -776,7 +776,7 @@
   <entry>
     <title>主流浏览器内核有哪几种？</title>
     <url>/2019/10/10/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%838/%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h1><p>浏览器内核又可以分成两部分：渲染引擎(layout engineer 或者 Rendering Engine)和 JS 引擎。它负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入 CSS 等），以及计算网页的显示方式，然后会输出至显示器或打印机。JS 引擎则是解析 Javascript 语言，执行 javascript 语言来实现网页的动态效果。</p>
+    <content><![CDATA[<h1 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h1><p>浏览器内核又可以分成两部分：渲染引擎(layout engineer 或者 Rendering Engine)和 JS 引擎。它负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入 CSS 等），以及计算网页的显示方式，然后会输出至显示器或打印机。JS 引擎则是解析 Javascript 语言，执行 javascript 语言来实现网页的动态效果。</p><a id="more"></a>
 <p>浏览器最重要或者说最核心的部分是“Rendering Engine”，可大概译为“渲染引擎”，不过一般习惯将之称为“浏览器内核”，负责对网页语法的解释并渲染网页。所以，通常所谓的浏览器内核也就是浏览器所采用的渲染引擎，渲染引擎决定了浏览器如何显示网页的内容以及页面的格式信息。  </p>
 <h1 id="主流浏览器内核"><a href="#主流浏览器内核" class="headerlink" title="主流浏览器内核"></a>主流浏览器内核</h1><h2 id="1-Trident-IE内核"><a href="#1-Trident-IE内核" class="headerlink" title="1.Trident/IE内核"></a>1.Trident/IE内核</h2><p>该内核程序在1997年的IE4中首次被采用，是微软在Mosaic代码的基础之上修改而来的，并沿用到IE11，也被普遍称作”IE内核”。Trident实际上是一款开放的内核，其接口内核设计的相当成熟，因此才有许多采用IE内核而非IE的浏览器(壳浏览器)涌现。由于IE本身的“垄断性”（虽然名义上IE并非垄断，但实际上，特别是从Windows 95年代一直到XP初期，就市场占有率来说IE的确借助Windows的东风处于“垄断”的地位）而使得Trident内核的长期一家独大，微软很长时间都并没有更新Trident内核，这也导致了后面的两个后果： 一是Trident内核曾经几乎与W3C标准脱节（2005年） 二是Trident内核的大量 Bug等安全性问题没有得到及时解决，然后加上一些致力于开源的开发者和一些学者们公开自己认为IE浏览器不安全的观点，也有很多用户转向了其他浏览 器，Firefox和Opera就是这个时候兴起的。 Trident内核的常见浏览器有：IE6、IE7、IE8（Trident 4.0）、IE9（Trident 5.0）、IE10（Trident 6.0）、2345浏览器、腾讯TT、淘宝浏览器、阿云浏览器（早期版本）、瑞星安全浏览器、蚂蚁浏览器、飞腾浏览器、速达浏览器、佐罗浏览器、海豚浏览器等等  </p>
 <h2 id="2-Gecko-Firefox内核"><a href="#2-Gecko-Firefox内核" class="headerlink" title="2.Gecko/Firefox内核"></a>2.Gecko/Firefox内核</h2><p>Netscape6开始采用的内核，后来的Mozilla FireFox(火狐浏览器) 也采用了该内核，Gecko的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。因为这是个开源内核，因此受到许多人的青睐，Gecko内核的浏览器也很多，这也是Gecko内核虽然年轻但市场占有率能够迅速提高的重要原因。事实上，Gecko引擎的由来跟IE不无关系，前面说过IE没有使用W3C的标准，这导致了微软内部一些开发人员的不满；他们与当时已经停止更新了的 Netscape的一些员工一起创办了Mozilla，以当时的Mosaic内核为基础重新编写内核，于是开发出了Gecko。不过事实上，Gecko 内核的浏览器仍然还是Firefox (火狐) 用户最多，所以有时也会被称为Firefox内核。Gecko核心设计的相对成熟，在无法获取源码的情况下，开放程度仅次于IE。由于其本身Open Source。实际上是目前开发程度最好的浏览器。Firefox的扩展能够给浏览者带来完全不同的浏览体验。市面上Gecko内核的浏览器主要分两类，一类是以Mozilla Firefox为代表的，用XUL作为界面描述语言的浏览器：这类浏览器往往继承了Firefox扩展性好的优点，早前的Madfox和Albatross就是这一类型的浏览器。所以，Gecko内核也被称为Firefox内核。 Gecko内核常见的浏览器： Mozilla Firefox、Mozilla SeaMonkey、waterfox（Firefox的64位开源版）、Iceweasel、Epiphany（早期版本）、Flock（早期版本）等等</p>
@@ -792,10 +792,10 @@
   <entry>
     <title>如何用css写一个简单的幻灯片效果页面？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%838/%E5%A6%82%E4%BD%95%E7%94%A8css%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%B9%BB%E7%81%AF%E7%89%87%E6%95%88%E6%9E%9C%E9%A1%B5%E9%9D%A2%EF%BC%9F/</url>
-    <content><![CDATA[<p>CSS3属性中有关于制作动画的三个属性：Transform,Transition,Animation。</p>
-<p>transform属性向元素应用2D或3D转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。</p>
-<p>transition是令一个或多个可以用数值表示的css属性值发生变化时产生过渡效果。</p>
-<p>Animation字面上的意思，就是“动画”的意思.</p>
+    <content><![CDATA[<p>CSS3属性中有关于制作动画的三个属性：Transform,Transition,Animation。</p><p>transform属性向元素应用2D或3D转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。</p><p>transition是令一个或多个可以用数值表示的css属性值发生变化时产生过渡效果。</p><p>Animation字面上的意思，就是“动画”的意思.</p><a id="more"></a>
+
+
+
 <p>我们使用CSS3的Animation制作动画，实现简单的幻灯片效果，可以省去复杂的js,jquery代码。</p>
 ]]></content>
       <categories>
@@ -806,8 +806,8 @@
   <entry>
     <title>如何实现轮播图？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%838/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E8%BD%AE%E6%92%AD%E5%9B%BE%EF%BC%9F/</url>
-    <content><![CDATA[<p>通过以下的5个过程，实现轮播图的轮播效果 </p>
-<h1 id="1-动态生成结构"><a href="#1-动态生成结构" class="headerlink" title="1.动态生成结构"></a>1.动态生成结构</h1><p>创建元素和插入元素的方法分别是什么？<br>创建元素：<code>document.creatElement( tagName ) var li = document.creatElement(“li”)；</code><br>插入元素：<code>appendChild( element ) ol.appendChild(“li”);</code><br>通过什么方法复制第一张图片元素？<br>通过<code>cloneNode()</code>方法来复制元素：<code>eg . var firstImg = ulLis[0].cloneNode(true)</code>； 其中<code>cloneNode</code>方法中，如果传递给它的参数是 true，它还将递归复制当前节点的所有子孙节点。否则，它只复制当前节点 </p>
+    <content><![CDATA[<p>通过以下的5个过程，实现轮播图的轮播效果 </p><h1 id="1-动态生成结构"><a href="#1-动态生成结构" class="headerlink" title="1.动态生成结构"></a>1.动态生成结构</h1><p>创建元素和插入元素的方法分别是什么？<br>创建元素：<code>document.creatElement( tagName ) var li = document.creatElement(“li”)；</code><br>插入元素：<code>appendChild( element ) ol.appendChild(“li”);</code><br>通过什么方法复制第一张图片元素？<br>通过<code>cloneNode()</code>方法来复制元素：<code>eg . var firstImg = ulLis[0].cloneNode(true)</code>； 其中<code>cloneNode</code>方法中，如果传递给它的参数是 true，它还将递归复制当前节点的所有子孙节点。否则，它只复制当前节点 </p><a id="more"></a>
+
 <h1 id="2-鼠标经过按钮"><a href="#2-鼠标经过按钮" class="headerlink" title="2.鼠标经过按钮"></a>2.鼠标经过按钮</h1><p>鼠标经过时如何改变按钮样式？<br>a. 清除所有按钮的样式 <code>for (var j = 0; j &lt; olLis.length; j++) { olLis[j].className = “”; }</code><br>b. 给当前鼠标所在按钮添加特殊样式<code>this.className = “current”;</code><br>鼠标经过按钮时如何计算图片盒子移动的距离?<br>通过按钮索引值（this.index）和图片的宽度（imgWidth）来计算图片盒子要移动的距离（target） <code>target = - this.index * imgWidth</code> </p>
 <h1 id="3-鼠标点击箭头"><a href="#3-鼠标点击箭头" class="headerlink" title="3.鼠标点击箭头"></a>3.鼠标点击箭头</h1><p><strong>通过什么属性改变左右箭头的隐藏和显示？</strong><br>通过控制左右箭头盒子的display属性来控制左右箭头盒子的显示（block）和隐藏（none）<br>通过什么机制来统一左/右箭头点击时图片切换为当前图片的上/下一张？<br>利用全局变量来统一左右箭头切换图片，在左右箭头点击时，通过pic来计算图片盒子移动的目标位置 <code>var target = -pic * imgWidth;</code><br>当点击左箭头时：pic– –这样target比当前位置数值大imgWidth 图片盒子向右移动一张图片的距离 显示出上一张图片<br>当点击右箭头时：pic++ 这样target比当前位置数值小imgWidth 图片盒子向左移动一张图片的距离 显示出下一张图片 </p>
 <h1 id="4-按钮随之变化"><a href="#4-按钮随之变化" class="headerlink" title="4.按钮随之变化"></a>4.按钮随之变化</h1><p>square的取值范围以及其与pic对应情况 </p>
@@ -823,12 +823,12 @@
   <entry>
     <title>如果是在手机上查看投票页，没有hover效果时应该怎么办？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%837/%E5%A6%82%E6%9E%9C%E6%98%AF%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%9F%A5%E7%9C%8B%E6%8A%95%E7%A5%A8%E9%A1%B5%EF%BC%8C%E6%B2%A1%E6%9C%89hover%E6%95%88%E6%9E%9C%E6%97%B6%E5%BA%94%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="为什么hover在手机上没效果？"><a href="#为什么hover在手机上没效果？" class="headerlink" title="为什么hover在手机上没效果？"></a>为什么hover在手机上没效果？</h1><p>让我们再回顾一下hover的定义…</p>
-<p><code>:hover</code>用于选择鼠标指针浮动在上面的元素。</p>
-<p>再想一想…</p>
-<p>手机上哪来的鼠标啊伙计？！</p>
-<p>SO,手机端没有hover特效，当你点击的时候就直接触发click。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><strong>首先，经试验发现，设置的<code>：hover</code>在Android系统上点击会出现， 但是需要再次点击才会消失；</strong></p>
+    <content><![CDATA[<h1 id="为什么hover在手机上没效果？"><a href="#为什么hover在手机上没效果？" class="headerlink" title="为什么hover在手机上没效果？"></a>为什么hover在手机上没效果？</h1><p>让我们再回顾一下hover的定义…</p><p><code>:hover</code>用于选择鼠标指针浮动在上面的元素。</p><p>再想一想…</p><p>手机上哪来的鼠标啊伙计？！</p><p>SO,手机端没有hover特效，当你点击的时候就直接触发click。</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p><strong>首先，经试验发现，设置的<code>：hover</code>在Android系统上点击会出现， 但是需要再次点击才会消失；</strong></p><a id="more"></a>
+
+
+
+
+
 <p><strong>IOS系统上点击无法出现；</strong></p>
 <p>手机虽然没有鼠标，但是有触摸事件.</p>
 <p>一开始触摸事件是ios版Safari浏览器为了向开发人员传达一些信息新添加的事件。 因为ios设备既没有鼠标也没有键盘，所以在为移动Safari浏览器开发交互性网页的时候， PC端的鼠标和键盘事件是不够用的。</p>
@@ -850,8 +850,8 @@
   <entry>
     <title>描述下z-index和叠加上下文是如何形成的？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%837/%E6%8F%8F%E8%BF%B0%E4%B8%8Bz-index%E5%92%8C%E5%8F%A0%E5%8A%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E6%98%AF%E5%A6%82%E4%BD%95%E5%BD%A2%E6%88%90%E7%9A%84%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="z-index是什么？"><a href="#z-index是什么？" class="headerlink" title="z-index是什么？"></a>z-index是什么？</h1><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<br>该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。</p>
-<h1 id="z-index和叠加上下文是如何形成的"><a href="#z-index和叠加上下文是如何形成的" class="headerlink" title="z-index和叠加上下文是如何形成的"></a>z-index和叠加上下文是如何形成的</h1><p>一言难尽，献上传送门。</p>
+    <content><![CDATA[<h1 id="z-index是什么？"><a href="#z-index是什么？" class="headerlink" title="z-index是什么？"></a>z-index是什么？</h1><p>z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。<br>该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。</p><h1 id="z-index和叠加上下文是如何形成的"><a href="#z-index和叠加上下文是如何形成的" class="headerlink" title="z-index和叠加上下文是如何形成的"></a>z-index和叠加上下文是如何形成的</h1><p>一言难尽，献上传送门。</p><a id="more"></a>
+
 <p><a href="https://blog.csdn.net/cat_sky/article/details/80302245" target="_blank" rel="noopener">z-index 层叠上下文的关系</a></p>
 <h1 id="使用z-index有什么需要注意的地方？"><a href="#使用z-index有什么需要注意的地方？" class="headerlink" title="使用z-index有什么需要注意的地方？"></a>使用z-index有什么需要注意的地方？</h1><ul>
 <li>在开发中尽量避免层叠上下文的多层嵌套，因为层叠上下文嵌套过多的话容易产生混乱，如果对层叠上下文理解不够的话是不好把控的。</li>
@@ -875,8 +875,8 @@
   <entry>
     <title>rgba和opacity的透明效果有什么不同？display和visiblity有什么区别？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%837/rgba%E5%92%8Copacity%E7%9A%84%E9%80%8F%E6%98%8E%E6%95%88%E6%9E%9C%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9Fdisplay%E5%92%8Cvisiblity%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="rgba和opacity的透明效果有什么不同"><a href="#rgba和opacity的透明效果有什么不同" class="headerlink" title="rgba和opacity的透明效果有什么不同"></a>rgba和opacity的透明效果有什么不同</h1><p>opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 </p>
-<h1 id="display和visiblity有什么区别"><a href="#display和visiblity有什么区别" class="headerlink" title="display和visiblity有什么区别"></a>display和visiblity有什么区别</h1><p>display：通常可以设置为none、inline、block<br>visblity：通常可以设置为hidden、visible </p>
+    <content><![CDATA[<h1 id="rgba和opacity的透明效果有什么不同"><a href="#rgba和opacity的透明效果有什么不同" class="headerlink" title="rgba和opacity的透明效果有什么不同"></a>rgba和opacity的透明效果有什么不同</h1><p>opacity后代元素会随着一起具有透明性，Opacity中的字随着透明值下降越来越看不清楚，而RGBA不具有这样的问题。 </p><h1 id="display和visiblity有什么区别"><a href="#display和visiblity有什么区别" class="headerlink" title="display和visiblity有什么区别"></a>display和visiblity有什么区别</h1><p>display：通常可以设置为none、inline、block<br>visblity：通常可以设置为hidden、visible </p><a id="more"></a>
+
 <p>当display为none，visibility为hidden时，元素都会不见。不过其还有不同之处。</p>
 <p>区别：<br>display：none:隐藏元素但不占据该元素原来的空间。父级设置值为none后，无论子级设置任何值都无法显示。（<strong>不占空间，可遗传</strong>）<br>visibility：hidden:隐藏元素并且占据该元素原来的空间。子级设置visible后不受父级影响。（<strong>占空间，不遗传</strong>）</p>
 ]]></content>
@@ -888,7 +888,7 @@
   <entry>
     <title>什么是浮动？有哪些清除浮动的方法？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%837/%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%AE%E5%8A%A8%EF%BC%9F%E6%9C%89%E5%93%AA%E4%BA%9B%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h1><p>在了解什么是浮动之前我们先了解一下html元素在普通流排列方式。在普通流中，元素是按照它在 HTML 中的出现的先后顺序自上而下依次排列布局的，在排列过程中所有的行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为一整行。如果没有特殊样式指定，所有元素默认都是按照普通流方式排列布局，即普通流中元素的位置由该元素在 HTML 文档中的位置决定的。</p>
+    <content><![CDATA[<h1 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h1><p>在了解什么是浮动之前我们先了解一下html元素在普通流排列方式。在普通流中，元素是按照它在 HTML 中的出现的先后顺序自上而下依次排列布局的，在排列过程中所有的行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为一整行。如果没有特殊样式指定，所有元素默认都是按照普通流方式排列布局，即普通流中元素的位置由该元素在 HTML 文档中的位置决定的。</p><a id="more"></a>
 <p>浮动使元素脱离文档普通流，漂浮在普通流之上的。浮动元素依然按照其在普通流的位置上出现，然后尽可能的根据设置的浮动方向向左或者向右浮动，直到浮动元素的外边缘遇到包含框或者另一个浮动元素为止，且允许文本和内联元素环绕它。浮动会产生块级框（相当于设置了display:block），而不管该元素本身是什么。</p>
 <h1 id="为什么要清除浮动"><a href="#为什么要清除浮动" class="headerlink" title="为什么要清除浮动"></a>为什么要清除浮动</h1><p>如果我们不给父元素设置高度，我们知道如果它里面的元素不浮动的话， 那么这个外层的高是会自动被撑开的。<br>若浮动元素比它的父元素还高，那么它就会溢出父元素外面</p>
 <p>当内层元素所有浮动后，则影响更大：</p>
@@ -907,8 +907,8 @@
   <entry>
     <title>什么是CSS sprites？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%837/%E4%BB%80%E4%B9%88%E6%98%AFCSS-sprites%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ss sprites直译过来就是CSS精灵。通常被解释为“CSS图像拼合”或“CSS贴图定位”。其实就是通过将多个图片融合到一张图里面，然后通过CSS background背景定位技术技巧布局网页背景。</p>
-<h1 id="为什么要使用CSS-sprites"><a href="#为什么要使用CSS-sprites" class="headerlink" title="为什么要使用CSS sprites"></a>为什么要使用CSS sprites</h1><p>这样做的好处也是显而易见的，因为图片多的话，会增加http的请求，无疑促使了网站性能的减低，特别是图片特别多的网站，如果能用css sprites降低图片数量，带来的将是速度的提升。 </p>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ss sprites直译过来就是CSS精灵。通常被解释为“CSS图像拼合”或“CSS贴图定位”。其实就是通过将多个图片融合到一张图里面，然后通过CSS background背景定位技术技巧布局网页背景。</p><h1 id="为什么要使用CSS-sprites"><a href="#为什么要使用CSS-sprites" class="headerlink" title="为什么要使用CSS sprites"></a>为什么要使用CSS sprites</h1><p>这样做的好处也是显而易见的，因为图片多的话，会增加http的请求，无疑促使了网站性能的减低，特别是图片特别多的网站，如果能用css sprites降低图片数量，带来的将是速度的提升。 </p><a id="more"></a>
+
 <h1 id="如何使用CSS-sprites"><a href="#如何使用CSS-sprites" class="headerlink" title="如何使用CSS sprites"></a>如何使用CSS sprites</h1><p>css sprites是什么通俗解释：CSS Sprites其实就是把网页中一些背景图片整合拼合成一张图片中，再利用DIV CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片在布局盒子对象位置。<br><a href="https://www.jianshu.com/p/84d7aa090ba1" target="_blank" rel="noopener">前端必备 CSS Sprites雪碧图生成工具</a></p>
 ]]></content>
       <categories>
@@ -919,9 +919,9 @@
   <entry>
     <title>HTML中dl、ul、ol用哪个比较好？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%835/HTML%E4%B8%ADdl%E3%80%81ul%E3%80%81ol%E7%94%A8%E5%93%AA%E4%B8%AA%E6%AF%94%E8%BE%83%E5%A5%BD%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ul，ol，dl标签是CSS网页布局中常用的列表元素。 列表将具有相似特征或先后顺序的内容按照从上到下的顺序排列起来。</p>
-<h1 id="具体介绍"><a href="#具体介绍" class="headerlink" title="具体介绍"></a>具体介绍</h1><p>1.ul标签：无序列表始于 u l 标签。每个列表项始于l i标签，此列项目默认使用粗体圆点（典型的小黑圆圈）进行标记。</p>
-<p>2.ol标签：有序列表始于ol标签，每个列表项始于li标签，列表项目使用数字进行标记。</p>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ul，ol，dl标签是CSS网页布局中常用的列表元素。 列表将具有相似特征或先后顺序的内容按照从上到下的顺序排列起来。</p><h1 id="具体介绍"><a href="#具体介绍" class="headerlink" title="具体介绍"></a>具体介绍</h1><p>1.ul标签：无序列表始于 u l 标签。每个列表项始于l i标签，此列项目默认使用粗体圆点（典型的小黑圆圈）进行标记。</p><p>2.ol标签：有序列表始于ol标签，每个列表项始于li标签，列表项目使用数字进行标记。</p><a id="more"></a>
+
+
 <p>3.dl标签：dl标签是定义列表，自定义列表不仅仅是一列项目，而是项目及其注释的组合。自定义列表以 dl 标签开始。每个自定义列表项以 dt 开始。每个自定义列表项的定义以 dd 开始。</p>
 <h1 id="应用范围"><a href="#应用范围" class="headerlink" title="应用范围"></a>应用范围</h1><p>ul经常用来实现轮播的小按钮，下拉菜单的各种要用来排列的列表，多个a标签排列等，实用范围非常广。</p>
 <p>ol因为它的有序属性，用的范围就比较小了，不是一定要用有序来排列的情况下，一般都是用ul。</p>
@@ -934,9 +934,9 @@
   <entry>
     <title>如何使用IconFont？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%835/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8IconFont%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="什么是IconFont"><a href="#什么是IconFont" class="headerlink" title="什么是IconFont?"></a>什么是IconFont?</h1><p>IconFont是阿里巴巴旗下的矢量图标库网站，通过搜索关键字可以获取前端开发所需的各类图标。</p>
-<h1 id="如何使用IconFont？"><a href="#如何使用IconFont？" class="headerlink" title="如何使用IconFont？"></a>如何使用IconFont？</h1><p>step 1:百度iconfont,找到阿里巴巴矢量图标库官网,然后注册登录,或者用github登录也行,此步骤跳过; </p>
-<p>step 2:找到图标管理-&gt;我的项目-&gt;然后新建项目: </p>
+    <content><![CDATA[<h1 id="什么是IconFont"><a href="#什么是IconFont" class="headerlink" title="什么是IconFont?"></a>什么是IconFont?</h1><p>IconFont是阿里巴巴旗下的矢量图标库网站，通过搜索关键字可以获取前端开发所需的各类图标。</p><h1 id="如何使用IconFont？"><a href="#如何使用IconFont？" class="headerlink" title="如何使用IconFont？"></a>如何使用IconFont？</h1><p>step 1:百度iconfont,找到阿里巴巴矢量图标库官网,然后注册登录,或者用github登录也行,此步骤跳过; </p><p>step 2:找到图标管理-&gt;我的项目-&gt;然后新建项目: </p><a id="more"></a>
+
+
 <p>step 3:项目新建完成后,往项目里添加我们要想使用的图标,找到图标库,搜索一个想要的图标,然后添加到购物车; </p>
 <p>step 4:添加到购物车完成后,购物车徽章数字应该显示1了,点击右上角的购物车图标,选择添加至项目,选择我们刚刚创建的项目,确定; </p>
 <p>step 5:接下来一部比较关键,将打包好的字体文件下载到本地添加到你的项目中,在项目中引用文件中的iconfont.css文件; </p>
@@ -953,12 +953,12 @@
   <entry>
     <title>title与h1、b与strong、i与em、img的alt与title、src与href有什么区别？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%835/title%E4%B8%8Eh1%E3%80%81b%E4%B8%8Estrong%E3%80%81i%E4%B8%8Eem%E3%80%81img%E7%9A%84alt%E4%B8%8Etitle%E3%80%81src%E4%B8%8Ehref%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="title与h1"><a href="#title与h1" class="headerlink" title="title与h1"></a>title与h1</h1><p><strong>title</strong>的权重高于H1,其适用性要比H1广。</p>
-<h1 id="b与strong、i与em"><a href="#b与strong、i与em" class="headerlink" title="b与strong、i与em"></a>b与strong、i与em</h1><p>物理元素：b、i </p>
-<p>逻辑元素：em、strong </p>
-<p> 物理元素是告诉浏览器我应该以何种格式显示文字，逻辑元素告诉浏览器这些文字有怎么样的重要性。  </p>
-<p><strong>结论</strong>：对于搜索引擎来说<strong>逻辑元素</strong>比物理元素要重视的多。 </p>
-<h1 id="mg的alt与title"><a href="#mg的alt与title" class="headerlink" title="mg的alt与title"></a>mg的alt与title</h1><p>alt 用于图片没显示时在图片显示区域显示一个说明文字。  title 表示鼠标在图片上停留时，显示一个悬浮框，其中显示的文字。  </p>
+    <content><![CDATA[<h1 id="title与h1"><a href="#title与h1" class="headerlink" title="title与h1"></a>title与h1</h1><p><strong>title</strong>的权重高于H1,其适用性要比H1广。</p><h1 id="b与strong、i与em"><a href="#b与strong、i与em" class="headerlink" title="b与strong、i与em"></a>b与strong、i与em</h1><p>物理元素：b、i </p><p>逻辑元素：em、strong </p><p> 物理元素是告诉浏览器我应该以何种格式显示文字，逻辑元素告诉浏览器这些文字有怎么样的重要性。  </p><p><strong>结论</strong>：对于搜索引擎来说<strong>逻辑元素</strong>比物理元素要重视的多。 </p><h1 id="mg的alt与title"><a href="#mg的alt与title" class="headerlink" title="mg的alt与title"></a>mg的alt与title</h1><a id="more"></a>
+
+
+
+
+<p>alt 用于图片没显示时在图片显示区域显示一个说明文字。  title 表示鼠标在图片上停留时，显示一个悬浮框，其中显示的文字。  </p>
 <h1 id="src与href"><a href="#src与href" class="headerlink" title="src与href"></a>src与href</h1><p>src是source的缩写，src的内容是页面必不可少的一部分，是引入。src指向的内容会嵌入到文档中当前标签所在的位置。常用的有：img、script、iframe。<br>href是Hypertext Reference的缩写，表示超文本引用。用来建立当前元素和文档之间的链接。常用的有：link、a。</p>
 <p><strong>结论</strong>：src用于替换当前元素；href用于在当前文档和引用资源之间建立联系。</p>
 ]]></content>
@@ -993,8 +993,8 @@
   <entry>
     <title>css可以绘制哪些常见的特殊形状？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%835/css%E5%8F%AF%E4%BB%A5%E7%BB%98%E5%88%B6%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E6%AE%8A%E5%BD%A2%E7%8A%B6%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="为什么使用CSS绘制图形"><a href="#为什么使用CSS绘制图形" class="headerlink" title="为什么使用CSS绘制图形"></a>为什么使用CSS绘制图形</h1><p>在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 </p>
-<h1 id="CSS绘制图形"><a href="#CSS绘制图形" class="headerlink" title="CSS绘制图形"></a>CSS绘制图形</h1><h2 id="圆形-椭圆形"><a href="#圆形-椭圆形" class="headerlink" title="圆形/椭圆形"></a>圆形/椭圆形</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.circle&#123;</span><br><span class="line"></span><br><span class="line">width:10rem;</span><br><span class="line"></span><br><span class="line">height:10rem;</span><br><span class="line"></span><br><span class="line">border-radius:50%;</span><br><span class="line"></span><br><span class="line">background:orange;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="为什么使用CSS绘制图形"><a href="#为什么使用CSS绘制图形" class="headerlink" title="为什么使用CSS绘制图形"></a>为什么使用CSS绘制图形</h1><p>在写网页的时候，会遇到需要装饰一些几何图形的情况，用css就可以实现很多特殊形状的绘制。它的特点是放大后图像不会失真，档案的占用空间较小，也可以减少http的请求。 </p><h1 id="CSS绘制图形"><a href="#CSS绘制图形" class="headerlink" title="CSS绘制图形"></a>CSS绘制图形</h1><h2 id="圆形-椭圆形"><a href="#圆形-椭圆形" class="headerlink" title="圆形/椭圆形"></a>圆形/椭圆形</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.circle&#123;</span><br><span class="line"></span><br><span class="line">width:10rem;</span><br><span class="line"></span><br><span class="line">height:10rem;</span><br><span class="line"></span><br><span class="line">border-radius:50%;</span><br><span class="line"></span><br><span class="line">background:orange;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
+
 <p>椭圆形只需改变矩形的边长 </p>
 <h2 id="三角形-梯形"><a href="#三角形-梯形" class="headerlink" title="三角形/梯形"></a>三角形/梯形</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.triangle&#123;</span><br><span class="line"></span><br><span class="line">margin-top:5rem;</span><br><span class="line"></span><br><span class="line">width:0;</span><br><span class="line"></span><br><span class="line">border-bottom:5rem solid#00a000;</span><br><span class="line"></span><br><span class="line">border-left:5rem solid transparent;</span><br><span class="line"></span><br><span class="line">border-right:5rem solid transparent;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>梯形只需设定width的值即可 </p>
@@ -1020,8 +1020,8 @@
   <entry>
     <title>如何理解HTML结构的语义化？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3HTML%E7%BB%93%E6%9E%84%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>HTML结构语义化，是最近几年才提出来的，以前的html结构，都是一堆的没有语义的冷冰冰的标签。最泛滥的就是div+css,以前的页面，一上来就是一堆的div+css, </p>
-<p>为了改变这种这种状况，开发者们和官方提出了让HTML结构语义化的概念，并且官方w3c，也在HTML5给出了几个新的语义化的标签。 </p>
+    <content><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>HTML结构语义化，是最近几年才提出来的，以前的html结构，都是一堆的没有语义的冷冰冰的标签。最泛滥的就是div+css,以前的页面，一上来就是一堆的div+css, </p><p>为了改变这种这种状况，开发者们和官方提出了让HTML结构语义化的概念，并且官方w3c，也在HTML5给出了几个新的语义化的标签。 </p><a id="more"></a>
+
 <h1 id="什么是语义化"><a href="#什么是语义化" class="headerlink" title="什么是语义化"></a>什么是语义化</h1><p>字面意思就是说根据我们所说的话，就能了解其中的含义。</p>
 <p>语义化，故名思意，就是你写的HTml结构，是用相对应的有一定语义的英文字母（标签）表示的，标记的，因为HTML本身就是标记语言。不仅对自己来说，容易阅读，书写。别人看你的代码和结构也容易理解，甚至对一些不是做网页开发的人来说，也容易阅读。</p>
 <h1 id="什么是HTML语义化"><a href="#什么是HTML语义化" class="headerlink" title="什么是HTML语义化"></a>什么是HTML语义化</h1><p>首先标签语义化是指HTML，不是CSS, 语义化标签只是HTML，CSS不存在语义化。HTML是标签，CSS是属性。</p>
@@ -1073,7 +1073,7 @@
 </li>
 <li><p>option: 定义下拉列表中的选项。</p>
 </li>
-</ol>
+</ol><a id="more"></a>
 <h1 id="表单元素的具体属性"><a href="#表单元素的具体属性" class="headerlink" title="表单元素的具体属性"></a>表单元素的具体属性</h1><h2 id="form"><a href="#form" class="headerlink" title="form"></a>form</h2><p><code>&lt;form name=&quot;&quot; action=&quot;&quot; method=&quot;get&quot;&gt;……&lt;/form&gt;</code></p>
 <p>name : 表单名称；action : 用来指定表单处理程序的位置（url）；method : 定义表单结果从浏览器传送到服务器的方式，默认为”get”（也可以是post）</p>
 <h2 id="input"><a href="#input" class="headerlink" title="input"></a>input</h2><p><code>&lt;input type=&quot;&quot; name=&quot;&quot; value=&quot;&quot; size=&quot;&quot;&gt;</code></p>
@@ -1110,9 +1110,9 @@
   <entry>
     <title>哪些css属性可以设置百分比，其计算原则是什么？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%93%AA%E4%BA%9Bcss%E5%B1%9E%E6%80%A7%E5%8F%AF%E4%BB%A5%E8%AE%BE%E7%BD%AE%E7%99%BE%E5%88%86%E6%AF%94%EF%BC%8C%E5%85%B6%E8%AE%A1%E7%AE%97%E5%8E%9F%E5%88%99%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="定位属性"><a href="#定位属性" class="headerlink" title="定位属性"></a>定位属性</h1><p>top, right, bottom, left;<br>计算原则：基于父元素</p>
-<h1 id="盒模型属性"><a href="#盒模型属性" class="headerlink" title="盒模型属性"></a>盒模型属性</h1><p>height, width, margin, padding; </p>
-<p>height：基于包含它的块级对象的百分比高度<br>width：基于包含它的块级对象的百分比宽度<br>margin，padding：百分数是相对与父元素的width计算</p>
+    <content><![CDATA[<h1 id="定位属性"><a href="#定位属性" class="headerlink" title="定位属性"></a>定位属性</h1><p>top, right, bottom, left;<br>计算原则：基于父元素</p><h1 id="盒模型属性"><a href="#盒模型属性" class="headerlink" title="盒模型属性"></a>盒模型属性</h1><p>height, width, margin, padding; </p><p>height：基于包含它的块级对象的百分比高度<br>width：基于包含它的块级对象的百分比宽度<br>margin，padding：百分数是相对与父元素的width计算</p><a id="more"></a>
+
+
 <h1 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h1><p>background-position; </p>
 <p>background-position 的默认值是 0% 0%，在功能上相当于 top left。这就解释了背景图像为什么总是从元素内边距区的左上角开始平铺，除非您设置了不同的位置值。</p>
 <h1 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h1><p>text-indent, line-height, vertical-align;</p>
@@ -1126,8 +1126,8 @@
   <entry>
     <title>position定位有哪几种？各有什么特点？</title>
     <url>/2019/10/09/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/position%E5%AE%9A%E4%BD%8D%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%9F%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h1><p>简介：生成相对定位的元素，相对于其正常位置进行定位。 </p>
-<p>生成相对定位的元素，相对于其正常位置进行定位。元素的位置通过left、right、top、button属性进行规定，可以通过z-index进行层次分级。 元素仍保持其未定位前的形状，原本所占的空间仍将保留。（如果没有定位偏移量，对元素本身没有任何影响。所以可以设置父元素的position属性为relative，使其成为子元素的包含块）</p>
+    <content><![CDATA[<h1 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h1><p>简介：生成相对定位的元素，相对于其正常位置进行定位。 </p><p>生成相对定位的元素，相对于其正常位置进行定位。元素的位置通过left、right、top、button属性进行规定，可以通过z-index进行层次分级。 元素仍保持其未定位前的形状，原本所占的空间仍将保留。（如果没有定位偏移量，对元素本身没有任何影响。所以可以设置父元素的position属性为relative，使其成为子元素的包含块）</p><a id="more"></a>
+
 <h1 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h1><p>简介：生成绝对定位元素。使元素脱离文档流，并相对于其包含块进行定位，包含块可能是文档中的另一个元素或者是初始包含块，元素原先在正常文档流中所占的空间会会被后面元素占据； </p>
 <p>元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框；绝对定位元素的包含块由离它最近的 ‘position’ 属性为 ‘absolute’、’relative’ 或者 ‘fixed’ 的祖先元素创建。只要父级元素设置了position并且不是static（默认既是static），那么设定了absolute的子元素即以此为包含块（最近的）。如果都没有定义，那么就相对于整个文档body定位（注意不是相对于浏览器窗口定位） </p>
 <h1 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h1><p>简介：生成绝对定位元素，相对于浏览器窗口的定位。 </p>
@@ -1141,10 +1141,10 @@
   <entry>
     <title>手机分辨率和网页中的px是一回事吗？</title>
     <url>/2019/10/08/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%833/%E6%89%8B%E6%9C%BA%E5%88%86%E8%BE%A8%E7%8E%87%E5%92%8C%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%9A%84px%E6%98%AF%E4%B8%80%E5%9B%9E%E4%BA%8B%E5%90%97%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h1><p>像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 </p>
-<p>px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 </p>
-<h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h1><p>分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。</p>
-<p>分辨率可以分为两方面：屏幕分辨率和图像分辨率。</p>
+    <content><![CDATA[<h1 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h1><p>像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 </p><p>px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 </p><h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h1><p>分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。</p><p>分辨率可以分为两方面：屏幕分辨率和图像分辨率。</p><a id="more"></a>
+
+
+
 <ol>
 <li><p>屏幕分辨率：     </p>
 <p>例如，屏幕分辨率是1024×768，也就是说设备屏幕的水平方向上有1024个像素点，垂直方向上有768个像素点。像素的大小是没有固定长度的，不同设备上一个单位像素色块的大小是不一样的。    例如，尺寸面积大小相同的两块屏幕，分辨率大小可以是不一样的，分辨率高的屏幕上面像素点（色块）就多，所以屏幕内可以展示的画面就更细致，单个色块面积更小。而分辨率低的屏幕上像素点（色块）更少，单个像素面积更大，可以显示的画面就没那么细致。</p>
@@ -1183,8 +1183,7 @@
   <entry>
     <title>css有哪些选择器，优先级如何计算？</title>
     <url>/2019/10/07/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%833/css%E6%9C%89%E5%93%AA%E4%BA%9B%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%8C%E4%BC%98%E5%85%88%E7%BA%A7%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  </p>
-<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><ol>
+    <content><![CDATA[<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>类别选择器、标签选择器、id选择器、通用选择器、后代选择器、子选择器、伪类选择器、群组选择器、相邻同胞选择器  </p><h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><ol>
 <li><p>在属性后面使用！important会覆盖页面内任何位置定义的元素样式。 </p>
 </li>
 <li><p>作为style属性写在元素内的样式 </p>
@@ -1199,7 +1198,8 @@
 </li>
 <li><p>浏览器自定义或子元素集成父类的样式  </p>
 </li>
-</ol>
+</ol><a id="more"></a>
+
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.jianshu.com/p/b69de6742357" target="_blank" rel="noopener">简书</a></p>
 ]]></content>
       <categories>
@@ -1210,8 +1210,7 @@
   <entry>
     <title>如何进行自适应网页设计？</title>
     <url>/2019/10/07/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%833/%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E8%87%AA%E9%80%82%E5%BA%94%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="什么是自适应网页设计"><a href="#什么是自适应网页设计" class="headerlink" title="什么是自适应网页设计"></a>什么是自适应网页设计</h1><p>“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  </p>
-<h1 id="如何实现自适应网页设计"><a href="#如何实现自适应网页设计" class="headerlink" title="如何实现自适应网页设计"></a>如何实现自适应网页设计</h1><ol>
+    <content><![CDATA[<h1 id="什么是自适应网页设计"><a href="#什么是自适应网页设计" class="headerlink" title="什么是自适应网页设计"></a>什么是自适应网页设计</h1><p>“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  </p><h1 id="如何实现自适应网页设计"><a href="#如何实现自适应网页设计" class="headerlink" title="如何实现自适应网页设计"></a>如何实现自适应网页设计</h1><ol>
 <li>允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。 </li>
 <li>不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;  </li>
 <li>使用相对大小的字体：em、rem  </li>
@@ -1219,7 +1218,8 @@
 <li>图片自适应：图片自动缩放 img { max-width: 100%;} </li>
 <li>选择加载css：自适应网页设计”的核心，就是CSS3引入的Media Query模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。</li>
 <li>css中的@media媒体查询规则：同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则。  </li>
-</ol>
+</ol><a id="more"></a>
+
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhidao.baidu.com/question/245161275053820324.html?fr=iks&amp;word=%25%2Cvw%2Cwh%2Cvm%B5%A5%CE%BB&amp;ie=gbk" target="_blank" rel="noopener">自适应网页设计</a></p>
 ]]></content>
       <categories>
@@ -1247,9 +1247,9 @@
   <entry>
     <title>如何利用PS切图以及从UI图中获取所需信息？</title>
     <url>/2019/10/07/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%833/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8PS%E5%88%87%E5%9B%BE%E4%BB%A5%E5%8F%8A%E4%BB%8EUI%E5%9B%BE%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%89%80%E9%9C%80%E4%BF%A1%E6%81%AF%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="PS切图"><a href="#PS切图" class="headerlink" title="PS切图"></a>PS切图</h1><h2 id="切片工具"><a href="#切片工具" class="headerlink" title="切片工具"></a>切片工具</h2><p>使用PS中的切片工具进行所需图片的切割，然后点击文件选项卡，选择其中存储为web所用格式即可完成ps切图。</p>
-<h2 id="一键切图"><a href="#一键切图" class="headerlink" title="一键切图"></a>一键切图</h2><p>下载一键切图工具并载入动作，用移动工具选择图层，按F2一键切图。最后选择保存为web所需格式，注意保存为png格式防止出现兼容性问题。  </p>
-<p><strong>下载链接及教程：</strong> <a href="https://www.cnblogs.com/rangzf/p/3279848.html" target="_blank" rel="noopener">前端高效开发之“一键切图”</a></p>
+    <content><![CDATA[<h1 id="PS切图"><a href="#PS切图" class="headerlink" title="PS切图"></a>PS切图</h1><h2 id="切片工具"><a href="#切片工具" class="headerlink" title="切片工具"></a>切片工具</h2><p>使用PS中的切片工具进行所需图片的切割，然后点击文件选项卡，选择其中存储为web所用格式即可完成ps切图。</p><h2 id="一键切图"><a href="#一键切图" class="headerlink" title="一键切图"></a>一键切图</h2><p>下载一键切图工具并载入动作，用移动工具选择图层，按F2一键切图。最后选择保存为web所需格式，注意保存为png格式防止出现兼容性问题。  </p><p><strong>下载链接及教程：</strong> <a href="https://www.cnblogs.com/rangzf/p/3279848.html" target="_blank" rel="noopener">前端高效开发之“一键切图”</a></p><a id="more"></a>
+
+
 <h1 id="获取UI中的信息"><a href="#获取UI中的信息" class="headerlink" title="获取UI中的信息"></a>获取UI中的信息</h1><ol>
 <li>各部分之间的距离</li>
 <li>文字的字体，字号颜色</li>
@@ -1274,8 +1274,8 @@
   <entry>
     <title>如何配置nginx，实现在手机上查看页面？</title>
     <url>/2019/10/07/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%832/%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEnginx%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%9F%A5%E7%9C%8B%E9%A1%B5%E9%9D%A2%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="什么是nginx？"><a href="#什么是nginx？" class="headerlink" title="什么是nginx？"></a>什么是nginx？</h1><p>Nginx（发音同engine x）是异步框架的网页服务器，也可以用作反向代理、负载平衡器和HTTP缓存。该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。2011年成立同名公司以提供支持。2019年3月11日，Nginx公司被F5 Networks以6.7亿美元收购。</p>
-<p>Nginx是免费的开源软件，根据类BSD许可证的条款发布。一大部分Web服务器使用Nginx，通常作为负载均衡器。</p>
+    <content><![CDATA[<h1 id="什么是nginx？"><a href="#什么是nginx？" class="headerlink" title="什么是nginx？"></a>什么是nginx？</h1><p>Nginx（发音同engine x）是异步框架的网页服务器，也可以用作反向代理、负载平衡器和HTTP缓存。该软件由伊戈尔·赛索耶夫创建并于2004年首次公开发布。2011年成立同名公司以提供支持。2019年3月11日，Nginx公司被F5 Networks以6.7亿美元收购。</p><p>Nginx是免费的开源软件，根据类BSD许可证的条款发布。一大部分Web服务器使用Nginx，通常作为负载均衡器。</p><a id="more"></a>
+
 <h1 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h1><h2 id="正向代理简介"><a href="#正向代理简介" class="headerlink" title="正向代理简介"></a>正向代理简介</h2><p>一般情况下，如果没有特别说明，代理技术默认说的是正向代理技术。关于正向代理的概念如下：</p>
 <p>正向代理(forward)是一个位于客户端【用户A】和原始服务器(origin server)【服务器B】之间的服务器【代理服务器Z】，为了从原始服务器取得内容，用户A向代理服务器Z发送一个请求并指定目标(服务器B)，然后代理服务器Z向服务器B转交请求并将获得的内容返回给客户端。客户端必须要进行一些特别的设置才能使用正向代理。如下图</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hc2sucWNsb3VkaW1nLmNvbS9odHRwLXNhdmUveWVoZS0xMDEwNzkyL3ZyM3B6M292emgucG5n?x-oss-process=image/format,png" alt="img"> </p>
@@ -1322,9 +1322,9 @@
     <content><![CDATA[<h1 id="使用github搭建个人网站"><a href="#使用github搭建个人网站" class="headerlink" title="使用github搭建个人网站"></a>使用github搭建个人网站</h1><ol>
 <li>在github上搭建网站 即username.github.io（username是你的github用户名）</li>
 <li>把自己的域名（如zhangsan.com）绑定到username.github.io上</li>
-</ol>
-<p>具体操作：<a href="https://blog.csdn.net/u012075670/article/details/54581015" target="_blank" rel="noopener">如何用github搭建自己的个人网站</a></p>
-<h1 id="用Hexo-Github-搭建个人网站"><a href="#用Hexo-Github-搭建个人网站" class="headerlink" title="用Hexo+Github 搭建个人网站"></a>用Hexo+Github 搭建个人网站</h1><ol>
+</ol><p>具体操作：<a href="https://blog.csdn.net/u012075670/article/details/54581015" target="_blank" rel="noopener">如何用github搭建自己的个人网站</a></p><h1 id="用Hexo-Github-搭建个人网站"><a href="#用Hexo-Github-搭建个人网站" class="headerlink" title="用Hexo+Github 搭建个人网站"></a>用Hexo+Github 搭建个人网站</h1><a id="more"></a>
+
+<ol>
 <li>搭建环境准备（包括node.js和git环境，gitHub账户的配置）</li>
 <li>安装Hexo</li>
 <li>配置Hexo</li>
@@ -1345,7 +1345,7 @@
   <entry>
     <title>svn和git有什么区别?</title>
     <url>/2019/10/07/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/CSS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%832/svn%E5%92%8Cgit%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h1 id="svn与git简介"><a href="#svn与git简介" class="headerlink" title="svn与git简介"></a>svn与git简介</h1><h2 id="SVN-（集中式版本控制系统）"><a href="#SVN-（集中式版本控制系统）" class="headerlink" title="SVN （集中式版本控制系统）"></a><strong>SVN</strong> （集中式版本控制系统）</h2><p>SVN是Subversion的简称，是一个开放源代码的版本控制系统,支持大多数常见的操作系统。作为一个开源的版本控制系统,Subversion管理着随时间改变的数据。这些数据放置在一个中央资料档案库(repository)中。这个档案库很像一个普通的文件服务器,不过它会记住每一次文件的变动。这样你就可以把档案恢复到旧的版本,或是浏览文件的变动历史。Subversion是一个通用的系统,可用来管理任何类型的文件,其中包括了程序源码。</p>
+    <content><![CDATA[<h1 id="svn与git简介"><a href="#svn与git简介" class="headerlink" title="svn与git简介"></a>svn与git简介</h1><h2 id="SVN-（集中式版本控制系统）"><a href="#SVN-（集中式版本控制系统）" class="headerlink" title="SVN （集中式版本控制系统）"></a><strong>SVN</strong> （集中式版本控制系统）</h2><p>SVN是Subversion的简称，是一个开放源代码的版本控制系统,支持大多数常见的操作系统。作为一个开源的版本控制系统,Subversion管理着随时间改变的数据。这些数据放置在一个中央资料档案库(repository)中。这个档案库很像一个普通的文件服务器,不过它会记住每一次文件的变动。这样你就可以把档案恢复到旧的版本,或是浏览文件的变动历史。Subversion是一个通用的系统,可用来管理任何类型的文件,其中包括了程序源码。</p><a id="more"></a>
 <h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a><strong>工作流程</strong></h3><p><a href="http://baike.baidu.com/view/3794518.htm" target="_blank" rel="noopener">集中式管理</a>的工作流程如下图：</p>
 <p>   <img src="https://img-blog.csdn.net/20160129151818496" alt="img"></p>
 <p>集中式代码管理的核心是<a href="http://baike.baidu.com/view/899.htm" target="_blank" rel="noopener">服务器</a>，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。如果脱离了服务器，开发者基本上可以说是无法工作的。下面举例说明：</p>
@@ -1584,7 +1584,7 @@
 <li><p>下载破解软件<br>ZII目前可以破解的软件：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Adobe Acrobat DC 19.x (universal amtlib)</span><br><span class="line">Adobe After Effects CC 2019 v16.1 – 16.1.3</span><br><span class="line">Adobe Animate CC 2019 v19.2 – 19.2.1</span><br><span class="line">Adobe Audition CC 2019 v12.1 – 12.1.4</span><br><span class="line">Adobe Bridge CC 2019 v9.0.3 – 9.1</span><br><span class="line">Adobe Character Animator CC 2019 v2.1 – 2.1.1</span><br><span class="line">Adobe Dimension CC v2.3</span><br><span class="line">Adobe Dreamweaver CC 2019 v19.1 – 19.2.1</span><br><span class="line">Adobe Illustrator CC 2019 v23.0.3 – 23.1</span><br><span class="line">Adobe InCopy CC 2019 v14.0.2</span><br><span class="line">Adobe Indesign CC 2019 v14.0.2 – 14.0.3.433</span><br><span class="line">Adobe Lightroom Classic v8.2.1 – 8.4.1</span><br><span class="line">Adobe Media Encoder CC 2019 v13.1 – 13.1.5</span><br><span class="line">Adobe Photoshop CC 2019 v20.0.4 – 20.0.6</span><br><span class="line">Adobe Prelude CC 2019 v8.1 – 8.1.1</span><br><span class="line">Adobe Premiere Pro CC 2019 v13.1 – 13.1.5</span><br><span class="line">Adobe Premiere Rush CC v1.1 – 1.2.5</span><br><span class="line">Adobe XD v21.0.12.11 – 22.5.12.1</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
+</ol><a id="more"></a>
 <p><a href="http://www.gfxcamp.com/zii-2019/" target="_blank" rel="noopener">Adobe CC 2019 Win/Mac通用破解补丁 Zii v4.4.4 + GenP v1.5.6.2</a></p>
 <h1 id="直接下载破解版软件（仅win可用）"><a href="#直接下载破解版软件（仅win可用）" class="headerlink" title="直接下载破解版软件（仅win可用）"></a>直接下载破解版软件（仅win可用）</h1><p><a href="http://www.gfxcamp.com/ps-cc-2019/" target="_blank" rel="noopener">Adobe Photoshop CC 2019 v20.0.6 Win/Mac 中文/英文/多语言破解版</a></p>
 ]]></content>
@@ -2411,8 +2411,7 @@
   <entry>
     <title>webstorm默认配置下的常用快捷键</title>
     <url>/2018/10/03/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/webstorm%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE%E4%B8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<p>mac book 下文的 ctrl 替换成 command 键。</p>
-<h1 id="查找-代替"><a href="#查找-代替" class="headerlink" title="查找/代替"></a>查找/代替</h1><table>
+    <content><![CDATA[<p>mac book 下文的 ctrl 替换成 command 键。</p><h1 id="查找-代替"><a href="#查找-代替" class="headerlink" title="查找/代替"></a>查找/代替</h1><table>
 <thead>
 <tr>
 <th><strong>快捷键</strong></th>
@@ -2457,7 +2456,8 @@
 <td>文件内代码替换</td>
 </tr>
 </tbody>
-</table>
+</table><a id="more"></a>
+
 <h1 id="界面操作"><a href="#界面操作" class="headerlink" title="界面操作"></a>界面操作</h1><table>
 <thead>
 <tr>
@@ -2713,7 +2713,7 @@
   <entry>
     <title>hexo快速入门</title>
     <url>/2018/09/03/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/hexo%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a>
 <h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>详细信息: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
 <h3 id="启用本地预览服务"><a href="#启用本地预览服务" class="headerlink" title="启用本地预览服务"></a>启用本地预览服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>

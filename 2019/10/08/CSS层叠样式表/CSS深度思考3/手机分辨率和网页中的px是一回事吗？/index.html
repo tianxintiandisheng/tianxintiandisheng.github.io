@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="像素像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。  px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。  分辨率分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。 分辨率可以分为两方面：屏幕分辨率和图像分辨率。  屏幕分辨率：      例如，屏幕分辨率是1024×768，也就是说设备屏幕的水">
+  <meta name="description" content="像素像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 分辨率分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。分辨率可以分为两方面：屏幕分辨率和图像分辨率。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手机分辨率和网页中的px是一回事吗？">
 <meta property="og:url" content="http://yoursite.com/2019/10/08/CSS层叠样式表/CSS深度思考3/手机分辨率和网页中的px是一回事吗？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="像素像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。  px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。  分辨率分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。 分辨率可以分为两方面：屏幕分辨率和图像分辨率。  屏幕分辨率：      例如，屏幕分辨率是1024×768，也就是说设备屏幕的水">
+<meta property="og:description" content="像素像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 分辨率分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。分辨率可以分为两方面：屏幕分辨率和图像分辨率。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手机分辨率和网页中的px是一回事吗？">
-<meta name="twitter:description" content="像素像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。  px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。  分辨率分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。 分辨率可以分为两方面：屏幕分辨率和图像分辨率。  屏幕分辨率：      例如，屏幕分辨率是1024×768，也就是说设备屏幕的水">
+<meta name="twitter:description" content="像素像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 分辨率分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。分辨率可以分为两方面：屏幕分辨率和图像分辨率。">
   <link rel="canonical" href="http://yoursite.com/2019/10/08/CSS层叠样式表/CSS深度思考3/手机分辨率和网页中的px是一回事吗？/">
 
 
@@ -367,10 +367,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h1><p>像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 </p>
-<p>px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 </p>
-<h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h1><p>分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。</p>
-<p>分辨率可以分为两方面：屏幕分辨率和图像分辨率。</p>
+        <h1 id="像素"><a href="#像素" class="headerlink" title="像素"></a>像素</h1><p>像素即px，是画面中最小的点（单位色块）。像素的大小是没有固定长度值的，不同设备上1个单位像素色块的大小是不一样的。 </p><p>px是一个相对单位，而且在特定设备上总是一个近似值（原则是尽量接近参考像素）。 </p><h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h1><p>分辨率=画面水平方向的像素值 * 画面垂直方向的像素值。</p><p>分辨率可以分为两方面：屏幕分辨率和图像分辨率。</p><a id="more"></a>
+
+
+
 <ol>
 <li><p>屏幕分辨率：     </p>
 <p>例如，屏幕分辨率是1024×768，也就是说设备屏幕的水平方向上有1024个像素点，垂直方向上有768个像素点。像素的大小是没有固定长度的，不同设备上一个单位像素色块的大小是不一样的。    例如，尺寸面积大小相同的两块屏幕，分辨率大小可以是不一样的，分辨率高的屏幕上面像素点（色块）就多，所以屏幕内可以展示的画面就更细致，单个色块面积更小。而分辨率低的屏幕上像素点（色块）更少，单个像素面积更大，可以显示的画面就没那么细致。</p>
@@ -564,8 +564,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

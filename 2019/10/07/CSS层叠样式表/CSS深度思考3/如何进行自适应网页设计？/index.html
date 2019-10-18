@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。   如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。  不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;   使用相对大小的字体：em、rem   流动布局：各个区块的位置是浮动">
+  <meta name="description" content="什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。  不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;   使用相对大小的字体：em、rem   流动布局：各个区块的位置是浮动的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何进行自适应网页设计？">
 <meta property="og:url" content="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/如何进行自适应网页设计？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。   如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。  不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;   使用相对大小的字体：em、rem   流动布局：各个区块的位置是浮动">
+<meta property="og:description" content="什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。  不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;   使用相对大小的字体：em、rem   流动布局：各个区块的位置是浮动的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-17T15:11:35.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何进行自适应网页设计？">
-<meta name="twitter:description" content="什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。   如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。  不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;   使用相对大小的字体：em、rem   流动布局：各个区块的位置是浮动">
+<meta name="twitter:description" content="什么是自适应网页设计“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  如何实现自适应网页设计 允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。  不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;   使用相对大小的字体：em、rem   流动布局：各个区块的位置是浮动的">
   <link rel="canonical" href="http://yoursite.com/2019/10/07/CSS层叠样式表/CSS深度思考3/如何进行自适应网页设计？/">
 
 
@@ -367,8 +367,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="什么是自适应网页设计"><a href="#什么是自适应网页设计" class="headerlink" title="什么是自适应网页设计"></a>什么是自适应网页设计</h1><p>“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  </p>
-<h1 id="如何实现自适应网页设计"><a href="#如何实现自适应网页设计" class="headerlink" title="如何实现自适应网页设计"></a>如何实现自适应网页设计</h1><ol>
+        <h1 id="什么是自适应网页设计"><a href="#什么是自适应网页设计" class="headerlink" title="什么是自适应网页设计"></a>什么是自适应网页设计</h1><p>“自适应网页设计”的概念，什么是自适应网页设计，即可以自动识别屏幕宽度、并做出相应调整的网页设计。  </p><h1 id="如何实现自适应网页设计"><a href="#如何实现自适应网页设计" class="headerlink" title="如何实现自适应网页设计"></a>如何实现自适应网页设计</h1><ol>
 <li>允许网页宽度自动调整：在网页代码的头部加入一行viewport元标签，宽度为设备宽度，缩放比例为一。 </li>
 <li>不使用绝对宽度：可以使用百分比宽度，视窗宽度等，或者width:auto;  </li>
 <li>使用相对大小的字体：em、rem  </li>
@@ -376,7 +375,8 @@
 <li>图片自适应：图片自动缩放 img { max-width: 100%;} </li>
 <li>选择加载css：自适应网页设计”的核心，就是CSS3引入的Media Query模块。它的意思就是，自动探测屏幕宽度，然后加载相应的CSS文件。</li>
 <li>css中的@media媒体查询规则：同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则。  </li>
-</ol>
+</ol><a id="more"></a>
+
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://zhidao.baidu.com/question/245161275053820324.html?fr=iks&amp;word=%25%2Cvw%2Cwh%2Cvm%B5%A5%CE%BB&amp;ie=gbk" target="_blank" rel="noopener">自适应网页设计</a></p>
 
     </div>
@@ -555,8 +555,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

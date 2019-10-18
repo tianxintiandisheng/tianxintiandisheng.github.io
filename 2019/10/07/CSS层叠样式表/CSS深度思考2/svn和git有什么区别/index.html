@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -370,7 +370,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="svn与git简介"><a href="#svn与git简介" class="headerlink" title="svn与git简介"></a>svn与git简介</h1><h2 id="SVN-（集中式版本控制系统）"><a href="#SVN-（集中式版本控制系统）" class="headerlink" title="SVN （集中式版本控制系统）"></a><strong>SVN</strong> （集中式版本控制系统）</h2><p>SVN是Subversion的简称，是一个开放源代码的版本控制系统,支持大多数常见的操作系统。作为一个开源的版本控制系统,Subversion管理着随时间改变的数据。这些数据放置在一个中央资料档案库(repository)中。这个档案库很像一个普通的文件服务器,不过它会记住每一次文件的变动。这样你就可以把档案恢复到旧的版本,或是浏览文件的变动历史。Subversion是一个通用的系统,可用来管理任何类型的文件,其中包括了程序源码。</p>
+        <h1 id="svn与git简介"><a href="#svn与git简介" class="headerlink" title="svn与git简介"></a>svn与git简介</h1><h2 id="SVN-（集中式版本控制系统）"><a href="#SVN-（集中式版本控制系统）" class="headerlink" title="SVN （集中式版本控制系统）"></a><strong>SVN</strong> （集中式版本控制系统）</h2><p>SVN是Subversion的简称，是一个开放源代码的版本控制系统,支持大多数常见的操作系统。作为一个开源的版本控制系统,Subversion管理着随时间改变的数据。这些数据放置在一个中央资料档案库(repository)中。这个档案库很像一个普通的文件服务器,不过它会记住每一次文件的变动。这样你就可以把档案恢复到旧的版本,或是浏览文件的变动历史。Subversion是一个通用的系统,可用来管理任何类型的文件,其中包括了程序源码。</p><a id="more"></a>
 <h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a><strong>工作流程</strong></h3><p><a href="http://baike.baidu.com/view/3794518.htm" target="_blank" rel="noopener">集中式管理</a>的工作流程如下图：</p>
 <p>   <img src="https://img-blog.csdn.net/20160129151818496" alt="img"></p>
 <p>集中式代码管理的核心是<a href="http://baike.baidu.com/view/899.htm" target="_blank" rel="noopener">服务器</a>，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。如果脱离了服务器，开发者基本上可以说是无法工作的。下面举例说明：</p>
@@ -647,8 +647,6 @@
 
 
       </div>
-      
-
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>

@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="从事前端开发也有一段时间了，一直在遵循着规范化开发，从 js 也逐渐转向了 ts ，在这个过程中也有了很多收获，在此把自己的开发心得写下来。本文参考了JavaScript 开发规范，并做了补充和修改，同时删去了框架开发相关的内容(侵删)。1. 命名规范ECMAScript 规范中标识符采用驼峰大小写格式，驼峰命名法由小(大)写字母开始，后续每个单词首字母都大写。根据首字母是否大写，分为两种方式：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js命名规范">
+<meta property="og:url" content="http://yoursite.com/2019/10/22/项目开发/js命名规范/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="从事前端开发也有一段时间了，一直在遵循着规范化开发，从 js 也逐渐转向了 ts ，在这个过程中也有了很多收获，在此把自己的开发心得写下来。本文参考了JavaScript 开发规范，并做了补充和修改，同时删去了框架开发相关的内容(侵删)。1. 命名规范ECMAScript 规范中标识符采用驼峰大小写格式，驼峰命名法由小(大)写字母开始，后续每个单词首字母都大写。根据首字母是否大写，分为两种方式：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-22T03:01:34.693Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js命名规范">
+<meta name="twitter:description" content="从事前端开发也有一段时间了，一直在遵循着规范化开发，从 js 也逐渐转向了 ts ，在这个过程中也有了很多收获，在此把自己的开发心得写下来。本文参考了JavaScript 开发规范，并做了补充和修改，同时删去了框架开发相关的内容(侵删)。1. 命名规范ECMAScript 规范中标识符采用驼峰大小写格式，驼峰命名法由小(大)写字母开始，后续每个单词首字母都大写。根据首字母是否大写，分为两种方式：">
+  <link rel="canonical" href="http://yoursite.com/2019/10/22/项目开发/js命名规范/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>js命名规范 | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/项目开发/js命名规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            js命名规范
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-22 11:00:34 / 修改时间：11:01:34" itemprop="dateCreated datePublished" datetime="2019-10-22T11:00:34+08:00">2019-10-22</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目开发/" itemprop="url" rel="index">
+                    <span itemprop="name">项目开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>从事前端开发也有一段时间了，一直在遵循着规范化开发，从 js 也逐渐转向了 ts ，在这个过程中也有了很多收获，在此把自己的开发心得写下来。</p><p>本文参考了<a href="http://www.cnblogs.com/polk6/p/4660195.html#Menu3-FrameDev" target="_blank" rel="noopener">JavaScript 开发规范</a>，并做了补充和修改，同时删去了框架开发相关的内容(侵删)。</p><h2 id="1-命名规范"><a href="#1-命名规范" class="headerlink" title="1. 命名规范"></a>1. 命名规范</h2><p>ECMAScript 规范中标识符采用驼峰大小写格式，驼峰命名法由小(大)写字母开始，后续每个单词首字母都大写。根据首字母是否大写，分为两种方式：</p><a id="more"></a>
+
+
+<ol>
+<li>Pascal Case 大驼峰式命名法：首字母大写。eg：StudentInfo、UserInfo、ProductInfo</li>
+<li>Camel Case 小驼峰式命名法：首字母小写。eg：studentInfo、userInfo、productInfo</li>
+</ol>
+<p>标识符，则包括变量、函数名、类名、属性名和函数或类的参数，每个命名方法又略有不同，下面详细解释一下：</p>
+<h3 id="1-1-变量"><a href="#1-1-变量" class="headerlink" title="1.1 变量"></a>1.1 变量</h3><p><strong>命名方法</strong>：小驼峰式命名法。</p>
+<p><strong>命名规范</strong>：前缀应当是名词。(函数的名字前缀为动词，以此区分变量和函数)</p>
+<p><strong>命名建议</strong>：尽量在变量名字中体现所属类型，如:length、count等表示数字类型；而包含name、title表示为字符串类型。</p>
+<p><strong>eg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 好的命名方式</span><br><span class="line">let maxCount = 10;</span><br><span class="line">let tableTitle = &apos;LoginTable&apos;;</span><br><span class="line">// 不好的命名方式</span><br><span class="line">let setCount = 10;</span><br><span class="line">let getTitle = &apos;LoginTable&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-常量"><a href="#1-2-常量" class="headerlink" title="1.2 常量"></a>1.2 常量</h3><p><strong>命名方法</strong>：名称全部大写。</p>
+<p><strong>命名规范</strong>：使用大写字母和下划线来组合命名，下划线用以分割单词。</p>
+<p><strong>eg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const MAX_COUNT = 10;</span><br><span class="line">const URL = &apos;http://www.foreverz.com&apos;;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-函数"><a href="#1-3-函数" class="headerlink" title="1.3 函数"></a>1.3 函数</h3><p><strong>命名方法</strong>：小驼峰式命名法。</p>
+<p><strong>命名规范</strong>：前缀应当为动词。</p>
+<p><strong>命名建议</strong>：可使用常见动词约定</p>
+<table>
+<thead>
+<tr>
+<th>动词</th>
+<th>含义</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>can</td>
+<td>判断是否可执行某个动作(权限)</td>
+<td>函数返回一个布尔值。true：可执行；false：不可执行</td>
+</tr>
+<tr>
+<td>has</td>
+<td>判断是否含有某个值</td>
+<td>函数返回一个布尔值。true：含有此值；false：不含有此值</td>
+</tr>
+<tr>
+<td>is</td>
+<td>判断是否为某个值</td>
+<td>函数返回一个布尔值。true：为某个值；false：不为某个值</td>
+</tr>
+<tr>
+<td>get</td>
+<td>获取某个值</td>
+<td>函数返回一个非布尔值</td>
+</tr>
+<tr>
+<td>set</td>
+<td>设置某个值</td>
+<td>无返回值、返回是否设置成功或者返回链式对象</td>
+</tr>
+<tr>
+<td>load</td>
+<td>加载某些数据</td>
+<td>无返回值或者返回是否加载完成的结果</td>
+</tr>
+</tbody>
+</table>
+<p><strong>eg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 是否可阅读</span><br><span class="line">function canRead(): boolean &#123;</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br><span class="line">// 获取名称</span><br><span class="line">function getName(): string &#123;</span><br><span class="line">  return this.name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-类-amp-构造函数"><a href="#1-4-类-amp-构造函数" class="headerlink" title="1.4 类 &amp; 构造函数"></a>1.4 类 &amp; 构造函数</h3><p><strong>命名方法</strong>：大驼峰式命名法，首字母大写。</p>
+<p><strong>命名规范</strong>：前缀为名称。</p>
+<p><strong>eg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">  public name: string;</span><br><span class="line">  constructor(name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const person = new Person(&apos;mevyn&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-5-类的成员"><a href="#1-5-类的成员" class="headerlink" title="1.5 类的成员"></a>1.5 类的成员</h3><p>类的成员包含：</p>
+<ol>
+<li>公共属性和方法：跟变量和函数的命名一样。</li>
+<li>私有属性和方法：前缀为_(下划线)，后面跟公共属性和方法一样的命名方式。</li>
+</ol>
+<p><strong>eg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">  private _name: string;</span><br><span class="line">  constructor() &#123; &#125;</span><br><span class="line">  // 公共方法</span><br><span class="line">  getName() &#123;</span><br><span class="line">    return this._name;</span><br><span class="line">  &#125;</span><br><span class="line">  // 公共方法</span><br><span class="line">  setName(name) &#123;</span><br><span class="line">    this._name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const person = new Person();</span><br><span class="line">person.setName(&apos;mervyn&apos;);</span><br><span class="line">person.getName(); // -&gt;mervyn</span><br></pre></td></tr></table></figure>
+<h2 id="2-注释规范"><a href="#2-注释规范" class="headerlink" title="2. 注释规范"></a>2. 注释规范</h2><p>js 支持三种不同类型的注释：行内注释、单行注释和多行注释：</p>
+<h3 id="2-1-行内注释"><a href="#2-1-行内注释" class="headerlink" title="2.1 行内注释"></a>2.1 行内注释</h3><p><strong>说明</strong>：行内注释以两个斜线开始，以行尾结束。</p>
+<p><strong>语法</strong>：code // 这是行内注释</p>
+<p><strong>使用方式</strong>：//(双斜线)与代码之间保留一个空格，并且//(双斜线)与注释文字之间保留一个空格。</p>
+<p><strong>命名建议</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 用来显示一个解释的评论</span><br><span class="line">// -&gt; 用来显示表达式的结果，</span><br><span class="line">// &gt;用来显示 console 的输出结果，</span><br></pre></td></tr></table></figure>
+<p><strong>eg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function test() &#123; // 测试函数</span><br><span class="line">  console.log(&apos;Hello World!&apos;); // &gt;Hello World!</span><br><span class="line">  return 3 + 2; // -&gt;5</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-单行注释"><a href="#2-2-单行注释" class="headerlink" title="2.2 单行注释"></a>2.2 单行注释</h3><p><strong>说明</strong>：单行注释以两个斜线开始，以行尾结束。</p>
+<p><strong>语法</strong>：// 这是单行注释</p>
+<p><strong>使用方式</strong>：单独一行：//(双斜线)与注释文字之间保留一个空格。</p>
+<p><strong>eg</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 调用了一个函数；1)单独在一行</span><br><span class="line">setTitle();</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-多行注释"><a href="#2-3-多行注释" class="headerlink" title="2.3 多行注释"></a>2.3 多行注释</h3><p><strong>说明</strong>：以 <code>/*</code> 开头， <code>*/</code> 结尾</p>
+<p><strong>语法</strong>：<code>/* 注释说明 */</code></p>
+<p><strong>使用方法</strong>：若开始<code>/*</code>和结束<code>*/</code>都在一行，推荐采用单行注释。若至少三行注释时，第一行为<code>/*</code>，最后行为<code>*/</code>，其他行以<code>*</code>开始，并且注释文字与<code>*</code>保留一个空格。</p>
+<p><strong>eg</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">* 代码执行到这里后会调用setTitle()函数</span><br><span class="line">* setTitle()：设置title的值</span><br><span class="line">*/</span><br><span class="line">setTitle();</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-函数-方法-注释"><a href="#2-4-函数-方法-注释" class="headerlink" title="2.4 函数(方法)注释"></a>2.4 函数(方法)注释</h3><p><strong>说明</strong>：函数(方法)注释也是多行注释的一种，但是包含了特殊的注释要求，参照<a href="http://www.css88.com/doc/jsdoc/" target="_blank" rel="noopener">JSDoc</a></p>
+<p><strong>语法</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/** </span><br><span class="line">* 函数说明 </span><br><span class="line">* @关键字 </span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<p><strong>常用注释关键字</strong>：(只列出一部分，并不是全部)</p>
+<table>
+<thead>
+<tr>
+<th>注释名</th>
+<th>语法</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@param</td>
+<td>@param 参数名 {参数类型} 描述信息</td>
+<td>描述参数的信息</td>
+<td>@param name {String} 传入名称</td>
+</tr>
+<tr>
+<td>@return</td>
+<td>@return {返回类型} 描述信息</td>
+<td>描述返回值的信息</td>
+<td>@return {Boolean} true:可执行;false:不可执行</td>
+</tr>
+<tr>
+<td>@author</td>
+<td>@author 作者信息 [附属信息：如邮箱、日期]</td>
+<td>描述此函数作者的信息</td>
+<td>@author 张三 2015/07/21</td>
+</tr>
+<tr>
+<td>@version</td>
+<td>@version XX.XX.XX</td>
+<td>描述此函数的版本号</td>
+<td>@version 1.0.3</td>
+</tr>
+<tr>
+<td>@example</td>
+<td>@example 示例代码</td>
+<td>演示函数的使用</td>
+<td>@example setTitle(‘测试’)</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">* 合并Grid的行</span><br><span class="line">* @param grid &#123;Ext.Grid.Panel&#125; 需要合并的Grid</span><br><span class="line">* @param cols &#123;Array&#125; 需要合并列的Index(序号)数组；从0开始计数，序号也包含。</span><br><span class="line">* @param isAllSome &#123;Boolean&#125; ：是否2个tr的cols必须完成一样才能进行合并。true：完成一样；false(默认)：不完全一样</span><br><span class="line">* @return void</span><br><span class="line">* @author polk6 2015/07/21 </span><br><span class="line">* @example</span><br><span class="line">* _________________ _________________</span><br><span class="line">* | 年龄 | 姓名 | | 年龄 | 姓名 |</span><br><span class="line">* ----------------- mergeCells(grid,[0]) -----------------</span><br><span class="line">* | 18 | 张三 | =&gt; | | 张三 |</span><br><span class="line">* ----------------- - 18 ---------</span><br><span class="line">* | 18 | 王五 | | | 王五 |</span><br><span class="line">* ----------------- -----------------</span><br><span class="line">*/</span><br><span class="line">function mergeCells(grid: Ext.Grid.Panel, cols: Number[], isAllSome: boolean = false) &#123;</span><br><span class="line">  // Do Something</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里只是详细讲解了 标识符命名规范 和 代码注释规范，还有很多其它的规范没来得及填充，可以参考一下<a href="https://github.com/sivan/javascript-style-guide/blob/master/es5/README.md" target="_blank" rel="noopener">Airbnb JavaScript Style Guide</a></p>
+<p>参考书籍和文章：</p>
+<p><a href="https://book.douban.com/subject/10546125/" target="_blank" rel="noopener">JavaScript高级程序设计（第3版）</a></p>
+<p><a href="http://www.cnblogs.com/polk6/p/4660195.html#Menu3-FrameDev" target="_blank" rel="noopener">JavaScript 开发规范</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/22/Vue/Vue路由跳转时传参/" rel="next" title="Vue路由跳转时传参">
+                  <i class="fa fa-chevron-left"></i> Vue路由跳转时传参
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-命名规范"><span class="nav-number">1.</span> <span class="nav-text">1. 命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-变量"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-常量"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-函数"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-类-amp-构造函数"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 类 &amp; 构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-类的成员"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 类的成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-注释规范"><span class="nav-number">2.</span> <span class="nav-text">2. 注释规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-行内注释"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 行内注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-单行注释"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 单行注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-多行注释"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 多行注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-函数-方法-注释"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 函数(方法)注释</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">114k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:43</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

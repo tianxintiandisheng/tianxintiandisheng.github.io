@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="田迪生的个人博客">
+  <meta name="description" content="执行环境 执行环境（execution context，为简单起见，有时也称为“环境”）是 JavaScript 中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象（variable  object），环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简述JS中执行环境与作用域的关系？">
 <meta property="og:url" content="http://yoursite.com/2019/10/23/JS/JS深度思考1/简述JS中执行环境与作用域的关系？/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="田迪生的个人博客">
+<meta property="og:description" content="执行环境 执行环境（execution context，为简单起见，有时也称为“环境”）是 JavaScript 中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象（variable  object），环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-23T07:01:59.084Z">
+<meta property="og:updated_time" content="2019-10-23T08:03:04.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简述JS中执行环境与作用域的关系？">
-<meta name="twitter:description" content="田迪生的个人博客">
+<meta name="twitter:description" content="执行环境 执行环境（execution context，为简单起见，有时也称为“环境”）是 JavaScript 中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象（variable  object），环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。">
   <link rel="canonical" href="http://yoursite.com/2019/10/23/JS/JS深度思考1/简述JS中执行环境与作用域的关系？/">
 
 
@@ -283,8 +283,12 @@
                 
               
 
-              <time title="创建时间：2019-10-23 15:01:59" itemprop="dateCreated datePublished" datetime="2019-10-23T15:01:59+08:00">2019-10-23</time>
+              <time title="创建时间：2019-10-23 15:01:59 / 修改时间：16:03:04" itemprop="dateCreated datePublished" datetime="2019-10-23T15:01:59+08:00">2019-10-23</time>
             </span>
+          
+            
+
+            
           
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -332,7 +336,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>0</span>
+              <span>1.1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -355,7 +359,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h1><p> <strong>执行环境</strong>（execution context，为简单起见，有时也称为“环境”）是 JavaScript 中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象（variable  object），环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。</p><a id="more"></a>
+<h2 id="全局执行环境"><a href="#全局执行环境" class="headerlink" title="全局执行环境"></a>全局执行环境</h2><p> 全局执行环境是最外围的一个执行环境。根据 ECMAScript 实现所在的宿主环境不同，表示执行环境的对象也不一样。在 Web 浏览器中，全局执行环境被认为是 window 对象（第 7 章将详细讨论），因此所有全局变量和函数都是作为 window 对象的属性和方法创建的。</p>
+<p>某个执行环境中的所有代码执行完毕后，该环境被销毁，保存在其中的所有变量和函数定义也随之销毁（全局执行环境直到应用程序退出——例如关闭网页或浏览器——时才会被销毁）。</p>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p> 每个函数都有自己的<strong>执行环境</strong>。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。ECMAScript 程序中的执行流正是由这个方便的机制控制着。<br> 当代码在一个环境中执行时，会创建变量对象的一个<strong>作用域链</strong>（scope chain）。<strong>作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。</strong>作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象（activation  object）作为变量对象。活动对象在最开始时只包含一个变量，即 arguments 对象（这个对象在全局环境中是不存在的）。作用域链中的下一个变量对象来自包含（外部）环境，而再下一个变量对象则来自下一个包含环境。这样，一直延续到全局执行环境；全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>作用域链与一个执行上下文相关，是内部上下文所有变量对象（包括父变量对象）的列表，用于变量查询。 作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。</li>
+<li>代码在执行环境中执行时，执行环境会为变量对象创建作用域链。</li>
+<li>作用域链是由变量对象组成的数据对象链。</li>
+<li>作用域链的前端，始终是当前函数执行环境的变量对象。</li>
+<li>作用域链的最后端，始终是全局执行环境的变量对象。</li>
+</ul>
+<h1 id="执行环境与作用域的关系"><a href="#执行环境与作用域的关系" class="headerlink" title="执行环境与作用域的关系"></a>执行环境与作用域的关系</h1><p>代码进入到某个<strong>执行环境</strong>，准备执行时，会为该<strong>执行环境</strong>对应的变量对象创建一个<strong>作用域链</strong>。 </p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>JavaScript高级程序设计（第3版）</p>
+
     </div>
 
     
@@ -404,10 +421,6 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/23/简述JS中执行环境与作用域的关系？/" rel="prev" title="简述JS中执行环境与作用域的关系？">
-                  简述JS中执行环境与作用域的关系？ <i class="fa fa-chevron-right"></i>
-                </a>
-              
             </div>
           </div>
         
@@ -452,6 +465,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#执行环境"><span class="nav-number">1.</span> <span class="nav-text">执行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局执行环境"><span class="nav-number">1.1.</span> <span class="nav-text">全局执行环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number">2.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.1.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行环境与作用域的关系"><span class="nav-number">3.</span> <span class="nav-text">执行环境与作用域的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
@@ -469,7 +484,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">104</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

@@ -1,6 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>github新建项目以及本地项目关联远程库</title>
+    <url>/2019/10/24/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/github%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E4%BB%A5%E5%8F%8A%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E5%BA%93/</url>
+    <content><![CDATA[<p>github已经是我们不能忽略的远程仓库托管了，今天对创建新项目和上传记录一下过程。</p><h1 id="github新建项目"><a href="#github新建项目" class="headerlink" title="github新建项目"></a>github新建项目</h1><p>第一步：登录你的github账号</p><p>第二步：点击创建的 “+”，选择 New repositories</p><p><img src="https://upload-images.jianshu.io/upload_images/2241258-2c742ee02543ee4d.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt="img"> </p><p>第三步：填写先关信息</p><p><img src="https://upload-images.jianshu.io/upload_images/2241258-66e88119fd307e39.png?imageMogr2/auto-orient/strip|imageView2/2/w/1101/format/webp" alt="img"> </p><p>第四步：点击 Create repository创建。之后会出现以下界面的信息。</p><a id="more"></a>
+
+
+
+
+
+
+<p><img src="https://upload-images.jianshu.io/upload_images/2241258-833c3e432af84108.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt="img"> </p>
+<h1 id="本地项目同步至github远程库"><a href="#本地项目同步至github远程库" class="headerlink" title="本地项目同步至github远程库"></a>本地项目同步至github远程库</h1><p>接下来讲解一下如何将创建的工程同步到github上。</p>
+<ul>
+<li>第一步：创建工程之后，用终端进入工程。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  cd /Users/hanwenguang/Desktop/pods/TestPreject</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步：建立本地仓库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git init</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步：将本地项目工作区的所有文件添加到暂存区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git add .</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第四步：将暂存区的文件提交到本地仓库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git commit -m “注释&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第五步： 在Github上创建自己的 New repository</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">与第一部分的1-4步骤相同。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第六步：将本地仓库关联到Github上（后加上仓库地址：第一部分中第五步的<em>地址</em>）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git remote add origin 地址</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第七步：将代码由本地仓库上传到Github远程仓库，刷新即可看到上传成功。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//(不加这句可能报错出现错误的主要原因是github中的README.md文件不在本地代码目录中</span><br><span class="line">$  git pull --rebase origin master </span><br><span class="line">//可以通过该命令进行代码合并</span><br><span class="line">$  git push -u origin master</span><br><span class="line">//需要填写账号、密码时候，自己填写。通常一次通过之后就不需要了。</span><br></pre></td></tr></table></figure>
+<h1 id="常用的git命令"><a href="#常用的git命令" class="headerlink" title="常用的git命令"></a>常用的git命令</h1><ul>
+<li>第一步： 查看目前代码的修改状态:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git status</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第二步： 查看代码修改的内容</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git diff &lt;file&gt;</span><br><span class="line">    //如果该文件已暂存，那么应该使用</span><br><span class="line">$  git diff –cached &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第三步： 暂存需要提交的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git add &lt;file&gt;</span><br><span class="line">    //如果是删除的文件则</span><br><span class="line">$  git rm &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第四步 ： 提交已暂存的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$  git commit -m &quot;注释内容&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第五步： 同步到服务器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">同步到服务器前先需要将服务器代码同步到本地</span><br><span class="line">命令：$  git pull</span><br><span class="line">如果执行失败，就按照提示还原有冲突的文件，然后再次尝试同步。</span><br><span class="line">命令：$  git checkout – &lt;有冲突的文件路径&gt;</span><br><span class="line">同步到服务器</span><br><span class="line">命令：$  git push origin master</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.jianshu.com/p/6969de20cd52" target="_blank" rel="noopener">github新建项目并提交</a></p>
+]]></content>
+      <categories>
+        <category>工具使用</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>css动画animation绘制向四周扩散的圆圈</title>
+    <url>/2019/10/23/CSS%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8/css%E5%8A%A8%E7%94%BBanimation%E7%BB%98%E5%88%B6%E5%90%91%E5%9B%9B%E5%91%A8%E6%89%A9%E6%95%A3%E7%9A%84%E5%9C%86%E5%9C%88/</url>
+    <content><![CDATA[<h1 id="CSS3-动画animation"><a href="#CSS3-动画animation" class="headerlink" title="CSS3 动画animation"></a>CSS3 动画animation</h1><p>CSS3 可以创建动画，它可以取代许多网页动画图像、Flash 动画和 JavaScript 实现的效果。 </p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">animation: name duration timing-function delay iteration-count direction fill-mode play-state;</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>animation-name</em></td>
+<td>指定要绑定到选择器的关键帧的名称</td>
+</tr>
+<tr>
+<td><em>animation-duration</em></td>
+<td>动画指定需要多少秒或毫秒完成</td>
+</tr>
+<tr>
+<td><em>animation-timing-function</em></td>
+<td>设置动画将如何完成一个周期</td>
+</tr>
+<tr>
+<td><em>animation-delay</em></td>
+<td>设置动画在启动前的延迟间隔。</td>
+</tr>
+<tr>
+<td><em>animation-iteration-count</em></td>
+<td>定义动画的播放次数。</td>
+</tr>
+<tr>
+<td><em>animation-direction</em></td>
+<td>指定是否应该轮流反向播放动画。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-fill-mode.html" target="_blank" rel="noopener">animation-fill-mode</a></td>
+<td>规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。</td>
+</tr>
+<tr>
+<td><em>animation-play-state</em></td>
+<td>指定动画是否正在运行或已暂停。</td>
+</tr>
+<tr>
+<td>initial</td>
+<td>设置属性为其默认值。 <a href="https://www.runoob.com/cssref/css-initial.html" target="_blank" rel="noopener">阅读关于 <em>initial</em>的介绍。</a></td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>从父元素继承属性。 <a href="https://www.runoob.com/cssref/css-inherit.html" target="_blank" rel="noopener">阅读关于 <em>initinherital</em>的介绍。</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS3-keyframes-规则"><a href="#CSS3-keyframes-规则" class="headerlink" title="CSS3 @keyframes 规则"></a>CSS3 @keyframes 规则</h2><p>要创建 CSS3 动画，你需要了解 @keyframes 规则。</p>
+<p>@keyframes 规则是创建动画。</p>
+<p>@keyframes 规则内指定一个 CSS 样式和动画将逐步从目前的样式更改为新的样式。</p>
+<h2 id="CSS3的动画属性"><a href="#CSS3的动画属性" class="headerlink" title="CSS3的动画属性"></a>CSS3的动画属性</h2><p>下面的表格列出了 @keyframes 规则和所有动画属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-keyframes.html" target="_blank" rel="noopener">@keyframes</a></td>
+<td>规定动画。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation.html" target="_blank" rel="noopener">animation</a></td>
+<td>所有动画属性的简写属性，除了 animation-play-state 属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-name.html" target="_blank" rel="noopener">animation-name</a></td>
+<td>规定 @keyframes 动画的名称。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-duration.html" target="_blank" rel="noopener">animation-duration</a></td>
+<td>规定动画完成一个周期所花费的秒或毫秒。默认是 0。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-timing-function.html" target="_blank" rel="noopener">animation-timing-function</a></td>
+<td>规定动画的速度曲线。默认是 “ease”。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-fill-mode.html" target="_blank" rel="noopener">animation-fill-mode</a></td>
+<td>规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-delay.html" target="_blank" rel="noopener">animation-delay</a></td>
+<td>规定动画何时开始。默认是 0。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-iteration-count.html" target="_blank" rel="noopener">animation-iteration-count</a></td>
+<td>规定动画被播放的次数。默认是 1。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-direction.html" target="_blank" rel="noopener">animation-direction</a></td>
+<td>规定动画是否在下一周期逆向地播放。默认是 “normal”。</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/cssref/css3-pr-animation-play-state.html" target="_blank" rel="noopener">animation-play-state</a></td>
+<td>规定动画是否正在运行或暂停。默认是 “running”。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h1 id="编码实战"><a href="#编码实战" class="headerlink" title="编码实战"></a>编码实战</h1><p>使用css动画绘制向四周扩散的圆圈</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;圆形扩散&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    .pr&#123;</span><br><span class="line">        position: relative;</span><br><span class="line">    &#125;</span><br><span class="line">    .one</span><br><span class="line">    &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        width:100px;</span><br><span class="line">        height:100px;</span><br><span class="line">        border: 1px solid green ;</span><br><span class="line">        border-radius:50%;</span><br><span class="line">        animation:myOne 2s ease-out;</span><br><span class="line">        animation-iteration-count: infinite;</span><br><span class="line">    &#125;</span><br><span class="line">    .two&#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        width:100px;</span><br><span class="line">        height:100px;</span><br><span class="line">        border: 1px solid green  ;</span><br><span class="line">        border-radius:50%;</span><br><span class="line">        animation:myTwo 2s ease-out;</span><br><span class="line">        animation-iteration-count: infinite;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @keyframes myOne</span><br><span class="line">    &#123;</span><br><span class="line">        0%   &#123;</span><br><span class="line">            transform: scale(1);</span><br><span class="line">            opacity: 1;</span><br><span class="line">        &#125;</span><br><span class="line">        25%   &#123;</span><br><span class="line">            transform: scale(1.25);</span><br><span class="line">            opacity: 0.5;</span><br><span class="line">        &#125;</span><br><span class="line">        50%   &#123;</span><br><span class="line">            transform: scale(1.25);</span><br><span class="line">            opacity: 0.25;</span><br><span class="line">        &#125;</span><br><span class="line">        100%   &#123;</span><br><span class="line">            transform: scale(1.5);</span><br><span class="line">            opacity: 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @keyframes myTwo</span><br><span class="line">    &#123;</span><br><span class="line">        0%   &#123;</span><br><span class="line">            transform: scale(1);</span><br><span class="line">            opacity: 1;</span><br><span class="line">        &#125;</span><br><span class="line">        25%   &#123;</span><br><span class="line">            transform: scale(1.25);</span><br><span class="line">            opacity: 0.5;</span><br><span class="line">        &#125;</span><br><span class="line">        50%   &#123;</span><br><span class="line">            transform: scale(1.5);</span><br><span class="line">            opacity: 0.25;</span><br><span class="line">        &#125;</span><br><span class="line">        100%   &#123;</span><br><span class="line">            transform: scale(2);</span><br><span class="line">            opacity: 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;p&gt;&lt;b&gt;注意:&lt;/b&gt; 该实例在 Internet Explorer 9 及更早 IE 版本是无效的。&lt;/p&gt;</span><br><span class="line">&lt;div class=&quot;pr&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;one&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;two&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.runoob.com/cssref/css3-pr-animation.html" target="_blank" rel="noopener">CSS3 animation（动画） 属性</a></p>
+<p><a href="http://www.webkaka.com/tutorial/html/2017/071327/" target="_blank" rel="noopener">【css3动画】圆波扩散效果</a></p>
+]]></content>
+      <categories>
+        <category>CSS层叠样式表</category>
+      </categories>
+  </entry>
+  <entry>
     <title>简述JS中执行环境与作用域的关系？</title>
     <url>/2019/10/23/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%831/%E7%AE%80%E8%BF%B0JS%E4%B8%AD%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="执行环境"><a href="#执行环境" class="headerlink" title="执行环境"></a>执行环境</h1><p> <strong>执行环境</strong>（execution context，为简单起见，有时也称为“环境”）是 JavaScript 中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象（variable  object），环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。</p><a id="more"></a>

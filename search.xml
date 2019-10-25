@@ -1,6 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>jquery中的bind(),live(),delegate(),on()有什么区别？</title>
+    <url>/2019/10/25/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%833/jquery%E4%B8%AD%E7%9A%84bind-live-delegate-on-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
+    <content><![CDATA[<p>当我们试图绑定一些事件到DOM元素上的时候，我相信上面这4个方法是最常用的。而它们之间到底有什么不同呢？在什么场合下用什么方法是最有效的呢?</p><h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><p>当我们在开始的时候，有些知识是必须具备的：</p><p>DOM树</p><p>下图仅仅是一个示例，这是一个在browser环境下的一棵模拟DOM树，在下面的代码中仅起到演示的作用：</p><p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahircgqqj30fa08cjrb.jpg" alt="chart.png"></p><p>Event bubbling (aka event propagation)冒泡</p><a id="more"></a>
+
+
+
+
+
+<p>我们的页面可以理解为一棵DOM树，当我们在叶子结点上做什么事情的时候（如click一个a元素），如果我们不人为的设置stopPropagation(Moder Browser), cancelBubble(IE)，那么它的所有父元素，祖宗元素都会受之影响，它们上面绑定的事件也会产生作用。看一个示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$(&apos;a&apos;).bind(&apos;click&apos;, function() &#123; alert(&quot;That tickles!&quot;) &#125;);</span><br></pre></td></tr></table></figure>
+<p>当我们在a 上面点击的时候，首先会触发它本身所绑定的click事件，然后会一路往上，触发它的父元素，祖先元素上所有绑定的click事件，就像下图演示的那样。</p>
+<p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahi3ycukj30fa09q0sq.jpg" alt="chart (1).png"></p>
+<p>示例HTML</p>
+<p> 为了对下面的代码进行演示，添加一些HTML代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;ul id=&quot;members&quot; data-role=&quot;listview&quot; data-filter=&quot;true&quot;&gt;</span><br><span class="line">    &lt;!-- ... more list items ... --&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">        &lt;a href=&quot;detail.html?id=10&quot;&gt;</span><br><span class="line">            &lt;h3&gt;John Resig(jQuery的作者)&lt;/h3&gt;</span><br><span class="line">            &lt;p&gt;&lt;strong&gt;jQuery Core Lead&lt;/strong&gt;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;Boston, United States&lt;/p&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">    &lt;!-- ... more list items ... --&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Bind"><a href="#Bind" class="headerlink" title="Bind()"></a><strong>Bind()</strong></h1><p>.bind()是最直接的绑定方法 ，会绑定事件类型和处理函数到DOM element上, 这个方法是存在最久的，而且也很好的解决了浏览器在事件处理中的兼容问题。但是这个方法有一些performance方面的问题，看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* The .bind() method attaches the event handler directly to the DOM </span><br><span class="line">   element in question ( &quot;#members li a&quot; ). The .click() method is </span><br><span class="line">   just a shorthand way to write the .bind() method. */</span><br><span class="line"></span><br><span class="line">$( &quot;#members li a&quot; ).bind( &quot;click&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members li a&quot; ).click( function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<p>上面的两行代码所完成的任务都是一致的，就是把event handler加到<strong>全部</strong>的匹配的<a>元素上。这里存在着一些效率方面的问题，一方面，我们隐式地把click handler加到所有的a标签上，这个过程是昂贵的;另一方面在执行的时候也是一种浪费，因为它们都是做了同一件事却被执行了一次又一次（比如我们可以把它hook到它们的父元素上，通过冒泡可以对它们中的每一个进行区分，然后再执行这个event handler）。</a></p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>这个方法提供了一种在各种浏览器之间对事件处理的兼容性解决方案</li>
+<li>非常方便简单的绑定事件到元素上</li>
+<li>.click(), .hover()…这些非常方便的事件绑定，都是bind的一种简化处理方式</li>
+<li>对于利用ID选出来的元素是非常好的，不仅仅是很快的可以hook上去(因为一个页面只有一个id),而且当事件发生时，handler可以立即被执行(相对于后面的live, delegate)实现方式</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>它会绑定事件到所有的选出来的元素上</li>
+<li>它不会绑定到在它执行完后动态添加的那些元素上</li>
+<li>当元素很多时，会出现效率问题</li>
+<li>当页面加载完的时候，你才可以进行bind()，所以可能产生效率问题</li>
+</ul>
+<h1 id="live"><a href="#live" class="headerlink" title=".live()"></a><strong>.live()</strong></h1><p>.live()方法用到了事件委托的概念来处理事件的绑定。它和用.bind()来绑定事件是一样的。.live()方法会绑定相应的事件到你所选择的元素的根元素上，即是document元素上。那么所有通过冒泡上来的事件都可以用这个相同的handler来处理了。它的处理机制是这样的，一旦事件冒泡到document上，jQuery将会查找selector/event metadata,然后决定那个handler应该被调用。jquery 1.8.2的源码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if ( delegateCount &amp;&amp; !(event.button &amp;&amp; event.type === &quot;click&quot;) ) &#123;</span><br><span class="line"></span><br><span class="line">            for ( cur = event.target; cur != this; cur = cur.parentNode || this ) &#123;</span><br><span class="line"></span><br><span class="line">                // Don&apos;t process clicks (ONLY) on disabled elements (#6911, #8165, #11382, #11764)</span><br><span class="line">                if ( cur.disabled !== true || event.type !== &quot;click&quot; ) &#123;</span><br><span class="line">                    selMatch = &#123;&#125;;</span><br><span class="line">                    matches = [];</span><br><span class="line">                    for ( i = 0; i &lt; delegateCount; i++ ) &#123;</span><br><span class="line">                        handleObj = handlers[ i ];</span><br><span class="line">                        sel = handleObj.selector;</span><br><span class="line"></span><br><span class="line">                        if ( selMatch[ sel ] === undefined ) &#123;</span><br><span class="line">                            selMatch[ sel ] = handleObj.needsContext ?</span><br><span class="line">                                jQuery( sel, this ).index( cur ) &gt;= 0 :</span><br><span class="line">                                jQuery.find( sel, this, null, [ cur ] ).length;</span><br><span class="line">                        &#125;</span><br><span class="line">                        if ( selMatch[ sel ] ) &#123;</span><br><span class="line">                            matches.push( handleObj );</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if ( matches.length ) &#123;</span><br><span class="line">                        handlerQueue.push(&#123; elem: cur, matches: matches &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>当handler在执行的时候，因为有冒泡的参与，确实会有一些延迟，但是绑定的时候是特别的快。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* The .live() method attaches the event handler to the root level </span><br><span class="line">   document along with the associated selector and event information </span><br><span class="line">   ( &quot;#members li a&quot; &amp; &quot;click&quot; ) */ </span><br><span class="line"></span><br><span class="line">$( &quot;#members li a&quot; ).live( &quot;click&quot;, function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<p>上面的code在和.bind()相比的时候有一个好处就是我们不需要在每个元素上再去绑定事件，而只在document上绑定一次就可以了。尽管这个不是最快的方式，但是确实是最少浪费的。</p>
+<h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>这里仅有一次的事件绑定，绑定到document上而不像.bind()那样给所有的元素挨个绑定</li>
+<li>那些动态添加的elemtns依然可以触发那些早先绑定的事件，因为事件真正的绑定是在document上</li>
+<li>你可以在document ready之前就可以绑定那些需要的事件</li>
+</ul>
+<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>从1.7开始已经不被推荐了，所以你也要开始逐步淘汰它了。</li>
+<li>Chaining没有被正确的支持</li>
+<li>当使用event.stopPropagation()是没用的，因为都要到达document</li>
+<li>因为所有的selector/event都被绑定到document, 所以当我们使用matchSelector方法来选出那个事件被调用时，会非常慢</li>
+<li>当发生事件的元素在你的DOM树中很深的时候，会有performance问题</li>
+</ul>
+<h1 id="Delegate"><a href="#Delegate" class="headerlink" title=".Delegate()"></a><strong>.Delegate()</strong></h1><p>.delegate()有点像.live(),不同于.live()的地方在于，它不会把所有的event全部绑定到document,而是由你决定把它放在哪儿。而和.live()相同的地方在于都是用event delegation.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* The .delegate() method behaves in a similar fashion to the .live() </span><br><span class="line">   method, but instead of attaching the event handler to the document, </span><br><span class="line">   you can choose where it is anchored ( &quot;#members&quot; ). The selector </span><br><span class="line">   and event information ( &quot;li a&quot; &amp; &quot;click&quot; ) will be attached to the </span><br><span class="line">   &quot;#members&quot; element. */</span><br><span class="line"></span><br><span class="line">$( &quot;#members&quot; ).delegate( &quot;li a&quot;, &quot;click&quot;, function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>你可以选择你把这个事件放到那个元素上了</li>
+<li>chaining被正确的支持了</li>
+<li>jQuery仍然需要迭代查找所有的selector/event data来决定那个子元素来匹配，但是因为你可以决定放在那个根元素上，所以可以有效的减小你所要查找的元素。</li>
+<li>可以用在动态添加的元素上</li>
+</ul>
+<h2 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>需要查找那个那个元素上发生了那个事件了，尽管比document少很多了，不过，你还是得浪费时间来查找。</li>
+</ul>
+<h1 id="On"><a href="#On" class="headerlink" title=".On()"></a><strong>.On()</strong></h1><p> 其实.bind(), .live(), .delegate()都是通过.on()来实现的，.unbind(), .die(), .undelegate(),也是一样的都是通过.off()来实现的，这是1.8.2的源码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bind: function( types, data, fn ) &#123;</span><br><span class="line">        return this.on( types, null, data, fn );</span><br><span class="line">    &#125;,</span><br><span class="line">    unbind: function( types, fn ) &#123;</span><br><span class="line">        return this.off( types, null, fn );</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    live: function( types, data, fn ) &#123;</span><br><span class="line">        jQuery( this.context ).on( types, this.selector, data, fn );</span><br><span class="line">        return this;</span><br><span class="line">    &#125;,</span><br><span class="line">    die: function( types, fn ) &#123;</span><br><span class="line">        jQuery( this.context ).off( types, this.selector || &quot;**&quot;, fn );</span><br><span class="line">        return this;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    delegate: function( selector, types, data, fn ) &#123;</span><br><span class="line">        return this.on( types, selector, data, fn );</span><br><span class="line">    &#125;,</span><br><span class="line">    undelegate: function( selector, types, fn ) &#123;</span><br><span class="line">        // ( namespace ) or ( selector, types [, fn] )</span><br><span class="line">        return arguments.length === 1 ? this.off( selector, &quot;**&quot; ) : this.off( types, selector || &quot;**&quot;, fn );</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>看一下，我们用如何用.on()来改写前面通过 .bind(), .live(), .delegate()所注册的事件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/* The jQuery .bind(), .live(), and .delegate() methods are just one </span><br><span class="line">   line pass throughs to the new jQuery 1.8.2 .on() method */</span><br><span class="line"></span><br><span class="line">// Bind</span><br><span class="line">$( &quot;#members li a&quot; ).on( &quot;click&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members li a&quot; ).bind( &quot;click&quot;, function( e ) &#123;&#125; ); </span><br><span class="line"></span><br><span class="line">// Live</span><br><span class="line">$( document ).on( &quot;click&quot;, &quot;#members li a&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members li a&quot; ).live( &quot;click&quot;, function( e ) &#123;&#125; );</span><br><span class="line"></span><br><span class="line">// Delegate</span><br><span class="line">$( &quot;#members&quot; ).on( &quot;click&quot;, &quot;li a&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members&quot; ).delegate( &quot;li a&quot;, &quot;click&quot;, function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<h2 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>提供了一种统一绑定事件的方法</li>
+<li>仍然提供了.delegate()的优点，当然如果需要你也可以直接用.bind()</li>
+</ul>
+<h2 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>也许会对你产生一些困扰，因为它隐藏了一前面我们所介绍的三种方法的细节。</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h1><ul>
+<li>用.bind()的代价是非常大的，它会把相同的一个事件处理程序hook到所有匹配的DOM元素上</li>
+<li>不要再用.live()了，它已经不再被推荐了，而且还有许多问题</li>
+<li>.delegate()会提供很好的方法来提高效率，同时我们可以添加一事件处理方法到动态添加的元素上。</li>
+<li><p>我们可以用.on()来代替上述的3种方法</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1></li>
+</ul>
+<p><a href="http://www.elijahmanor.com/2012/02/differences-between-jquery-bind-vs-live.html" target="_blank" rel="noopener">http://www.elijahmanor.com/2012/02/differences-between-jquery-bind-vs-live.html</a></p>
+<p><a href="http://www.alfajango.com/blog/the-difference-between-jquerys-bind-live-and-delegate/" target="_blank" rel="noopener">http://www.alfajango.com/blog/the-difference-between-jquerys-bind-live-and-delegate/</a></p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>有限状态机是什么？</title>
+    <url>/2019/10/25/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%833/%E6%9C%89%E9%99%90%E7%8A%B6%E6%80%81%E6%9C%BA%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="有限状态机是什么"><a href="#有限状态机是什么" class="headerlink" title="有限状态机是什么"></a>有限状态机是什么</h1><p>有限状态机（Finite-state machine）是一个非常有用的模型，可以模拟世界上大部分事物。</p><p>简单说，它有三个特征：</p><ul>
+<li>状态总数（state）是有限的。</li>
+<li>任一时刻，只处在一种状态之中。</li>
+<li>某种条件下，会从一种状态转变（transition）到另一种状态。</li>
+</ul><h1 id="有限状态机的使用"><a href="#有限状态机的使用" class="headerlink" title="有限状态机的使用"></a>有限状态机的使用</h1><ol>
+<li>引入有限状态机的js库</li>
+</ol><a id="more"></a>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script src=&apos;state-machine.js&apos;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>有限状态机的基本结构</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">var fsm = new StateMachine(&#123;</span><br><span class="line"></span><br><span class="line">   init: &apos;solid&apos;,</span><br><span class="line"></span><br><span class="line">   transitions: [</span><br><span class="line"></span><br><span class="line">     &#123; name: &apos;melt&apos;, from: &apos;solid&apos;, to: &apos;liquid&apos; &#125;,</span><br><span class="line"></span><br><span class="line">     &#123; name: &apos;freeze&apos;, from: &apos;liquid&apos;, to: &apos;solid&apos; &#125;,</span><br><span class="line"></span><br><span class="line">     &#123; name: &apos;vaporize&apos;, from: &apos;liquid&apos;, to: &apos;gas&apos; &#125;,</span><br><span class="line"></span><br><span class="line">     &#123; name: &apos;condense&apos;, from: &apos;gas&apos;, to: &apos;liquid&apos; &#125;</span><br><span class="line"></span><br><span class="line">   ],</span><br><span class="line"></span><br><span class="line">   methods: &#123;</span><br><span class="line"></span><br><span class="line">     onMelt: function() &#123; console.log(&apos;I melted&apos;) &#125;,</span><br><span class="line"></span><br><span class="line">     onFreeze: function() &#123; console.log(&apos;I froze&apos;) &#125;,</span><br><span class="line"></span><br><span class="line">     onVaporize: function() &#123; console.log(&apos;I vaporized&apos;) &#125;,</span><br><span class="line"></span><br><span class="line">     onCondense: function() &#123; console.log(&apos;I condensed&apos;) &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><p>生成实例以后，就可以随时查询当前状态。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* fsm.current ：返回当前状态。</span><br><span class="line"></span><br><span class="line">* fsm.is(s) ：返回一个布尔值，表示状态s是否为当前状态。</span><br><span class="line"></span><br><span class="line">* fsm.can(e) ：返回一个布尔值，表示事件e是否能在当前状态触发。</span><br><span class="line"></span><br><span class="line">* fsm.cannot(e) ：返回一个布尔值，表示事件e是否不能在当前状态触发。</span><br></pre></td></tr></table></figure>
+<p>Javascript Finite State Machine允许为每个事件指定两个回调函数，以warn事件为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* onbeforewarn：在warn事件发生之前触发。</span><br><span class="line"></span><br><span class="line">* onafterwarn（可简写成onwarn） ：在warn事件发生之后触发。</span><br></pre></td></tr></table></figure>
+<p>同时，它也允许为每个状态指定两个回调函数，以green状态为例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* onleavegreen ：在离开green状态时触发。</span><br><span class="line"></span><br><span class="line">* onentergreen（可简写成ongreen） ：在进入green状态时触发。</span><br></pre></td></tr></table></figure>
+<p>假定warn事件使得状态从green变为yellow，上面四类回调函数的发生顺序如下：onbeforewarn → onleavegreen → onenteryellow → onafterwarn。</p>
+<p>除了为每个事件和状态单独指定回调函数，还可以为所有的事件和状态指定通用的回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* onbeforeevent ：任一事件发生之前触发。</span><br><span class="line"></span><br><span class="line">* onleavestate ：离开任一状态时触发。</span><br><span class="line"></span><br><span class="line">* onenterstate ：进入任一状态时触发。</span><br><span class="line"></span><br><span class="line">* onafterevent ：任一事件结束后触发。</span><br></pre></td></tr></table></figure>
+<h1 id="编码实战"><a href="#编码实战" class="headerlink" title="编码实战"></a>编码实战</h1><p><a href="https://it-xzy.github.io/WEB-NEW/HoverChangeColor.html" target="_blank" rel="noopener">信号灯</a> </p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JS有哪几种传参方式?</title>
+    <url>/2019/10/25/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%833/JS%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>所有函数的参数都是按值传递的,也就是说把函数外部的值赋值给函数内部的参数，就和把值从一个变量赋值到另一个变量一样。</p><p>————《js高级程序设计》</p><p>有的人可能会把这里的js传参方式，理解成js函数中的参数传递，但是呢，我们所要讲的是页面之间的数据传递。</p><p>传统的前端开发中，页面之间是少有参数交互的，甚至没有，而在如今的前端环境下， 一个稍微正式点的项目都不可能少了页面间传参，页面的跨越、服务器后台进行数据请求等，都需要一个或多个传参的方法。 那么参数在不同的页面间进行传递，一个页面的参数被另一页面使用，如何才能做到不同页面间进行参数传递？</p><a id="more"></a>
+
+
+
+<h1 id="JS中页面传递参数的方法"><a href="#JS中页面传递参数的方法" class="headerlink" title="JS中页面传递参数的方法"></a>JS中页面传递参数的方法</h1><p>在JS中有多种页面传递参数的方法：<br>一、URL L传参<br>把参数值附在url后面传递到其他页面<br>二、H5 web storage<br>localStroage 和 sessionStorage<br>三、Cookie<br>使用浏览器Cookie传递参数<br>四、Form 表单<br>Form表单通过URL传递参数 </p>
+<h2 id="URL传参"><a href="#URL传参" class="headerlink" title="URL传参"></a>URL传参</h2><p>把参数值附在url后面传递到其他页面<br>如： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://xxx.com/login.html?user=laowang&amp;pwd=100</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其中 <code>user=laowang</code>和 <code>pwd=100</code>就是我们传递的参数名称和值。 </li>
+<li>url和参数之间用 “?”隔开 </li>
+<li>多个参数之间用 “&amp;”符号连接。 </li>
+</ul>
+<p>URL地址传递参数的几个特点： </p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li><p>URL地址法简洁易用，可同时传递多个字符型参数； </p>
+</li>
+<li><p>URL地址法可以很方便的在页面之间切换并传递参数，无需额外的处理，基于正常情况比较性能不会损失； </p>
+</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>URL传递参数长度受限，最大为2K； </p>
+</li>
+<li><p>URL只能传递字符型参数，传递中文时，由于发送页面和接收页面的字符编码方式不一样而导致参数解析处理错误，参数包含中文时可能出现乱码或者参数接收错误； </p>
+</li>
+<li>信息泄露：URL地址在客户端可见，所以涉及隐私的参数需进行加密后才能进行传递，不加密传输会导致信息泄露，产生安全隐患。 </li>
+</ul>
+<h2 id="storage本地存储"><a href="#storage本地存储" class="headerlink" title="storage本地存储"></a>storage本地存储</h2><h3 id="sessionStorage会话存储"><a href="#sessionStorage会话存储" class="headerlink" title="sessionStorage会话存储"></a>sessionStorage会话存储</h3><p>sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。</p>
+<h3 id="localStorage-本地存储"><a href="#localStorage-本地存储" class="headerlink" title="localStorage 本地存储"></a>localStorage 本地存储</h3><p>localStorage HTML5本地存储web storage特性的API之一，用于将大量数据（最大5M）保存在浏览器中 </p>
+<ul>
+<li><p>保存后数据永远存在不会失效过期，除非手动清除。 </p>
+</li>
+<li><p>不参与网络传输。 </p>
+</li>
+<li><p>一般用于性能优化，可以保存图片、js、css、html 模板、大量数据。 </p>
+</li>
+<li><p>数据以 键/值 （key/value）对存在, web网页的数据只允许该域访问使用 </p>
+</li>
+</ul>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>不管是 localStorage，还是 sessionStorage，可使用的API都相同，常用的有如下几个（以localStorage为例）： </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">保存数据：localStorage.setItem(key,value); </span><br><span class="line"></span><br><span class="line">读取数据：localStorage.getItem(key); </span><br><span class="line"></span><br><span class="line">删除单个数据：localStorage.removeItem(key); </span><br><span class="line"></span><br><span class="line">删除所有数据：localStorage.clear(); </span><br><span class="line"></span><br><span class="line">得到某个索引的key：localStorage.key(index);</span><br></pre></td></tr></table></figure>
+<h3 id="数据储存"><a href="#数据储存" class="headerlink" title="数据储存"></a>数据储存</h3><p>在有多组数据需要储存时，一般: </p>
+<ul>
+<li>建立一个新的对象，然后将多组数据储存在对象中， </li>
+<li>使用 JSON.stringify() 来将对象转换为字符串， </li>
+<li>使用localStorage.setItem(key,value);保存数据。 </li>
+</ul>
+<h3 id="数据提取"><a href="#数据提取" class="headerlink" title="数据提取"></a>数据提取</h3><ul>
+<li>使用localStorage.getItem(key)读取数据 </li>
+<li>使用 JSON.parse 方法将字符串转换为 JSON 对象。 </li>
+<li>直接引用对象的各个值。 </li>
+</ul>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h3><p>Cookie是当你浏览某网站时，网站存储在你机器上的一个小文本文件，<br>它记录了你的用户ID，密码、浏览过的网页、停留的时间等信息，当你再次来到该网站时，<br>网站通过读取Cookie，得知你的相关信息，就可以做出相应的动作，如在页面显示欢迎你的标语，<br>或者让你不用输入ID、密码就直接登录等等 </p>
+<h3 id="Cookie作用"><a href="#Cookie作用" class="headerlink" title="Cookie作用"></a>Cookie作用</h3><p>Cookie一般有两个作用。<br><strong>第一个作用是识别用户身份。</strong><br>比如用户 A 用浏览器访问了 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a>，那么 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的服务器就会立刻给 A 返回一段数据「uid=1」（这就是 Cookie）。当 A 再次访问 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的其他页面时，就会附带上「uid=1」这段数据。 </p>
+<p>同理，用户 B 用浏览器访问 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 时，<a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 发现 B 没有附带 uid 数据，就给 B 分配了一个新的 uid，为2，然后返回给 B 一段数据「uid=2」。B 之后访问 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的时候，就会一直带上「uid=2」这段数据。 借此，<a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 的服务器就能区分 A 和 B 两个用户了。 </p>
+<p><strong>第二个作用是记录历史。</strong><br>假设 <a href="http://a.com" target="_blank" rel="noopener">http://a.com</a> 是一个购物网站，当 A 在上面将商品 A1 、A2 加入购物车时，JS 可以改写 Cookie，改为「uid=1; cart=A1,A2」，表示购物车里有 A1 和 A2 两样商品了。 这样一来，当用户关闭网页，过三天再打开网页的时候，依然可以看到 A1、A2 躺在购物车里，因为浏览器并不会无缘无故地删除这个 Cookie。 借此，就达到里记录用户操作历史的目的了。 </p>
+<h3 id="Cookie的特点"><a href="#Cookie的特点" class="headerlink" title="Cookie的特点"></a>Cookie的特点</h3><ul>
+<li>Cookie可以使用 js 在浏览器直接设置（用于记录不敏感信息，如用户名）, 也可以在服务端通使用 HTTP 协议规定的 set-cookie 来让浏览器种下Cookie，这是最常见的做法。 </li>
+<li>每次网络请求 Request headers 中都会带上Cookie。所以如果 Cookie太多太大对传输效率会有影响。 </li>
+<li>一般浏览器存储Cookie最大容量为4k，所以大量数据不要存到Cookie。 </li>
+</ul>
+<h2 id="Form-表单"><a href="#Form-表单" class="headerlink" title="Form 表单"></a>Form 表单</h2><p>Form表单传值也是通过URL传递参数</p>
+<p>跳转至demo2.com时，<br>url为: demo2.com?id=laowang&amp;name=666666 </p>
+<p>通常使用的表单的提交方式主要是： post和get两种。 </p>
+<p>两者的区别在于：</p>
+<p>post方式是把数据内容放在请求的数据正文部分，没有长度的限制;<br>get方式则是把数据内容直接跟在请求的头部的URL后面，有长度的限制。<br>而一般在表单的数据提交中，都会选择POST方式，<br>因为使用GET方法数据是通过URL传递的，在地址栏中会直接看到传递的数据，这样就缺少安全性。<br>而使用POST传递时，是把提交的数据放置在HTTP包的包体中，地址栏不会看到数据。 </p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>既然有如此多种页面传参的方式。那么问题来就来了，在什么情况下，适合使用以上介绍的传递方式呢？ </p>
+<p>在<strong>传递少量不涉及隐私的参数</strong>时可以使用直接url或者Form的GET方式传递；</p>
+<p><strong>大量数据</strong>可以用POST传递会话信息等可以用cookie和localStorage；</p>
+<p><strong>临时数据</strong>可用sessionStorage </p>
+<h2 id="传参方式的优缺点"><a href="#传参方式的优缺点" class="headerlink" title="传参方式的优缺点"></a>传参方式的优缺点</h2><p><strong>URL传参：</strong><br>优点：取值方便，可以跨域。<br>缺点：值长度有限制。 </p>
+<p><strong>H5 Web storage：</strong><br>优点：使用起来非常简单、方便。<br>缺点：兼容性有点小问题。兼容性： 现代浏览器（firefox safari chrome opera）都支持，IE8以下（不包括IE8）不支持。 </p>
+<p><strong>Cookie传参：</strong><br>优点：兼容性最好，可以在同源内的任意网页内访问，生命期可以设置。<br>缺点：值长度有限制（存储的容量小），还得注意请求接口时别带到http head。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>参考一：js传参方式<br>参考二：理解cookie及其用法<br>参考三：web Storage </p>
+<p>来源： <a href="https://blog.csdn.net/menggx1/article/details/80311369" target="_blank" rel="noopener">https://blog.csdn.net/menggx1/article/details/80311369</a></p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>洗牌算法具体指的是什么？</title>
+    <url>/2019/10/24/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%832/%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95%E5%85%B7%E4%BD%93%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F/</url>
+    <content><![CDATA[<p>洗牌算法是我们常见的随机问题，在玩游戏、随机排序时经常会碰到，本质是让一个数组内的元素随机排列，即数组乱序。</p><h1 id="Fisher–Yates-Shuffle"><a href="#Fisher–Yates-Shuffle" class="headerlink" title="Fisher–Yates Shuffle"></a>Fisher–Yates Shuffle</h1><p>关于数组乱序，正确的解法应该是 <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Fisher–Yates Shuffle</a>，复杂度 O(n)。</p><p>其实它的思想非常的简单，遍历数组元素，将其与之前的任意元素交换。因为遍历有从前向后和从后往前两种方式，所以该算法大致也有两个版本的实现。</p><a id="more"></a>
+
+
+<p>从后往前的版本：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function shuffle(array) &#123;</span><br><span class="line">  var _array = array.concat();</span><br><span class="line"></span><br><span class="line">  for (var i = _array.length; i--; ) &#123;</span><br><span class="line">    var j = Math.floor(Math.random() * (i + 1));</span><br><span class="line">    var temp = _array[i];</span><br><span class="line">    _array[i] = _array[j];</span><br><span class="line">    _array[j] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return _array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>underscore 中采用从前往后遍历元素的方式，实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Shuffle a collection, using the modern version of the</span><br><span class="line">// [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).</span><br><span class="line">_.shuffle = function(obj) &#123;</span><br><span class="line">  var set = isArrayLike(obj) ? obj : _.values(obj);</span><br><span class="line">  var length = set.length;</span><br><span class="line">  var shuffled = Array(length);</span><br><span class="line">  for (var index = 0, rand; index &lt; length; index++) &#123;</span><br><span class="line">    rand = _.random(0, index);</span><br><span class="line">    if (rand !== index) shuffled[index] = shuffled[rand];</span><br><span class="line">    shuffled[rand] = set[index];</span><br><span class="line">  &#125;</span><br><span class="line">  return shuffled;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>将其解耦分离出来，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function shuffle(a) &#123;</span><br><span class="line">  var length = a.length;</span><br><span class="line">  var shuffled = Array(length);</span><br><span class="line"></span><br><span class="line">  for (var index = 0, rand; index &lt; length; index++) &#123;</span><br><span class="line">    rand = ~~(Math.random() * (index + 1));</span><br><span class="line">    if (rand !== index) </span><br><span class="line">      shuffled[index] = shuffled[rand];</span><br><span class="line">    shuffled[rand] = a[index];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return shuffled;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>跟前面一样，做了下数据图表，猛戳 <a href="http://hanzichi.github.io/test-case/shuffle/Fisher-Yates/" target="_blank" rel="noopener">http://hanzichi.github.io/test-case/shuffle/Fisher-Yates/</a>。</p>
+<p>关于证明，引用自月影老师的<a href="https://www.h5jun.com/post/array-shuffle.html" target="_blank" rel="noopener">文章</a>：</p>
+<h1 id="随机性的数学归纳法证明"><a href="#随机性的数学归纳法证明" class="headerlink" title="随机性的数学归纳法证明"></a><strong>随机性的数学归纳法证明</strong></h1><p>对 n 个数进行随机：</p>
+<ol>
+<li>首先我们考虑 n = 2 的情况，根据算法，显然有 1/2 的概率两个数交换，有 1/2 的概率两个数不交换，因此对 n = 2 的情况，元素出现在每个位置的概率都是 1/2，满足随机性要求。</li>
+<li>假设有 i 个数， i &gt;= 2 时，算法随机性符合要求，即每个数出现在 i 个位置上每个位置的概率都是 1/i。</li>
+<li>对于 i + 1 个数，按照我们的算法，在第一次循环时，每个数都有 1/(i+1) 的概率被交换到最末尾，所以每个元素出现在最末一位的概率都是 1/(i+1) 。而每个数也都有 i/(i+1) 的概率不被交换到最末尾，如果不被交换，从第二次循环开始还原成 i 个数随机，根据 2. 的假设，它们出现在 i 个位置的概率是 1/i。因此每个数出现在前 i 位任意一位的概率是 (i/(i+1)) * (1/i) = 1/(i+1)，也是 1/(i+1)。</li>
+<li>综合 1. 2. 3. 得出，对于任意 n &gt;= 2，经过这个算法，每个元素出现在 n 个位置任意一个位置的概率都是 1/n。</li>
+</ol>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>关于数组乱序，如果面试中被问到，能说出 “Fisher–Yates Shuffle”，并且能基本说出原理（你也看到了，其实代码非常的简单），那么基本应该没有问题了；如果能更进一步，将其证明呈上（甚至一些面试官都可能一时证明不了），那么就牛逼了。千万不能只会用 Math.random() 投机取巧！</p>
+<p>来源： <a href="https://segmentfault.com/a/1190000005875191" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005875191</a></p>
+<h1 id="Read-More："><a href="#Read-More：" class="headerlink" title="Read More："></a><strong>Read More：</strong></h1><ul>
+<li><a href="https://www.h5jun.com/post/array-shuffle.html" target="_blank" rel="noopener">数组的完全随机排列</a>（推荐）</li>
+<li><a href="https://bost.ocks.org/mike/shuffle/" target="_blank" rel="noopener">Fisher–Yates Shuffle</a>（推荐）</li>
+<li><a href="http://coolshell.cn/articles/8593.html" target="_blank" rel="noopener">如何测试洗牌程序</a></li>
+<li><a href="http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array" target="_blank" rel="noopener">How to randomize (shuffle) a JavaScript array?</a></li>
+<li><a href="https://www.kirupa.com/html5/shuffling_array_js.htm" target="_blank" rel="noopener">Code for Shuffling an Array</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常见Dom操作有哪些？</title>
+    <url>/2019/10/24/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%832/%E5%B8%B8%E8%A7%81Dom%E6%93%8D%E4%BD%9C%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1.背景介绍"></a>1.背景介绍</h1><p>DOM（文档对象模型）是针对HTML 和XML 文档的一个API（应用程序编程接口）。DOM描绘了一个层次化的节点树，允许开发人员添加、移除和修改页面的某一部分。DOM脱胎于</p><p>Netscape 及微软公司创始的DHTML（动态HTML），但现在它已经成为表现和操作页面标记的真正的跨平台、语言中立的方式。1998 年10 月DOM１级规范成为W3C 的推荐标准，为基本的文档结构及查询提供了接口。本章主要讨论与浏览器中的HTML页面相关的DOM1级的特性和应用，以及JavaScript 对DOM1级的实现。IE、Firefox、Safari、Chrome 和Opera 都非常完善地实现了DOM。</p><a id="more"></a>
+
+<h1 id="2-知识剖析"><a href="#2-知识剖析" class="headerlink" title="2.知识剖析"></a>2.知识剖析</h1><h2 id="什么是DOM"><a href="#什么是DOM" class="headerlink" title="什么是DOM"></a>什么是DOM</h2><p>DOM 是 Document Object Model（文档对象模型）的缩写。DOM是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。在 HTML DOM中，所有事物都是节点。DOM 是被视为节点树的 HTML。DOM节点HTML 文档中的所有内容都是节点。整个文档是一个文档节点,每个 HTML 元素是元素节点，HTML 元素内的文本是文本节点，每个 HTML 属性是属性节点，注释是注释节点。</p>
+<h2 id="DOM常用操作"><a href="#DOM常用操作" class="headerlink" title="DOM常用操作"></a>DOM常用操作</h2><ul>
+<li>查找节点</li>
+<li>新建节点</li>
+<li>添加节点</li>
+<li>删除节点</li>
+<li>修改节点</li>
+</ul>
+<p>我们用到最多的是element类型，用于表现HTML元素，提供了对元素标签名、子节点及特性的访问。</p>
+<h2 id="DOM常用操作举例"><a href="#DOM常用操作举例" class="headerlink" title="DOM常用操作举例"></a>DOM常用操作举例</h2><h3 id="查找节点"><a href="#查找节点" class="headerlink" title="查找节点"></a>查找节点</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.getElementById(&apos;id属性值&apos;);返回拥有指定id的第一个对象的引用 document/element.getElementsByClassName(&apos;class属性值&apos;);返回拥有指定class的对象集合</span><br></pre></td></tr></table></figure>
+<h3 id="新建节点"><a href="#新建节点" class="headerlink" title="新建节点"></a>新建节点</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.createElement(&apos;元素名&apos;);创建新的元素节点</span><br><span class="line"></span><br><span class="line">document.createAttribute(&apos;属性名&apos;);创建新的属性节点</span><br><span class="line"></span><br><span class="line">document.createTextNode(&apos;文本内容&apos;);创建新的文本节点</span><br><span class="line"></span><br><span class="line">document.createComment(&apos;注释节点&apos;);创建新的注释节点</span><br><span class="line"></span><br><span class="line">document.createDocumentFragment( );创建文档片段节点xxxxxxxxxx</span><br></pre></td></tr></table></figure>
+<h3 id="添加节点"><a href="#添加节点" class="headerlink" title="添加节点"></a>添加节点</h3><p>常用来添加文本节点<code>element.innerHTML=&#39;新增文本内容&#39;</code></p>
+<p>创建文本节点 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function addText()&#123;</span><br><span class="line"></span><br><span class="line">var element = document.getElementsByTagName(&apos;p&apos;)[0];</span><br><span class="line"></span><br><span class="line">element.innerHTML=&apos;新增文本内容&apos;; //插入文本内容</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">parentNode.removeChild( existingChild );删除已有的子节点，返回值为删除节点</span><br><span class="line"></span><br><span class="line">element.removeAttribute(&apos;属性名&apos;);删除具有指定属性名称的属性，无返回值</span><br><span class="line"></span><br><span class="line">element.removeAttributeNode( attrNode );删除指定属性，返回值为删除的属性</span><br></pre></td></tr></table></figure>
+<h3 id="修改节点"><a href="#修改节点" class="headerlink" title="修改节点"></a>修改节点</h3><p>添加属性节点，修改属性值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">element.setAttribute( attributeName, attributeValue );</span><br></pre></td></tr></table></figure>
+<p>属性节点 增添id属性，并修改class属性值</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var element = document.getElementsByTagName(&apos;p&apos;)[0];</span><br><span class="line">// 添加属性节点</span><br><span class="line">var attr = document.createAttribute(&apos;id&apos;);</span><br><span class="line">attr.value = &apos;idValue&apos;;</span><br><span class="line">element.setAttributeNode(attr);</span><br><span class="line">// 修改属性值</span><br><span class="line">var attr = document.createAttribute(&apos;class&apos;);</span><br><span class="line">attr.value = &apos;classNewValue&apos;;</span><br><span class="line">element.setAttributeNode(attr);</span><br></pre></td></tr></table></figure>
+<h2 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h2><p>允许 JavaScript 对 HTML 事件作出反应</p>
+<p>onclick 事件——当用户点击时</p>
+<p>onload 事件——用户进入</p>
+<p>onunload 事件——用户离开</p>
+<p>onmouseover事件——鼠标移入</p>
+<p>onmouseout事件——鼠标移出</p>
+<p>onmousedown事件——鼠标按下</p>
+<p>onmouseup 事件——鼠标抬起</p>
+<h1 id="3-常见问题"><a href="#3-常见问题" class="headerlink" title="3.常见问题"></a>3.常见问题</h1><p>如何通过class和tag调用元素?如何对其设置属性？</p>
+<h1 id="4-解决方案"><a href="#4-解决方案" class="headerlink" title="4.解决方案"></a>4.解决方案</h1><p>一个页面中常常有多个class相同的元素，也有多个标签相同的元素，在调用时方法如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.getElementsByClassName(&quot;time&quot;)[0].innerHTML = &quot;16:43&quot;;</span><br><span class="line"></span><br><span class="line">document.getElementsByClassName(&quot;time&quot;)[1].innerHTML = &quot;16:44&quot;;</span><br><span class="line"></span><br><span class="line">document.getElementsByTagName(&quot;div&quot;)[0].className = &quot;text-time&quot;;</span><br></pre></td></tr></table></figure>
+<h1 id="5-编码实战"><a href="#5-编码实战" class="headerlink" title="5.编码实战"></a>5.编码实战</h1><h1 id="6-扩展思考"><a href="#6-扩展思考" class="headerlink" title="6.扩展思考"></a>6.扩展思考</h1><p>Html5添加了辅助管理DOM焦点的功能。首先就是document.activeElement属性，这个属性始终会引用DOM中当前获得了焦点的元素。另外就是新增了document.hasFocus()方法，这个方法用于确定文档是否获得了焦点。</p>
+<h1 id="7-参考文献"><a href="#7-参考文献" class="headerlink" title="7.参考文献"></a>7.参考文献</h1><p>参考一：《JavaScript高级程序设计》</p>
+<p>参考二：<a href="http://blog.csdn.net/ouyangyanlan/article/details/50217065" target="_blank" rel="noopener"> DOM树知识点梳理 </a></p>
+<h1 id="8-更多讨论"><a href="#8-更多讨论" class="headerlink" title="8.更多讨论"></a>8.更多讨论</h1><h2 id="怎样在一个元素节点之前加入新的节点？"><a href="#怎样在一个元素节点之前加入新的节点？" class="headerlink" title="怎样在一个元素节点之前加入新的节点？"></a>怎样在一个元素节点之前加入新的节点？</h2><p>insertBefore(参数1，参数2)：在指定位置添加节点</p>
+<h2 id="classlist和classname的区别？"><a href="#classlist和classname的区别？" class="headerlink" title="classlist和classname的区别？"></a>classlist和classname的区别？</h2><p>classlist为了解决classname一刀切的问题而诞生，类似于jquery的选择器，但明显不如jquery方便简洁，无视就好</p>
+<h2 id="如何查找兄弟节点？"><a href="#如何查找兄弟节点？" class="headerlink" title="如何查找兄弟节点？"></a>如何查找兄弟节点？</h2><p>Query对象返回，children()则只会返回节点</p>
+<p>jQuery.prev()，返回上一个兄弟节点，不是所有的兄弟节点</p>
+<p>jQuery.prevAll()，返回所有之前的兄弟节点</p>
+<p>jQuery.next(),返回下一个兄弟节点，不是所有的兄弟节点</p>
+<p>jQuery.nextAll()，返回所有之后的兄弟节点</p>
+<p>jQuery.siblings(),返回兄弟姐妹节点，不分前后</p>
+<p>getelementsbyclassname获取的是什么，有何特点？</p>
+<p>获取的是类似数组类的对象，可以理解成元素的数组，但是不能像数组一样push，确切的说是个伪数组，它只支持length属性。</p>
+<p>链接：<a href="https://www.jianshu.com/p/870830fcec58" target="_blank" rel="noopener">https://www.jianshu.com/p/870830fcec58</a></p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
     <title>webpack打包报错：clean-webpack-plugin only accepts an options object</title>
     <url>/2019/10/24/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/webpack%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99%EF%BC%9Aclean-webpack-plugin-only-accepts-an-options-object/</url>
     <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><h2 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h2><p>webpack 4.41.2<br>clean-webpack-plugin 3.0.0</p><h2 id="webpack打包报错信息"><a href="#webpack打包报错信息" class="headerlink" title="webpack打包报错信息"></a>webpack打包报错信息</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">clean-webpack-plugin only accepts an options object.</span><br></pre></td></tr></table></figure><h2 id="Webpack-Config"><a href="#Webpack-Config" class="headerlink" title="Webpack Config"></a>Webpack Config</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">const &#123; CleanWebpackPlugin &#125; = require(&apos;clean-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        app: &apos;./src/index.js&apos;,</span><br><span class="line">        print: &apos;./src/print.js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        new CleanWebpackPlugin([&apos;dist&apos;]),</span><br><span class="line">        new HtmlWebpackPlugin(&#123;</span><br><span class="line">            title: &apos;Output Management&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &apos;[name].bundle.js&apos;,</span><br><span class="line">        path: path.resolve(__dirname, &apos;dist&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><a id="more"></a>

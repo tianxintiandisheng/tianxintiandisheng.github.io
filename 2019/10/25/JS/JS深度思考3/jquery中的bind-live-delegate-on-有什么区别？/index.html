@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="当我们试图绑定一些事件到DOM元素上的时候，我相信上面这4个方法是最常用的。而它们之间到底有什么不同呢？在什么场合下用什么方法是最有效的呢?准备知识当我们在开始的时候，有些知识是必须具备的：DOM树下图仅仅是一个示例，这是一个在browser环境下的一棵模拟DOM树，在下面的代码中仅起到演示的作用：Event bubbling (aka event propagation)冒泡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery中的bind(),live(),delegate(),on()有什么区别？">
+<meta property="og:url" content="http://yoursite.com/2019/10/25/JS/JS深度思考3/jquery中的bind-live-delegate-on-有什么区别？/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="当我们试图绑定一些事件到DOM元素上的时候，我相信上面这4个方法是最常用的。而它们之间到底有什么不同呢？在什么场合下用什么方法是最有效的呢?准备知识当我们在开始的时候，有些知识是必须具备的：DOM树下图仅仅是一个示例，这是一个在browser环境下的一棵模拟DOM树，在下面的代码中仅起到演示的作用：Event bubbling (aka event propagation)冒泡">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahircgqqj30fa08cjrb.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahi3ycukj30fa09q0sq.jpg">
+<meta property="og:updated_time" content="2019-10-25T07:43:09.084Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery中的bind(),live(),delegate(),on()有什么区别？">
+<meta name="twitter:description" content="当我们试图绑定一些事件到DOM元素上的时候，我相信上面这4个方法是最常用的。而它们之间到底有什么不同呢？在什么场合下用什么方法是最有效的呢?准备知识当我们在开始的时候，有些知识是必须具备的：DOM树下图仅仅是一个示例，这是一个在browser环境下的一棵模拟DOM树，在下面的代码中仅起到演示的作用：Event bubbling (aka event propagation)冒泡">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahircgqqj30fa08cjrb.jpg">
+  <link rel="canonical" href="http://yoursite.com/2019/10/25/JS/JS深度思考3/jquery中的bind-live-delegate-on-有什么区别？/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>jquery中的bind(),live(),delegate(),on()有什么区别？ | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/25/JS/JS深度思考3/jquery中的bind-live-delegate-on-有什么区别？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            jquery中的bind(),live(),delegate(),on()有什么区别？
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-25 15:29:53 / 修改时间：15:43:09" itemprop="dateCreated datePublished" datetime="2019-10-25T15:29:53+08:00">2019-10-25</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>当我们试图绑定一些事件到DOM元素上的时候，我相信上面这4个方法是最常用的。而它们之间到底有什么不同呢？在什么场合下用什么方法是最有效的呢?</p><h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><p>当我们在开始的时候，有些知识是必须具备的：</p><p>DOM树</p><p>下图仅仅是一个示例，这是一个在browser环境下的一棵模拟DOM树，在下面的代码中仅起到演示的作用：</p><p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahircgqqj30fa08cjrb.jpg" alt="chart.png"></p><p>Event bubbling (aka event propagation)冒泡</p><a id="more"></a>
+
+
+
+
+
+<p>我们的页面可以理解为一棵DOM树，当我们在叶子结点上做什么事情的时候（如click一个a元素），如果我们不人为的设置stopPropagation(Moder Browser), cancelBubble(IE)，那么它的所有父元素，祖宗元素都会受之影响，它们上面绑定的事件也会产生作用。看一个示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;a&apos;).bind(&apos;click&apos;, function() &#123; alert(&quot;That tickles!&quot;) &#125;);</span><br></pre></td></tr></table></figure>
+<p>当我们在a 上面点击的时候，首先会触发它本身所绑定的click事件，然后会一路往上，触发它的父元素，祖先元素上所有绑定的click事件，就像下图演示的那样。</p>
+<p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahi3ycukj30fa09q0sq.jpg" alt="chart (1).png"></p>
+<p>示例HTML</p>
+<p> 为了对下面的代码进行演示，添加一些HTML代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&quot;members&quot; data-role=&quot;listview&quot; data-filter=&quot;true&quot;&gt;</span><br><span class="line">    &lt;!-- ... more list items ... --&gt;</span><br><span class="line">    &lt;li&gt;</span><br><span class="line">        &lt;a href=&quot;detail.html?id=10&quot;&gt;</span><br><span class="line">            &lt;h3&gt;John Resig(jQuery的作者)&lt;/h3&gt;</span><br><span class="line">            &lt;p&gt;&lt;strong&gt;jQuery Core Lead&lt;/strong&gt;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;Boston, United States&lt;/p&gt;</span><br><span class="line">        &lt;/a&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">    &lt;!-- ... more list items ... --&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="Bind"><a href="#Bind" class="headerlink" title="Bind()"></a><strong>Bind()</strong></h1><p>.bind()是最直接的绑定方法 ，会绑定事件类型和处理函数到DOM element上, 这个方法是存在最久的，而且也很好的解决了浏览器在事件处理中的兼容问题。但是这个方法有一些performance方面的问题，看下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/* The .bind() method attaches the event handler directly to the DOM </span><br><span class="line">   element in question ( &quot;#members li a&quot; ). The .click() method is </span><br><span class="line">   just a shorthand way to write the .bind() method. */</span><br><span class="line"></span><br><span class="line">$( &quot;#members li a&quot; ).bind( &quot;click&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members li a&quot; ).click( function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<p>上面的两行代码所完成的任务都是一致的，就是把event handler加到<strong>全部</strong>的匹配的<a>元素上。这里存在着一些效率方面的问题，一方面，我们隐式地把click handler加到所有的a标签上，这个过程是昂贵的;另一方面在执行的时候也是一种浪费，因为它们都是做了同一件事却被执行了一次又一次（比如我们可以把它hook到它们的父元素上，通过冒泡可以对它们中的每一个进行区分，然后再执行这个event handler）。</a></p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>这个方法提供了一种在各种浏览器之间对事件处理的兼容性解决方案</li>
+<li>非常方便简单的绑定事件到元素上</li>
+<li>.click(), .hover()…这些非常方便的事件绑定，都是bind的一种简化处理方式</li>
+<li>对于利用ID选出来的元素是非常好的，不仅仅是很快的可以hook上去(因为一个页面只有一个id),而且当事件发生时，handler可以立即被执行(相对于后面的live, delegate)实现方式</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>它会绑定事件到所有的选出来的元素上</li>
+<li>它不会绑定到在它执行完后动态添加的那些元素上</li>
+<li>当元素很多时，会出现效率问题</li>
+<li>当页面加载完的时候，你才可以进行bind()，所以可能产生效率问题</li>
+</ul>
+<h1 id="live"><a href="#live" class="headerlink" title=".live()"></a><strong>.live()</strong></h1><p>.live()方法用到了事件委托的概念来处理事件的绑定。它和用.bind()来绑定事件是一样的。.live()方法会绑定相应的事件到你所选择的元素的根元素上，即是document元素上。那么所有通过冒泡上来的事件都可以用这个相同的handler来处理了。它的处理机制是这样的，一旦事件冒泡到document上，jQuery将会查找selector/event metadata,然后决定那个handler应该被调用。jquery 1.8.2的源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">if ( delegateCount &amp;&amp; !(event.button &amp;&amp; event.type === &quot;click&quot;) ) &#123;</span><br><span class="line"></span><br><span class="line">            for ( cur = event.target; cur != this; cur = cur.parentNode || this ) &#123;</span><br><span class="line"></span><br><span class="line">                // Don&apos;t process clicks (ONLY) on disabled elements (#6911, #8165, #11382, #11764)</span><br><span class="line">                if ( cur.disabled !== true || event.type !== &quot;click&quot; ) &#123;</span><br><span class="line">                    selMatch = &#123;&#125;;</span><br><span class="line">                    matches = [];</span><br><span class="line">                    for ( i = 0; i &lt; delegateCount; i++ ) &#123;</span><br><span class="line">                        handleObj = handlers[ i ];</span><br><span class="line">                        sel = handleObj.selector;</span><br><span class="line"></span><br><span class="line">                        if ( selMatch[ sel ] === undefined ) &#123;</span><br><span class="line">                            selMatch[ sel ] = handleObj.needsContext ?</span><br><span class="line">                                jQuery( sel, this ).index( cur ) &gt;= 0 :</span><br><span class="line">                                jQuery.find( sel, this, null, [ cur ] ).length;</span><br><span class="line">                        &#125;</span><br><span class="line">                        if ( selMatch[ sel ] ) &#123;</span><br><span class="line">                            matches.push( handleObj );</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if ( matches.length ) &#123;</span><br><span class="line">                        handlerQueue.push(&#123; elem: cur, matches: matches &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>当handler在执行的时候，因为有冒泡的参与，确实会有一些延迟，但是绑定的时候是特别的快。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/* The .live() method attaches the event handler to the root level </span><br><span class="line">   document along with the associated selector and event information </span><br><span class="line">   ( &quot;#members li a&quot; &amp; &quot;click&quot; ) */ </span><br><span class="line"></span><br><span class="line">$( &quot;#members li a&quot; ).live( &quot;click&quot;, function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<p>上面的code在和.bind()相比的时候有一个好处就是我们不需要在每个元素上再去绑定事件，而只在document上绑定一次就可以了。尽管这个不是最快的方式，但是确实是最少浪费的。</p>
+<h2 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>这里仅有一次的事件绑定，绑定到document上而不像.bind()那样给所有的元素挨个绑定</li>
+<li>那些动态添加的elemtns依然可以触发那些早先绑定的事件，因为事件真正的绑定是在document上</li>
+<li>你可以在document ready之前就可以绑定那些需要的事件</li>
+</ul>
+<h2 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>从1.7开始已经不被推荐了，所以你也要开始逐步淘汰它了。</li>
+<li>Chaining没有被正确的支持</li>
+<li>当使用event.stopPropagation()是没用的，因为都要到达document</li>
+<li>因为所有的selector/event都被绑定到document, 所以当我们使用matchSelector方法来选出那个事件被调用时，会非常慢</li>
+<li>当发生事件的元素在你的DOM树中很深的时候，会有performance问题</li>
+</ul>
+<h1 id="Delegate"><a href="#Delegate" class="headerlink" title=".Delegate()"></a><strong>.Delegate()</strong></h1><p>.delegate()有点像.live(),不同于.live()的地方在于，它不会把所有的event全部绑定到document,而是由你决定把它放在哪儿。而和.live()相同的地方在于都是用event delegation.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/* The .delegate() method behaves in a similar fashion to the .live() </span><br><span class="line">   method, but instead of attaching the event handler to the document, </span><br><span class="line">   you can choose where it is anchored ( &quot;#members&quot; ). The selector </span><br><span class="line">   and event information ( &quot;li a&quot; &amp; &quot;click&quot; ) will be attached to the </span><br><span class="line">   &quot;#members&quot; element. */</span><br><span class="line"></span><br><span class="line">$( &quot;#members&quot; ).delegate( &quot;li a&quot;, &quot;click&quot;, function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<h2 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>你可以选择你把这个事件放到那个元素上了</li>
+<li>chaining被正确的支持了</li>
+<li>jQuery仍然需要迭代查找所有的selector/event data来决定那个子元素来匹配，但是因为你可以决定放在那个根元素上，所以可以有效的减小你所要查找的元素。</li>
+<li>可以用在动态添加的元素上</li>
+</ul>
+<h2 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>需要查找那个那个元素上发生了那个事件了，尽管比document少很多了，不过，你还是得浪费时间来查找。</li>
+</ul>
+<h1 id="On"><a href="#On" class="headerlink" title=".On()"></a><strong>.On()</strong></h1><p> 其实.bind(), .live(), .delegate()都是通过.on()来实现的，.unbind(), .die(), .undelegate(),也是一样的都是通过.off()来实现的，这是1.8.2的源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">bind: function( types, data, fn ) &#123;</span><br><span class="line">        return this.on( types, null, data, fn );</span><br><span class="line">    &#125;,</span><br><span class="line">    unbind: function( types, fn ) &#123;</span><br><span class="line">        return this.off( types, null, fn );</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    live: function( types, data, fn ) &#123;</span><br><span class="line">        jQuery( this.context ).on( types, this.selector, data, fn );</span><br><span class="line">        return this;</span><br><span class="line">    &#125;,</span><br><span class="line">    die: function( types, fn ) &#123;</span><br><span class="line">        jQuery( this.context ).off( types, this.selector || &quot;**&quot;, fn );</span><br><span class="line">        return this;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    delegate: function( selector, types, data, fn ) &#123;</span><br><span class="line">        return this.on( types, selector, data, fn );</span><br><span class="line">    &#125;,</span><br><span class="line">    undelegate: function( selector, types, fn ) &#123;</span><br><span class="line">        // ( namespace ) or ( selector, types [, fn] )</span><br><span class="line">        return arguments.length === 1 ? this.off( selector, &quot;**&quot; ) : this.off( types, selector || &quot;**&quot;, fn );</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>看一下，我们用如何用.on()来改写前面通过 .bind(), .live(), .delegate()所注册的事件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/* The jQuery .bind(), .live(), and .delegate() methods are just one </span><br><span class="line">   line pass throughs to the new jQuery 1.8.2 .on() method */</span><br><span class="line"></span><br><span class="line">// Bind</span><br><span class="line">$( &quot;#members li a&quot; ).on( &quot;click&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members li a&quot; ).bind( &quot;click&quot;, function( e ) &#123;&#125; ); </span><br><span class="line"></span><br><span class="line">// Live</span><br><span class="line">$( document ).on( &quot;click&quot;, &quot;#members li a&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members li a&quot; ).live( &quot;click&quot;, function( e ) &#123;&#125; );</span><br><span class="line"></span><br><span class="line">// Delegate</span><br><span class="line">$( &quot;#members&quot; ).on( &quot;click&quot;, &quot;li a&quot;, function( e ) &#123;&#125; ); </span><br><span class="line">$( &quot;#members&quot; ).delegate( &quot;li a&quot;, &quot;click&quot;, function( e ) &#123;&#125; );</span><br></pre></td></tr></table></figure>
+<h2 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>提供了一种统一绑定事件的方法</li>
+<li>仍然提供了.delegate()的优点，当然如果需要你也可以直接用.bind()</li>
+</ul>
+<h2 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>也许会对你产生一些困扰，因为它隐藏了一前面我们所介绍的三种方法的细节。</li>
+</ul>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a><strong>结论</strong></h1><ul>
+<li>用.bind()的代价是非常大的，它会把相同的一个事件处理程序hook到所有匹配的DOM元素上</li>
+<li>不要再用.live()了，它已经不再被推荐了，而且还有许多问题</li>
+<li>.delegate()会提供很好的方法来提高效率，同时我们可以添加一事件处理方法到动态添加的元素上。</li>
+<li><p>我们可以用.on()来代替上述的3种方法</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1></li>
+</ul>
+<p><a href="http://www.elijahmanor.com/2012/02/differences-between-jquery-bind-vs-live.html" target="_blank" rel="noopener">http://www.elijahmanor.com/2012/02/differences-between-jquery-bind-vs-live.html</a></p>
+<p><a href="http://www.alfajango.com/blog/the-difference-between-jquerys-bind-live-and-delegate/" target="_blank" rel="noopener">http://www.alfajango.com/blog/the-difference-between-jquerys-bind-live-and-delegate/</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/25/JS/JS深度思考3/有限状态机是什么？/" rel="next" title="有限状态机是什么？">
+                  <i class="fa fa-chevron-left"></i> 有限状态机是什么？
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备知识"><span class="nav-number">1.</span> <span class="nav-text">准备知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bind"><span class="nav-number">2.</span> <span class="nav-text">Bind()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number">2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number">2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#live"><span class="nav-number">3.</span> <span class="nav-text">.live()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-1"><span class="nav-number">3.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-1"><span class="nav-number">3.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Delegate"><span class="nav-number">4.</span> <span class="nav-text">.Delegate()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-2"><span class="nav-number">4.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-2"><span class="nav-number">4.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#On"><span class="nav-number">5.</span> <span class="nav-text">.On()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#优点-3"><span class="nav-number">5.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点-3"><span class="nav-number">5.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">6.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">163k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:28</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

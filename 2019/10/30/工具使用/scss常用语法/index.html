@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="什么是CSS resetting？在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法">
+  <meta name="description" content="前言Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。使用 Sass 以及 Sass 的样式库（如 Compass）有助于更好地组织管理样式文件，以及更高效地开发项目。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何做默认样式重置？resetting 和 normalizing 之间有什么区别？">
-<meta property="og:url" content="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考12-14/如何做默认样式重置？resetting-和-normalizing-之间有什么区别？/index.html">
+<meta property="og:title" content="scss常用语法">
+<meta property="og:url" content="http://yoursite.com/2019/10/30/工具使用/scss常用语法/index.html">
 <meta property="og:site_name" content="天心天地生">
-<meta property="og:description" content="什么是CSS resetting？在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法">
+<meta property="og:description" content="前言Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。使用 Sass 以及 Sass 的样式库（如 Compass）有助于更好地组织管理样式文件，以及更高效地开发项目。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-17T15:11:35.803Z">
+<meta property="og:updated_time" content="2019-10-30T07:41:10.734Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何做默认样式重置？resetting 和 normalizing 之间有什么区别？">
-<meta name="twitter:description" content="什么是CSS resetting？在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法">
-  <link rel="canonical" href="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考12-14/如何做默认样式重置？resetting-和-normalizing-之间有什么区别？/">
+<meta name="twitter:title" content="scss常用语法">
+<meta name="twitter:description" content="前言Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。使用 Sass 以及 Sass 的样式库（如 Compass）有助于更好地组织管理样式文件，以及更高效地开发项目。">
+  <link rel="canonical" href="http://yoursite.com/2019/10/30/工具使用/scss常用语法/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>如何做默认样式重置？resetting 和 normalizing 之间有什么区别？ | 天心天地生</title>
+  <title>scss常用语法 | 天心天地生</title>
   
 
 
@@ -252,7 +252,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/CSS层叠样式表/CSS深度思考12-14/如何做默认样式重置？resetting-和-normalizing-之间有什么区别？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/工具使用/scss常用语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -266,7 +266,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            如何做默认样式重置？resetting 和 normalizing 之间有什么区别？
+            scss常用语法
             
 
           
@@ -283,19 +283,11 @@
                 
               
 
-              <time title="创建时间：2019-10-10 23:59:37" itemprop="dateCreated datePublished" datetime="2019-10-10T23:59:37+08:00">2019-10-10</time>
+              <time title="创建时间：2019-10-30 15:36:52 / 修改时间：15:41:10" itemprop="dateCreated datePublished" datetime="2019-10-30T15:36:52+08:00">2019-10-30</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-17 23:11:35" itemprop="dateModified" datetime="2019-10-17T23:11:35+08:00">2019-10-17</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -305,19 +297,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">层叠样式表CSS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/层叠样式表CSS/深度思考/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考</span>
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
                   </a>
                 </span>
 
@@ -344,7 +325,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.6k</span>
+              <span>2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -354,7 +335,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -367,17 +348,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="什么是CSS-resetting？"><a href="#什么是CSS-resetting？" class="headerlink" title="什么是CSS resetting？"></a>什么是CSS resetting？</h1><p>在HTML标签在浏览器里有默认的样式，例如 p 标签有上下边距，strong标签有字体加粗样式，em标签有字体倾斜样式。不同浏览器的默认样式之间也会有差别，例如ul默认带有缩进的样式，在IE下，它的缩进是通过margin实现的，而Firefox下，它的缩进是由padding实现的。在切换页面的时候，浏览器的默认样式往往会给我们带来麻烦，影响开发效率。所以解决的方法就是一开始就将浏览器的默认样式全部去掉，更准确说就是通过重新定义标签样式。“覆盖”浏览器的CSS默认属性。最最简单的说法就是把浏览器提供的默认样式覆盖掉！这就是CSS reset。</p><a id="more"></a>
-<h2 id="CSS-Reset的作用"><a href="#CSS-Reset的作用" class="headerlink" title="CSS Reset的作用"></a>CSS Reset的作用</h2><p>CSS Reset让各个浏览器的CSS样式有一个统一的基准，而实现这一基准最主要的方式就是“清零”</p>
-<h1 id="什么是normalizing？"><a href="#什么是normalizing？" class="headerlink" title="什么是normalizing？"></a>什么是normalizing？</h1><p>Normalize.css 只是一个很小的CSS文件，但它在默认的HTML元素样式上 提供了跨浏览器的高度一致性。相比于传统的CSS reset，Normalize.css 是一种现代的、为HTML5准备的优质替代方案。Normalize.css现在已经被 用于Twitter Bootstrap、HTML5 Boilerplate、GOV.UK、Rdio、CSS Tricks 以及许许多多其他框架、工具和网站上。</p>
-<h2 id="normalize创造的目的"><a href="#normalize创造的目的" class="headerlink" title="normalize创造的目的"></a>normalize创造的目的</h2><p>保护有用的浏览器默认样式而不是完全去掉它们</p>
-<h1 id="resetting-和-normalizing-之间有什么区别？"><a href="#resetting-和-normalizing-之间有什么区别？" class="headerlink" title="resetting 和 normalizing 之间有什么区别？"></a>resetting 和 normalizing 之间有什么区别？</h1><ol>
-<li>Normalize.css 保护了有价值的默认值<br>Reset通过为几乎所有的元素施加默认样式，强行使得元素有相同的视觉效果。 相比之下，Normalize.css保持了许多默认的浏览器样式。这就意味着你不用再 为所有公共的排版元素重新设置样式。当一个元素在不同的浏览器中有不同的默认值时， Normalize.css会力求让这些样式保持一致并尽可能与现代标准相符合。</li>
-<li>Normalize.css 修复了浏览器的bug<br>它修复了常见的桌面端和移动端浏览器的bug。 这往往超出了Reset所能做到的范畴。关于这一点， Normalize.css修复的问题包含了HTML5元素的显示设置、 预格式化文字的font-size问题、在IE9中SVG的溢出、许多 出现在各浏览器和操作系统中的与表单相关的bug。</li>
-<li>Normalize.css 不会让你的调试工具变的杂乱<br>使用Reset最让人困扰的地方莫过于在浏览器调试工具中大段大段的继承链， 如下图所示。在Normalize.css中就不会有这样的问题，因为在我们的准则中 对多选择器的使用时非常谨慎的，我们仅会有目的地对目标元素设置样式。</li>
-<li>Normalize.css 是模块化的<br>这个项目已经被拆分为多个相关却又独立的部分， 这使得你能够很容易也很清楚地知道哪些元素被设置了特定的值。 因此这能让你自己选择性地移除掉某些永远不会用到部分（比如表单的一般化）。</li>
-<li>Normalize.css 拥有详细的文档<br>Normalize.css的代码基于详细而全面的跨浏览器研究与测试。 这个文件中拥有详细的代码说明并在Github Wiki中有进一步的说明。 这意味着你可以找到每一行代码具体完成了什么工作、为什么要写这句代码、 浏览器之间的差异，并且你可以更容易地进行自己的测试。<br>总得来说，CSS Reset 是革命党 ，CSS Reset 里最激进那一派提倡不管你有用没用， 通通给我脱了衣服，于是 *{margin:0;} 等等运动，把人家全拍了。看似是众生平等了， 实则是浪费了资源又占不到便宜，有求于人家的时候还得给加回去，实在需要人家的默认 样式了怎么办？自己看着办吧。<br>Normalize.css 是改良派。他们提倡，各个元素都有其存在的道理， 简单粗暴地一视同仁是不好的。谁都有谁的作用，给他们制定个规范，确保他们 在任何浏览器里都干好自己的活儿就好了。</li>
-</ol>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Sass 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。使用 Sass 以及 Sass 的样式库（如 Compass）有助于更好地组织管理样式文件，以及更高效地开发项目。</p><a id="more"></a>
+<h1 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h1><p>Sass 允许将一套 CSS 样式嵌套进另一套样式中，内层的样式将它外层的选择器作为父选择器，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#main p &#123;</span><br><span class="line">  color: #00ff00;</span><br><span class="line">  width: 97%;</span><br><span class="line"></span><br><span class="line">  .redbox &#123;</span><br><span class="line">    background-color: #ff0000;</span><br><span class="line">    color: #000000;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#main p &#123;</span><br><span class="line">  color: #00ff00;</span><br><span class="line">  width: 97%; &#125;</span><br><span class="line">  #main p .redbox &#123;</span><br><span class="line">    background-color: #ff0000;</span><br><span class="line">    color: #000000; &#125;</span><br></pre></td></tr></table></figure>
+<p>嵌套功能避免了重复输入父选择器，而且令复杂的 CSS 结构更易于管理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#main &#123;</span><br><span class="line">  width: 97%;</span><br><span class="line"></span><br><span class="line">  p, div &#123;</span><br><span class="line">    font-size: 2em;</span><br><span class="line">    a &#123; font-weight: bold; &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  pre &#123; font-size: 3em; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#main &#123;</span><br><span class="line">  width: 97%; &#125;</span><br><span class="line">  #main p, #main div &#123;</span><br><span class="line">    font-size: 2em; &#125;</span><br><span class="line">    #main p a, #main div a &#123;</span><br><span class="line">      font-weight: bold; &#125;</span><br><span class="line">  #main pre &#123;</span><br><span class="line">    font-size: 3em; &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>SassScript 最普遍的用法就是变量，变量以美元符号开头，赋值方法与 CSS 属性的写法一样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$width: 5em;</span><br></pre></td></tr></table></figure>
+<p>直接使用即调用变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#main &#123;</span><br><span class="line">  width: $width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>变量支持块级作用域，嵌套规则内定义的变量只能在嵌套规则内使用（局部变量），不在嵌套规则内定义的变量则可在任何地方使用（全局变量）。将局部变量转换为全局变量可以添加 <code>!global</code> 声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#main &#123;</span><br><span class="line">  $width: 5em !global;</span><br><span class="line">  width: $width;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#sidebar &#123;</span><br><span class="line">  width: $width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#main &#123;</span><br><span class="line">  width: 5em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#sidebar &#123;</span><br><span class="line">  width: 5em;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="继承-extend"><a href="#继承-extend" class="headerlink" title="继承@extend"></a>继承@extend</h1><p>在设计网页的时候常常遇到这种情况：一个元素使用的样式与另一个元素完全相同，但又添加了额外的样式。通常会在 HTML 中给元素定义两个 class，一个通用样式，一个特殊样式。假设现在要设计一个普通错误样式与一个严重错误样式，一般会这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;error seriousError&quot;&gt;</span><br><span class="line">  Oh no! You&apos;ve been hacked!</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>样式如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.error &#123;</span><br><span class="line">  border: 1px #f00;</span><br><span class="line">  background-color: #fdd;</span><br><span class="line">&#125;</span><br><span class="line">.seriousError &#123;</span><br><span class="line">  border-width: 3px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>麻烦的是，这样做必须时刻记住使用 <code>.seriousError</code> 时需要参考 <code>.error</code> 的样式，带来了很多不变：智能比如加重维护负担，导致 bug，或者给 HTML 添加无语意的样式。使用 <code>@extend</code> 可以避免上述情况，告诉 Sass 将一个选择器下的所有样式继承给另一个选择器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.error &#123;</span><br><span class="line">  border: 1px #f00;</span><br><span class="line">  background-color: #fdd;</span><br><span class="line">&#125;</span><br><span class="line">.seriousError &#123;</span><br><span class="line">  @extend .error;</span><br><span class="line">  border-width: 3px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的意思是将 <code>.error</code> 下的所有样式继承给 <code>.seriousError</code>，<code>border-width: 3px;</code> 是单独给 <code>.seriousError</code> 设定特殊样式，这样，使用 <code>.seriousError</code> 的地方可以不再使用 <code>.error</code>。</p>
+<p>其他使用到 <code>.error</code> 的样式也会同样继承给 <code>.seriousError</code>，例如，另一个样式 <code>.error.intrusion</code> 使用了 <code>hacked.png</code> 做背景，<code>&lt;div class=&quot;seriousError intrusion&quot;&gt;</code> 也同样会使用 <code>hacked.png</code> 背景。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.error.intrusion &#123;</span><br><span class="line">  background-image: url(&quot;/image/hacked.png&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.sass.hk/docs/" target="_blank" rel="noopener">sass中文文档</a></p>
 
     </div>
 
@@ -417,8 +414,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/10/项目开发/CSS编码规范/" rel="next" title="CSS编码规范">
-                  <i class="fa fa-chevron-left"></i> CSS编码规范
+                <a href="/2019/10/28/JS/路径中“-”、“-”、“-”代表的含义/" rel="next" title="路径中“./”、“../”、“/”代表的含义">
+                  <i class="fa fa-chevron-left"></i> 路径中“./”、“../”、“/”代表的含义
                 </a>
               
             </div>
@@ -426,10 +423,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/10/11/CSS层叠样式表/CSS深度思考12-14/移动端有哪些常见布局方式？/" rel="prev" title="移动端有哪些常见布局方式？">
-                  移动端有哪些常见布局方式？ <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -475,7 +468,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是CSS-resetting？"><span class="nav-number">1.</span> <span class="nav-text">什么是CSS resetting？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Reset的作用"><span class="nav-number">1.1.</span> <span class="nav-text">CSS Reset的作用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是normalizing？"><span class="nav-number">2.</span> <span class="nav-text">什么是normalizing？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#normalize创造的目的"><span class="nav-number">2.1.</span> <span class="nav-text">normalize创造的目的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#resetting-和-normalizing-之间有什么区别？"><span class="nav-number">3.</span> <span class="nav-text">resetting 和 normalizing 之间有什么区别？</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#嵌套"><span class="nav-number">2.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">3.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承-extend"><span class="nav-number">4.</span> <span class="nav-text">继承@extend</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

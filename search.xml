@@ -1,6 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何使用Bootbox ？</title>
+    <url>/2019/11/02/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Bootbox-%EF%BC%9F/</url>
+    <content><![CDATA[<p>Bootbox.js是一个小型的JavaScript库，基于 TBootstrap 和jquery开发。它允许你创建使用编程对话框。方便用户快速创建模拟框。 </p><h1 id="下载bootbox文件"><a href="#下载bootbox文件" class="headerlink" title="下载bootbox文件"></a>下载bootbox文件</h1><p><a href="http://bootboxjs.com/getting-started.html" target="_blank" rel="noopener">点击右上角下载按钮进行下载</a></p><p>所有版本的Bootbox都站在两个伟大的巨人的肩上：<a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a>和<a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a>。Bootstrap的确切版本取决于您使用的Bootbox的版本。这已经变得比我们想要的要复杂一些，但是希望这个方便的表格可以解决问题：</p><a id="more"></a>
+
+
+<table>
+<thead>
+<tr>
+<th>引导箱版本</th>
+<th>最小 引导版本</th>
+<th>最高 引导程序</th>
+<th>最小 jQuery的</th>
+<th>笔记</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.xx 最新</td>
+<td>3.0.0 <strong>*</strong></td>
+<td>4.xx</td>
+<td>1.9.1</td>
+<td>当前版本。更新以支持Bootstrap4。与Bootstrap 3保持兼容性。</td>
+</tr>
+<tr>
+<td>4.xx</td>
+<td>3.0.0</td>
+<td>3.4.x</td>
+<td>1.9.1</td>
+<td>完全重写以支持Bootstrap 3.0.0。</td>
+</tr>
+<tr>
+<td>3.xx</td>
+<td>2.2.2</td>
+<td>2.3.2</td>
+<td>1.8.3</td>
+<td>支持Bootstrap 2的最新版本。</td>
+</tr>
+<tr>
+<td>2.xx</td>
+<td>2.0.0</td>
+<td>2.0.4</td>
+<td>1.7.1</td>
+<td>如您所见，Bootstrap 2.1.x从未得到正式支持。</td>
+</tr>
+<tr>
+<td>1.xx</td>
+<td>1.3.0</td>
+<td>1.4.0</td>
+<td>1.7.1</td>
+<td>不要下载此版本的Bootbox，因为它太旧了。</td>
+</tr>
+<tr>
+<td><strong>*</strong>有些选项（例如<code>size</code>）需要Bootstrap 3.1.0或更高版本。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>如果您使用的是Bootstrap 4，则还<strong>必须</strong>包含<a href="https://popper.js.org/" target="_blank" rel="noopener">Popper.js</a>。如果您愿意，Bootstrap当前还会在预编译版本中包含bootstrap.bundle.min.js文件，该文件将Popper.js与bootstrap.js源文件结合在一起。</p>
+<h1 id="代码实战"><a href="#代码实战" class="headerlink" title="代码实战"></a>代码实战</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;</span><br><span class="line">    &lt;title&gt;My page&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- CSS dependencies --&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css&quot;&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .flexBox&#123;</span><br><span class="line">            display: flex;</span><br><span class="line">            align-items: center;</span><br><span class="line">            justify-content: center;</span><br><span class="line">            width: 100vw;</span><br><span class="line">            height: 100vh;</span><br><span class="line">        &#125;</span><br><span class="line">        .btn--margin&#123;</span><br><span class="line">            margin: 1rem;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;flexBox&quot;&gt;</span><br><span class="line">    &lt;!--&lt;p&gt;Content here. &lt;a class=&quot;show-alert&quot; href=#&gt;Alert!&lt;/a&gt;&lt;/p&gt;--&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot; class=&quot;btn btn-lg btn--margin show-alert&quot;&gt;带回调的警告&lt;/button&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot; class=&quot;btn btn-lg  btn--margin confirm&quot;&gt;对话框&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- JS dependencies --&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;!-- Bootstrap 4 dependency --&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/popper.js/1.15.0/esm/popper.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- bootbox code --&gt;</span><br><span class="line">&lt;script src=&quot;bootbox.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;bootbox.locales.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(document).on(&quot;click&quot;, &quot;.show-alert&quot;, function(e) &#123;</span><br><span class="line">        bootbox.alert(&#123;</span><br><span class="line">            message: &quot;在控制台可以看到带回调的警告！&quot;,</span><br><span class="line">            callback: function () &#123;</span><br><span class="line">                console.log(&apos;带回调的警告&apos;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">    $(document).on(&quot;click&quot;, &quot;.confirm&quot;, function(e) &#123;</span><br><span class="line">        bootbox.confirm(&quot;这是默认的确认框&quot;, function(result)&#123;</span><br><span class="line">            console.log(&apos;回调函数的结果时: &apos; + result);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h1><p>详细的用法参考官方文档</p>
+<p><a href="http://bootboxjs.com/examples.html#bb-alert" target="_blank" rel="noopener">bootbox官方文档</a></p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>return的用法是什么？若用在for循环中，还会执行下一次循环吗？</title>
+    <url>/2019/11/02/return%E7%9A%84%E7%94%A8%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%8B%A5%E7%94%A8%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%EF%BC%8C%E8%BF%98%E4%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8B%E4%B8%80%E6%AC%A1%E5%BE%AA%E7%8E%AF%E5%90%97%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="return的用法"><a href="#return的用法" class="headerlink" title="return的用法"></a>return的用法</h1><h2 id="返回函数结果"><a href="#返回函数结果" class="headerlink" title="返回函数结果"></a>返回函数结果</h2><p><strong>语法为</strong>：return +表达式; 语句结束函数执行，返回调用函数，而且把表达式的值作为函数的结果</p><p>语句结束函数执行，返回调用函数，而且把表达式的值作为函数的结果。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function add() &#123;</span><br><span class="line">    var a=1;</span><br><span class="line">    var b=2;</span><br><span class="line">    return a+b;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">function getAdd() &#123;</span><br><span class="line">    console.log(add());</span><br><span class="line">&#125;</span><br><span class="line">getAdd(); //控制台输出3</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+<p>return 表示从被调函数返回到主调函数继续执行，返回时可附带一个返回值， 由return后面的参数指定。return通常是必要的，因为函数调用的时候计算结果通常是通过返回值带出的。</p>
+<p>不使用return</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function add() &#123;</span><br><span class="line">    var a=1;</span><br><span class="line">    var b=2;</span><br><span class="line">     a+b;</span><br><span class="line">&#125;</span><br><span class="line">function getAdd() &#123;</span><br><span class="line">    console.log(add());</span><br><span class="line">&#125;</span><br><span class="line">getAdd();// //控制台输出undefind</span><br></pre></td></tr></table></figure>
+<h3 id="返回函数控制"><a href="#返回函数控制" class="headerlink" title="返回函数控制"></a>返回函数控制</h3><p><strong>语法为</strong>：return;无函数结果，</p>
+<p>在大多数情况下,为事件处理函数返回false,可以防止默认的事件行为.例如,默认情况下点击<br>一个a标签元素,页面会跳转到该元素href属性指定的页.   </p>
+<p>Return False 就相当于终止符，Return True 就相当于执行符。   </p>
+<p>在js中return false的作用一般是用来取消默认动作的。比如你单击一个链接除了触发你的<br>onclick时间（如果你指定的话）以外还要触发一个默认事件就是执行页面的跳转。所以如果<br>你想取消对象的默认动作就可以return false。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;return&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;a href=&quot;https://www.baidu.com&quot;&gt;跳转至百度&lt;/a&gt;</span><br><span class="line">&lt;a href=&quot;https://www.baidu.com&quot; onclick=&quot;return false&quot;&gt;无法跳转&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    function a() &#123;</span><br><span class="line">        return false;</span><br><span class="line">        console.log(&quot;函数a执行&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    function b() &#123;</span><br><span class="line">        console.log(&quot;函数b执行&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    function c() &#123;</span><br><span class="line">        console.log(&quot;函数c执行&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function abc() &#123;</span><br><span class="line">        a();</span><br><span class="line">        b();</span><br><span class="line">        c();</span><br><span class="line">    &#125;</span><br><span class="line">    abc();//控制台打印&quot;函数b执行.函数c执行&quot;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>即使a函数返回return false 阻止提交了，但是不影响 b()以及 c()函数的执行。在abc()函数里调用a()函数，那么 return false 对于abc()函数来说，只是相当于返回值，而不能阻止Test()函数执行。</p>
+<h1 id="若用在for循环中，还会执行下一次循环吗"><a href="#若用在for循环中，还会执行下一次循环吗" class="headerlink" title="若用在for循环中，还会执行下一次循环吗"></a>若用在for循环中，还会执行下一次循环吗</h1><p>for循环只返回return所返回的值，并不会执行下一次循环。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function returnFor() &#123;</span><br><span class="line">      result = [1,2,3];</span><br><span class="line">      for(i=1;i&lt;10;i++)&#123;</span><br><span class="line">          result.push(i);</span><br><span class="line">          return result</span><br><span class="line">      &#125;</span><br><span class="line">      console.log(result)</span><br><span class="line">  &#125;</span><br><span class="line">  returnFor();//控制台 [1, 2, 3, 1]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>简述JS中的event delegate事件委托</title>
+    <url>/2019/11/02/%E7%AE%80%E8%BF%B0JS%E4%B8%AD%E7%9A%84event-delegate%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <content><![CDATA[<p>原文链接：<a href="https://www.jianshu.com/p/d7d4bf472766" target="_blank" rel="noopener">https://www.jianshu.com/p/d7d4bf472766</a></p><h1 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1.背景介绍"></a>1.背景介绍</h1><p>事件处理程序可以为现代web应用程序提供交互能力，因此许多开发人员会向页面中添加大量的处理程序。</p><p>但是在JavaScript中，添加到页面中的事件处理程序的数量会直接影响页面的整体运行性能。 </p><p>理由： </p><p>1.每个函数都是对象，都会占用内存。</p><a id="more"></a>
+
+
+
+
+<p>2.事先指定所有的事件处理程序会导致DOM的访问次数增加，会延迟整个页面的交互时间。 对“事件处理程序过多”问题的解决方案就是事件委托（Delegation）。–JavaScript高级程序设计</p>
+<p>3.事件委托的基本实现方式：在DOM树中尽量高的节点添加事件处理程序，代替在其多个子节点中添加。</p>
+<p><strong>事件委托还有一个名字叫事件代理.</strong> </p>
+<p>JS高程上讲：</p>
+<p>事件委托就是利用事件冒泡，只制定一个事件处理程序，就可以管理某一类型的所有事件。</p>
+<p><strong>这里用取快递来解释这个现象：</strong> </p>
+<p>有三个同事预计会在周一收到快递。为签收快递，有两种办法：</p>
+<p>一是三个人在公司门口等快递；</p>
+<p>二是委托给前台代为签收。</p>
+<p>现实当中，我们大都采用委托的方案。前台收到快递后，她会判断收件人是谁，然后按照收件人的要求签收，甚至代为付款。这种方案还有一个优势，那就是即使公司里来了新员工（不管多少），前台也会在收到寄给新员工的快递后核实并代为签收。</p>
+<p>这里其实还有2层意思的：</p>
+<p>第一，现在委托前台的同事是可以代为签收的，即程序中的现有的dom节点是有事件的；</p>
+<p>第二，新员工也是可以被前台代为签收的，即程序中新添加的dom节点也是有事件的。</p>
+<hr>
+<h1 id="2-知识剖析"><a href="#2-知识剖析" class="headerlink" title="2.知识剖析"></a>2.知识剖析</h1><h2 id="2-1为什么要用事件委托"><a href="#2-1为什么要用事件委托" class="headerlink" title="2.1为什么要用事件委托"></a>2.1为什么要用事件委托</h2><p>在JavaScript中，添加到页面上的事件处理程序数量将直接关系到页面的整体运行性能， 因为需要不断的与dom节点进行交互，访问dom的次数越多，引起浏览器重绘与重排的次数也就越多， 就会延长整个页面的交互就绪时间，这就是为什么性能优化的主要思想之一就是减少DOM操作的原因；</p>
+<p>每个函数都是一个对象，是对象就会占用内存，对象越多，内存占用率越大，100个li就要占用100个内存空间。 如果要用事件委托，就会将所有的操作放到js程序里面，只对它的父级(如果只有一个父级)这一个对象进行操作， 与dom的操作就只需要交互一次，这样就能大大的减少与dom的交互次数，提高性能；</p>
+<h2 id="2-2事件委托的原理"><a href="#2-2事件委托的原理" class="headerlink" title="2.2事件委托的原理"></a>2.2事件委托的原理</h2><p>事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？</p>
+<p>就是事件从最深的节点开始，然后逐步向上传播事件，</p>
+<p>举个例子：</p>
+<p>页面上有这么一个节点树，div&gt;ul&gt;li&gt;a;比如给最里面的a加一个click点击事件， 那么这个事件就会一层一层的往外执行，执行顺序a&gt;li&gt;ul&gt;div， 有这样一个机制，那么我们给最外面的div加点击事件，那么里面的ul，li，a做点击事件的时候， 都会冒泡到最外层的div上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。</p>
+<p>实例1、</p>
+<p><strong>子节点实现相同的功能：</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6285913-828c5ffbcefe490a.png?imageMogr2/auto-orient/strip|imageView2/2/w/682/format/webp" alt="img"> </p>
+<p>实现功能是点击li，弹出123</p>
+<p>我们看看有多少次的dom操作，首先要找到ul，然后遍历li，然后点击li的时候，又要找一次目标的li的位置，才能执行最后的操作，每次点击都要找一次li；</p>
+<p><strong>那么我们用事件委托的方式做又会怎么样呢</strong>？</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6285913-90ccbdaddab8250a.png?imageMogr2/auto-orient/strip|imageView2/2/w/712/format/webp" alt="img"> </p>
+<p>这里用父级ul做事件处理，当li被点击时，由于冒泡原理，事件就会冒泡到ul上，因为ul上有点击事件，所以事件就会触发，当然，这里当点击ul的时候，也是会触发的.</p>
+<h2 id="2-3-事件冒泡及捕获"><a href="#2-3-事件冒泡及捕获" class="headerlink" title="2.3 事件冒泡及捕获"></a>2.3 事件冒泡及捕获</h2><p>DOM2.0模型将事件处理流程分为三个阶段：</p>
+<p>一、事件捕获阶段，</p>
+<p>二、事件目标阶段，</p>
+<p>三、事件起泡阶段。</p>
+<p>如图：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6285913-53bc61bc8e253863.png?imageMogr2/auto-orient/strip|imageView2/2/w/540/format/webp" alt="img"> </p>
+<p>事件捕获： </p>
+<p>当某个元素触发某个事件（如onclick），顶层对象document就会发出一个事件流，</p>
+<p>随着DOM树的节点向目标元素节点流去，直到到达事件真正发生的目标元素。</p>
+<p>在这个过程中，事件相应的监听函数是不会被触发的。</p>
+<p>事件目标：</p>
+<p>当到达目标元素之后，执行目标元素该事件相应的处理函数。如果没有绑定监听函数，那就不执行。</p>
+<p>事件起泡：</p>
+<p>从目标元素开始，往顶层元素传播。途中如果有节点绑定了相应的事件处理函数，这些函数都会被触发。</p>
+<h2 id="2-4事件委托的优点"><a href="#2-4事件委托的优点" class="headerlink" title="2.4事件委托的优点"></a>2.4事件委托的优点</h2><p>通过刚才的对比介绍，大家应该能够体会到使用事件委托对于web应用程序带来的几个优点：</p>
+<p>1.管理的函数变少了。不需要为每个元素都添加监听函数。对于同一个父节点下面类似的子元素，可以通过委托给父元素的监听函数来处理事件。</p>
+<p>2.可以方便地动态添加和修改元素，不需要因为元素的改动而修改事件绑定。</p>
+<p>3.JavaScript和DOM节点之间的关联变少了，这样也就减少了因循环引用而带来的内存泄漏发生的概率。</p>
+<hr>
+<h1 id="3-常见问题"><a href="#3-常见问题" class="headerlink" title="3.常见问题"></a>3.常见问题</h1><p>如果我想让事件代理的效果跟直接给节点的事件效果一样怎么办? </p>
+<p>比如说只有点击li才会触发?</p>
+<h1 id="4-解决方案"><a href="#4-解决方案" class="headerlink" title="4.解决方案"></a>4.解决方案</h1><p>Event对象提供了一个属性叫target，可以返回事件的目标节点，</p>
+<p>我们成为事件源， 也就是说，target就可以表示为当前的事件操作的dom，但是不是真正操作dom。 </p>
+<p>标准浏览器用ev.target，IE浏览器用event.srcElement，此时只是获取了当前节点的位置， 并不知道是什么节点名称，这里我们用nodeName来获取具体是什么标签名。 </p>
+<p>这样改下就只有点击li会触发事件了，且每次只执行一次dom操作 </p>
+<p>HTML引用上面的实例部分</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6285913-f1c4eb62c1dadb65.png?imageMogr2/auto-orient/strip|imageView2/2/w/793/format/webp" alt="img"> </p>
+<h1 id="5-编码实战"><a href="#5-编码实战" class="headerlink" title="5.编码实战"></a>5.编码实战</h1><p>现在讲的都是document加载完成的现有dom节点下的操作， 那么如果是新增的节点，新增的节点会有事件吗？ 现在是移入li，li变红，移出li，li变蓝，这么一个效果，然后点击按钮，可以向ul中添加一个li子节点 </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6285913-569d46ede7205b3e.png?imageMogr2/auto-orient/strip|imageView2/2/w/646/format/webp" alt="img"> </p>
+<p>HTML引用上面的实例部分</p>
+<p>我们可以发现，当用事件委托的时候，根本就不需要去遍历元素的子节点， 只需要给父级元素添加事件就好了，其他的都是在js里面的执行， 这样可以大大的减少dom操作，这才是事件委托的精髓所在。 </p>
+<p><img src="https://upload-images.jianshu.io/upload_images/6285913-c4ea2261e44d04a9.png?imageMogr2/auto-orient/strip|imageView2/2/w/692/format/webp" alt="img"> </p>
+<p>HTML引用上面的实例部分</p>
+<h1 id="6-扩展思考"><a href="#6-扩展思考" class="headerlink" title="6.扩展思考"></a>6.扩展思考</h1><p>什么样的事件可以用事件委托，什么样的事件不可以用呢？ </p>
+<p>适合用事件委托的事件：click，mousedown，mouseup，keydown，keyup，keypress。（所有用到按钮的事件，多数的鼠标事件和键盘事件）</p>
+<p>值得注意的是，mouseover和mouseout虽然也有事件冒泡，但是处理它们的时候需要特别的注意，因为需要经常计算它们的位置，处理起来不太容易。</p>
+<p>不适合的就有很多了，举个例子，mousemove，每次都要计算它的位置，非常不好把控，在不如说focus，blur之类的，本身就没用冒泡的特性，自然就不能用事件委托了。</p>
+<h1 id="7-参考文献"><a href="#7-参考文献" class="headerlink" title="7.参考文献"></a>7.参考文献</h1><p> 参考一：<a href="https://link.jianshu.com?t=https://www.cnblogs.com/owenChen/archive/2013/02/18/2915521.html" target="_blank" rel="noopener">(转)陈鑫伟的博客</a></p>
+<h1 id="8-更多讨论"><a href="#8-更多讨论" class="headerlink" title="8.更多讨论"></a>8.更多讨论</h1><p>一、事件委托解决了什么问题？ </p>
+<p>1-可以绑定文档完成后新出现的新的子元素</p>
+<p>2-指定绑定事件的范围（父元素）</p>
+<p>3-不需要为每个元素设置绑定</p>
+<p> 二、与其它事件绑定有什么区别？</p>
+<p>.on()可多个事件绑定新元素冒泡不能绑定子元素</p>
+<p>.bind()可多个事件绑定新元素冒泡不能绑定子元素</p>
+<p>.delegate()可多个事件绑定新元素冒泡绑定子元素</p>
+<p>.click()单个事件不可绑定新元素冒泡绑定子元素</p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>对一个数组 filter、some、map、foreach的操作分别有什么作用？</title>
+    <url>/2019/11/01/%E5%AF%B9%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84-filter%E3%80%81some%E3%80%81map%E3%80%81foreach%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F/</url>
+    <content><![CDATA[<p>使用JavaScript数组常常需要对数组进行遍历、迭代操作。而我们常用的就是for语句对数组进行迭代。然而在ECMAscript5已经为数组定义了5个迭代的方法，分别是：filter、some、map、foreach、every，下面我们讲讲它们的具体作用。</p><h1 id="every-和some"><a href="#every-和some" class="headerlink" title="every()和some()"></a>every()和some()</h1><p>every()：对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true ;<br>some()： 对数组中的每一项运行给定函数，如果该函数对任一项返回true，则返回true; 为了加深对它们的理解，以上两个迭代方式有必要放在一起demo，<br>演示如下：<br><img src="https://img-blog.csdnimg.cn/20191101150657552.png" alt="every()和some()"><br><img src="https://img-blog.csdnimg.cn/20191101150743191.png" alt="在这里插入图片描述"></p><a id="more"></a>
+
+<p>通过 demo，可以看出<br>every()，在遍历数组项的时候，<strong>第一项的值就已经为false了，所以直接返回false不再继续执行后面的迭代；</strong><br>some() ，在遍历数组项的时候，当第一个满足函数体的项出现，就直接返回true，并且不再执行后面的迭代；</p>
+<h1 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h1><p>filter()：对数组中的每一项运行给定函数，返回该函数会返回true 的项组成的数组。<br>演示如下：<br> <img src="https://img-blog.csdnimg.cn/20191101151110577.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20191101151127414.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RpYW54aW50aWFuZGlzaGVuZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>通过demo，可以看出filter() 把原数组arr每一项返回为true的项，重新组成数组，并打印出该数组每个索引的值和数组长度；</p>
+<h1 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h1><p>map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组<br>演示如下：<br> <img src="https://img-blog.csdnimg.cn/20191101151234877.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20191101151254404.png" alt="在这里插入图片描述"></p>
+<p>通过demo可以看出 map() 把原数组arr的每一项迭代返回的结果，重新组成数组，并打印出该数组每个索引的值和数组长度；</p>
+<h1 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h1><p>forEach()：对数组中的每一项运行给定函数，这个方法并没有返回值<br> <img src="https://img-blog.csdnimg.cn/20191101151330192.png" alt="在这里插入图片描述"><br> <img src="https://img-blog.csdnimg.cn/20191101151343615.png" alt="在这里插入图片描述"><br>通过demo可以看出 forEach()，只是对每个数组项运行指定的函数体，这个迭代方式并没有返回值；</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p>如何判断两个数组中相同的项，然后将相同的部分或者不同的部分生成新的数组？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var num1 = [1,2,3,4,5,7];    </span><br><span class="line"></span><br><span class="line">var num2 = [2,3,5];    </span><br><span class="line"></span><br><span class="line">var nums = num1.filter(function(aaa)&#123;    </span><br><span class="line"></span><br><span class="line">    return num2.indexOf(aaa) &gt;= 0;    </span><br><span class="line"></span><br><span class="line">&#125;);    </span><br><span class="line"></span><br><span class="line">console.log(nums);</span><br></pre></td></tr></table></figure>
+<h1 id="扩展思考"><a href="#扩展思考" class="headerlink" title="扩展思考"></a>扩展思考</h1><p>问：相对于for()，JS数组自定义的数组迭代方式有哪些好处？这里面参数item、index和array代表的是什么？<br>答：在实现相同功能的前提下，后者除了能够节省代码量外，在实现某些功能上的流程中存在很多有意思的优势，比如forEach相比普通的for循环的优势在于对稀疏数组的处理，会跳过数组中的空位。for+i在性能测试上是优越于后者，但是前提是，array的length要事先计算出来，而在处理非常大量的数据时候，后者的优势就显而易见了。<br>答：传入这些方法中的函数会接收三个参数，item表示遍历后的当前对象，里面的index代表当前循环到第几个索引，array代表数组对象本身；</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p> <a href="https://blog.csdn.net/michael8512/article/details/77892899" target="_blank" rel="noopener">https://blog.csdn.net/michael8512/article/details/77892899</a></p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
     <title>vue中前端跨域方案</title>
     <url>/2019/11/01/Vue/vue%E4%B8%AD%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<p>vue项目中，前端与后台进行数据请求或者提交的时候，如果后台没有设置跨域，前端本地调试代码的时候就会报“No ‘Access-Control-Allow-Origin’ header is present on the requested resource.” 这种跨域错误。</p><p>搜素资料，发现方式五花八门，什么修改config/index.js中的配置，但是我的项目里面根本就没有这文件夹，大多都是过时资料。</p><a id="more"></a>

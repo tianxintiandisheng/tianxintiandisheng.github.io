@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="作者：Meetin空白链接：https://www.jianshu.com/p/5d4549586821來源：简书1.背景介绍什么是JSONJSON (JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="json是什么，如何处理转义？">
+<meta property="og:url" content="http://yoursite.com/2019/11/03/JS/JS深度思考4/json是什么，如何处理转义？/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="作者：Meetin空白链接：https://www.jianshu.com/p/5d4549586821來源：简书1.背景介绍什么是JSONJSON (JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JS">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-03T14:11:15.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="json是什么，如何处理转义？">
+<meta name="twitter:description" content="作者：Meetin空白链接：https://www.jianshu.com/p/5d4549586821來源：简书1.背景介绍什么是JSONJSON (JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JS">
+  <link rel="canonical" href="http://yoursite.com/2019/11/03/JS/JS深度思考4/json是什么，如何处理转义？/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>json是什么，如何处理转义？ | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/JS/JS深度思考4/json是什么，如何处理转义？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            json是什么，如何处理转义？
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-03 17:40:57 / 修改时间：22:11:15" itemprop="dateCreated datePublished" datetime="2019-11-03T17:40:57+08:00">2019-11-03</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>4.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>作者：Meetin空白<br>链接：<a href="https://www.jianshu.com/p/5d4549586821" target="_blank" rel="noopener">https://www.jianshu.com/p/5d4549586821</a><br>來源：简书</p><h1 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1.背景介绍"></a>1.背景介绍</h1><h2 id="什么是JSON"><a href="#什么是JSON" class="headerlink" title="什么是JSON"></a>什么是JSON</h2><p>JSON (JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。——百度百科</p><a id="more"></a>
+
+<p>数据传输是我们在敲代码时，经常遇到的一个场景,前后端交互。给数据一个统一的格式有利于我们编写和解析数据。</p>
+<p>json，是一种数据格式，在与后端的数据交互中有较为广泛的应用。</p>
+<h2 id="JSON的诞生"><a href="#JSON的诞生" class="headerlink" title="JSON的诞生"></a>JSON的诞生</h2><p>JSON是 (JavaScript Object Notation, JS 对象标记)，它是一种数据交换格式。在JSON出现之前，大家一直用XML来传递数据。因为XML是一种纯文本格式，所以它适合在网络上交换数据。XML本身不算复杂，但是，加上DTD、XSD、XPath、XSLT等一大堆复杂的规范以后，任何正常的软件开发人员碰到XML都会感觉头大了，最后大家发现，即使你努力钻研几个月，也未必搞得清楚XML的规范。</p>
+<p>终于，在2002年的一天，道格拉斯·克罗克福特（DouglasCrockford）同学为了拯救深陷水深火热同时又被某几个巨型软件企业长期愚弄的软件工程师，发明了JSON这种超轻量级的数据交换格式。</p>
+<p>由于JSON非常简单，很快就风靡Web世界，并且成为ECMA标准。几乎所有编程语言都有解析JSON的库，而在JavaScript中，我们可以直接使用JSON，因为JavaScript内置了JSON的解析。把任何JavaScript对象变成JSON，就是把这个对象序列化成一个JSON格式的字符串，这样才能够通过网络传递给其他计算机。如果我们收到一个JSON格式的字符串，只需要把它反序列化成一个JavaScript对象，就可以在JavaScript中直接使用这个对象了。</p>
+<h2 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h2><p>我们在调用 jsonp 接口或者调用js文件的时候，由于文件编码不同会导致出现乱码的问题。 如果你的文件出现了非英文字符，如果调用时文件编码不一致，同样会出现乱码情况。</p>
+<p>这也就是为什么要数据统一格式的原因。</p>
+<p>JSON 是适用于 Ajax 应用程序的一种有效格式，原因是它使 JavaScript 对象和字符串值之间得以快速转换 JSON是一种传递对象的语法</p>
+<p>JSON是一个提供了stringify和parse方法的内置对象 </p>
+<p>stringify将js对象转化为符合json标准的字符串</p>
+<p>parse将符合json标准的字符串转化为js对象</p>
+<h1 id="2-知识剖析"><a href="#2-知识剖析" class="headerlink" title="2.知识剖析"></a>2.知识剖析</h1><h2 id="JSON语法"><a href="#JSON语法" class="headerlink" title="JSON语法"></a>JSON语法</h2><p>数据在名称/值对中</p>
+<p>数据由逗号分隔</p>
+<p>大括号保存对象</p>
+<p>中括号保存数组</p>
+<h2 id="JSON值"><a href="#JSON值" class="headerlink" title="JSON值"></a>JSON值</h2><p>数字(整数/浮点数)</p>
+<p>字符串(双引号)</p>
+<p>布尔值(true/false)</p>
+<p>数组(中括号中)</p>
+<p>对象(大括号中)</p>
+<p>null</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>JSON 数据的书写格式是：名称/值对。</p>
+<p>名称/值对组合中的名称写在前面（在双引号中），值对写在后面，中间用冒号隔开，</p>
+<p>其中 值 可以是：数字（整数或浮点数）、字符串（在双引号中）、布尔值（true或false）、数组（在方括号中）、对象（在花括号中）、null</p>
+<p>使用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var json = &#123;&quot;password&quot;:123456,&quot;name&quot;:&quot;myname&quot;,&quot;Booleans&quot;:true,&quot;Array&quot;:[1,2,3],&quot;object&quot;:&#123;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>或者是嵌套使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">                      myObj = &#123;</span><br><span class="line"></span><br><span class="line">                          &quot;name&quot;:&quot;jnshu&quot;,</span><br><span class="line"></span><br><span class="line">                          &quot;alexa&quot;:10086,</span><br><span class="line"></span><br><span class="line">                          &quot;sites&quot;: &#123;</span><br><span class="line"></span><br><span class="line">                              &quot;site1&quot;:&quot;www.jnshu.com&quot;,</span><br><span class="line"></span><br><span class="line">                              &quot;site2&quot;:&quot;m.jnshu.com&quot;,</span><br><span class="line"></span><br><span class="line">                              &quot;site3&quot;:&quot;c.jnshu.com&quot;</span><br><span class="line"></span><br><span class="line">                          &#125;</span><br><span class="line"></span><br><span class="line">                      &#125;</span><br><span class="line"></span><br><span class="line">                      console.log(myObj)</span><br><span class="line"></span><br><span class="line">//输出结果：</span><br><span class="line"></span><br><span class="line">Object &#123;name: &quot;jnshu&quot;, alexa: 10086, sites: Object&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="转义概述"><a href="#转义概述" class="headerlink" title="转义概述"></a>转义概述</h2><p>为什么需要转义？在js中我们使用的js对象进行处理，但是在与后端数据交换的时候，我们发送规定的json格式的字符串，所以在给后端发送或接受数据的时候，需要转义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;name:&quot;myname&quot;,password:&quot;123456&quot;&#125; </span><br><span class="line"></span><br><span class="line">&quot;&#123;&quot;name&quot;:&quot;myname&quot;,&quot;password&quot;:&quot;123456&quot;&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>其中json字符串转js对象，调用parse方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">js对象 = JSON.parse(json字符串);</span><br><span class="line"></span><br><span class="line">js对象转json字符串，调用stringify方法：</span><br><span class="line"></span><br><span class="line">json字符串 = JSON.stringify(js对象);</span><br></pre></td></tr></table></figure>
+<h1 id="3-常见问题"><a href="#3-常见问题" class="headerlink" title="3.常见问题"></a>3.常见问题</h1><p>在json字符串转换成对象，还有eval(‘(‘+json字符串+’)’)这个方法，但是在对目标数据进行读取时，可能会出现一些意外的错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var value = 1;</span><br><span class="line"></span><br><span class="line">var jsonstr = &apos;&#123;&quot;data1&quot;:&quot;hello&quot;,&quot;data2&quot;:++value&#125;&apos;;</span><br><span class="line"></span><br><span class="line">var data1 = eval(&apos;(&apos;+jsonstr+&apos;)&apos;);</span><br><span class="line"></span><br><span class="line">console.log(data1);//这时value值为2</span><br><span class="line"></span><br><span class="line">var data2=JSON.parse(jsonstr);</span><br><span class="line"></span><br><span class="line">console.log(data2);//报错</span><br></pre></td></tr></table></figure>
+<p>原因：eval获取的json对象的值中，如果有执行代码，也将照样执行！所以若不能保证数据的安全性，不要使用eval方法进行转义。</p>
+<h1 id="4-编码实战"><a href="#4-编码实战" class="headerlink" title="4.编码实战"></a>4.编码实战</h1><p>下面是一个简单的json数据发送应用，有兴趣可以阅读一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$(document).ready(function()&#123;</span><br><span class="line"></span><br><span class="line">    var saveDataAry=[];</span><br><span class="line"></span><br><span class="line">    var data1=&#123;&quot;userName&quot;:&quot;test&quot;,&quot;address&quot;:&quot;gz&quot;&#125;;</span><br><span class="line"></span><br><span class="line">    var data2=&#123;&quot;userName&quot;:&quot;ququ&quot;,&quot;address&quot;:&quot;gr&quot;&#125;;</span><br><span class="line"></span><br><span class="line">    saveDataAry.push(data1);</span><br><span class="line"></span><br><span class="line">    saveDataAry.push(data2);</span><br><span class="line"></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line"></span><br><span class="line">        type:&quot;POST&quot;,</span><br><span class="line"></span><br><span class="line">        url:&quot;user/saveUser&quot;,</span><br><span class="line"></span><br><span class="line">        dataType:&quot;json&quot;,</span><br><span class="line"></span><br><span class="line">        contentType:&quot;application/json&quot;,</span><br><span class="line"></span><br><span class="line">        data:JSON.stringify(saveDataAry),</span><br><span class="line"></span><br><span class="line">        success:function(data)&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="5-扩展思考"><a href="#5-扩展思考" class="headerlink" title="5.扩展思考"></a>5.扩展思考</h1><p>我们常看到 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;name:&quot;myname&quot;,password:123456&#125;</span><br><span class="line"></span><br><span class="line">和</span><br><span class="line"></span><br><span class="line">&#123;&quot;name&quot;:&quot;myname&quot;,&quot;password&quot;:123456&#125;</span><br></pre></td></tr></table></figure>
+<p>这样两种格式，即js对象和json，然而js对象和json有什么不一样的地方？</p>
+<p>很多人搞不清楚 JSON 和 Js 对象的关系，甚至连谁是谁都不清楚。其实，可以这么理解：</p>
+<p>JSON 是 JS 对象的字符串表示法，它使用文本表示一个 JS 对象的信息，本质是一个字符串。</p>
+<p>如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var obj = &#123;a: &apos;Hello&apos;, b: &apos;World&apos;&#125;; //这是一个对象，注意键名也是可以使用引号包裹的</span><br><span class="line"></span><br><span class="line">var json = &apos;&#123;&quot;a&quot;: &quot;Hello&quot;, &quot;b&quot;: &quot;World&quot;&#125;&apos;; //这是一个 JSON 字符串，本质是一个字符串</span><br></pre></td></tr></table></figure>
+<p>JSON格式的对象与一般JS对象语法上的区别？</p>
+<p>对比内容JSONJS对象</p>
+<ul>
+<li><p>键名必须是加双引号可允许不加、加单引号、加双引号</p>
+</li>
+<li><p>属性值只能是数值（10进制）、字符串（双引号）、布尔值和null，</p>
+</li>
+</ul>
+<p>也可以是数组或者符合JSON要求的对象，</p>
+<ul>
+<li>不能是函数、NaN, Infinity（存放表示正无穷大的数值）, -Infinity和undefined</li>
+</ul>
+<p>任意属性值均可</p>
+<p>逗号问题最后一个属性后面不能有逗号可以有逗号</p>
+<p>数值前导0不能用，小数点后必须有数字无限制</p>
+<h1 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6.参考文献"></a>6.参考文献</h1><p>参考一：JSON官方文网</p>
+<p>参考二：Json对象和Json字符串的区别</p>
+<p>参考三：json属性名必须加引号的讨论</p>
+<h1 id="7-更多讨论"><a href="#7-更多讨论" class="headerlink" title="7.更多讨论"></a>7.更多讨论</h1><p>json字符串转json对象,调用parse方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var b=&apos;&#123;&quot;name&quot;:&quot;2323&quot;,&quot;sex&quot;:&quot;afasdf&quot;,&quot;age&quot;:&quot;6262&quot;&#125;&apos;//json字符串var bToObject=JSON.parse(b);</span><br><span class="line"></span><br><span class="line">console.log(bToObject.name);//2323</span><br></pre></td></tr></table></figure>
+<p>json对象转为json字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">vara=&#123;&quot;name&quot;:&quot;tom&quot;,&quot;sex&quot;:&quot;男&quot;,&quot;age&quot;:&quot;24&quot;&#125;//json对象varaToString=JSON.stringify(a);console.log(aToString);//&#123;&quot;name&quot;:&quot;tom&quot;,&quot;sex&quot;:&quot;男&quot;,&quot;age&quot;:&quot;24&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/02/JS/JS深度思考4/如何使用Bootbox-？/" rel="next" title="如何使用Bootbox ？">
+                  <i class="fa fa-chevron-left"></i> 如何使用Bootbox ？
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/05/JS/ECMAScript-6-简介/" rel="prev" title="ECMAScript 6 简介">
+                  ECMAScript 6 简介 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-背景介绍"><span class="nav-number">1.</span> <span class="nav-text">1.背景介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是JSON"><span class="nav-number">1.1.</span> <span class="nav-text">什么是JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON的诞生"><span class="nav-number">1.2.</span> <span class="nav-text">JSON的诞生</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转义"><span class="nav-number">1.3.</span> <span class="nav-text">转义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-知识剖析"><span class="nav-number">2.</span> <span class="nav-text">2.知识剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON语法"><span class="nav-number">2.1.</span> <span class="nav-text">JSON语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON值"><span class="nav-number">2.2.</span> <span class="nav-text">JSON值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">2.3.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#转义概述"><span class="nav-number">2.4.</span> <span class="nav-text">转义概述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-常见问题"><span class="nav-number">3.</span> <span class="nav-text">3.常见问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-编码实战"><span class="nav-number">4.</span> <span class="nav-text">4.编码实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-扩展思考"><span class="nav-number">5.</span> <span class="nav-text">5.扩展思考</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-参考文献"><span class="nav-number">6.</span> <span class="nav-text">6.参考文献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-更多讨论"><span class="nav-number">7.</span> <span class="nav-text">7.更多讨论</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">256k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:53</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

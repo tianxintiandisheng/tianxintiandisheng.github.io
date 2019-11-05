@@ -1,6 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何阻止事件冒泡和默认事件？</title>
+    <url>/2019/11/05/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%A6%82%E4%BD%95%E9%98%BB%E6%AD%A2%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E9%BB%98%E8%AE%A4%E4%BA%8B%E4%BB%B6%EF%BC%9F/</url>
+    <content><![CDATA[<h2 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a><strong>事件冒泡</strong></h2><p>在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对象层次的最顶层，即document对象（有些浏览器是window）。</p><a id="more"></a>
+<h2 id="默认行为"><a href="#默认行为" class="headerlink" title="默认行为"></a><strong>默认行为</strong></h2><p>浏览器的一些默认的行为。例如：点击超链接跳转，点击右键会弹出菜单，滑动滚轮控制滚动条等</p>
+<h2 id="事件冒泡有什么作用"><a href="#事件冒泡有什么作用" class="headerlink" title="事件冒泡有什么作用"></a><strong>事件冒泡有什么作用</strong></h2><p>事件冒泡允许多个操作被集中处理（把事件处理器添加到一个父级元素上，避免把事件处理器添加到多个子级元素上），它还可以让你在对象层的不同级别捕获事件。</p>
+<h2 id="阻止事件冒泡"><a href="#阻止事件冒泡" class="headerlink" title="阻止事件冒泡"></a><strong>阻止事件冒泡</strong></h2><p>DOM中提供stopPropagation()方法，但IE不支持，使用event对象在事件函数中调用就行。<br>IE中提供的是，cancelBubble属性，默认为false，当它设置为true时，就是阻止事件冒泡，也是用event对象在事件函数中调用<br>jQuery中提供了stopPropagation()方法来停止事件冒泡，当需要时，只需用用event对象来调用就行，即event.stopPropagation()</p>
+<p>代码写法：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopBubble</span>(<span class="params">e</span>) </span>&#123;  </span><br><span class="line"> <span class="keyword">if</span>(e &amp;&amp; e.stopPropagation)&#123;  </span><br><span class="line">      e.stopPropagation();  </span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">    <span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span>;  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="阻止默认行为"><a href="#阻止默认行为" class="headerlink" title="阻止默认行为"></a><strong>阻止默认行为</strong></h2><p>DOM中提供preventDefault()方法来取消事件默认行为，但是只有当cancelable属性设置为true的事件，才可以使用preventDefault()来取消事件默认行为，使用event对象在事件函数中调用就行<br>IE中提供的是returnValue属性，默认为true，当它设置为false时，就是取消事件默认行为，也是用event对象在事件函数中调用<br>jQuery中提供了preventDefault()方法来阻止元素的默认行为，只需要用event对象来调用就好，即event.preventDefault()</p>
+<p>// 阻止浏览器的默认事件</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stopDefault</span>(<span class="params">e</span>)</span>&#123;  </span><br><span class="line">   <span class="keyword">if</span>(e &amp;&amp; e.preventDefault) &#123;  </span><br><span class="line">      e.preventDefault();  </span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">      <span class="built_in">window</span>.event.returnValue = <span class="literal">false</span>;  </span><br><span class="line">   &#125;  </span><br><span class="line">   <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何理解JS作用域与作用域链？</title>
+    <url>/2019/11/05/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3JS%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE%EF%BC%9F/</url>
+    <content><![CDATA[<p>执行环境是JavaScript 中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。</p><p>#一. 背景介绍</p><h2 id="执行环境是什么"><a href="#执行环境是什么" class="headerlink" title="执行环境是什么"></a>执行环境是什么</h2><p>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。 每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中。 我们编写的代码是无法访问这个对象的，但解析器在处理数据时会在后台使用它。</p><a id="more"></a>
+
+
+<h2 id="全局执行环境"><a href="#全局执行环境" class="headerlink" title="全局执行环境"></a>全局执行环境</h2><p>全局执行环境是最外围的一个执行环境，在Web浏览器中，全局执行环境被认为是window对象， 因此所有全局变量和函数都是作为window对象的属性和方法来创建的。 某个执行环境中的所有代码执行完毕后，该环境就会被销毁，保存在其中的所有变量和函数定义也随之销毁。</p>
+<h1 id="二-知识剖析"><a href="#二-知识剖析" class="headerlink" title="二.知识剖析"></a>二.知识剖析</h1><p>如果所在环境是函数，那么就会把这个函数的活动对象作为变量对象(在函数中，变量对象==活动对象)。 </p>
+<p><strong>一般而言，函数执行过程，可以分成两步：1.进入执行环境；2.执行代码。</strong></p>
+<h2 id="环境栈的定义"><a href="#环境栈的定义" class="headerlink" title="环境栈的定义"></a>环境栈的定义</h2><p>当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。执行之后， 再从环境栈中弹出。</p>
+<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><p>JavaScript解释器在浏览器中是单线程的，这意味着浏览器在同一时间内只执行一个事件， 对于其他的事件我们把它们排队在一个称为 执行栈的地方。</p>
+<p> 我们已经知道，当浏览器第一次加载你的script，它默认的进了全局执行环境。 如果在你的全局代码中你调用了一个函数，那么顺序流就会进入到你调用的函数当中， 创建一个新的执行环境并且把这个环境添加到执行栈的顶部。</p>
+<p> 如果你在当前的函数中调用了其他函数，同样的事会再次发生。 执行流进入内部函数，并且创建一个新的执行环境，把它添加到已经存在的执行栈的顶部。 浏览器始终执行当前在栈顶部的执行环境。一旦函数完成了当前的执行环境，它就会被弹出栈的顶部, 把控制权返回给当前执行环境的下个执行环境。</p>
+<h1 id="三-问题与讨论"><a href="#三-问题与讨论" class="headerlink" title="三.问题与讨论"></a>三.问题与讨论</h1><h2 id="什么是作用域链"><a href="#什么是作用域链" class="headerlink" title="什么是作用域链"></a>什么是作用域链</h2><p>作用域链与执行上下文相关，是内部上下文所有变量对象（包括父变量对象）的列表，用于变量查询。 作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。</p>
+<ul>
+<li>代码在执行环境中执行时，执行环境会为变量对象创建作用域链。</li>
+<li>作用域链是由变量对象组成的数据对象链。</li>
+<li>作用域链的前端，始终是当前函数执行环境的变量对象。</li>
+<li>作用域链的最后端，始终是全局执行环境的变量对象。</li>
+</ul>
+<h2 id="函数创建的过程"><a href="#函数创建的过程" class="headerlink" title="函数创建的过程"></a>函数创建的过程</h2><ul>
+<li>在一个函数被定义的时候, 会将它定义时刻的scope chain链接到这个函数对象的</li>
+<li>[[Scopes]]属性，函数可以通过这个属性来访问更高层的作用域。</li>
+<li>[[Scopes]]是所有父变量对象的层级链，处于当前函数上下文之上，在函数创建时存于其中。</li>
+<li>[[Scopes]]在函数创建时被存储－－静态（不变的），永远永远，直至函数销毁。</li>
+<li>[[Scopes]]存储的是定义时刻的作用域链，是函数本身所依赖的变量对象其所在环境的 [[Scopes]]组成的。</li>
+</ul>
+<h2 id="什么是标识符的解析"><a href="#什么是标识符的解析" class="headerlink" title="什么是标识符的解析"></a>什么是标识符的解析</h2><p>标识符解析是沿着作用域链一级一级向上(外)搜索标识符的过程。搜索过程始终从作用域链的前端开始，然后逐级向后回溯，直至找到标识符为止。</p>
+<p>其中内部环境可以通过作用域链访问所有的外部环境，但外部环境不能访问内部变量环境中的任何变量和函数。这些环境之间的练习是线性的，有次序的。每个环境变量都可以向上搜索作用域链，以查询变量和函数名；反之则是不行。</p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>杀人和投票的业务逻辑上有什么区别？</title>
+    <url>/2019/11/05/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E6%9D%80%E4%BA%BA%E5%92%8C%E6%8A%95%E7%A5%A8%E7%9A%84%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91%E4%B8%8A%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="业务逻辑是什么？"><a href="#业务逻辑是什么？" class="headerlink" title="业务逻辑是什么？"></a>业务逻辑是什么？</h1><p><strong>不同的项目有不同的功能，不同的功能需要不同的实现，实现这些核心功能的代码就叫业务逻辑。</strong></p><p>让你实现一个功能，给你两个数，让你获取它的和，你所写的如何才能获得任意给定的两个数的和，这个程序实现过程称为业务逻辑处理。</p><p>就像家里规矩–“吃饭前必须洗手”“有客人来要起立”-就是业务逻辑的生活化实例。<br>简单来就是在怎么做事（how to do）, 比方说你去餐馆吃饭, 你点了个炒米粉，服务员给你下单，厨房见到单后下锅给你炒，你吃完后付账。这一些列动作都可以说是业务逻辑。</p><a id="more"></a>
+
+
+<p>业务逻辑就是客户的逻辑。在 N 层架构的系统中，经常会提到这些名词。</p>
+<ul>
+<li><p>表现层（Presentation layer） </p>
+</li>
+<li><p>业务逻辑层（Application layer）</p>
+</li>
+<li><p>数据访问层（Data layer） ，</p>
+</li>
+</ul>
+<p>在一个系统开发过程中，后台做一些处理，如果成功，则跳转到 success_xxx 页面，如果失败，则跳转到fail_xxx 页面，如果系统抛出了异常，则跳转到 5xx 页面，…… 这些属于页面逻辑。</p>
+<p>还有一些持久层的逻辑，也就是对数据库的操作。<br>业务逻辑是核心逻辑，只关注用户的业务，比如管理系统和财务系统，需要处理的业务肯定不一样，但是页面的跳转大致相同，对于持久层的操作也差不多。如果你使用了 SSH 框架，那么 hibernate 和 struts 的代码有很大一部分可以复用<br>业务逻辑（BL Action）不关心页面如何跳转，只是简单的返回成功，或是失败，或是异常，struts 框架根据配置文件跳转到相应的页面。<br>业务逻辑也不关心数据如何存储，是存储在文件系统，还是存储在数据库系统。是存储在MySQL，还是NoSQL。也不关系到底用没用缓存。</p>
+<h1 id="杀人和投票的业务逻辑上有什么区别"><a href="#杀人和投票的业务逻辑上有什么区别" class="headerlink" title="杀人和投票的业务逻辑上有什么区别"></a>杀人和投票的业务逻辑上有什么区别</h1><h2 id="杀人和投票页面区别之处"><a href="#杀人和投票页面区别之处" class="headerlink" title="杀人和投票页面区别之处"></a>杀人和投票页面区别之处</h2><p>杀人：点击杀手弹出提示框；<br>投票：杀手，平民都可以点击；<br>杀人：确定后传值用于刷新法官页面到步骤1完成的状态<br>投票：确定后传值用于重置有限状态机状态<br>杀人：确定后天数不变，如果游戏结束天数+1且传个值用于隐藏游戏进程当天白天的信息</p>
+<p>投票：确定后天数+1，如果胜利天数不变</p>
+<h2 id="杀人和投票页面相同之处"><a href="#杀人和投票页面相同之处" class="headerlink" title="杀人和投票页面相同之处"></a>杀人和投票页面相同之处</h2><p>1.根据法官页面传来值改变文本<br>2.点击玩家提取序号，确定后存入死亡玩家数组，存活杀手或平民-1<br>3.不选择玩家不能离开<br>4.死亡玩家变色，且移除点击事件<br>5.胜利判断</p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何实现数组深拷贝和浅拷贝？</title>
+    <url>/2019/11/05/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%95%B0%E7%BB%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%9F/</url>
+    <content><![CDATA[<p>在使用JavaScript对数组进行操作的时候，我们经常需要将数组进行备份，事实证明如果只是简单的将它赋予其他变量，那么我们只要更改其中的任何一个，然后其它的也会跟着改变，这就导致了问题的发生。原因是内存中仅保留一份数据。这时候需要制作一份数据的副本。只有复杂类型变量（引用类型）存在深拷贝与浅拷贝的问题，而基本类型没有深拷贝的概念。</p><a id="more"></a>
+<h1 id="“堆内存”和“栈内存”"><a href="#“堆内存”和“栈内存”" class="headerlink" title="“堆内存”和“栈内存”"></a><strong>“堆内存”和“栈内存”</strong></h1><p>首先JavaScript中的变量分为基本类型和引用类型。基本类型就是保存在栈内存中的简单数据段，而引用类型指的是那些保存在堆内存中的对象。</p>
+<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><p>基本类型有Undefined、Null、Boolean、Number 和String。这些类型在内存中分别占有固定大小的空间，他们的值保存在栈空间，我们通过按值来访问的。</p>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>引用类型，值大小不固定，栈内存中存放地址指向堆内存中的对象。是按引用访问的。栈内存中存放的只是该对象的访问地址，在堆内存中为这个值分配空间。由于这种值的大小不固定，因此不能把它们保存到栈内存中。但内存地址大小的固定的，因此可以将内存地址保存在栈内存中。这样，当查询引用类型的变量时，先从栈中读取内存地址， 然后再通过地址找到堆中的值。对于这种，我们把它叫做按引用访问。</p>
+<p>当我们看到一个变量类型是已知的，就分配在栈里面，比如INT,Double等。其他未知的类型，比如自定义的类型，因为系统不知道需要多大，所以程序自己申请，这样就分配在堆里面。</p>
+<h1 id="JS数组的浅拷贝"><a href="#JS数组的浅拷贝" class="headerlink" title="JS数组的浅拷贝"></a><strong>JS数组的浅拷贝</strong></h1><p>简单的赋值就是浅拷贝。因为对象和数组在赋值的时候都是引用传递。赋值的时候只是传递一个指针。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b =a ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test = &#123;<span class="attr">name</span>:<span class="string">'xiaohong'</span>, <span class="attr">age</span>:<span class="number">15</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = test;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a,b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(test);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'-------------------'</span>);</span><br><span class="line"></span><br><span class="line">b[<span class="number">0</span>] =<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">c.age = <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a,b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(test);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br></pre></td></tr></table></figure>
+<p>浅拷贝很容易，但是很多时候我们需要原样的把数组或者对象复制一份，在修改值的时候，不改变初始对象的值。这个时候就需要使用深拷贝。</p>
+<h1 id="JS数组的深拷贝"><a href="#JS数组的深拷贝" class="headerlink" title="JS数组的深拷贝"></a><strong>JS数组的深拷贝</strong></h1><h2 id="js的slice函数"><a href="#js的slice函数" class="headerlink" title="js的slice函数"></a>js的slice函数</h2><p><strong>slice() 方法可从已有的数组中返回选定的元素。</strong></p>
+<p>【语法】arrayObject.slice(start,end)</p>
+<p>【参数】arrayObj–必选项：一个Array对象。start–必选项：arrayObj中所指定的部分的开始元素是从零开始计算的下标。end–可选项：arrayObj中所指定的部分的结束元素是从零开始计算的下标。</p>
+<p>【说明】</p>
+<p>slice 方法返回一个Array对象，其中包含了arrayObj的指定部分。slice方法一直复制到end所指定的元素，但是不包括该元素。如果start为负，将它作为length + start处理，此处length为数组的长度。如果end为负，就将它作为length + end处理，此处length为数组的长度。如果省略end ，那么slice方法将一直复制到 arrayObj 的结尾。如果end出现在start之前，不复制任何元素到新数组中。</p>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = a.slice(<span class="number">0</span>,<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = a.slice(<span class="number">-3</span>,<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = a.slice(<span class="number">-1</span>,<span class="number">-3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b,c,d);</span><br></pre></td></tr></table></figure>
+<h2 id="js的concat函数"><a href="#js的concat函数" class="headerlink" title="js的concat函数"></a><strong>js的concat函数</strong></h2><p><strong>concat() 方法用于连接两个或多个数组。该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。</strong></p>
+<p>【语法】arrayObject.concat(arrayX,arrayX,……,arrayX)</p>
+<p>【参数】arrayX–必需：该参数可以是具体的值，也可以是数组对象。可以是任意多个。</p>
+<p>【说明】</p>
+<p>返回一个新的数组。该数组是通过把所有 arrayX 参数添加到 arrayObject 中生成的。如果要进行 concat()操作的参数是数组，那么添加的是数组中的元素，而不是数组。</p>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = a.concat(<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = [<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> d = a.concat(c);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d);</span><br></pre></td></tr></table></figure>
+<p>\<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## js遍历数组的方法</span><br><span class="line"></span><br><span class="line">js遍历数组的方法</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">var a = [1,2,3];</span><br><span class="line"></span><br><span class="line">var b = [];</span><br><span class="line"></span><br><span class="line">function deepCopy(arry1,arry2) &#123;</span><br><span class="line"></span><br><span class="line">for(i=0;i &lt; arry1.length;i++) &#123;</span><br><span class="line"></span><br><span class="line">arry2[i] = arry1[i];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">deepCopy(a,b);</span><br><span class="line"></span><br><span class="line">a[0] = &quot;A&quot;;</span><br><span class="line"></span><br><span class="line">console.log(a,b);</span><br></pre></td></tr></table></figure></p>
+<h1 id="slice-、concat-的局限性"><a href="#slice-、concat-的局限性" class="headerlink" title="slice()、concat()的局限性"></a>slice()、concat()的局限性</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var a = [1,2,&#123;&quot;name&quot;:&quot;张三&quot;&#125;,&#123;&quot;name&quot;:&quot;李四&quot;&#125;,[4,5]];</span><br><span class="line"></span><br><span class="line">var b = a.slice(0);</span><br><span class="line"></span><br><span class="line">var c = [].concat(a);</span><br><span class="line"></span><br><span class="line">a[2].name=&quot;王五&quot;;</span><br><span class="line"></span><br><span class="line">a = &quot;A&quot;;</span><br><span class="line"></span><br><span class="line">console.log(a);</span><br><span class="line"></span><br><span class="line">console.log(b);</span><br><span class="line"></span><br><span class="line">console.log(c);</span><br></pre></td></tr></table></figure>
+<p>由上面的例子可以看出，由于数组内部存在对象和数组，当改变对象属性和内部数组的元素后，深拷贝的b和c同样也发生了改变。因此，<strong>slice和concat这两个方法，仅适用于对不包含引用对象的一维数组的深拷贝。</strong></p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>简述JS中的面向对象编程</title>
+    <url>/2019/11/05/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E7%AE%80%E8%BF%B0JS%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<p>在 JavaScript 中，大多数事物都是对象, 从作为核心功能的字符串和数组，到建立在 JavaScript 之上的浏览器 API。你甚至可以自己创建对象，将相关的函数和变量封装打包成便捷的数据容器。理解这种面向对象 (object-oriented, OO) 的特性对于进一步学习 JavaScript 语言知识是必不可少的。这个模块将帮助你了解“对象”，先详细介绍对象的设计思想和语法，再说明如何创建对象。 </p><a id="more"></a>
+<h1 id="js中的对象是什么"><a href="#js中的对象是什么" class="headerlink" title="js中的对象是什么"></a>js中的对象是什么</h1><p>面向对象（Object-Oriented，OO）的语言有一个标志，那就是它们都有类的概念，而通过类可 以创建任意多个具有相同属性和方法的对象。前面提到过，ECMAScript中没有类的概念，因 此它的对象也与基于类的语言中的对象有所不同。 </p>
+<p>ECMA-262把对象定义为：<strong>“无序属性的集合，其属性可以包含基本值、对象或者函数。”</strong>严格来讲， 这就相当于说对象是一组没有特定顺序的值。对象的每个属性或方法都有一个名字，而每个名字都映射 到一个值。正因为这样（以及其他将要讨论的原因），我们可以把 ECMAScript的对象想象成散列表：无 非就是一组名值对，其中值可以是数据或函数。 每个对象都是基于一个引用类型创建的，这个引用类型可以是第 5章讨论的原生类型，也可以是开 发人员定义的类型。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">"天地生"</span>,</span><br><span class="line">    age: <span class="number">24</span>,</span><br><span class="line">    gender: <span class="string">'男'</span>,</span><br><span class="line">    interests: [<span class="string">'音乐'</span>, <span class="string">'游戏'</span>],</span><br><span class="line">    seeHi: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'你好! 我是 '</span> + <span class="keyword">this</span>.name+ <span class="string">'！'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">//点表示法访问属性，控制台打印“天地生”</span></span><br><span class="line">person.seeHi();<span class="comment">//点表示法访问方法，控制台打印“你好！我是天地生！”</span></span><br><span class="line"><span class="keyword">var</span> ageDifferent = <span class="string">"age"</span></span><br><span class="line"><span class="built_in">console</span>.log(person[ageDifferent])<span class="comment">//括号表示法，控制台打印“24”（可以动态的去设置对象成员的值，还可以动态的去设置成员的名字）</span></span><br></pre></td></tr></table></figure>
+<h1 id="什么是面向对象编程"><a href="#什么是面向对象编程" class="headerlink" title="什么是面向对象编程"></a>什么是面向对象编程</h1><p>面向对象编程是一种通用思想，主要概念为： 把一组数据结构和处理它们的方法组成对象（object）， 把相同行为的对象归纳为类（class），通过类的封装（encapsulation）隐藏内部细节， 通过继承（inheritance）实现类的特化（specialization）／泛化（generalization）， 通过多态（polymorphism）实现基于对象类型的动态分派（dynamic dispatch）。</p>
+<p>最基本的面向思想就是我们想要在我们的程序中使用对象来表示现实世界模型, 并提供一个简单的方式来访问它的功能,否则很难甚至不能实现.</p>
+<p>对象可以包含相关的数据和代码,这些代表现实世界模型的一些信息或者功能,或者它特有的一些行为.</p>
+<p>对于一个人（person）来说，我们能在他们身上获取到很多信息（他们的住址，身高，鞋码，基因图谱，护照信息，显著的性格特征等等），然而，我们仅仅需要他们的名字，年龄，性别，兴趣 这些信息，然后，我们会基于他们的这些信息写一个简短的介绍关于他们自己，在最后我们还需要教会他们打招呼。以上的方式被称为抽象-为了我们编程的目标而利用事物的一些重要特性去把复杂的事物简单化</p>
+<h1 id="为什么要面向对象编程"><a href="#为什么要面向对象编程" class="headerlink" title="为什么要面向对象编程"></a>为什么要面向对象编程</h1><p>在小型项目中或者刚开始学习时 - 因为当不需要对象和继承的时候，仅仅为了使用而使用它们只是在浪费时间而已。但是随着代码量的增大，你就会越来越发现它的必要性。当我们开始创建一系列拥有相似特性的对象时，那么创建一个包含所有共有功能的通用对象，然后在更特殊的对象类型中继承这些特性，将会变得更加方便有用。 </p>
+<h1 id="js中如何面向对象编程"><a href="#js中如何面向对象编程" class="headerlink" title="js中如何面向对象编程"></a>js中如何面向对象编程</h1><p><strong>js中通过继承实现面向对象编程。</strong></p>
+<p>JavaScript 常被描述为一种基于原型的语言 (prototype-based language)——每个对象拥有一个原型对象，对象以其原型为模板、从原型继承方法和属性。原型对象也可能拥有原型，并从中继承方法和属性，一层一层、以此类推。这种关系常被称为原型链 (prototype chain)，它解释了为何一个对象会拥有定义在其他对象中的属性和方法。</p>
+<p><img src="https://images2015.cnblogs.com/blog/1010198/201702/1010198-20170222151629288-2040292378.png" alt="img"> </p>
+<p>比如当我们调用person1.valueOf方法的时候，先是在person1里查找valueOf()方法，没找到，继续找它的原型，也就是构造函数Person,还是没找到，接着去对象的方法里去找，找到了，然后就成功调用了。 </p>
+<h1 id="js中实现继承"><a href="#js中实现继承" class="headerlink" title="js中实现继承"></a>js中实现继承</h1><h2 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h2><p>ECMAScript 中描述了原型链的概念，并将原型链作为实现继承的主要方法。其基本思想是利用原 型让一个引用类型继承另一个引用类型的属性和方法。简单回顾一下构造函数、原型和实例的关系：每 个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型 对象的内部指针。那么，假如我们让原型对象等于另一个类型的实例，结果会怎么样呢？显然，此时的 原型对象将包含一个指向另一个原型的指针，相应地，另一个原型中也包含着一个指向另一个构造函数 的指针。假如另一个原型又是另一个类型的实例，那么上述关系依然成立，如此层层递进，就构成了实 例与原型的链条。这就是所谓原型链的基本概念。 </p>
+<p>实现原型链有一种基本模式，其代码大致如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">    <span class="keyword">this</span>.footers = [<span class="string">"一只"</span>, <span class="string">"两只"</span>, <span class="string">"三只"</span>]; </span><br><span class="line">    <span class="keyword">this</span>.seeHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"我是"</span> + <span class="keyword">this</span>.name)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">"cat"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();<span class="comment">//继承</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Cat构造函数是"</span> + Cat.constructor);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Cat原型对象是"</span> + Cat.prototype);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat();<span class="comment">//创建实例</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"cat1构造函数是"</span> + cat1.constructor);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"cat1原型对象是"</span> + cat1.prototype); <span class="comment">//因为cat1是实例，&gt;cat1原型对象是undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"cat1原型对象是"</span> + cat1.__proto__); <span class="comment">//因为cat1是实例，__proto_指针指向原型对象</span></span><br><span class="line">cat1.footers.push(<span class="string">"四只"</span>); </span><br><span class="line"><span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat1.species);<span class="comment">//&gt;"动物"</span></span><br><span class="line"><span class="built_in">console</span>.log(cat1.footers);<span class="comment">//&gt;["一只", "两只", "三只"，"四只"]</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.species);<span class="comment">//&gt;"动物"</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.footers);<span class="comment">//&gt;["一只", "两只", "三只"，"四只"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="原型链继承的缺点"><a href="#原型链继承的缺点" class="headerlink" title="原型链继承的缺点"></a>原型链继承的缺点</h3><ol>
+<li>原型中包含引用类型值，子类修改该值，会修改引用类型的值。</li>
+<li>在创建子类型的实例时，不能向超类型的构造函数中传递参数。</li>
+</ol>
+<h2 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h2><p>在解决原型中包含引用类型值所带来问题的过程中，开发人员开始使用一种叫做借用构造函数 （constructor stealing）的技术（有时候也叫做伪造对象或经典继承）。这种技术的基本思想相当简单，即 在子类型构造函数的内部调用超类型构造函数。</p>
+<p>所谓”<strong>构造函数</strong>“，其实就是一个普通函数，但是内部使用了this变量。对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">    <span class="keyword">this</span>.footers = [<span class="string">"一只"</span>, <span class="string">"两只"</span>, <span class="string">"三只"</span>]; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name, color</span>) </span>&#123;</span><br><span class="line">    Animal.call(<span class="keyword">this</span>);<span class="comment">//继承</span></span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat(<span class="string">"大毛"</span>,<span class="string">"黄色"</span>);</span><br><span class="line">cat1.footers.push(<span class="string">"四只"</span>); </span><br><span class="line"><span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat(<span class="string">"二毛"</span>,<span class="string">"红色"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cat1.name);<span class="comment">//&gt;大毛</span></span><br><span class="line"><span class="built_in">console</span>.log(cat1.species);<span class="comment">//&gt;动物</span></span><br><span class="line"><span class="built_in">console</span>.log(cat1.footers);<span class="comment">// &gt;["一只", "两只", "三只"，"四只"]</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.name);<span class="comment">//&gt;二毛</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.species);<span class="comment">//&gt;动物</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.footers);<span class="comment">// &gt;["一只", "两只", "三只"]</span></span><br></pre></td></tr></table></figure>
+<h3 id="构造函数的缺点"><a href="#构造函数的缺点" class="headerlink" title="构造函数的缺点"></a>构造函数的缺点</h3><p>如果仅仅是借用构造函数，那么也将无法避免构造函数模式存在的问题——方法都在构造函数中定 义，因此函数复用就无从谈起了。而且，在超类型的原型中定义的方法，对子类型而言也是不可见的，结 果所有类型都只能使用构造函数模式。考虑到这些问题，借用构造函数的技术也是很少单独使用的.</p>
+<h2 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h2><p>组合继承（combination inheritance），有时候也叫做伪经典继承，指的是将原型链和借用构造函数的 技术组合到一块，从而发挥二者之长的一种继承模式。其背后的思路是使用原型链实现对原型属性和方 法的继承，而通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数 复用，又能够保证每个实例都有它自己的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.species = <span class="string">"动物"</span>;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.footers = [<span class="string">"一只"</span>, <span class="string">"两只"</span>, <span class="string">"三只"</span>];</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.sayName =<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我的名字是"</span>+ <span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    Animal.call(<span class="keyword">this</span>, name);<span class="comment">//继承属性</span></span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//继承方法</span></span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();<span class="comment">//第一行</span></span><br><span class="line">Cat.prototype.constructor = Cat;<span class="comment">//第二行</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*第一行相当于完全删除了prototype 对象原先的值，然后赋予一个新值。</span></span><br><span class="line"><span class="comment">*任何一个prototype对象都有一个constructor属性，指向它的构造函数。如果没有"Cat.prototype = new Animal();"这一行，Cat.prototype.constructor是指向Cat的；</span></span><br><span class="line"><span class="comment">* 加了这一行以后，Cat.prototype.constructor指向Animal。更重要的是，每一个实例也有一个constructor属性，默认调用prototype对象的constructor属性。</span></span><br><span class="line"><span class="comment">* 因此，在运行"Cat.prototype = new Animal();"这一行之后，cat1.constructor也指向Animal！</span></span><br><span class="line"><span class="comment">*这显然会导致继承链的紊乱（cat1明明是用构造函数Cat生成的），因此我们必须手动纠正，将Cat.prototype对象的constructor值改为Cat。这就是第二行的意思。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Cat.prototype.sayAge = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我的年龄是"</span>+ <span class="keyword">this</span>.age)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat(<span class="string">"大毛"</span>,<span class="number">2</span>);</span><br><span class="line">cat1.footers.push(<span class="string">"四只"</span>);</span><br><span class="line"><span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat(<span class="string">"二毛"</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cat1.name);<span class="comment">//&gt;大毛</span></span><br><span class="line"><span class="built_in">console</span>.log(cat1.sayAge());<span class="comment">//&gt;我的年龄是2</span></span><br><span class="line"><span class="built_in">console</span>.log(cat1.footers);<span class="comment">// &gt;["一只", "两只", "三只"，"四只"]</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.name);<span class="comment">//&gt;二毛</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.sayAge());<span class="comment">//&gt;我的年龄是1</span></span><br><span class="line"><span class="built_in">console</span>.log(cat2.footers);<span class="comment">// &gt;["一只", "两只", "三只"]</span></span><br></pre></td></tr></table></figure>
+<p>组合继承避免了原型链和借用构造函数的缺陷，融合了它们的优点，成为 JavaScript 中常用的继 承模式。而且，instanceof 和 isPrototypeOf()也能够用于识别基于组合继承创建的对象。 </p>
+<h2 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h2><p>道格拉斯·克罗克福德在 2006年写了一篇文章，题为 Prototypal Inheritance in JavaScript （JavaScript 中的原型式继承）。在这篇文章中，他介绍了一种实现继承的方法，这种方法并没有使用严格意义上的 构造函数。他的想法是借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型。为 了达到这个目的，他给出了如下函数。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 object()函数内部，先创建了一个临时性的构造函数，然后将传入的对象作为这个构造函数的 原型，后返回了这个临时类型的一个新实例。从本质上讲，object()对传入其中的对象执行了一次</p>
+<p>浅复制。来看下面的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;<span class="attr">name</span>: <span class="string">"Nicholas"</span>, <span class="attr">friends</span>: [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> anotherPerson = object(person);</span><br><span class="line">anotherPerson.name = <span class="string">"Greg"</span>;</span><br><span class="line">anotherPerson.friends.push(<span class="string">"Rob"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> yetAnotherPerson = object(person);</span><br><span class="line">yetAnotherPerson.name = <span class="string">"Linda"</span>;</span><br><span class="line">yetAnotherPerson.friends.push(<span class="string">"Barbie"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.friends);   <span class="comment">//&gt;"Shelby,Court,Van,Rob,Barbie"</span></span><br></pre></td></tr></table></figure>
+<p>克罗克福德主张的这种原型式继承，要求你必须有一个对象可以作为另一个对象的基础。如果有这么 一个对象的话，可以把它传递给 object()函数，然后再根据具体需求对得到的对象加以修改即可。在这 个例子中，可以作为另一个对象基础的是 person 对象，于是我们把它传入到 object()函数中，然后该 函数就会返回一个新对象。这个新对象将 person 作为原型，所以它的原型中就包含一个基本类型值属性 和一个引用类型值属性。这意味着 person.friends 不仅属于 person 所有，而且也会被 anotherPerson 以及 yetAnotherPerson 共享。实际上，这就相当于又创建了 person 对象的两个副本。 </p>
+<p>ECMAScript 5通过新增 Object.create()方法规范化了原型式继承。这个方法接收两个参数：一 个用作新对象原型的对象和（可选的）一个为新对象定义额外属性的对象。在传入一个参数的情况下， Object.create()与 object()方法的行为相同。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;<span class="attr">name</span>: <span class="string">"Nicholas"</span>, <span class="attr">friends</span>: [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> anotherPerson = <span class="built_in">Object</span>.create(person);</span><br><span class="line">anotherPerson.name = <span class="string">"Greg"</span>;</span><br><span class="line">anotherPerson.friends.push(<span class="string">"Rob"</span>);</span><br><span class="line"><span class="keyword">var</span> yetAnotherPerson = <span class="built_in">Object</span>.create(person);</span><br><span class="line">yetAnotherPerson.name = <span class="string">"Linda"</span>;</span><br><span class="line">yetAnotherPerson.friends.push(<span class="string">"Barbie"</span>);</span><br><span class="line"></span><br><span class="line">alert(person.friends); <span class="comment">//"Shelby,Court,Van,Rob,Barbie"</span></span><br></pre></td></tr></table></figure>
+<p>Object.create()方法的第二个参数与Object.defineProperties()方法的第二个参数格式相 同：每个属性都是通过自己的描述符定义的。以这种方式指定的任何属性都会覆盖原型对象上的同名属 性。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">"Nicholas"</span>,</span><br><span class="line">    friends: [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> anotherPerson = <span class="built_in">Object</span>.create(person,</span><br><span class="line">    &#123;</span><br><span class="line">        name: &#123;</span><br><span class="line">            value: <span class="string">"Greg"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">alert(anotherPerson.name); <span class="comment">//"Greg"</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>支持 Object.create()方法的浏览器有 IE9+、Firefox 4+、Safari 5+、Opera 12+和 Chrome。 在没有必要兴师动众地创建构造函数，而只想让一个对象与另一个对象保持类似的情况下，原型式 继承是完全可以胜任的。不过别忘了，包含引用类型值的属性始终都会共享相应的值，就像使用原型模 式一样。 </p>
+<h2 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h2><p>寄生式（parasitic）继承是与原型式继承紧密相关的一种思路，并且同样也是由克罗克福德推而广 之的。寄生式继承的思路与寄生构造函数和工厂模式类似，即创建一个仅用于封装继承过程的函数，该 函数在内部以某种方式来增强对象，后再像真地是它做了所有工作一样返回对象。以下代码示范了寄 生式继承模式。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">original</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> clone = object(original);  <span class="comment">//通过调用函数创建一个新对象     </span></span><br><span class="line">    clone.sayHi = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;      <span class="comment">//以某种方式来增强这个对象         </span></span><br><span class="line">        alert(<span class="string">"hi"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> clone;         <span class="comment">//返回这个对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，createAnother()函数接收了一个参数，也就是将要作为新对象基础的对象。然 后，把这个对象（original）传递给 object()函数，将返回的结果赋值给 clone。再为 clone 对象 添加一个新方法 sayHi()，后返回 clone 对象。可以像下面这样来使用 createAnother()函数： </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">"Nicholas"</span>,</span><br><span class="line">    friends: [<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> anotherPerson = createAnother(person);</span><br><span class="line">anotherPerson.sayHi(); <span class="comment">//"hi"</span></span><br></pre></td></tr></table></figure>
+<p>这个例子中的代码基于 person 返回了一个新对象——anotherPerson。新对象不仅具有 person 的所有属性和方法，而且还有自己的 sayHi()方法。 在主要考虑对象而不是自定义类型和构造函数的情况下，寄生式继承也是一种有用的模式。前面示 范继承模式时使用的 object()函数不是必需的；任何能够返回新对象的函数都适用于此模式。 </p>
+<h2 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h2><p>所谓寄生组合式继承，即通过借用构造函数来继承属性，通过原型链的混成形式来继承方法。其背 后的基本思路是：不必为了指定子类型的原型而调用超类型的构造函数，我们所需要的无非就是超类型 原型的一个副本而已。本质上，就是使用寄生式继承来继承超类型的原型，然后再将结果指定给子类型 的原型。寄生组合式继承的基本模式如下所示。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType, superType</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prototype = object(superType.prototype);     <span class="comment">//创建对象     </span></span><br><span class="line">    prototype.constructor = subType;              <span class="comment">//增强对象     </span></span><br><span class="line">    subType.prototype = prototype;               <span class="comment">//指定对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个示例中的 inheritPrototype()函数实现了寄生组合式继承的简单形式。这个函数接收两 个参数：子类型构造函数和超类型构造函数。在函数内部，第一步是创建超类型原型的一个副本。第二 步是为创建的副本添加 constructor 属性，从而弥补因重写原型而失去的默认的 constructor 属性。 后一步，将新创建的对象（即副本）赋值给子类型的原型。这样，我们就可以用调用 inherit- Prototype()函数的语句，去替换前面例子中为子类型原型赋值的语句了，例如： </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inheritPrototype(SubType, SuperType);</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.age);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个例子的高效率体现在它只调用了一次 SuperType 构造函数，并且因此避免了在 SubType. prototype 上面创建不必要的、多余的属性。与此同时，原型链还能保持不变；因此，还能够正常使用 instanceof 和 isPrototypeOf()。开发人员普遍认为寄生组合式继承是引用类型理想的继承范式。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.cnblogs.com/mingtan/p/6429332.html" target="_blank" rel="noopener">Javascript 原型链之原型对象、实例和构造函数三者之间的关系</a> </p>
+<p><a href="https://www.cnblogs.com/mingtan/p/6429332.html" target="_blank" rel="noopener">编程思想：面向对象和面向过程</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="noopener">Javascript面向对象编程（二）：构造函数的继承</a></p>
+<p>《JavaScript高级编程设计》 第三版</p>
+]]></content>
+      <categories>
+        <category>js</category>
+        <category>深度思考</category>
+      </categories>
+  </entry>
+  <entry>
     <title>let 和 const 命令</title>
     <url>/2019/11/05/JS/let-%E5%92%8C-const-%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="let-和-const-命令"><a href="#let-和-const-命令" class="headerlink" title="let 和 const 命令"></a>let 和 const 命令</h1><h2 id="let-命令"><a href="#let-命令" class="headerlink" title="let 命令"></a>let 命令</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>ES6 新增了<code>let</code>命令，用来声明变量。它的用法类似于<code>var</code>，但是所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">a <span class="comment">// ReferenceError: a is not defined.</span></span><br><span class="line">b <span class="comment">// 1</span></span><br></pre></td></tr></table></figure><a id="more"></a>
@@ -287,7 +460,7 @@
   </entry>
   <entry>
     <title>json是什么，如何处理转义？</title>
-    <url>/2019/11/03/json%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E8%BD%AC%E4%B9%89%EF%BC%9F/</url>
+    <url>/2019/11/03/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/json%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E8%BD%AC%E4%B9%89%EF%BC%9F/</url>
     <content><![CDATA[<p>作者：Meetin空白<br>链接：<a href="https://www.jianshu.com/p/5d4549586821" target="_blank" rel="noopener">https://www.jianshu.com/p/5d4549586821</a><br>來源：简书</p><h1 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1.背景介绍"></a>1.背景介绍</h1><h2 id="什么是JSON"><a href="#什么是JSON" class="headerlink" title="什么是JSON"></a>什么是JSON</h2><p>JSON (JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。——百度百科</p><a id="more"></a>
 
 <p>数据传输是我们在敲代码时，经常遇到的一个场景,前后端交互。给数据一个统一的格式有利于我们编写和解析数据。</p>
@@ -364,7 +537,7 @@
   </entry>
   <entry>
     <title>如何使用Bootbox ？</title>
-    <url>/2019/11/02/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Bootbox-%EF%BC%9F/</url>
+    <url>/2019/11/02/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Bootbox-%EF%BC%9F/</url>
     <content><![CDATA[<p>Bootbox.js是一个小型的JavaScript库，基于 TBootstrap 和jquery开发。它允许你创建使用编程对话框。方便用户快速创建模拟框。 </p><h1 id="下载bootbox文件"><a href="#下载bootbox文件" class="headerlink" title="下载bootbox文件"></a>下载bootbox文件</h1><p><a href="http://bootboxjs.com/getting-started.html" target="_blank" rel="noopener">点击右上角下载按钮进行下载</a></p><p>所有版本的Bootbox都站在两个伟大的巨人的肩上：<a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a>和<a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a>。Bootstrap的确切版本取决于您使用的Bootbox的版本。这已经变得比我们想要的要复杂一些，但是希望这个方便的表格可以解决问题：</p><a id="more"></a>
 
 
@@ -434,7 +607,7 @@
   </entry>
   <entry>
     <title>return的用法是什么？若用在for循环中，还会执行下一次循环吗？</title>
-    <url>/2019/11/02/return%E7%9A%84%E7%94%A8%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%8B%A5%E7%94%A8%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%EF%BC%8C%E8%BF%98%E4%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8B%E4%B8%80%E6%AC%A1%E5%BE%AA%E7%8E%AF%E5%90%97%EF%BC%9F/</url>
+    <url>/2019/11/02/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/return%E7%9A%84%E7%94%A8%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E8%8B%A5%E7%94%A8%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%EF%BC%8C%E8%BF%98%E4%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%8B%E4%B8%80%E6%AC%A1%E5%BE%AA%E7%8E%AF%E5%90%97%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="return的用法"><a href="#return的用法" class="headerlink" title="return的用法"></a>return的用法</h1><h2 id="返回函数结果"><a href="#返回函数结果" class="headerlink" title="返回函数结果"></a>返回函数结果</h2><p><strong>语法为</strong>：return +表达式; 语句结束函数执行，返回调用函数，而且把表达式的值作为函数的结果</p><p>语句结束函数执行，返回调用函数，而且把表达式的值作为函数的结果。</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function add() &#123;</span><br><span class="line">    var a=1;</span><br><span class="line">    var b=2;</span><br><span class="line">    return a+b;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">function getAdd() &#123;</span><br><span class="line">    console.log(add());</span><br><span class="line">&#125;</span><br><span class="line">getAdd(); //控制台输出3</span><br></pre></td></tr></table></figure><a id="more"></a>
 
 
@@ -457,7 +630,7 @@
   </entry>
   <entry>
     <title>简述JS中的event delegate事件委托</title>
-    <url>/2019/11/02/%E7%AE%80%E8%BF%B0JS%E4%B8%AD%E7%9A%84event-delegate%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
+    <url>/2019/11/02/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E7%AE%80%E8%BF%B0JS%E4%B8%AD%E7%9A%84event-delegate%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/</url>
     <content><![CDATA[<p>原文链接：<a href="https://www.jianshu.com/p/d7d4bf472766" target="_blank" rel="noopener">https://www.jianshu.com/p/d7d4bf472766</a></p><h1 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1.背景介绍"></a>1.背景介绍</h1><p>事件处理程序可以为现代web应用程序提供交互能力，因此许多开发人员会向页面中添加大量的处理程序。</p><p>但是在JavaScript中，添加到页面中的事件处理程序的数量会直接影响页面的整体运行性能。 </p><p>理由： </p><p>1.每个函数都是对象，都会占用内存。</p><a id="more"></a>
 
 
@@ -546,7 +719,7 @@
   </entry>
   <entry>
     <title>对一个数组 filter、some、map、foreach的操作分别有什么作用？</title>
-    <url>/2019/11/01/%E5%AF%B9%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84-filter%E3%80%81some%E3%80%81map%E3%80%81foreach%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F/</url>
+    <url>/2019/11/01/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%AF%B9%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84-filter%E3%80%81some%E3%80%81map%E3%80%81foreach%E7%9A%84%E6%93%8D%E4%BD%9C%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F/</url>
     <content><![CDATA[<p>使用JavaScript数组常常需要对数组进行遍历、迭代操作。而我们常用的就是for语句对数组进行迭代。然而在ECMAscript5已经为数组定义了5个迭代的方法，分别是：filter、some、map、foreach、every，下面我们讲讲它们的具体作用。</p><h1 id="every-和some"><a href="#every-和some" class="headerlink" title="every()和some()"></a>every()和some()</h1><p>every()：对数组中的每一项运行给定函数，如果该函数对每一项都返回true，则返回true ;<br>some()： 对数组中的每一项运行给定函数，如果该函数对任一项返回true，则返回true; 为了加深对它们的理解，以上两个迭代方式有必要放在一起demo，<br>演示如下：<br><img src="https://img-blog.csdnimg.cn/20191101150657552.png" alt="every()和some()"><br><img src="https://img-blog.csdnimg.cn/20191101150743191.png" alt="在这里插入图片描述"></p><a id="more"></a>
 
 <p>通过 demo，可以看出<br>every()，在遍历数组项的时候，<strong>第一项的值就已经为false了，所以直接返回false不再继续执行后面的迭代；</strong><br>some() ，在遍历数组项的时候，当第一个满足函数体的项出现，就直接返回true，并且不再执行后面的迭代；</p>
@@ -5409,7 +5582,7 @@
   </entry>
   <entry>
     <title>简述JavaScript中this的指向</title>
-    <url>/2018/08/27/JS/%E7%AE%80%E8%BF%B0JavaScript%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91/</url>
+    <url>/2018/08/27/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E7%AE%80%E8%BF%B0JavaScript%E4%B8%ADthis%E7%9A%84%E6%8C%87%E5%90%91/</url>
     <content><![CDATA[<blockquote>
 <p><strong>this的指向</strong>：本文重点介绍this作为对象方法调用，作为函数调用，作为构造函数调用，和使用apply 或 call 调用这几种，其他的情况了解即可，<br>请牢记一点，<strong>this永远指向的是最后调用它的对象</strong>，也就是看它执行的时候是谁调用的。</p>
 </blockquote>
@@ -5438,10 +5611,8 @@
 ]]></content>
       <categories>
         <category>js</category>
+        <category>深度思考</category>
       </categories>
-      <tags>
-        <tag>this</tag>
-      </tags>
   </entry>
   <entry>
     <title> 异步请求之设置请求头Content-Type</title>
@@ -5498,70 +5669,102 @@
   </entry>
   <entry>
     <title>如何验证程序是否完成，测试以及deBug?</title>
-    <url>/2018/08/24/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E7%A8%8B%E5%BA%8F%E6%98%AF%E5%90%A6%E5%AE%8C%E6%88%90%EF%BC%8C%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%AD%A3Bug/</url>
+    <url>/2018/08/24/JS/JS%E6%B7%B1%E5%BA%A6%E6%80%9D%E8%80%834/%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E7%A8%8B%E5%BA%8F%E6%98%AF%E5%90%A6%E5%AE%8C%E6%88%90%EF%BC%8C%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%AD%A3Bug/</url>
     <content><![CDATA[<blockquote>
 <p>在日常中，我们码代码都是按照需求来的，为了验证我们的工作成果是否符合项目的需求，那么验证程序是否完成、测试以及修复bug就成了我们工作中非常重要的流程。</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="一-背景介绍"><a href="#一-背景介绍" class="headerlink" title="一.背景介绍"></a>一.背景介绍</h1><p>在日常中，我们码代码都是按照需求来的，为了验证我们的工作成果是否符合项目的需求，那么验证程序是否完成、测试以及修复bug就成了我们工作中非常重要的流程。</p>
-<h1 id="二-知识剖析"><a href="#二-知识剖析" class="headerlink" title="二.知识剖析"></a>二.知识剖析</h1><ol>
-<li>什么样的程序是完成的程序</li>
-</ol>
-<ul>
-<li>从需求的角度看：满足用户的全部需求</li>
-<li>从程序的角度看：代码不存在明显bug，结构明晰，逻辑通顺，有一定的优化</li>
-<li>从UI图的角度看：较为完美的还原了UI图的设计</li>
-<li>从后期版本维护迭代的角度看：注释完备，稳定性好，不加班的代码就是好代码</li>
+<h1 id="二-知识剖析"><a href="#二-知识剖析" class="headerlink" title="二.知识剖析"></a>二.知识剖析</h1><h2 id="什么样的程序是完成的程序"><a href="#什么样的程序是完成的程序" class="headerlink" title="什么样的程序是完成的程序"></a>什么样的程序是完成的程序</h2><ul>
+<li><p>从需求的角度看：满足用户的全部需求</p>
+</li>
+<li><p>从程序的角度看：代码不存在明显bug，结构明晰，逻辑通顺，有一定的优化</p>
+</li>
+<li><p>从UI图的角度看：较为完美的还原了UI图的设计</p>
+</li>
+<li><p>从后期版本维护迭代的角度看：注释完备，稳定性好，不加班的代码就是好代码</p>
+</li>
 </ul>
-<ol start="2">
-<li>测试：测试是使用人工操作或者软件自动运行的方式来检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别的过程。<br>软件测试的方法</li>
-</ol>
+<h2 id="软件测试的方法"><a href="#软件测试的方法" class="headerlink" title="软件测试的方法"></a>软件测试的方法</h2><p>测试：测试是使用人工操作或者软件自动运行的方式来检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别的过程。</p>
 <ul>
-<li>按照测试范围，可以分为模块测试和整体联调</li>
-<li>按照测试条件，可以分为正常操作情况测试和异常情况测试</li>
-<li>按照测试的输入范围，可以分为全覆盖测试和抽样测试</li>
-<li>按照测试方式<br>模块测试：针对设计中的一个一个模块来进行测试的，目的是保证每个模块作为一个单元能正确运行，所以模块测试通常又被称为单元测试。在这个测试步骤中所发现的往往是编码和详细设计的错误。<br>整体联调：测试模块间接口的正确性、各模块间的数据流和控制流是否按照设计实现其功能、以及集成后整体功能的正确性。<br>正常操作情况测试：根据正确的操作流程对单独的模块或整体进行测试，确定被测对象可以良好运行<br>异常情况测试：异常情况，可能会包括数据库异常，系统异常，用户异常操作等情况<br>3.一些测试的概念<br>成熟性：软件产品要避免由软件中错误而导致失效的能力<br>容错性：在软件失效或者违反规定的接口的情况下，软件产品维持规定的性能级别的能力<br>易恢复性：在发生故障的情况下，软件重建规定的性能级别并恢复受直接影响的数据的能力<br>可靠性依从性：软件产品依附于同可靠性相关的标准、约定或规定的能力<br>全覆盖测试：对于被测对象全面，整体，多维度的测试，受限于时间和人力成本，除非被测对象级别很高，不然不会采用这种测试方式<br>抽样测试：针对功能及模块随机抽取被测对象</li>
+<li><p>按照测试范围，可以分为模块测试和整体联调</p>
+</li>
+<li><p>按照测试条件，可以分为正常操作情况测试和异常情况测试</p>
+</li>
+<li><p>按照测试的输入范围，可以分为全覆盖测试和抽样测试</p>
+</li>
+<li><p>按照测试方式</p>
+<p>  模块测试：针对设计中的一个一个模块来进行测试的，目的是保证每个模块作为一个单元能正确运行，所以模块测试通常又被称为单元测试。在这个测试步骤中所发现的往往是编码和详细设计的错误。</p>
+<p>  整体联调：测试模块间接口的正确性、各模块间的数据流和控制流是否按照设计实现其功能、以及集成后整体功能的正确性。</p>
+<p>  正常操作情况测试：根据正确的操作流程对单独的模块或整体进行测试，确定被测对象可以良好运行</p>
+<p>  异常情况测试：异常情况，可能会包括数据库异常，系统异常，用户异常操作等情况</p>
+</li>
 </ul>
+<h2 id="一些测试的概念"><a href="#一些测试的概念" class="headerlink" title="一些测试的概念"></a>一些测试的概念</h2><p>成熟性：软件产品要避免由软件中错误而导致失效的能力</p>
+<p>容错性：在软件失效或者违反规定的接口的情况下，软件产品维持规定的性能级别的能力</p>
+<p>易恢复性：在发生故障的情况下，软件重建规定的性能级别并恢复受直接影响的数据的能力</p>
+<p>可靠性依从性：软件产品依附于同可靠性相关的标准、约定或规定的能力</p>
+<p>全覆盖测试：对于被测对象全面，整体，多维度的测试，受限于时间和人力成本，除非被测对象级别很高，不然不会采用这种测试方式</p>
+<p>抽样测试：针对功能及模块随机抽取被测对象</p>
 <h1 id="三-常见问题"><a href="#三-常见问题" class="headerlink" title="三.常见问题"></a>三.常见问题</h1><p>如何debug？</p>
 <h1 id="四-解决方案"><a href="#四-解决方案" class="headerlink" title="四.解决方案"></a>四.解决方案</h1><p>老大在知乎上的回答：</p>
 <ol>
-<li>确认Bug是否在本地可以重现。</li>
-<li>确认Bug在哪一段代码中。</li>
-<li>去除掉所有无关代码，只去调试和Bug相关的代码。</li>
-<li>和之前正常运行的版本对比，尝试恢复到之前可以正常运行的代码。</li>
-<li>重新写一个小Demo，确认是否可以正常运行，可以的话，移动代码到原有的代码中。</li>
-<li>如果本地无法重现，打日志，观察线上行为。</li>
-<li>重启服务，重启IDE，重启笔记本，重启服务器。</li>
-<li>跟产品经理说这个Bug解决不了，花费的代价很大，不值得。</li>
+<li><p>确认Bug是否在本地可以重现。</p>
+</li>
+<li><p>确认Bug在哪一段代码中。</p>
+</li>
+<li><p>去除掉所有无关代码，只去调试和Bug相关的代码。</p>
+</li>
+<li><p>和之前正常运行的版本对比，尝试恢复到之前可以正常运行的代码。</p>
+</li>
+<li><p>重新写一个小Demo，确认是否可以正常运行，可以的话，移动代码到原有的代码中。</p>
+</li>
+<li><p>如果本地无法重现，打日志，观察线上行为。</p>
+</li>
+<li><p>重启服务，重启IDE，重启笔记本，重启服务器。</p>
+</li>
+<li><p>跟产品经理说这个Bug解决不了，花费的代价很大，不值得。</p>
+</li>
 </ol>
-<p>张明云在知乎上的回答：<br>解决问题的流程：了解问题→定位问题→分析问题→解决问题→验证问题<br>解决问题的方法(排名分先后)</p>
+<p>张明云在知乎上的回答：</p>
+<p>解决问题的流程：了解问题→定位问题→分析问题→解决问题→验证问题</p>
+<p>解决问题的方法(排名分先后)</p>
 <ol>
-<li>借助搜索引擎：遇到有明显的异常信息，且自己并不熟悉为什么异常时，最高效的解决方法是借助搜索引擎，这里的搜索引擎一定是谷歌，不是百度；借助搜索引擎能解决工作中的大部分bug，你要相信，全世界这么多开发人员，你遇到过的大多数问题其他人也遇到过；</li>
-<li>打印调试法：这是最笨但最有效的办法，人会说谎、断点调试可能会说谎，但日志一定不会说谎；</li>
-<li>二分排除法：当你遇到随机问题、帮助他人解bug或者遇到自己不熟悉的代码时，通过屏蔽一部分代码，运行观察问题仍然存在，如果存在则进一步分析屏蔽一部分代码，直到定位到有问题的具体位置为止，这种方法能解决工作中的很大一部分疑难杂症；</li>
-<li>小黄鸭调试法：当你向某个对象陈述你的思路时，往往会有意想不到的结果，哪怕对方并不是一个生物；</li>
-<li>断点调试法：受限于效率不高以及在多线程环境下断点调试并不灵，有必要时才考虑用这种方法；通常可以使用打印调试法来代替；</li>
-<li>线上求助：包括论坛提问、RTX和微信群提问等；不到万不得已不要用这种办法，在有限的圈子里面，你遇到的一个具体技术问题很有可能其他人并没有遇到过，多数时候问了也是白问，但有时候也可能是一种有效的方法。</li>
+<li><p>借助搜索引擎：遇到有明显的异常信息，且自己并不熟悉为什么异常时，最高效的解决方法是借助搜索引擎，这里的搜索引擎一定是谷歌，不是百度；借助搜索引擎能解决工作中的大部分bug，你要相信，全世界这么多开发人员，你遇到过的大多数问题其他人也遇到过；</p>
+</li>
+<li><p>打印调试法：这是最笨但最有效的办法，人会说谎、断点调试可能会说谎，但日志一定不会说谎；</p>
+</li>
+<li><p>二分排除法：当你遇到随机问题、帮助他人解bug或者遇到自己不熟悉的代码时，通过屏蔽一部分代码，运行观察问题仍然存在，如果存在则进一步分析屏蔽一部分代码，直到定位到有问题的具体位置为止，这种方法能解决工作中的很大一部分疑难杂症；</p>
+</li>
+<li><p>小黄鸭调试法：当你向某个对象陈述你的思路时，往往会有意想不到的结果，哪怕对方并不是一个生物；</p>
+</li>
+<li><p>断点调试法：受限于效率不高以及在多线程环境下断点调试并不灵，有必要时才考虑用这种方法；通常可以使用打印调试法来代替；</p>
+</li>
+<li><p>线上求助：包括论坛提问、RTX和微信群提问等；不到万不得已不要用这种办法，在有限的圈子里面，你遇到的一个具体技术问题很有可能其他人并没有遇到过，多数时候问了也是白问，但有时候也可能是一种有效的方法。</p>
+</li>
 </ol>
-<h1 id="五-编码实战"><a href="#五-编码实战" class="headerlink" title="五.编码实战"></a>五.编码实战</h1><h1 id="六-拓展思考"><a href="#六-拓展思考" class="headerlink" title="六.拓展思考"></a>六.拓展思考</h1><ol>
-<li>什么是小黄鸭调试法?</li>
-</ol>
-<p>小黄鸭调试法，又称橡皮鸭调试法、黄鸭除虫法（Rubber Duck Debugging）是可在软件工程中使用的一种调试代码的方法。方法就是在程序的调试、除错或测试过程中，操作人耐心地向小黄鸭解释每一行程序的作用，以此来激发灵感与发现矛盾。</p>
+<h1 id="五-编码实战"><a href="#五-编码实战" class="headerlink" title="五.编码实战"></a>五.编码实战</h1><p>#六.拓展思考</p>
+<h2 id="什么是小黄鸭调试法"><a href="#什么是小黄鸭调试法" class="headerlink" title="什么是小黄鸭调试法?"></a>什么是小黄鸭调试法?</h2><p>小黄鸭调试法，又称橡皮鸭调试法、黄鸭除虫法（Rubber Duck Debugging）是可在软件工程中使用的一种调试代码的方法。方法就是在程序的调试、除错或测试过程中，操作人耐心地向小黄鸭解释每一行程序的作用，以此来激发灵感与发现矛盾。</p>
 <p>此概念是参照于一个故事。故事中程序大师随身携带一只小黄鸭，在调试代码的时候会在桌上放上这只小黄鸭，然后详细地向鸭子解释每行代码。许多程序员都有向别人提问及解释编程问题的经历，而目标甚至可能是完全不懂编程的人。而就在解释的过程中，程序员可能就发觉了问题的解决方案。一边阐述代码的意图，一边观察它实际上的意图并做调试，两者间的任何不协调都会变得更明显，使人更容易发现错误所在。如果没有玩具小鸭，操作人也可以向其他任何东西倾诉，比如桌上的盆栽、键盘/鼠标等。</p>
-<h1 id="七-参考资料"><a href="#七-参考资料" class="headerlink" title="七.参考资料"></a>七.参考资料</h1><p>软件开发流程<br>如何提高测试覆盖率<br>测试分析中对异常情况考虑<br>软件异常测试<br>断点调试<br>老程序员解bug有那些通用套路？</p>
-<h1 id="八-更多讨论"><a href="#八-更多讨论" class="headerlink" title="八.更多讨论"></a>八.更多讨论</h1><p>Q: bug的优先级有哪几种？</p>
-<ul>
-<li>critical(危险的)：是说项目中某一块功能因为这个bug而导致测试无法进行下去，此critical级别，该等级问题出现在不影响其他功能测试的情况下可以继续该版本试block是说项目中有闪退情况，崩溃情况。此为block级别，出现这种级别的问题此本停止测试</li>
-<li>major(重要的)：是说一些功能没有实现，但是不影响使用，功能菜单缺失，但不会影响系统稳定。此为major，这种问题应该合理安排时间进行修改</li>
-<li>normal(普通的)：是说界面等UI问题显示错误，比如字体大小，颜色，间距等问题。此类问题在测试初期较多，优先程度较低；在测试后期出现较少，应及时处理）</li>
-<li>minor(次要的)：是说界面、性能缺陷，建议类问题，不影响操作功能的执行，可以优化性能的方案等。</li>
+<h1 id="七-参考资料"><a href="#七-参考资料" class="headerlink" title="七.参考资料"></a>七.参考资料</h1><p>软件开发流程</p>
+<p>如何提高测试覆盖率</p>
+<p>测试分析中对异常情况考虑</p>
+<p>软件异常测试</p>
+<p>断点调试</p>
+<p>老程序员解bug有那些通用套路？</p>
+<h1 id="八-更多讨论"><a href="#八-更多讨论" class="headerlink" title="八.更多讨论"></a>八.更多讨论</h1><h2 id="bug的优先级有哪几种？"><a href="#bug的优先级有哪几种？" class="headerlink" title="bug的优先级有哪几种？"></a>bug的优先级有哪几种？</h2><ul>
+<li><p>critical(危险的)：是说项目中某一块功能因为这个bug而导致测试无法进行下去，此critical级别，该等级问题出现在不影响其他功能测试的情况下可以继续该版本试block是说项目中有闪退情况，崩溃情况。此为block级别，出现这种级别的问题此本停止测试</p>
+</li>
+<li><p>major(重要的)：是说一些功能没有实现，但是不影响使用，功能菜单缺失，但不会影响系统稳定。此为major，这种问题应该合理安排时间进行修改</p>
+</li>
+<li><p>normal(普通的)：是说界面等UI问题显示错误，比如字体大小，颜色，间距等问题。此类问题在测试初期较多，优先程度较低；在测试后期出现较少，应及时处理）</p>
+</li>
+<li><p>minor(次要的)：是说界面、性能缺陷，建议类问题，不影响操作功能的执行，可以优化性能的方案等。</p>
+</li>
 </ul>
-<p>Q: 日志和断点的优劣？<br>对于少量数据的检测，断点操作比较麻烦，日志很直接。但是对于比较复杂的代码，打断点能更好的理清逻辑和检查数据。</p>
-<p>Q: 如何避免写出bug？<br>改动代码时要考虑到对其他模块的影响；思考问题要全面，考虑到可能发生的各种情况；从其他地方找到的代码要弄清楚原理，了解这个知识点，再用到自己的项目中。</p>
+<h2 id="日志和断点的优劣？"><a href="#日志和断点的优劣？" class="headerlink" title="日志和断点的优劣？"></a>日志和断点的优劣？</h2><p>对于少量数据的检测，断点操作比较麻烦，日志很直接。但是对于比较复杂的代码，打断点能更好的理清逻辑和检查数据。</p>
+<h2 id="如何避免写出bug？"><a href="#如何避免写出bug？" class="headerlink" title="如何避免写出bug？"></a>如何避免写出bug？</h2><p>改动代码时要考虑到对其他模块的影响；思考问题要全面，考虑到可能发生的各种情况；从其他地方找到的代码要弄清楚原理，了解这个知识点，再用到自己的项目中。</p>
 <hr>
-<blockquote>
-<p>相关链接<br><a href="https://it-xzy.github.io/WEB-NEW/2018-8-24-D-js5-tds.html" target="_blank" rel="noopener">ppt地址</a><br><a href="https://v.qq.com/x/page/y0768t3zsmq.html?pcsharecode=dAfjf5Vz&amp;sf=uri" target="_blank" rel="noopener">腾讯视频地址</a><br><a href="https://blog.csdn.net/tianxintiandisheng/article/details/82019395" target="_blank" rel="noopener">csdn博客地址</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>项目开发</category>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="什么是Vuex在Vue官方网站的解释是： Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。 它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化   。使用Vuex常见的关键词 store：仓库容器，  包含应用中大部分的状态 (state) state：数据状态 mutations：更改 Vuex 的 store 中状态的唯一方法是提交 mu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuex基本使用和购物车demo">
+<meta property="og:url" content="http://yoursite.com/2019/11/08/Vue/vuex基本使用和购物车demo-md/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="什么是Vuex在Vue官方网站的解释是： Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。 它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化   。使用Vuex常见的关键词 store：仓库容器，  包含应用中大部分的状态 (state) state：数据状态 mutations：更改 Vuex 的 store 中状态的唯一方法是提交 mu">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-09T09:03:06.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuex基本使用和购物车demo">
+<meta name="twitter:description" content="什么是Vuex在Vue官方网站的解释是： Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。 它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化   。使用Vuex常见的关键词 store：仓库容器，  包含应用中大部分的状态 (state) state：数据状态 mutations：更改 Vuex 的 store 中状态的唯一方法是提交 mu">
+  <link rel="canonical" href="http://yoursite.com/2019/11/08/Vue/vuex基本使用和购物车demo-md/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>vuex基本使用和购物车demo | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/08/Vue/vuex基本使用和购物车demo-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            vuex基本使用和购物车demo
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-08 19:00:40" itemprop="dateCreated datePublished" datetime="2019-11-08T19:00:40+08:00">2019-11-08</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-09 17:03:06" itemprop="dateModified" datetime="2019-11-09T17:03:06+08:00">2019-11-09</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>7.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>7 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="什么是Vuex"><a href="#什么是Vuex" class="headerlink" title="什么是Vuex"></a>什么是Vuex</h1><p>在Vue官方网站的解释是： Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。 它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化   。</p><h1 id="使用Vuex常见的关键词"><a href="#使用Vuex常见的关键词" class="headerlink" title="使用Vuex常见的关键词"></a>使用Vuex常见的关键词</h1><ul>
+<li>store：仓库容器，  包含应用中大部分的状态 (state)</li>
+<li>state：数据状态</li>
+<li>mutations：更改 Vuex 的 store 中状态的唯一方法是提交 mutation</li>
+<li>commit：  调用 store.commit 方法，触发  mutation</li>
+<li>mapState：借助mapState辅助函数获取store中保存的状态，避免当一个组件需要获取多个状态的时候，将这些状态都声明为计算属性时代码冗余</li>
+</ul><a id="more"></a>
+
+<h1 id="Vuex基本使用"><a href="#Vuex基本使用" class="headerlink" title="Vuex基本使用"></a>Vuex基本使用</h1><p>前提条件：使用vue-cli创建项目，并安装vuex插件<code>npm install --save-dev  vuex</code> </p>
+<h2 id="min-js"><a href="#min-js" class="headerlink" title="min.js"></a>min.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span> <span class="comment">// 导入vue-router 库</span></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span> <span class="comment">// 导入vuex</span></span><br><span class="line">Vue.use(Vuex);<span class="comment">//将状态从根组件“注入”到每一个子组件中</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//组件引入</span></span><br><span class="line"><span class="keyword">import</span> HelloWorld <span class="keyword">from</span> <span class="string">'./components/HelloWorld.vue'</span></span><br><span class="line"><span class="keyword">import</span> Ajax <span class="keyword">from</span> <span class="string">'./components/Ajax.vue'</span></span><br><span class="line"><span class="keyword">import</span> count <span class="keyword">from</span> <span class="string">'./components/count.vue'</span></span><br><span class="line"><span class="keyword">import</span> father <span class="keyword">from</span> <span class="string">'./components/fatherAndChild/father.vue'</span></span><br><span class="line"><span class="keyword">import</span> vuexBase <span class="keyword">from</span> <span class="string">'./components/vuexDemo/baseVuexCount.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    <span class="comment">//利用重定向设置默认路由</span></span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">redirect</span>: <span class="string">'/HelloWorld'</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/HelloWorld'</span>, <span class="attr">component</span>: HelloWorld &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/Ajax'</span>, <span class="attr">component</span>: Ajax &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/father'</span>, <span class="attr">component</span>: father &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/count'</span>, <span class="attr">component</span>: count &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/vuexBase'</span>, <span class="attr">component</span>: vuexBase &#125;,</span><br><span class="line"></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//vuex状态管理商店</span></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    state: &#123;</span><br><span class="line">        count: <span class="number">0</span>,</span><br><span class="line">        todos: [</span><br><span class="line">            &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">text</span>: <span class="string">'我是真的'</span>, <span class="attr">done</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">text</span>: <span class="string">'我是假的'</span>, <span class="attr">done</span>: <span class="literal">false</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123;</span><br><span class="line">        doneTodos: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> state.todos.filter(<span class="function"><span class="params">todo</span> =&gt;</span> todo.done)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    actions: &#123;</span><br><span class="line">        <span class="comment">//异步操作</span></span><br><span class="line">        incrementAsync (&#123; commit &#125;) &#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                commit(<span class="string">'increment'</span>)</span><br><span class="line">            &#125;, <span class="number">2000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        increment (state) &#123;</span><br><span class="line">            <span class="comment">// 变更状态</span></span><br><span class="line">            state.count =  state.count + <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    store,</span><br><span class="line">    router,</span><br><span class="line">    render: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="baseVuexCount-vue"><a href="#baseVuexCount-vue" class="headerlink" title="baseVuexCount.vue"></a>baseVuexCount.vue</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123; count &#125;&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button v-on:click="setCount"&gt;设置count的值&lt;/</span>button&gt;</span><br><span class="line">        &lt;button v-on:click=<span class="string">"request"</span>&gt;异步操作&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;p&gt;过滤后的数据：&#123;&#123; doneTodosCount &#125;&#125;&lt;/</span>p&gt;</span><br><span class="line">        &lt;child-count&gt;<span class="xml"><span class="tag">&lt;/<span class="name">child-count</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    import childCount from "./</span>childCount<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    export default &#123;</span></span><br><span class="line"><span class="string">        name: "</span>baseVuexCount<span class="string">",</span></span><br><span class="line"><span class="string">        components: &#123;</span></span><br><span class="line"><span class="string">            childCount</span></span><br><span class="line"><span class="string">        &#125;,</span></span><br><span class="line"><span class="string">        computed: &#123;</span></span><br><span class="line"><span class="string">            count() &#123;</span></span><br><span class="line"><span class="string">                return this.$store.state.count</span></span><br><span class="line"><span class="string">            &#125;,</span></span><br><span class="line"><span class="string">            doneTodosCount() &#123;</span></span><br><span class="line"><span class="string">                return this.$store.getters.doneTodos[0].text</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;,</span></span><br><span class="line"><span class="string">        methods: &#123;</span></span><br><span class="line"><span class="string">            setCount() &#123;</span></span><br><span class="line"><span class="string">                this.$store.commit('increment');//mutations，显式调用法法来改变数据</span></span><br><span class="line"><span class="string">            &#125;,</span></span><br><span class="line"><span class="string">            request() &#123;</span></span><br><span class="line"><span class="string">                this.$store.dispatch('incrementAsync')//actions，模拟发送请求，异步操作</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;style scoped&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="购物车demo-不使用辅助函数"><a href="#购物车demo-不使用辅助函数" class="headerlink" title="购物车demo(不使用辅助函数)"></a>购物车demo(不使用辅助函数)</h1><h2 id="项目结构示例"><a href="#项目结构示例" class="headerlink" title="项目结构示例"></a>项目结构示例</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">├── index.html</span><br><span class="line">├── main.js</span><br><span class="line">├── api</span><br><span class="line">│   └── ... <span class="comment"># 抽取出API请求</span></span><br><span class="line">├── components</span><br><span class="line">│   ├── App.vue</span><br><span class="line">│   └── ...</span><br><span class="line">└── store</span><br><span class="line">    ├── index.js          <span class="comment"># 我们组装模块并导出 store 的地方</span></span><br><span class="line">    ├── actions.js        <span class="comment"># 根级别的 action</span></span><br><span class="line">    ├── mutations.js      <span class="comment"># 根级别的 mutation</span></span><br><span class="line">    └── modules</span><br><span class="line">        ├── cart.js       <span class="comment"># 购物车模块</span></span><br><span class="line">        └── products.js   <span class="comment"># 产品模块</span></span><br></pre></td></tr></table></figure>
+<h2 id="min-js-1"><a href="#min-js-1" class="headerlink" title="min.js"></a>min.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span> <span class="comment">// 导入vue-router 库</span></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store/index'</span> <span class="comment">//导入 store 对象</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//组件引入</span></span><br><span class="line"><span class="keyword">import</span> HelloWorld <span class="keyword">from</span> <span class="string">'./components/HelloWorld.vue'</span></span><br><span class="line"><span class="keyword">import</span> Ajax <span class="keyword">from</span> <span class="string">'./components/Ajax.vue'</span></span><br><span class="line"><span class="keyword">import</span> count <span class="keyword">from</span> <span class="string">'./components/count.vue'</span></span><br><span class="line"><span class="keyword">import</span> father <span class="keyword">from</span> <span class="string">'./components/fatherAndChild/father.vue'</span></span><br><span class="line"><span class="keyword">import</span> shop <span class="keyword">from</span> <span class="string">'./components/vuexDemo/shop.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    <span class="comment">//利用重定向设置默认路由</span></span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">redirect</span>: <span class="string">'/HelloWorld'</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/HelloWorld'</span>, <span class="attr">component</span>: HelloWorld &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/Ajax'</span>, <span class="attr">component</span>: Ajax &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/father'</span>, <span class="attr">component</span>: father &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/count'</span>, <span class="attr">component</span>: count &#125;,</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/shop'</span>, <span class="attr">component</span>: shop &#125;,</span><br><span class="line"></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    store,</span><br><span class="line">    router,</span><br><span class="line">    render: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">import</span> shop <span class="keyword">from</span> <span class="string">'./modules/shop'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">    modules: &#123;</span><br><span class="line">       shop</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store;</span><br></pre></td></tr></table></figure>
+<h2 id="shop-js"><a href="#shop-js" class="headerlink" title="shop.js"></a>shop.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数据存储</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> shop = &#123;</span><br><span class="line">    namespaced: <span class="literal">true</span>,<span class="comment">//注意 模块化管理数据请不要忘了命名空间的开启</span></span><br><span class="line">    state: &#123;</span><br><span class="line">        articles: [</span><br><span class="line">            &#123;</span><br><span class="line">                id: <span class="number">1</span>,</span><br><span class="line">                name: <span class="string">"可乐"</span>,</span><br><span class="line">                price: <span class="number">3</span>,</span><br><span class="line">                count: <span class="number">1</span>,</span><br><span class="line">                status: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                id: <span class="number">2</span>,</span><br><span class="line">                name: <span class="string">"炸鸡"</span>,</span><br><span class="line">                price: <span class="number">12</span>,</span><br><span class="line">                count: <span class="number">1</span>,</span><br><span class="line">                status: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                id: <span class="number">3</span>,</span><br><span class="line">                name: <span class="string">"汉堡"</span>,</span><br><span class="line">                price: <span class="number">6</span>,</span><br><span class="line">                count: <span class="number">1</span>,</span><br><span class="line">                status: <span class="literal">false</span></span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">        totalPrice: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    mutations: &#123;</span><br><span class="line">        addCount: <span class="function"><span class="keyword">function</span> (<span class="params">state, id</span>) </span>&#123;</span><br><span class="line">            state.articles[id - <span class="number">1</span>].count++;</span><br><span class="line">            <span class="keyword">this</span>.commit(<span class="string">"shop/setTotalPrice"</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        decreaseCount: <span class="function"><span class="keyword">function</span> (<span class="params">state, id</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (state.articles[id - <span class="number">1</span>].count === <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"商品数量已经无法减少"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                state.articles[id - <span class="number">1</span>].count--</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.commit(<span class="string">"shop/setTotalPrice"</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        setTotalPrice: <span class="function"><span class="keyword">function</span> (<span class="params">state</span>) </span>&#123;</span><br><span class="line">            state.totalPrice = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.getters[<span class="string">"shop/getShopList"</span>].length; i++) &#123;</span><br><span class="line">                <span class="keyword">let</span> price = <span class="keyword">this</span>.getters[<span class="string">"shop/getShopList"</span>][i].count * <span class="keyword">this</span>.getters[<span class="string">"shop/getShopList"</span>][i].price;</span><br><span class="line">                state.totalPrice = state.totalPrice + price</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    actions: &#123;</span><br><span class="line">        incrementAsync: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"异步操作"</span>)</span><br><span class="line">            &#125;, <span class="number">2000</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getters: &#123;</span><br><span class="line">        getShopList: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> state.articles.filter(<span class="function"><span class="params">article</span> =&gt;</span> article.status)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> shop;</span><br></pre></td></tr></table></figure>
+<h2 id="shop-vue"><a href="#shop-vue" class="headerlink" title="shop.vue"></a>shop.vue</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in articles"</span> <span class="attr">:key</span>=<span class="string">'item.id'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>商品名：&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>价格：&#123;&#123;item.price&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> &gt;</span>数量：&#123;&#123;item.count&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add(item.id)"</span> &gt;</span>增加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"decrease(item.id)"</span>&gt;</span>减少<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>总价：&#123;&#123;totalPrice&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">        name: <span class="string">"shop"</span>,</span></span><br><span class="line"><span class="undefined">        computed: &#123;</span></span><br><span class="line"><span class="undefined">            totalPrice() &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.shop.totalPrice</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            articles()&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span> <span class="keyword">this</span>.$store.getters[<span class="string">"shop/getShopList"</span>]<span class="comment">//很奇怪，过滤器的key中间有斜杠，不是像state那样通过.shop访问</span></span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            demo()&#123;</span></span><br><span class="line"><span class="javascript">               <span class="keyword">return</span> <span class="keyword">this</span>.$store.commit</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        data ()&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        mounted()&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.incrementAsync();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.setTotalPrice();</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        methods:&#123;</span></span><br><span class="line"><span class="undefined">            add(id)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(id);</span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.$store.commit(<span class="string">'shop/addCount'</span>,id)</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            decrease(id)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.$store.commit(<span class="string">'shop/decreaseCount'</span>,id)</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            setTotalPrice()&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.$store.commit(<span class="string">'shop/setTotalPrice'</span>)</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            incrementAsync()&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.$store.dispatch(<span class="string">'shop/incrementAsync'</span>)<span class="comment">//actions，模拟发送请求，异步操作</span></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="购物车demo-使用辅助函数"><a href="#购物车demo-使用辅助函数" class="headerlink" title="购物车demo(使用辅助函数)"></a>购物车demo(使用辅助函数)</h1><p> <strong>使用辅助函数只需修改shop.vue</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-for</span>=<span class="string">"item in getShopList"</span> <span class="attr">:key</span>=<span class="string">'item.id'</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>商品名：&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span>&gt;</span>价格：&#123;&#123;item.price&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> &gt;</span>数量：&#123;&#123;item.count&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"add(item.id)"</span> &gt;</span>增加<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"decrease(item.id)"</span>&gt;</span>减少<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>总价：&#123;&#123;totalPrice&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;getShopList&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> &#123; mapGetters, mapMutations,mapActions &#125; <span class="keyword">from</span> <span class="string">'vuex'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="javascript">        name: <span class="string">"shop"</span>,</span></span><br><span class="line"><span class="undefined">        computed: &#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//第一个参数为模块的名字，数组内为方法的名字</span></span></span><br><span class="line"><span class="javascript">            ...mapGetters(<span class="string">'shop'</span>,[<span class="string">'getShopList'</span>]),</span></span><br><span class="line"><span class="undefined">            totalPrice() &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.shop.totalPrice</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        data ()&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span>&#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        mounted()&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.incrementAsync();</span></span><br><span class="line"><span class="javascript">            <span class="keyword">this</span>.setTotalPrice();</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">        methods:&#123;</span></span><br><span class="line"><span class="javascript">            ...mapMutations(<span class="string">'shop'</span>,[<span class="string">'addCount'</span>,<span class="string">'decreaseCount'</span>,<span class="string">'setTotalPrice'</span>]),</span></span><br><span class="line"><span class="javascript">            ...mapActions(<span class="string">'shop'</span>,[<span class="string">'incrementAsync'</span>]),</span></span><br><span class="line"><span class="undefined">            add(id)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.addCount(id);</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">            decrease(id)&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">this</span>.decreaseCount(id);</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">vuex官方文档</a></p>
+<p><a href="https://juejin.im/post/5c997e59f265da60f6731774" target="_blank" rel="noopener">如何更好的使用module vuex？</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/07/Vue/vue中js数据改变视图层数据未更新/" rel="next" title="vue中js数据改变视图层数据未更新">
+                  <i class="fa fa-chevron-left"></i> vue中js数据改变视图层数据未更新
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/09/JS/js对象常用的方法和对象的深拷贝/" rel="prev" title="js对象常用的方法和对象的深拷贝">
+                  js对象常用的方法和对象的深拷贝 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是Vuex"><span class="nav-number">1.</span> <span class="nav-text">什么是Vuex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Vuex常见的关键词"><span class="nav-number">2.</span> <span class="nav-text">使用Vuex常见的关键词</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vuex基本使用"><span class="nav-number">3.</span> <span class="nav-text">Vuex基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#min-js"><span class="nav-number">3.1.</span> <span class="nav-text">min.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#baseVuexCount-vue"><span class="nav-number">3.2.</span> <span class="nav-text">baseVuexCount.vue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#购物车demo-不使用辅助函数"><span class="nav-number">4.</span> <span class="nav-text">购物车demo(不使用辅助函数)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构示例"><span class="nav-number">4.1.</span> <span class="nav-text">项目结构示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#min-js-1"><span class="nav-number">4.2.</span> <span class="nav-text">min.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index-js"><span class="nav-number">4.3.</span> <span class="nav-text">index.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shop-js"><span class="nav-number">4.4.</span> <span class="nav-text">shop.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shop-vue"><span class="nav-number">4.5.</span> <span class="nav-text">shop.vue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#购物车demo-使用辅助函数"><span class="nav-number">5.</span> <span class="nav-text">购物车demo(使用辅助函数)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">278k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:13</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

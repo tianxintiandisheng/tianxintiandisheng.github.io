@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="http状态码是什么当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。说人话：三位数字代码分别代表着不同的请求状态状态码概括1XX被接受，需要继续处理。这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http状态码有那些？分别代表是什么意思？">
+<meta property="og:url" content="http://yoursite.com/2019/11/11/JS/JS深度思考5/http状态码有那些？分别代表是什么意思？/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="http状态码是什么当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。说人话：三位数字代码分别代表着不同的请求状态状态码概括1XX被接受，需要继续处理。这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-11T14:18:15.520Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http状态码有那些？分别代表是什么意思？">
+<meta name="twitter:description" content="http状态码是什么当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。说人话：三位数字代码分别代表着不同的请求状态状态码概括1XX被接受，需要继续处理。这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头">
+  <link rel="canonical" href="http://yoursite.com/2019/11/11/JS/JS深度思考5/http状态码有那些？分别代表是什么意思？/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>http状态码有那些？分别代表是什么意思？ | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/JS/JS深度思考5/http状态码有那些？分别代表是什么意思？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            http状态码有那些？分别代表是什么意思？
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-11 21:36:19 / 修改时间：22:18:15" itemprop="dateCreated datePublished" datetime="2019-11-11T21:36:19+08:00">2019-11-11</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="http状态码是什么"><a href="#http状态码是什么" class="headerlink" title="http状态码是什么"></a>http状态码是什么</h1><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。</p><p><strong>说人话：三位数字代码分别代表着不同的请求状态</strong></p><h1 id="状态码概括"><a href="#状态码概括" class="headerlink" title="状态码概括"></a>状态码概括</h1><h2 id="1XX"><a href="#1XX" class="headerlink" title="1XX"></a>1XX</h2><p>被接受，需要继续处理。</p><p>这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束。</p><a id="more"></a>
+
+
+
+<h2 id="2XX"><a href="#2XX" class="headerlink" title="2XX"></a>2XX</h2><p>请求成功</p>
+<p>这一类型的状态码，代表请求已成功被服务器接收、理解、并接受</p>
+<h2 id="3XX"><a href="#3XX" class="headerlink" title="3XX"></a>3XX</h2><p>请求被重定向</p>
+<p>这类状态码代表需要客户端采取进一步的操作才能完成请求。通常，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。</p>
+<h2 id="4XX"><a href="#4XX" class="headerlink" title="4XX"></a>4XX</h2><p>请求错误</p>
+<p>这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。除非响应的是一个 HEAD 请求，否则服务器就应该返回一个解释当前错误状况的实体，以及这是临时的还是永久性的状况。这些状态码适用于任何请求方法。浏览器应当向用户显示任何包含在此类错误响应中的实体内容。</p>
+<h2 id="5XX"><a href="#5XX" class="headerlink" title="5XX"></a>5XX</h2><p>服务器错误</p>
+<p>这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。除非这是一个HEAD 请求，否则服务器应当包含一个解释当前错误状态以及这个状况是临时的还是永久的解释信息实体。浏览器应当向用户展示任何在当前响应中被包含的实体。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1xx ： Hold on (等着)</p>
+<p>2xx ： Here you go (执行完了，没毛病，拿着结果回去吧)</p>
+<p>3xx ： Go away (你要的不在我这儿，去别处找)</p>
+<p>4xx ： You fucked up (你丫出问题了)</p>
+<p>5xx ： I fucked up (我特么出问题了)</p>
+<h1 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h1><ul>
+<li>200 OK 服务器成功处理了请求（这个是我们见到最多的）</li>
+<li>304 Not Modified：服务端的资源与客户端上一次请求的一致，不需要重新传输，客户端使用本地缓存的即可</li>
+<li>400 Bad Request：用于告诉客户端它发送了一个错误的请求</li>
+<li>404 Not Found(页面丢失)未找到资源</li>
+<li>500 Internal Server Error：服务器内部出现了错误</li>
+<li>501 Internal Server Error服务器遇到一个错误，使其无法对请求提供服务</li>
+</ul>
+<h1 id="http状态码详解"><a href="#http状态码详解" class="headerlink" title="http状态码详解"></a>http状态码详解</h1><p>这里是对每个http状态的主要作用进行简单介绍。</p>
+<p>关于详细的http状态有兴趣了解的朋友们，可以点这里：<a href="http://baike.baidu.com/link?url=djR1a8qTw3slQRLhArsZ41zApZKHoqs56LdRx9AnRyOPiVsBhO71S0ejuhqlRl_IarKDo13eM-MIsBNPVuofcpnHdtfB8fVN3zuLA1DorljDkkwMRRDXu6Aw4A8uCk_F" target="_blank" rel="noopener">HTTP状态码</a>,这里是百度百科的对http状态码的详细解析，是我看到的最全的了。 </p>
+<h2 id="1XX-被接受等待处理"><a href="#1XX-被接受等待处理" class="headerlink" title="1XX 被接受等待处理"></a>1XX 被接受等待处理</h2><p>这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束。由于 HTTP/1.0 协议中没有定义任何 1xx 状态码，所以<strong>除非在某些试验条件下</strong>，<strong>服务器禁止向</strong>此类<strong>客户端</strong>发送 <strong>1xx</strong> 响应。</p>
+<p><strong>100（客户端继续发送请求，这是临时响应）</strong> ：这个临时响应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求完成后向客户端发送一个最终响应。</p>
+<p><strong>101服务器根据客户端的请求切换协议。</strong> 只能切换到更高级的协议，例如，切换到HTTP的新版本协议。</p>
+<p><strong>102 (代表处理将被继续执行)</strong> 由WebDAV（RFC 2518）扩展的状态码，代表处理将被继续执行。</p>
+<h2 id="2XX-成功接收"><a href="#2XX-成功接收" class="headerlink" title="2XX 成功接收"></a>2XX 成功接收</h2><p><strong>200   （成功）</strong>  服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。 </p>
+<p><strong>201   （已创建）</strong>  请求成功并且服务器创建了新的资源。 </p>
+<p><strong>202   （已接受）</strong>  服务器已接受请求，但尚未处理。 </p>
+<p><strong>203   （非授权信息）</strong>  服务器已成功处理了请求，但返回的信息可能来自另一来源。 </p>
+<p><strong>204   （无内容）</strong>  服务器成功处理了请求，但没有返回任何内容。 </p>
+<p><strong>205   （重置内容）</strong> 服务器成功处理了请求，但没有返回任何内容。</p>
+<p><strong>206   （部分内容）</strong>  服务器成功处理了部分 GET 请求。</p>
+<p><strong>207 (代表之后的消息体将是一个XML消息)</strong>，并且可能依照之前子请求数量的不同，包含一系列独立的响应代码。</p>
+<h2 id="3XX-请求被重定向"><a href="#3XX-请求被重定向" class="headerlink" title="3XX 请求被重定向"></a>3XX 请求被重定向</h2><p>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</p>
+<p><strong>300   （多种选择）</strong>  针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。 </p>
+<p><strong>301   （永久移动）</strong>  请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</p>
+<p><strong>302   （临时移动）</strong>  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+<p><strong>303   （查看其他位置）</strong> 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</p>
+<p><strong>304   （未修改）</strong> 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。 </p>
+<p><strong>305   （使用代理）</strong> 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。 </p>
+<p><strong>307   （临时重定向）</strong>  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</p>
+<h2 id="4XX-请求错误"><a href="#4XX-请求错误" class="headerlink" title="4XX 请求错误"></a>4XX 请求错误</h2><p>这些状态代码表示请求可能出错，妨碍了服务器的处理。</p>
+<p><strong>400   （错误请求）</strong> 服务器不理解请求的语法。 </p>
+<p><strong>401   （未授权）</strong> 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。 </p>
+<p><strong>403   （禁止）</strong> 服务器拒绝请求。</p>
+<p><strong>404   （未找到）</strong> 服务器找不到请求的网页。</p>
+<p><strong>405   （方法禁用）</strong> 禁用请求中指定的方法。 </p>
+<p><strong>406   （不接受）</strong> 无法使用请求的内容特性响应请求的网页。 </p>
+<p><strong>407   （需要代理授权）</strong> 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</p>
+<p><strong>408   （请求超时）</strong>  服务器等候请求时发生超时。 </p>
+<p><strong>409   （冲突）</strong>  服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。 </p>
+<p><strong>410   （已删除）</strong>  如果请求的资源已永久删除，服务器就会返回此响应。 </p>
+<p><strong>411   （需要有效长度）</strong> 服务器不接受不含有效内容长度标头字段的请求。 </p>
+<p><strong>412   （未满足前提条件）</strong> 服务器未满足请求者在请求中设置的其中一个前提条件。 </p>
+<p><strong>413   （请求实体过大）</strong> 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。 </p>
+<p><strong>414   （请求的 URI 过长）</strong> 请求的 URI（通常为网址）过长，服务器无法处理。 </p>
+<p><strong>415   （不支持的媒体类型）</strong> 请求的格式不受请求页面的支持。 </p>
+<p><strong>416   （请求范围不符合要求）</strong> 如果页面无法提供请求的范围，则服务器会返回此状态代码。 </p>
+<p><strong>417   （未满足期望值）</strong> 服务器未满足”期望”请求标头字段的要求。</p>
+<h2 id="5XX-服务器错误"><a href="#5XX-服务器错误" class="headerlink" title="5XX 服务器错误"></a>5XX 服务器错误</h2><p>这些状态代码表示服务器在尝试处理请求时发生内部错误。</p>
+<p>这些错误可能是服务器本身的错误，而不是请求出错。</p>
+<p><strong>500   （服务器内部错误）</strong>  服务器遇到错误，无法完成请求。 </p>
+<p><strong>501   （尚未实施）</strong> 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。 </p>
+<p><strong>502   （错误网关）</strong> 服务器作为网关或代理，从上游服务器收到无效响应。 </p>
+<p><strong>503   （服务不可用）</strong> 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。 </p>
+<p><strong>504   （网关超时）</strong>  服务器作为网关或代理，但是没有及时从上游服务器收到请求。 </p>
+<p><strong>505   （HTTP 版本不受支持）</strong> 服务器不支持请求中所用的 HTTP 协议版本。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/dufufd/article/details/53112184" target="_blank" rel="noopener">常见的HTTP状态码(HTTP Status Code)说明</a> </p>
+<p><a href="http://baike.baidu.com/link?url=djR1a8qTw3slQRLhArsZ41zApZKHoqs56LdRx9AnRyOPiVsBhO71S0ejuhqlRl_IarKDo13eM-MIsBNPVuofcpnHdtfB8fVN3zuLA1DorljDkkwMRRDXu6Aw4A8uCk_F" target="_blank" rel="noopener">百度百科HTTP状态码</a> </p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/11/JS/JS深度思考5/如何使用正则表达式？/" rel="next" title="如何使用正则表达式？">
+                  <i class="fa fa-chevron-left"></i> 如何使用正则表达式？
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#http状态码是什么"><span class="nav-number">1.</span> <span class="nav-text">http状态码是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态码概括"><span class="nav-number">2.</span> <span class="nav-text">状态码概括</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1XX"><span class="nav-number">2.1.</span> <span class="nav-text">1XX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2XX"><span class="nav-number">2.2.</span> <span class="nav-text">2XX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3XX"><span class="nav-number">2.3.</span> <span class="nav-text">3XX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4XX"><span class="nav-number">2.4.</span> <span class="nav-text">4XX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5XX"><span class="nav-number">2.5.</span> <span class="nav-text">5XX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.6.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的状态码"><span class="nav-number">3.</span> <span class="nav-text">常见的状态码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http状态码详解"><span class="nav-number">4.</span> <span class="nav-text">http状态码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1XX-被接受等待处理"><span class="nav-number">4.1.</span> <span class="nav-text">1XX 被接受等待处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2XX-成功接收"><span class="nav-number">4.2.</span> <span class="nav-text">2XX 成功接收</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3XX-请求被重定向"><span class="nav-number">4.3.</span> <span class="nav-text">3XX 请求被重定向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4XX-请求错误"><span class="nav-number">4.4.</span> <span class="nav-text">4XX 请求错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5XX-服务器错误"><span class="nav-number">4.5.</span> <span class="nav-text">5XX 服务器错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">154</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">333k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:03</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="背景介绍2005，一一篇题为“Ajax： A new Approach to Web Applications”，这篇文章介绍了一种叫做Ajax新技术，是对Asynchronous JavaScript +XML的简写。这一技术能够向服务器请求额外的数据而无序卸载页面，会带来更好的用户体验。负责Ajax运作的核心对象是XMLHttpRequest（XHR）对象。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是Ajax？">
+<meta property="og:url" content="http://yoursite.com/2019/11/10/什么是Ajax？/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="背景介绍2005，一一篇题为“Ajax： A new Approach to Web Applications”，这篇文章介绍了一种叫做Ajax新技术，是对Asynchronous JavaScript +XML的简写。这一技术能够向服务器请求额外的数据而无序卸载页面，会带来更好的用户体验。负责Ajax运作的核心对象是XMLHttpRequest（XHR）对象。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-10T08:33:30.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="什么是Ajax？">
+<meta name="twitter:description" content="背景介绍2005，一一篇题为“Ajax： A new Approach to Web Applications”，这篇文章介绍了一种叫做Ajax新技术，是对Asynchronous JavaScript +XML的简写。这一技术能够向服务器请求额外的数据而无序卸载页面，会带来更好的用户体验。负责Ajax运作的核心对象是XMLHttpRequest（XHR）对象。">
+  <link rel="canonical" href="http://yoursite.com/2019/11/10/什么是Ajax？/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>什么是Ajax？ | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/什么是Ajax？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            什么是Ajax？
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-10 16:07:54 / 修改时间：16:33:30" itemprop="dateCreated datePublished" datetime="2019-11-10T16:07:54+08:00">2019-11-10</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>6.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>6 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>2005，一一篇题为“Ajax： A new Approach to Web Applications”，这篇文章介绍了一种叫做Ajax新技术，是对Asynchronous JavaScript +XML的简写。这一技术能够向服务器请求额外的数据而无序卸载页面，会带来更好的用户体验。</p><p><strong>负责Ajax运作的核心对象是XMLHttpRequest（XHR）对象。</strong></p><a id="more"></a>
+
+<p>在使用XHR对象时，要调用的第一个方法时open（），它接受三个参数：要发送的请求的类型（“get”、“post”等）、请求的URL、表示是否发送异步请求的布尔值。</p>
+<h2 id="Ajax与传统工作方式的对比"><a href="#Ajax与传统工作方式的对比" class="headerlink" title="Ajax与传统工作方式的对比"></a>Ajax与传统工作方式的对比</h2><ul>
+<li>a. 传统的工作方式：传统的web应用程序中，用户向服务器发送一个请求，然后等待，服务器接受到用户的请求然后响应。在这段时间内，页面会进行整体刷新，产生一个等待新页面加载完成的时间，这是因为这种传输方式为同步处理方式。长久以来我们对这种web交互模式已经习惯了，并且以使用者的角度来讲已经觉得是理所当然的事情了。</li>
+<li>b. Ajax的工作方式：和传统的web应用不同，Ajax采取了异步交互避免了用户请求-等待-应答交互方式的缺点。Ajax在应用程序和服务器中引入了一个中间层—Ajax引擎，它是用Javascript编写的，在一个隐藏的框架中运行。Ajax引擎负责呈现用户界面，以及代表用户和服务器进行交互。Ajax引擎允许用户和服务器进行异步的交互。用户无需等待页面的整体重新加载。</li>
+</ul>
+<p>总结：传统的网页（不使用 Ajax）如果需要更新内容，必须重载整个网页页面。使用Ajax技术，可以节省网络带宽，提高页面的加载速度，从而缩短用户等待时间，改善用户体验</p>
+<h1 id="Ajax如何发起HTTP请求？"><a href="#Ajax如何发起HTTP请求？" class="headerlink" title="Ajax如何发起HTTP请求？"></a>Ajax如何发起HTTP请求？</h1><p>Ajax通过XMLHttpRequest对象发出HTTP请求，得到服务器返回的数据后再进行处理。XMLHttpRequest对象用来在浏览器与服务器之间传送数据。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、创建创建Ajax对象</span></span><br><span class="line"><span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">//2、连接服务器（打开和服务器的连接）</span></span><br><span class="line">oAjax.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);<span class="comment">//HTTP方法、连接地址、同步或异步，true为异步</span></span><br><span class="line"><span class="comment">//3、发送数据</span></span><br><span class="line">oAjax.send();</span><br><span class="line"><span class="comment">//4、接收数据</span></span><br><span class="line">oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 通信成功时，状态值为4</span></span><br><span class="line">  <span class="keyword">if</span> (oAjax.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span> (oAjax.status === <span class="number">200</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(oAjax.responseText);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(oAjax.statusText);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="open方法"><a href="#open方法" class="headerlink" title="open方法"></a>open方法</h2><p>XMLHttpRequest对象的open方法用于指定发送HTTP请求的参数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> open(</span><br><span class="line">   string method, <span class="comment">//method：表示HTTP动词/方法，比如“GET”、“POST”、“PUT”和“DELETE”</span></span><br><span class="line">   string url, <span class="comment">//url: 表示请求发送的网址</span></span><br><span class="line">   optional boolean <span class="keyword">async</span>, <span class="comment">//async: 格式为布尔值，默认为true，表示请求是否为异步</span></span><br><span class="line">   optional string user, <span class="comment">//user：表示用于认证的用户名，默认为空字符串</span></span><br><span class="line">   optional string password <span class="comment">//password：表示用于认证的密码，默认为空字符串</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="send方法"><a href="#send方法" class="headerlink" title="send方法"></a>send方法</h2><p>send方法用于实际发出HTTP请求。<br>如果不带参数，就表示HTTP请求只包含头信息，也就是只有一个URL，典型例子就是GET请求（get请求本身是通过URL传递数据的）；如果带有参数，就表示除了头信息，还带有包含具体数据的信息体，典型例子就是POST请求。send可以传递多种格式的数据。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oAjax.open(<span class="string">'POST'</span>, <span class="string">'http://www.example.com/somepage.php'</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="onreadystatechange监控请求状态"><a href="#onreadystatechange监控请求状态" class="headerlink" title="onreadystatechange监控请求状态"></a>onreadystatechange监控请求状态</h2><p>onreadystatechange监控请求状态，readyState就是请求状态，readyState的值就代表不同的状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0    （未初始化）还没有调用open()方法</span><br><span class="line">1    （载入）已调用send()方法，正在发送请求</span><br><span class="line">2    （载入完成）send()方法完成，已收到全部响应内容</span><br><span class="line">3    （解析）正在解析响应内容</span><br><span class="line">4    （完成）响应内容解析完成，可以在客户端调用了</span><br></pre></td></tr></table></figure></p>
+<h2 id="status属性"><a href="#status属性" class="headerlink" title="status属性"></a>status属性</h2><p>status属性表示请求得到的HTTP状态码，<br>如果通信成功就是200。statusText属性返回一个字符串，表示服务器发送的状态提示。不同于status属性，该属性包含整个状态信息，比如“200 OK”。</p>
+<h2 id="responseText属性"><a href="#responseText属性" class="headerlink" title="responseText属性"></a>responseText属性</h2><p>responseText属性返回从服务器接收到的字符串。</p>
+<h1 id="编码实战"><a href="#编码实战" class="headerlink" title="编码实战"></a>编码实战</h1><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> 1<span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"> 2<span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"> 3</span><br><span class="line"> 4<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"> 5    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"> 6    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> 7    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"index.css"</span>&gt;</span></span><br><span class="line"> 8    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> 9<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">10</span><br><span class="line">11<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">12    <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"login"</span> &gt;</span></span><br><span class="line">13        <span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"用户名"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"text"</span> &gt;</span></span><br><span class="line">14        <span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"密码"</span> <span class="attr">name</span>=<span class="string">"pwd"</span> <span class="attr">type</span>=<span class="string">"password"</span> &gt;</span></span><br><span class="line">15        <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">16        <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"btn"</span> <span class="attr">type</span>=<span class="string">"submit"</span> &gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">17    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">18    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"ajax.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">19<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">20</span><br><span class="line">21<span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="JavaScript-amp-Ajax"><a href="#JavaScript-amp-Ajax" class="headerlink" title="JavaScript &amp; Ajax"></a>JavaScript &amp; Ajax</h2><h3 id="传统方法"><a href="#传统方法" class="headerlink" title="传统方法"></a>传统方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span><span class="comment">//IE9+</span></span><br><span class="line"> <span class="number">2</span><span class="keyword">var</span> aValue = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'input'</span>);</span><br><span class="line"> <span class="number">3</span><span class="keyword">var</span> oMsg = <span class="built_in">document</span>.getElementById(<span class="string">'msg'</span>);</span><br><span class="line"> <span class="number">4</span><span class="keyword">var</span> oBtn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</span><br><span class="line"> <span class="number">5</span><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"> <span class="number">6</span></span><br><span class="line"> <span class="number">7</span>oBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line"> <span class="number">8</span>    event.preventDefault();</span><br><span class="line"> <span class="number">9</span></span><br><span class="line"><span class="number">10</span>    <span class="keyword">var</span> name = aValue[<span class="number">0</span>].value;</span><br><span class="line"><span class="number">11</span>    <span class="keyword">var</span> pwd = aValue[<span class="number">1</span>].value;</span><br><span class="line"><span class="number">12</span>    <span class="keyword">var</span> data = <span class="string">"name="</span> + name + <span class="string">"&amp;pwd="</span> + pwd;</span><br><span class="line"><span class="number">13</span>    <span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">15</span>    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">16</span>        <span class="keyword">if</span> (oAjax.readyState == <span class="number">4</span> &amp;&amp; oAjax.status == <span class="number">200</span>) &#123;</span><br><span class="line"><span class="number">17</span>            <span class="keyword">var</span> resdata = <span class="built_in">JSON</span>.parse(oAjax.responseText);</span><br><span class="line"><span class="number">18</span>            <span class="built_in">console</span>.log(name);</span><br><span class="line"><span class="number">19</span>            <span class="built_in">console</span>.log(pwd);</span><br><span class="line"><span class="number">20</span>            <span class="built_in">console</span>.log(resdata);</span><br><span class="line"><span class="number">21</span>            <span class="keyword">if</span> (resdata.code === <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">22</span>                <span class="built_in">window</span>.location.href = <span class="string">"http://dev.admin.carrots.ptteng.com/"</span>;</span><br><span class="line"><span class="number">23</span>            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="number">24</span>                clearInterval(timer);</span><br><span class="line"><span class="number">25</span>                oMsg.innerHTML = resdata.message;</span><br><span class="line"><span class="number">26</span>                timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">27</span>                    oMsg.innerHTML = <span class="string">''</span>;</span><br><span class="line"><span class="number">28</span>                &#125;, <span class="number">3000</span>)</span><br><span class="line"><span class="number">29</span>            &#125;</span><br><span class="line"><span class="number">30</span>        &#125;</span><br><span class="line"><span class="number">31</span>    &#125;</span><br><span class="line"><span class="number">32</span></span><br><span class="line"><span class="number">33</span>    oAjax.open(<span class="string">'POST'</span>, <span class="string">'/carrots-admin-ajax/a/login'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="number">34</span></span><br><span class="line"><span class="number">35</span>    oAjax.setRequestHeader(<span class="string">'content-type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line"><span class="number">36</span></span><br><span class="line"><span class="number">37</span>    oAjax.send(data);</span><br><span class="line"><span class="number">38</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用FormData"><a href="#使用FormData" class="headerlink" title="使用FormData"></a>使用FormData</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span><span class="comment">//IE10+</span></span><br><span class="line"> <span class="number">2</span><span class="keyword">var</span> oForm = <span class="built_in">document</span>.getElementById(<span class="string">'login'</span>);</span><br><span class="line"> <span class="number">3</span><span class="keyword">var</span> oMsg = <span class="built_in">document</span>.getElementById(<span class="string">'msg'</span>);</span><br><span class="line"> <span class="number">4</span><span class="keyword">var</span> oBtn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>);</span><br><span class="line"> <span class="number">5</span><span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"> <span class="number">6</span></span><br><span class="line"> <span class="number">7</span>oBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line"> <span class="number">8</span>    event.preventDefault();</span><br><span class="line"> <span class="number">9</span></span><br><span class="line"><span class="number">10</span>    <span class="keyword">var</span> data = <span class="keyword">new</span> FormData(oForm);</span><br><span class="line"><span class="number">11</span>    <span class="keyword">var</span> oAjax = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">13</span>    oAjax.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">15</span>        <span class="keyword">if</span> (oAjax.readyState == <span class="number">4</span> &amp;&amp; oAjax.status == <span class="number">200</span>) &#123;</span><br><span class="line"><span class="number">16</span>            <span class="keyword">var</span> resdata = <span class="built_in">JSON</span>.parse(oAjax.responseText);</span><br><span class="line"><span class="number">17</span>            <span class="comment">//console.log(data.get('name')); //IE不支持FormData的get方法</span></span><br><span class="line"><span class="number">18</span>            <span class="comment">//console.log(data.get('pwd'));</span></span><br><span class="line"><span class="number">19</span>            <span class="built_in">console</span>.log(resdata);</span><br><span class="line"><span class="number">20</span>            <span class="keyword">if</span> (resdata.code === <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">21</span>                <span class="built_in">window</span>.location.href = <span class="string">"http://dev.admin.carrots.ptteng.com/"</span>;</span><br><span class="line"><span class="number">22</span>            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="number">23</span>                clearInterval(timer);</span><br><span class="line"><span class="number">24</span>                oMsg.innerHTML = resdata.message;</span><br><span class="line"><span class="number">25</span>                timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">26</span>                    oMsg.innerHTML = <span class="string">''</span>;</span><br><span class="line"><span class="number">27</span>                &#125;, <span class="number">3000</span>)</span><br><span class="line"><span class="number">28</span>            &#125;</span><br><span class="line"><span class="number">29</span>        &#125;</span><br><span class="line"><span class="number">30</span>    &#125;</span><br><span class="line"><span class="number">31</span></span><br><span class="line"><span class="number">32</span>    oAjax.open(<span class="string">'POST'</span>, <span class="string">'/carrots-admin-ajax/a/login'</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="number">33</span></span><br><span class="line"><span class="number">34</span>    oAjax.send(data);</span><br><span class="line"><span class="number">35</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="jQuery-amp-Ajax"><a href="#jQuery-amp-Ajax" class="headerlink" title="jQuery &amp; Ajax"></a>jQuery &amp; Ajax</h2><h3 id="IE9-jQuery-post"><a href="#IE9-jQuery-post" class="headerlink" title="IE9+ jQuery.post()"></a>IE9+ jQuery.post()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span><span class="comment">//IE9+ jQuery.post()</span></span><br><span class="line"> <span class="number">2</span>$(<span class="string">"form"</span>).on(<span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="number">3</span>    <span class="keyword">var</span> url = <span class="string">'/carrots-admin-ajax/a/login'</span>;</span><br><span class="line"> <span class="number">4</span>    <span class="keyword">var</span> formdata = $(<span class="keyword">this</span>).serialize();</span><br><span class="line"> <span class="number">5</span>    <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"> <span class="number">6</span>    $.post(url, formdata,</span><br><span class="line"> <span class="number">7</span>        <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line"> <span class="number">8</span>            <span class="built_in">console</span>.log(formdata);</span><br><span class="line"> <span class="number">9</span>            <span class="built_in">console</span>.log(data);</span><br><span class="line"><span class="number">10</span>            <span class="keyword">if</span> (data.code === <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">11</span>                <span class="built_in">window</span>.location.href = <span class="string">"http://dev.admin.carrots.ptteng.com/"</span>;</span><br><span class="line"><span class="number">12</span>            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="number">13</span>                clearInterval(timer);</span><br><span class="line"><span class="number">14</span>                $(<span class="string">'#msg'</span>).html(data.message);</span><br><span class="line"><span class="number">15</span>                timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">16</span>                    $(<span class="string">'#msg'</span>).html(<span class="string">''</span>);</span><br><span class="line"><span class="number">17</span>                &#125;, <span class="number">3000</span>)</span><br><span class="line"><span class="number">18</span>            &#125;</span><br><span class="line"><span class="number">19</span>        &#125;, <span class="string">'json'</span>);</span><br><span class="line"><span class="number">20</span>    <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//阻止表单默认提交行为</span></span><br><span class="line"><span class="number">21</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="IE9-jQuery-ajax"><a href="#IE9-jQuery-ajax" class="headerlink" title="IE9+ jQuery.ajax()"></a>IE9+ jQuery.ajax()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span>$(<span class="string">"form"</span>).on(<span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="number">2</span>    <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line"> <span class="number">3</span>    $.ajax(&#123;</span><br><span class="line"> <span class="number">4</span>        type: <span class="string">'POST'</span>,</span><br><span class="line"> <span class="number">5</span>        url: <span class="string">'/carrots-admin-ajax/a/login'</span>,</span><br><span class="line"> <span class="number">6</span>        data: $(<span class="string">'#login'</span>).serialize(),</span><br><span class="line"> <span class="number">7</span>        dataType: <span class="string">'json'</span>,</span><br><span class="line"> <span class="number">8</span>        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line"> <span class="number">9</span>            <span class="built_in">console</span>.log(data);</span><br><span class="line"><span class="number">10</span>            <span class="keyword">if</span> (data.code === <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">11</span>                <span class="built_in">window</span>.location.href = <span class="string">"http://dev.admin.carrots.ptteng.com/"</span>;</span><br><span class="line"><span class="number">12</span>            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="number">13</span>               $(<span class="string">'#msg'</span>).html(data.message);</span><br><span class="line"><span class="number">14</span>                timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">15</span>                    $(<span class="string">'#msg'</span>).html(<span class="string">''</span>);</span><br><span class="line"><span class="number">16</span>                &#125;, <span class="number">3000</span>)</span><br><span class="line"><span class="number">17</span>            &#125;</span><br><span class="line"><span class="number">18</span>        &#125;</span><br><span class="line"><span class="number">19</span>    &#125;)</span><br><span class="line"><span class="number">20</span>    <span class="keyword">return</span> <span class="literal">false</span>;<span class="comment">//阻止表单默认提交行为</span></span><br><span class="line"><span class="number">21</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="IE10-jQuery-ajax-amp-FormData"><a href="#IE10-jQuery-ajax-amp-FormData" class="headerlink" title="IE10+ jQuery.ajax() &amp; FormData"></a>IE10+ jQuery.ajax() &amp; FormData</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span>$(<span class="string">"form"</span>).on(<span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="number">2</span>    <span class="keyword">var</span> formdata = <span class="keyword">new</span> FormData($(<span class="string">'#login'</span>)[<span class="number">0</span>]);</span><br><span class="line"> <span class="number">3</span>    $.ajax(&#123;</span><br><span class="line"> <span class="number">4</span>        type: <span class="string">'POST'</span>,</span><br><span class="line"> <span class="number">5</span>        url: <span class="string">'/carrots-admin-ajax/a/login'</span>,</span><br><span class="line"> <span class="number">6</span>        data: formdata,</span><br><span class="line"> <span class="number">7</span>        processData: <span class="literal">false</span>,</span><br><span class="line"> <span class="number">8</span>        contentType: <span class="literal">false</span>,</span><br><span class="line"> <span class="number">9</span>        dataType: <span class="string">'json'</span>,</span><br><span class="line"><span class="number">10</span>        success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line"><span class="number">11</span>            <span class="built_in">console</span>.log(data);</span><br><span class="line"><span class="number">12</span>            <span class="keyword">if</span> (data.code === <span class="number">0</span>) &#123;</span><br><span class="line"><span class="number">13</span>                <span class="built_in">window</span>.location.href = <span class="string">"http://dev.admin.carrots.ptteng.com/"</span>;</span><br><span class="line"><span class="number">14</span>            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="number">15</span>                $(<span class="string">'#msg'</span>).html(data.message);</span><br><span class="line"><span class="number">16</span>                timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">17</span>                    $(<span class="string">'#msg'</span>).html(<span class="string">''</span>);</span><br><span class="line"><span class="number">18</span>                &#125;, <span class="number">3000</span>)</span><br><span class="line"><span class="number">19</span>            &#125;</span><br><span class="line"><span class="number">20</span>        &#125;</span><br><span class="line"><span class="number">21</span>    &#125;)</span><br><span class="line"><span class="number">22</span>    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//阻止表单默认提交行为</span></span><br><span class="line"><span class="number">23</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>使用post提交的时候需要进行的设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//content-Type: application/x-www-form-urlencoded;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//jQuery中，</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//content-Type: application/x-www-form-urlencoded;charset=utf-8;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//AngularJS中$http</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//content-Type: application/json; charset=utf-8;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用原生Ajax需要在open以后才能使用xhr.setRequestHeader()方法，否则出错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//xhr.open("post","xxxx.aspx",true);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//xhr.setRequestHeader("content-type","application/x-www-form-urlencoded")</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//用原生写时必须在open()方法之后send()方法之前调用</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://yuque.com/docs/share/14187470-4ab5-4e4e-bb01-3b1da19ed538#n80mxo" target="_blank" rel="noopener">不知名师弟的Task 5修炼秘籍 </a></p>
+<p><a href="https://blog.csdn.net/tianxintiandisheng/article/details/82049402" target="_blank" rel="noopener">异步请求之设置Content-Type</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/09/JS/js操作符/" rel="next" title="js操作符">
+                  <i class="fa fa-chevron-left"></i> js操作符
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/10/Ajax异步请求之设置Content-Type/" rel="prev" title="Ajax异步请求之设置Content-Type">
+                  Ajax异步请求之设置Content-Type <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景介绍"><span class="nav-number">1.</span> <span class="nav-text">背景介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax与传统工作方式的对比"><span class="nav-number">1.1.</span> <span class="nav-text">Ajax与传统工作方式的对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ajax如何发起HTTP请求？"><span class="nav-number">2.</span> <span class="nav-text">Ajax如何发起HTTP请求？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#open方法"><span class="nav-number">2.1.</span> <span class="nav-text">open方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#send方法"><span class="nav-number">2.2.</span> <span class="nav-text">send方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onreadystatechange监控请求状态"><span class="nav-number">2.3.</span> <span class="nav-text">onreadystatechange监控请求状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#status属性"><span class="nav-number">2.4.</span> <span class="nav-text">status属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#responseText属性"><span class="nav-number">2.5.</span> <span class="nav-text">responseText属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编码实战"><span class="nav-number">3.</span> <span class="nav-text">编码实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">3.1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-amp-Ajax"><span class="nav-number">3.2.</span> <span class="nav-text">JavaScript &amp; Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统方法"><span class="nav-number">3.2.1.</span> <span class="nav-text">传统方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用FormData"><span class="nav-number">3.2.2.</span> <span class="nav-text">使用FormData</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-amp-Ajax"><span class="nav-number">3.3.</span> <span class="nav-text">jQuery &amp; Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IE9-jQuery-post"><span class="nav-number">3.3.1.</span> <span class="nav-text">IE9+ jQuery.post()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE9-jQuery-ajax"><span class="nav-number">3.3.2.</span> <span class="nav-text">IE9+ jQuery.ajax()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE10-jQuery-ajax-amp-FormData"><span class="nav-number">3.3.3.</span> <span class="nav-text">IE10+ jQuery.ajax() &amp; FormData</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">4.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">150</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">324k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:55</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

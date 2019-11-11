@@ -251,7 +251,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/JS/JS深度思考1/JS中基本类型和引用类型分别指的的是什么？有何区别？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/25/JS/JS深度思考3/jquery中的bind-live-delegate-on-有什么区别？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -266,7 +266,7 @@
         <h1 class="post-title" itemprop="name headline">
           
             
-            <a href="/2019/10/23/JS/JS深度思考1/JS中基本类型和引用类型分别指的的是什么？有何区别？/" class="post-title-link" itemprop="url">JS中基本类型和引用类型分别指的的是什么？有何区别？</a>
+            <a href="/2019/10/25/JS/JS深度思考3/jquery中的bind-live-delegate-on-有什么区别？/" class="post-title-link" itemprop="url">jquery中的bind(),live(),delegate(),on()有什么区别？</a>
           
         </h1>
 
@@ -281,7 +281,7 @@
                 
               
 
-              <time title="创建时间：2019-10-23 14:41:16 / 修改时间：15:00:22" itemprop="dateCreated datePublished" datetime="2019-10-23T14:41:16+08:00">2019-10-23</time>
+              <time title="创建时间：2019-10-25 15:29:53 / 修改时间：15:43:09" itemprop="dateCreated datePublished" datetime="2019-10-25T15:29:53+08:00">2019-10-25</time>
             </span>
           
             
@@ -326,7 +326,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>578</span>
+              <span>6.1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>6 分钟</span>
             </span>
           
 
@@ -349,14 +349,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h1><p>ECMAScript包含两个不同类型的值：基本类型值和引用类型值。</p><ul>
-<li>基本类型值指的是简单的数据段；</li>
-<li>引用类型值指由多个值构成的对象。</li>
-</ul><p>在将一个值赋给变量时，解析器必须确定这个值是基本类型值还是引用类型值。第 3 章讨论了 5 种基本数据类型：Undefined、Null、Boolean、Number 和 String。这 5 种基本数据类型是按值访问的，因为可以操作保存在变量中的实际的值。</p>
+          <p>当我们试图绑定一些事件到DOM元素上的时候，我相信上面这4个方法是最常用的。而它们之间到底有什么不同呢？在什么场合下用什么方法是最有效的呢?</p><h1 id="准备知识"><a href="#准备知识" class="headerlink" title="准备知识"></a>准备知识</h1><p>当我们在开始的时候，有些知识是必须具备的：</p><p>DOM树</p><p>下图仅仅是一个示例，这是一个在browser环境下的一棵模拟DOM树，在下面的代码中仅起到演示的作用：</p><p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g8ahircgqqj30fa08cjrb.jpg" alt="chart.png"></p><p>Event bubbling (aka event propagation)冒泡</p>
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2019/10/23/JS/JS深度思考1/JS中基本类型和引用类型分别指的的是什么？有何区别？/#more" rel="contents">
+              <a class="btn" href="/2019/10/25/JS/JS深度思考3/jquery中的bind-live-delegate-on-有什么区别？/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -382,7 +379,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/JS/JS深度思考1/F12Console的用法，以及如何Debug程序？/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/25/JS/JS深度思考3/有限状态机是什么？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -397,7 +394,7 @@
         <h1 class="post-title" itemprop="name headline">
           
             
-            <a href="/2019/10/23/JS/JS深度思考1/F12Console的用法，以及如何Debug程序？/" class="post-title-link" itemprop="url">F12Console的用法，以及如何Debug程序？</a>
+            <a href="/2019/10/25/JS/JS深度思考3/有限状态机是什么？/" class="post-title-link" itemprop="url">有限状态机是什么？</a>
           
         </h1>
 
@@ -412,263 +409,7 @@
                 
               
 
-              <time title="创建时间：2019-10-23 14:18:02 / 修改时间：14:38:49" itemprop="dateCreated datePublished" datetime="2019-10-23T14:18:02+08:00">2019-10-23</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>970</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="F12Console的用法"><a href="#F12Console的用法" class="headerlink" title="F12Console的用法"></a>F12Console的用法</h1><h2 id="JavaScript-Console-对象"><a href="#JavaScript-Console-对象" class="headerlink" title="JavaScript Console 对象"></a>JavaScript Console 对象</h2><p>Console 对象用于 JavaScript 调试。</p><p>JavaScript 原生中默认是没有 Console 对象,这是宿主对象（也就是游览器）提供的内置对象。 用于访问调试控制台, 在不同的浏览器里效果可能不同。</p><p>Console 对象常见的两个用途：</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/23/JS/JS深度思考1/F12Console的用法，以及如何Debug程序？/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/JS/JS深度思考1/ID和Class有什么区别？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="田迪生的个人博客">
-      <meta itemprop="image" content="/images/金凰儿.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/23/JS/JS深度思考1/ID和Class有什么区别？/" class="post-title-link" itemprop="url">ID和Class有什么区别？</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-23 14:07:32 / 修改时间：14:10:17" itemprop="dateCreated datePublished" datetime="2019-10-23T14:07:32+08:00">2019-10-23</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
-                    <span itemprop="name">深度思考</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>439</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>1 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>对于CSS而言，id和class都是选择器，唯一不同的地方在于权重不同。如果只说CSS，上面那一句话就讲完了。拓展出来，对于html而言，id和class都是dom元素的属性值。不同的地方在于id属性的值是唯一的，而class属性值可以重复。id还一个老特性是锚点功能，当浏览器地址栏有一个#xxx，页面会自动滚动到id=xxx的元素上面。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/23/JS/JS深度思考1/ID和Class有什么区别？/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/JS/JS深度思考1/定时器有哪些用法？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="田迪生的个人博客">
-      <meta itemprop="image" content="/images/金凰儿.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/23/JS/JS深度思考1/定时器有哪些用法？/" class="post-title-link" itemprop="url">定时器有哪些用法？</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-23 13:59:53 / 修改时间：16:14:02" itemprop="dateCreated datePublished" datetime="2019-10-23T13:59:53+08:00">2019-10-23</time>
+              <time title="创建时间：2019-10-25 15:21:33 / 修改时间：15:28:54" itemprop="dateCreated datePublished" datetime="2019-10-25T15:21:33+08:00">2019-10-25</time>
             </span>
           
             
@@ -736,14 +477,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>JS定时器有以下两个方法：</p><ul>
-<li>setInterval() ：按照指定的周期（以毫秒计）来调用函数或计算表达式。方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。</li>
-<li>setTimeout() ：在指定的毫秒数后调用函数或计算表达式。</li>
-</ul><h2 id="setInterval"><a href="#setInterval" class="headerlink" title="setInterval()"></a>setInterval()</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(code,millisec,lang)</span><br></pre></td></tr></table></figure>
+          <h1 id="有限状态机是什么"><a href="#有限状态机是什么" class="headerlink" title="有限状态机是什么"></a>有限状态机是什么</h1><p>有限状态机（Finite-state machine）是一个非常有用的模型，可以模拟世界上大部分事物。</p><p>简单说，它有三个特征：</p><ul>
+<li>状态总数（state）是有限的。</li>
+<li>任一时刻，只处在一种状态之中。</li>
+<li>某种条件下，会从一种状态转变（transition）到另一种状态。</li>
+</ul><h1 id="有限状态机的使用"><a href="#有限状态机的使用" class="headerlink" title="有限状态机的使用"></a>有限状态机的使用</h1><ol>
+<li>引入有限状态机的js库</li>
+</ol>
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2019/10/23/JS/JS深度思考1/定时器有哪些用法？/#more" rel="contents">
+              <a class="btn" href="/2019/10/25/JS/JS深度思考3/有限状态机是什么？/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -769,7 +513,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/JS/JS深度思考1/JS有哪些数据类型和常用方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/25/JS/JS深度思考3/JS有哪几种传参方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -784,7 +528,7 @@
         <h1 class="post-title" itemprop="name headline">
           
             
-            <a href="/2019/10/23/JS/JS深度思考1/JS有哪些数据类型和常用方法/" class="post-title-link" itemprop="url">JS有哪些数据类型和常用方法</a>
+            <a href="/2019/10/25/JS/JS深度思考3/JS有哪几种传参方式/" class="post-title-link" itemprop="url">JS有哪几种传参方式?</a>
           
         </h1>
 
@@ -799,7 +543,7 @@
                 
               
 
-              <time title="创建时间：2019-10-23 13:30:40 / 修改时间：13:59:30" itemprop="dateCreated datePublished" datetime="2019-10-23T13:30:40+08:00">2019-10-23</time>
+              <time title="创建时间：2019-10-25 10:54:48 / 修改时间：14:52:55" itemprop="dateCreated datePublished" datetime="2019-10-25T10:54:48+08:00">2019-10-25</time>
             </span>
           
             
@@ -844,7 +588,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>3.4k</span>
+              <span>3.2k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -867,11 +611,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>  ECMAscript中有五种简单数据类型（也称基本数据类型）：Undefined、Null、Boolean、Number和String,还有一种复杂数据类型——Object，Object本质上是由一组无序的名值对组成的。</p><p>  ECMAscript不支持任何创建自定义类型的机制，而所有值最终都将是上述六种数据类型之一。</p>
+          <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>所有函数的参数都是按值传递的,也就是说把函数外部的值赋值给函数内部的参数，就和把值从一个变量赋值到另一个变量一样。</p><p>————《js高级程序设计》</p><p>有的人可能会把这里的js传参方式，理解成js函数中的参数传递，但是呢，我们所要讲的是页面之间的数据传递。</p><p>传统的前端开发中，页面之间是少有参数交互的，甚至没有，而在如今的前端环境下， 一个稍微正式点的项目都不可能少了页面间传参，页面的跨越、服务器后台进行数据请求等，都需要一个或多个传参的方法。 那么参数在不同的页面间进行传递，一个页面的参数被另一页面使用，如何才能做到不同页面间进行参数传递？</p>
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2019/10/23/JS/JS深度思考1/JS有哪些数据类型和常用方法/#more" rel="contents">
+              <a class="btn" href="/2019/10/25/JS/JS深度思考3/JS有哪几种传参方式/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -897,7 +641,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/项目开发/编程思想：面向对象和面向过程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/JS/JS深度思考2/洗牌算法具体指的是什么？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -912,7 +656,7 @@
         <h1 class="post-title" itemprop="name headline">
           
             
-            <a href="/2019/10/22/项目开发/编程思想：面向对象和面向过程/" class="post-title-link" itemprop="url">编程思想：面向对象和面向过程</a>
+            <a href="/2019/10/24/JS/JS深度思考2/洗牌算法具体指的是什么？/" class="post-title-link" itemprop="url">洗牌算法具体指的是什么？</a>
           
         </h1>
 
@@ -927,7 +671,7 @@
                 
               
 
-              <time title="创建时间：2019-10-22 21:44:35 / 修改时间：21:49:23" itemprop="dateCreated datePublished" datetime="2019-10-22T21:44:35+08:00">2019-10-22</time>
+              <time title="创建时间：2019-10-24 23:51:12 / 修改时间：23:56:05" itemprop="dateCreated datePublished" datetime="2019-10-24T23:51:12+08:00">2019-10-24</time>
             </span>
           
             
@@ -941,8 +685,264 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/项目开发/" itemprop="url" rel="index">
-                    <span itemprop="name">项目开发</span>
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>洗牌算法是我们常见的随机问题，在玩游戏、随机排序时经常会碰到，本质是让一个数组内的元素随机排列，即数组乱序。</p><h1 id="Fisher–Yates-Shuffle"><a href="#Fisher–Yates-Shuffle" class="headerlink" title="Fisher–Yates Shuffle"></a>Fisher–Yates Shuffle</h1><p>关于数组乱序，正确的解法应该是 <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle" target="_blank" rel="noopener">Fisher–Yates Shuffle</a>，复杂度 O(n)。</p><p>其实它的思想非常的简单，遍历数组元素，将其与之前的任意元素交换。因为遍历有从前向后和从后往前两种方式，所以该算法大致也有两个版本的实现。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/24/JS/JS深度思考2/洗牌算法具体指的是什么？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/JS/JS深度思考2/常见Dom操作有哪些？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/10/24/JS/JS深度思考2/常见Dom操作有哪些？/" class="post-title-link" itemprop="url">常见Dom操作有哪些？</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-24 23:31:41 / 修改时间：23:56:05" itemprop="dateCreated datePublished" datetime="2019-10-24T23:31:41+08:00">2019-10-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/深度思考/" itemprop="url" rel="index">
+                    <span itemprop="name">深度思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1.背景介绍"></a>1.背景介绍</h1><p>DOM（文档对象模型）是针对HTML 和XML 文档的一个API（应用程序编程接口）。DOM描绘了一个层次化的节点树，允许开发人员添加、移除和修改页面的某一部分。DOM脱胎于</p><p>Netscape 及微软公司创始的DHTML（动态HTML），但现在它已经成为表现和操作页面标记的真正的跨平台、语言中立的方式。1998 年10 月DOM１级规范成为W3C 的推荐标准，为基本的文档结构及查询提供了接口。本章主要讨论与浏览器中的HTML页面相关的DOM1级的特性和应用，以及JavaScript 对DOM1级的实现。IE、Firefox、Safari、Chrome 和Opera 都非常完善地实现了DOM。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/24/JS/JS深度思考2/常见Dom操作有哪些？/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/工具使用/webpack打包报错：clean-webpack-plugin-only-accepts-an-options-object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/10/24/工具使用/webpack打包报错：clean-webpack-plugin-only-accepts-an-options-object/" class="post-title-link" itemprop="url">webpack打包报错：clean-webpack-plugin only accepts an options object</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-24 22:55:51 / 修改时间：23:10:32" itemprop="dateCreated datePublished" datetime="2019-10-24T22:55:51+08:00">2019-10-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
                   </a>
                 </span>
 
@@ -984,11 +984,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>　　何谓面向对象？何谓面向过程？对于这编程界的两大思想，一直贯穿在我们学习和工作当中。我们知道面向过程和面向对象，但要让我们讲出来个所以然，又感觉是不知从何说起，最后可能也只会说出一句就是那样啦，你知道啦。而这种茫然，其实就是对这两大编程思想的迷糊之处。本文通过学生到校报道注册的实例，阐述了面向过程和面向对象两大思想。希望能对你的学习和工作有所帮助。</p>
+          <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><h2 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h2><p>webpack 4.41.2<br>clean-webpack-plugin 3.0.0</p><h2 id="webpack打包报错信息"><a href="#webpack打包报错信息" class="headerlink" title="webpack打包报错信息"></a>webpack打包报错信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clean-webpack-plugin only accepts an options object.</span><br></pre></td></tr></table></figure><h2 id="Webpack-Config"><a href="#Webpack-Config" class="headerlink" title="Webpack Config"></a>Webpack Config</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">const &#123; CleanWebpackPlugin &#125; = require(&apos;clean-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        app: &apos;./src/index.js&apos;,</span><br><span class="line">        print: &apos;./src/print.js&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        new CleanWebpackPlugin([&apos;dist&apos;]),</span><br><span class="line">        new HtmlWebpackPlugin(&#123;</span><br><span class="line">            title: &apos;Output Management&apos;</span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &apos;[name].bundle.js&apos;,</span><br><span class="line">        path: path.resolve(__dirname, &apos;dist&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2019/10/22/项目开发/编程思想：面向对象和面向过程/#more" rel="contents">
+              <a class="btn" href="/2019/10/24/工具使用/webpack打包报错：clean-webpack-plugin-only-accepts-an-options-object/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1014,7 +1014,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/Vue/Vue-自定义组件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/工具使用/webpack打包报错CleanWebpackPlugin-is-not-a-constructor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -1029,7 +1029,7 @@
         <h1 class="post-title" itemprop="name headline">
           
             
-            <a href="/2019/10/22/Vue/Vue-自定义组件/" class="post-title-link" itemprop="url">Vue 自定义组件</a>
+            <a href="/2019/10/24/工具使用/webpack打包报错CleanWebpackPlugin-is-not-a-constructor/" class="post-title-link" itemprop="url">webpack打包报错CleanWebpackPlugin is not a constructor</a>
           
         </h1>
 
@@ -1044,7 +1044,7 @@
                 
               
 
-              <time title="创建时间：2019-10-22 21:23:14 / 修改时间：21:40:08" itemprop="dateCreated datePublished" datetime="2019-10-22T21:23:14+08:00">2019-10-22</time>
+              <time title="创建时间：2019-10-24 22:51:45 / 修改时间：22:55:28" itemprop="dateCreated datePublished" datetime="2019-10-24T22:51:45+08:00">2019-10-24</time>
             </span>
           
             
@@ -1058,8 +1058,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
                   </a>
                 </span>
 
@@ -1078,7 +1078,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.9k</span>
+              <span>2.1k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1101,11 +1101,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>组件（Component）是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素， Vue.js 的编译器为它添加特殊功能。在有些情况下，组件也可以是原生 HTML 元素的形式，以 is 特性扩展。</p><h1 id="创建单文件组件"><a href="#创建单文件组件" class="headerlink" title="创建单文件组件"></a>创建单文件组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;stylus&quot; rel=&quot;stylesheet/stylus&quot;&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+          <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><h2 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h2><p>webpack 4.41.2<br>clean-webpack-plugin 3.0.0</p><h2 id="webpack打包报错信息"><a href="#webpack打包报错信息" class="headerlink" title="webpack打包报错信息"></a>webpack打包报错信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CleanWebpackPlugin is not a constructor.</span><br></pre></td></tr></table></figure><h2 id="Webpack-Config"><a href="#Webpack-Config" class="headerlink" title="Webpack Config"></a>Webpack Config</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;);</span><br><span class="line">const HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">const CleanWebpackPlugin = require(&apos;clean-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: &apos;./src/index.js&apos;,</span><br><span class="line">    print: &apos;./src/print.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new CleanWebpackPlugin([&apos;dist&apos;]),</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      title: &apos;Output Management&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &apos;[name].bundle.js&apos;,</span><br><span class="line">    path: path.resolve(__dirname, &apos;dist&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2019/10/22/Vue/Vue-自定义组件/#more" rel="contents">
+              <a class="btn" href="/2019/10/24/工具使用/webpack打包报错CleanWebpackPlugin-is-not-a-constructor/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1131,7 +1131,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/Vue/Vue之props验证/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/工具使用/webpack使用官方例子运行index-html报错/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="田迪生">
@@ -1146,7 +1146,7 @@
         <h1 class="post-title" itemprop="name headline">
           
             
-            <a href="/2019/10/22/Vue/Vue之props验证/" class="post-title-link" itemprop="url">Vue之props验证</a>
+            <a href="/2019/10/24/工具使用/webpack使用官方例子运行index-html报错/" class="post-title-link" itemprop="url">webpack使用官方例子运行index.html报错</a>
           
         </h1>
 
@@ -1161,7 +1161,7 @@
                 
               
 
-              <time title="创建时间：2019-10-22 20:53:57 / 修改时间：21:14:38" itemprop="dateCreated datePublished" datetime="2019-10-22T20:53:57+08:00">2019-10-22</time>
+              <time title="创建时间：2019-10-24 17:02:47 / 修改时间：22:51:11" itemprop="dateCreated datePublished" datetime="2019-10-24T17:02:47+08:00">2019-10-24</time>
             </span>
           
             
@@ -1175,8 +1175,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
                   </a>
                 </span>
 
@@ -1195,265 +1195,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>7.9k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>7 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="为什么要有props验证"><a href="#为什么要有props验证" class="headerlink" title="为什么要有props验证"></a>为什么要有props验证</h1><p>但是上面这种方式是建立在大家都很遵守约定的情况下的，想象一下当有一个人要使用foo-component组件的时候，他可能对于其要接受的参数有什么要求并不是很清楚，因此传入的参数可能会在开发子组件的人的意料之外，程序就会发生错误，就像我们在函数调用之前先检查一下函数一样，props也可以进行一个预先检查。</p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/22/Vue/Vue之props验证/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/Vue/遇到的问题/router路由跳转使用query传递参数刷新后数据无法获取/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="田迪生的个人博客">
-      <meta itemprop="image" content="/images/金凰儿.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/22/Vue/遇到的问题/router路由跳转使用query传递参数刷新后数据无法获取/" class="post-title-link" itemprop="url">router路由跳转使用query传递参数刷新后数据无法获取</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-22 14:21:12 / 修改时间：14:22:24" itemprop="dateCreated datePublished" datetime="2019-10-22T14:21:12+08:00">2019-10-22</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/遇到的问题/" itemprop="url" rel="index">
-                    <span itemprop="name">遇到的问题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>4.6k</span>
-            </span>
-          
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              
-              <span>4 分钟</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>问题描述: 路由进行页面的跳转时,使用query进参数传递,query中存储一个较为复杂的对象,页面初次载入时数据可以成功获取,刷新页面后数据显示<code>{accountInfo: &quot;[object Object]&quot;}</code></p>
-</blockquote><p>#代码示例</p><p>路由跳转代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if (data.code === 200) &#123;</span><br><span class="line">    this.$router.push(&#123;</span><br><span class="line">        name: &apos;admin/&apos;,</span><br><span class="line">        query:&#123;</span><br><span class="line">            accountInfo:data.data,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          
-            <div class="post-button">
-              <a class="btn" href="/2019/10/22/Vue/遇到的问题/router路由跳转使用query传递参数刷新后数据无法获取/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/22/Vue/遇到的问题/使用vue的表单组件-编辑页面设置默认值失败/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="田迪生">
-      <meta itemprop="description" content="田迪生的个人博客">
-      <meta itemprop="image" content="/images/金凰儿.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天心天地生">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            
-            <a href="/2019/10/22/Vue/遇到的问题/使用vue的表单组件-编辑页面设置默认值失败/" class="post-title-link" itemprop="url">使用vue的表单组件,编辑页面设置默认值失败</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-22 14:10:31 / 修改时间：14:12:38" itemprop="dateCreated datePublished" datetime="2019-10-22T14:10:31+08:00">2019-10-22</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/遇到的问题/" itemprop="url" rel="index">
-                    <span itemprop="name">遇到的问题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">本文字数：</span>
-              
-              <span>283</span>
+              <span>617</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -1476,11 +1218,253 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述:"></a>问题描述:</h1><p>使用vue的表单组件,编辑页面设置默认值失败,其他表单项目均设置成功,只有图片地址的input值无法成功渲染</p><h1 id="问题解决流程"><a href="#问题解决流程" class="headerlink" title="问题解决流程:"></a>问题解决流程:</h1><p>仔细对比该表单项目与其他表单项目,以及结合之前angular的经验,猜测可能是v-if影响了数据的绑定,去除v-if后数据成功渲染</p><h1 id="问题出现原因"><a href="#问题出现原因" class="headerlink" title="问题出现原因:"></a>问题出现原因:</h1><p>该表单项目使用了v-if(条件默认为false),因为生命周期的原因,数据第一次无法<br>渲染<br>step1. v-if条件为假,表单元素在html中没有生成<br>step2. 数据绑定,找不到该表单元素的dom,数据渲染失败<br>step3. v-if条件修改为真,表单元素在html中生成</p>
+          <h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>webpack版本4.4.12<br>webpack使用官方例子运行index.html报错</p><h2 id="报错代码"><a href="#报错代码" class="headerlink" title="报错代码"></a>报错代码</h2><p>具体代码与官方例子完全相同（起步部分-创建一个 bundle 文件）<br><a href="https://www.webpackjs.com/guides/getting-started/#%E5%9F%BA%E6%9C%AC%E5%AE%89%E8%A3%85" target="_blank" rel="noopener">起步部分-创建一个 bundle 文件</a></p><h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h2><p><img src="http://ww1.sinaimg.cn/large/006mfK1qly1g89egfbdntj30qz08habh.jpg" alt="d5b088f3-de2d-46ac-8acc-c8f5f9961a1b.jpg"></p><h1 id="问题解决过程"><a href="#问题解决过程" class="headerlink" title="问题解决过程"></a>问题解决过程</h1><p>我注意到html的标题和报错中都出现了乱码，猜测可能时识别中文时出现了错误。然后我观察html文件,发现其未设置HTML编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">   &lt;title&gt;起步&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           
             <div class="post-button">
-              <a class="btn" href="/2019/10/22/Vue/遇到的问题/使用vue的表单组件-编辑页面设置默认值失败/#more" rel="contents">
+              <a class="btn" href="/2019/10/24/工具使用/webpack使用官方例子运行index-html报错/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/工具使用/github新建项目以及本地项目关联远程库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/10/24/工具使用/github新建项目以及本地项目关联远程库/" class="post-title-link" itemprop="url">github新建项目以及本地项目关联远程库</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-24 11:35:09 / 修改时间：11:50:26" itemprop="dateCreated datePublished" datetime="2019-10-24T11:35:09+08:00">2019-10-24</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>github已经是我们不能忽略的远程仓库托管了，今天对创建新项目和上传记录一下过程。</p><h1 id="github新建项目"><a href="#github新建项目" class="headerlink" title="github新建项目"></a>github新建项目</h1><p>第一步：登录你的github账号</p><p>第二步：点击创建的 “+”，选择 New repositories</p><p><img src="https://upload-images.jianshu.io/upload_images/2241258-2c742ee02543ee4d.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt="img"> </p><p>第三步：填写先关信息</p><p><img src="https://upload-images.jianshu.io/upload_images/2241258-66e88119fd307e39.png?imageMogr2/auto-orient/strip|imageView2/2/w/1101/format/webp" alt="img"> </p><p>第四步：点击 Create repository创建。之后会出现以下界面的信息。</p>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/24/工具使用/github新建项目以及本地项目关联远程库/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/23/CSS层叠样式表/css动画animation绘制向四周扩散的圆圈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            
+            <a href="/2019/10/23/CSS层叠样式表/css动画animation绘制向四周扩散的圆圈/" class="post-title-link" itemprop="url">css动画animation绘制向四周扩散的圆圈</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-23 23:20:57" itemprop="dateCreated datePublished" datetime="2019-10-23T23:20:57+08:00">2019-10-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-26 22:34:02" itemprop="dateModified" datetime="2019-10-26T22:34:02+08:00">2019-10-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/层叠样式表CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">层叠样式表CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CSS3-动画animation"><a href="#CSS3-动画animation" class="headerlink" title="CSS3 动画animation"></a>CSS3 动画animation</h1><p>CSS3 可以创建动画，它可以取代许多网页动画图像、Flash 动画和 JavaScript 实现的效果。 </p><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">animation: name duration timing-function delay iteration-count direction fill-mode play-state;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button">
+              <a class="btn" href="/2019/10/23/CSS层叠样式表/css动画animation绘制向四周扩散的圆圈/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1506,7 +1490,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1554,7 +1538,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1638,12 +1622,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">278k</span>
+    <span title="站点总字数">333k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:13</span>
+    <span title="站点阅读时长">5:03</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
   </div>

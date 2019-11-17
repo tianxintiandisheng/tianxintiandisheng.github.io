@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="字符串的创建JS中创建字符串的方法主要有三种： 字符串表面量，var a = &amp;quot;foo&amp;quot; 通过 New String来实例化的是一个String对象,var b = new String(&amp;quot;foo&amp;quot;) 使用string函数转换, var c = String(&amp;quot;foo&amp;quot;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript中字符串直接量与new String的区别">
+<meta property="og:url" content="http://yoursite.com/2019/11/15/JS/Javascript中字符串直接量与new-String的区别/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="字符串的创建JS中创建字符串的方法主要有三种： 字符串表面量，var a = &amp;quot;foo&amp;quot; 通过 New String来实例化的是一个String对象,var b = new String(&amp;quot;foo&amp;quot;) 使用string函数转换, var c = String(&amp;quot;foo&amp;quot;)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-16T11:04:34.325Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript中字符串直接量与new String的区别">
+<meta name="twitter:description" content="字符串的创建JS中创建字符串的方法主要有三种： 字符串表面量，var a = &amp;quot;foo&amp;quot; 通过 New String来实例化的是一个String对象,var b = new String(&amp;quot;foo&amp;quot;) 使用string函数转换, var c = String(&amp;quot;foo&amp;quot;)">
+  <link rel="canonical" href="http://yoursite.com/2019/11/15/JS/Javascript中字符串直接量与new-String的区别/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Javascript中字符串直接量与new String的区别 | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/JS/Javascript中字符串直接量与new-String的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            Javascript中字符串直接量与new String的区别
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-15 16:23:43" itemprop="dateCreated datePublished" datetime="2019-11-15T16:23:43+08:00">2019-11-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-16 19:04:34" itemprop="dateModified" datetime="2019-11-16T19:04:34+08:00">2019-11-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>4k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="字符串的创建"><a href="#字符串的创建" class="headerlink" title="字符串的创建"></a>字符串的创建</h1><p>JS中创建字符串的方法主要有三种：</p><ol>
+<li>字符串表面量，<code>var a = &quot;foo&quot;</code></li>
+<li>通过 New String来实例化的是一个String对象,<code>var b = new String(&quot;foo&quot;)</code></li>
+<li>使用string函数转换, <code>var c = String(&quot;foo&quot;)</code></li>
+</ol><a id="more"></a>
+
+<p>通过String直接创建的字符串和字符串表面量为基本数据类型，属于JavaScript中的直接量（包含数字，以及数组、对象和正则表达式、数字和布尔值的直接量格式）。 </p>
+<p>通过 New String来实例化的是一个String对象， 所以我们可以调用String对象的方法。</p>
+<h1 id="测试题"><a href="#测试题" class="headerlink" title="测试题"></a>测试题</h1><p> 请确认以下的控制台打印的结果 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"foo"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a == b);  </span><br><span class="line"><span class="built_in">console</span>.log(a.repeat === b.repeat); </span><br><span class="line"><span class="built_in">console</span>.log(a === b); </span><br><span class="line"><span class="built_in">console</span>.log(a === c);</span><br></pre></td></tr></table></figure>
+<h1 id="相等操作符"><a href="#相等操作符" class="headerlink" title="相等操作符"></a>相等操作符</h1><p>确定两个变量是否相等是编程中的一个非常重要的操作。在比较字符串、数值和布尔值的相等性时， 问题还比较简单。但在涉及到对象的比较时，问题就变得复杂了。早的 ECMAScript中的相等和不等 操作符会在执行比较之前，先将对象转换成相似的类型。后来，有人提出了这种转换到底是否合理的质 疑。后，ECMAScript 的解决方案就是提供两组操作符：</p>
+<ul>
+<li>相等和不相等——先转换再比较</li>
+<li>全等和不全等——仅比较而不转换</li>
+</ul>
+<h2 id="相等（-）和不相等（！-）"><a href="#相等（-）和不相等（！-）" class="headerlink" title="相等（==）和不相等（！=）"></a>相等（<code>==</code>）和不相等（<code>！=</code>）</h2><p>ECMAScript中的相等操作符由两个等于号（<code>==</code>）表示，如果两个操作数相等，则返回 true。而不 相等操作符由叹号后跟等于号（<code>!=</code>）表示，如果两个操作数不相等，则返回true。这两个操作符都会 先转换操作数（通常称为强制转型），然后再比较它们的相等性。 </p>
+<p>在<strong>转换不同的数据类型</strong>时，相等和不相等操作符遵循下列基本规则：</p>
+<ul>
+<li>如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值——false 转换为 0，而 true 转换为 1；</li>
+<li>如果一个操作数是字符串，另一个操作数是数值，在比较相等性之前先将字符串转换为数值； </li>
+<li>如果一个操作数是对象，另一个操作数不是，则调用对象的 valueOf()方法，用得到的基本类 型值按照前面的规则进行比较； </li>
+</ul>
+<p>这两个操作符在进行比较时则要遵循下列规则：</p>
+<ul>
+<li>null 和 undefined 是相等的。</li>
+<li>要比较相等性之前，不能将 null 和 undefined 转换成其他任何值。</li>
+<li>如果有一个操作数是 NaN，则相等操作符返回 false，而不相等操作符返回 true。重要提示： 即使两个操作数都是 NaN，相等操作符也返回 false；因为按照规则，NaN 不等于 NaN。 </li>
+<li>如果两个操作数都是对象，则比较它们是不是同一个对象。如果两个操作数都指向同一个对象， 则相等操作符返回 true；否则，返回 false。</li>
+</ul>
+<h2 id="全等（-）和不全等（！-）"><a href="#全等（-）和不全等（！-）" class="headerlink" title="全等（===）和不全等（！==）"></a>全等（<code>===</code>）和不全等（<code>！==</code>）</h2><p>除了在比较之前不转换操作数之外，全等和不全等操作符与相等和不相等操作符没有什么区别。全 等操作符由 3个等于号（<code>===</code>）表示，它只在两个操作数未经转换就相等的情况下返回 true</p>
+<h1 id="习题详解"><a href="#习题详解" class="headerlink" title="习题详解"></a>习题详解</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"foo"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &gt;foo</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// &gt;String &#123;0: "f", 1: "o", 2: "o", length: 3, [[PrimitiveValue]]: "foo"&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// &gt;foo</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a); <span class="comment">// &gt;"string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b); <span class="comment">// &gt;"object"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> c); <span class="comment">// &gt;"string"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a == b);  <span class="comment">// &gt;true</span></span><br><span class="line"><span class="built_in">console</span>.log(a.repeat === b.repeat); <span class="comment">//&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(a === b); <span class="comment">// &gt;false</span></span><br><span class="line"><span class="built_in">console</span>.log(a === c); <span class="comment">// &gt;true</span></span><br></pre></td></tr></table></figure>
+<p><strong>根据JS的语法，要满足相等（<code>==</code>）的条件如下：</strong></p>
+<p>在类型转换之后</p>
+<ol>
+<li>如果是引用类型，则两个变量必须指向同一个对象（同一个地址）；</li>
+<li>如果是基本类型，则两个变量除了类型必须相同外，值还必须相等。 </li>
+</ol>
+<p><strong>根据JS的语法，要满足全等（<code>===</code>）的条件如下：</strong></p>
+<ol>
+<li>如果是引用类型，则两个变量必须指向同一个对象（同一个地址）；</li>
+<li>如果是基本类型，则两个变量除了类型必须相同外，值还必须相等。 </li>
+</ol>
+<h2 id="console-log-a-b-gt-true"><a href="#console-log-a-b-gt-true" class="headerlink" title="console.log(a == b);  // &gt;true"></a><code>console.log(a == b);  // &gt;true</code></h2><p>相等操作符，变量a不是对象，变量b是对象调用对象的 <code>valueOf()</code>方法用得到的基本类 型值为<code>“foo”</code>，与变量a进行比较，相等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"foo"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &gt;foo</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// &gt;String &#123;0: "f", 1: "o", 2: "o", length: 3, [[PrimitiveValue]]: "foo"&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b.valueOf());<span class="comment">//&gt;"foo"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a == b);  <span class="comment">// &gt;true</span></span><br></pre></td></tr></table></figure>
+<h2 id="console-log-a-repeat-b-repeat-gt-true"><a href="#console-log-a-repeat-b-repeat-gt-true" class="headerlink" title="console.log(a.repeat === b.repeat); //&gt; true"></a><code>console.log(a.repeat === b.repeat); //&gt; true</code></h2><p>变量a和c是一个<code>primitive值（原生值）</code>，一个primitive值不会拥有自己的属性与方法。</p>
+<p>但是，当我们尝试访问一个原生值的属性时，JS引擎内部会调用一个内置<code>[[toObject]]</code> 方法，将字面量的”foo”转为一个<code>[[PrimitiveValue]]</code>为<code>”foo”</code>的String对象，然后从其原型链中尝试查找需要访问的属性，使用结束后再释放掉这个String对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"foo"</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a); <span class="comment">// &gt;"string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> c); <span class="comment">// &gt;"string"</span></span><br></pre></td></tr></table></figure>
+<p>变量<code>b</code>是一个primitive类型（primitive类型：Undefined, Null, Boolean, String, Number）的实例，它有一个值为实例化String类型时所传入的参数的内置属性<code>[[PrimitiveValue]]</code>，这个String的实例享有<code>String.prototype</code>上所有的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b); <span class="comment">// &gt;"object"</span></span><br></pre></td></tr></table></figure>
+<p>变量a和变量b访问的时同一个对象的方法，全等成立，返回true。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"foo"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &gt;foo</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// &gt;String &#123;0: "f", 1: "o", 2: "o", length: 3, [[PrimitiveValue]]: "foo"&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.repeat); <span class="comment">//&gt; ƒ repeat() &#123; [native code] &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b.repeat); <span class="comment">//&gt; ƒ repeat() &#123; [native code] &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.__proto__); <span class="comment">//&gt; String &#123;"", f: ƒ, format: ƒ, constructor: ƒ, anchor: ƒ, …&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b.__proto__); <span class="comment">//&gt; String &#123;"", f: ƒ, format: ƒ, constructor: ƒ, anchor: ƒ, …&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.__proto__===b.__proto__); <span class="comment">//&gt; true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a.repeat === b.repeat); <span class="comment">//&gt; true</span></span><br></pre></td></tr></table></figure>
+<h2 id="console-log-a-b-gt-false"><a href="#console-log-a-b-gt-false" class="headerlink" title="console.log(a === b); // &gt;false"></a><code>console.log(a === b); // &gt;false</code></h2><p>变量a为字符串，变量b为对象，不全等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"foo"</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &gt;"foo"</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// &gt;String &#123;0: "f", 1: "o", 2: "o", length: 3, [[PrimitiveValue]]: "foo"&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a); <span class="comment">// &gt;"string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> b); <span class="comment">// &gt;"object"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === b); <span class="comment">// &gt;false</span></span><br></pre></td></tr></table></figure>
+<h2 id="console-log-a-c-gt-true"><a href="#console-log-a-c-gt-true" class="headerlink" title="console.log(a === c); // &gt;true"></a><code>console.log(a === c); // &gt;true</code></h2><p>变量a和c均为<code>primitive值（原生值）</code>,类型为字符串，值也相等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"foo"</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">String</span>(<span class="string">"foo"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// &gt;foo</span></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// &gt;foo</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a); <span class="comment">// &gt;"string"</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> c); <span class="comment">// &gt;"string"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a === c); <span class="comment">// &gt;true</span></span><br></pre></td></tr></table></figure>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>由于相等和不相等操作符存在类型转换问题，而为了保持代码中数据类型的完整 性，我们推荐使用全等和不全等操作符。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>JavaScript高级程序设计（第三版）</p>
+<p><a href="http://xiaoyuze88.github.io/blog/2015/05/29/Javascript%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B4%E6%8E%A5%E9%87%8F%E4%B8%8Enew-String%E7%9A%84%E5%8C%BA%E5%88%AB" target="_blank" rel="noopener">Javascript中字符串直接量与new String的区别</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/14/ES6/字符串的新增方法/" rel="next" title="字符串的新增方法">
+                  <i class="fa fa-chevron-left"></i> 字符串的新增方法
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/17/CSS层叠样式表/Flex-布局教程：语法篇/" rel="prev" title="Flex 布局教程：语法篇">
+                  Flex 布局教程：语法篇 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的创建"><span class="nav-number">1.</span> <span class="nav-text">字符串的创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试题"><span class="nav-number">2.</span> <span class="nav-text">测试题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相等操作符"><span class="nav-number">3.</span> <span class="nav-text">相等操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相等（-）和不相等（！-）"><span class="nav-number">3.1.</span> <span class="nav-text">相等（==）和不相等（！=）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全等（-）和不全等（！-）"><span class="nav-number">3.2.</span> <span class="nav-text">全等（===）和不全等（！==）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#习题详解"><span class="nav-number">4.</span> <span class="nav-text">习题详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#console-log-a-b-gt-true"><span class="nav-number">4.1.</span> <span class="nav-text">console.log(a == b);  // &gt;true</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#console-log-a-repeat-b-repeat-gt-true"><span class="nav-number">4.2.</span> <span class="nav-text">console.log(a.repeat === b.repeat); //&gt; true</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#console-log-a-b-gt-false"><span class="nav-number">4.3.</span> <span class="nav-text">console.log(a === b); // &gt;false</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#console-log-a-c-gt-true"><span class="nav-number">4.4.</span> <span class="nav-text">console.log(a === c); // &gt;true</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">164</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">389k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:54</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

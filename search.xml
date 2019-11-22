@@ -51,7 +51,7 @@
 <blockquote>
 <p>之后就要安装ssrmu脚本了</p>
 </blockquote>
-<h2 id="通过ssrmu-sh脚本安装ShadowsocksR"><a href="#通过ssrmu-sh脚本安装ShadowsocksR" class="headerlink" title="通过ssrmu.sh脚本安装ShadowsocksR"></a>通过ssrmu.sh脚本安装ShadowsocksR</h2><p>先明确一点，我们是要安装shadowsocksr这个软件，ssrmu是一个便捷的安装配置ShadowsocksR的脚本。</p>
+<h1 id="通过ssrmu-sh脚本安装ShadowsocksR"><a href="#通过ssrmu-sh脚本安装ShadowsocksR" class="headerlink" title="通过ssrmu.sh脚本安装ShadowsocksR"></a>通过ssrmu.sh脚本安装ShadowsocksR</h1><p>先明确一点，我们是要安装shadowsocksr这个软件，ssrmu是一个便捷的安装配置ShadowsocksR的脚本。</p>
 <p>总之，通过上一步登录到我们的vps后我们直接复制黏贴下面的命令</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
 <p>如果提示</p>
@@ -60,7 +60,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
 <p>然后就进入了ssrmu.sh脚本了，脚本有很多功能，小白的我们就一路回车就好了</p>
 <p>最后会出现配置完成的画面，复制好提示出现的ssr链接复制保存在剪贴板里，之后就要安装ssr客户端了。</p>
-<h2 id="安装SSR客户端，科学上网"><a href="#安装SSR客户端，科学上网" class="headerlink" title="安装SSR客户端，科学上网"></a>安装SSR客户端，科学上网</h2><ul>
+<h1 id="安装SSR客户端，科学上网"><a href="#安装SSR客户端，科学上网" class="headerlink" title="安装SSR客户端，科学上网"></a>安装SSR客户端，科学上网</h1><ul>
 <li>windows</li>
 </ul>
 <p>windows下的ssr客户端数不胜数，百度一个下载就好。打开以后，在桌面右下角任务栏出现，点右键，点从粘贴板导入ssr链接，然后就是见证奇迹的时刻，我们成功了。</p>

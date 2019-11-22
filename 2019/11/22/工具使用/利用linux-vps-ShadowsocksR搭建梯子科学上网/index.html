@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="前言这段时间环境不好，很多梯子都被封了，基本找不到好用的，找到了也是提心吊胆估摸着没多久也会不能用，最近学web，接触了一些vps的东西，也在朋友的点拨下了解了ssrmu.sh这个操作异常简单的脚本，从此打开了自建梯子的新世界的大门。总的来说搭建过程分为以下几步。 租借VPS 远程登陆服务器 通过ssrmu.sh脚本安装ShadowsocksR。 安装SSR客户端，科学上网。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用linux vps+ShadowsocksR搭建梯子科学上网">
+<meta property="og:url" content="http://yoursite.com/2019/11/22/工具使用/利用linux-vps-ShadowsocksR搭建梯子科学上网/index.html">
+<meta property="og:site_name" content="天心天地生">
+<meta property="og:description" content="前言这段时间环境不好，很多梯子都被封了，基本找不到好用的，找到了也是提心吊胆估摸着没多久也会不能用，最近学web，接触了一些vps的东西，也在朋友的点拨下了解了ssrmu.sh这个操作异常简单的脚本，从此打开了自建梯子的新世界的大门。总的来说搭建过程分为以下几步。 租借VPS 远程登陆服务器 通过ssrmu.sh脚本安装ShadowsocksR。 安装SSR客户端，科学上网。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://luyiminggonnabeok.cn/images/pasted-41.png">
+<meta property="og:image" content="http://luyiminggonnabeok.cn/images/pasted-42.png">
+<meta property="og:image" content="http://luyiminggonnabeok.cn/images/pasted-43.png">
+<meta property="og:image" content="http://luyiminggonnabeok.cn/images/pasted-44.png">
+<meta property="og:image" content="http://luyiminggonnabeok.cn/images/pasted-45.png">
+<meta property="og:image" content="http://luyiminggonnabeok.cn/images/pasted-20.png">
+<meta property="og:image" content="https://cnzhx.net/wp-content/uploads/2013/08/putty-login-to-server.png">
+<meta property="og:updated_time" content="2019-11-22T15:31:53.934Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用linux vps+ShadowsocksR搭建梯子科学上网">
+<meta name="twitter:description" content="前言这段时间环境不好，很多梯子都被封了，基本找不到好用的，找到了也是提心吊胆估摸着没多久也会不能用，最近学web，接触了一些vps的东西，也在朋友的点拨下了解了ssrmu.sh这个操作异常简单的脚本，从此打开了自建梯子的新世界的大门。总的来说搭建过程分为以下几步。 租借VPS 远程登陆服务器 通过ssrmu.sh脚本安装ShadowsocksR。 安装SSR客户端，科学上网。">
+<meta name="twitter:image" content="http://luyiminggonnabeok.cn/images/pasted-41.png">
+  <link rel="canonical" href="http://yoursite.com/2019/11/22/工具使用/利用linux-vps-ShadowsocksR搭建梯子科学上网/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>利用linux vps+ShadowsocksR搭建梯子科学上网 | 天心天地生</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天心天地生</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">死亡是一座永恒的灯塔</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+          <i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/22/工具使用/利用linux-vps-ShadowsocksR搭建梯子科学上网/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="田迪生">
+      <meta itemprop="description" content="田迪生的个人博客">
+      <meta itemprop="image" content="/images/金凰儿.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天心天地生">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            利用linux vps+ShadowsocksR搭建梯子科学上网
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-22 22:44:45 / 修改时间：23:31:53" itemprop="dateCreated datePublished" datetime="2019-11-22T22:44:45+08:00">2019-11-22</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具使用/" itemprop="url" rel="index">
+                    <span itemprop="name">工具使用</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这段时间环境不好，很多梯子都被封了，基本找不到好用的，找到了也是提心吊胆估摸着没多久也会不能用，最近学web，接触了一些vps的东西，也在朋友的点拨下了解了ssrmu.sh这个操作异常简单的脚本，从此打开了自建梯子的新世界的大门。<br>总的来说搭建过程分为以下几步。</p><ol>
+<li>租借VPS</li>
+<li>远程登陆服务器</li>
+<li>通过ssrmu.sh脚本安装ShadowsocksR。</li>
+<li>安装SSR客户端，科学上网。</li>
+</ol><a id="more"></a>
+
+<p>熟练了整个过程不要十分钟。下面就步骤讲一讲。</p>
+<h1 id="vps简要原理"><a href="#vps简要原理" class="headerlink" title="vps简要原理"></a>vps简要原理</h1><p>虽然这是无脑教程，但是我们还是简单了解一下一些基本概念比较好，比如vps是什么。</p>
+<blockquote>
+<p>VPS（Virtual Private Server 虚拟专用服务器）技术，将一台服务器分割成多个虚拟专享服务器的优质服务。实现VPS的技术分为容器 [1] 技术，和虚拟化技术 [2] 。在容器或虚拟机中，每个VPS都可分配独立公网IP地址、独立操作系统、实现不同VPS间磁盘空间、内存、CPU资源、进程和系统配置的隔离，为用户和应用程序模拟出“独占”使用计算资源的体验。VPS可以像独立服务器一样，重装操作系统，安装程序，单独重启服务器。VPS为使用者提供了管理配置的自由，可用于企业虚拟化，也可以用于IDC资源租用。<br>——————百度百科</p>
+</blockquote>
+<p>简单说，可以vps就是你自己的一台服务器，你可以随时远程登陆(手机都可以，很方便)，在上面部署任何服务，比如建个网站博客之类的，做个邮件服务器，或者就是当个ftp服务器，做个云盘等等，这就不细说了，但是同样你也可以用它搭建梯子，让它成为你自己独享的一台<strong>代理服务器</strong>。当这个服务器ip在国外的时候，不受墙的限制，你利用这个服务器的梯子科学上网的时候，相当于是用它代理，比如你要看油管的视频，其实是它代替你上油管，视频先加载在你的代理服务器上，服务器在转给你，因为墙也不是所有国外ip都封锁，基本上你新申请的vps是不会被墙的，所以你和你自己的vps之间的链接是正常的（当然之后用的时间越久流量越大，被封的概率也很高，不过不要担心，这时候我们换个ip就好啦）。这样，就实现了<strong>科学上网</strong>的功能。</p>
+<p>好了讲完原理，看看怎么操作，第一步租个vps，vps当然不是免费的，你也可以把它理解为一台在国外，你可以用它远程上网的，永远不关机的电脑。（所以你要是想不花钱的话，可以直接找你在国外上学的同学，用他的电脑搭梯子，也是可行的)</p>
+<h1 id="租借vps"><a href="#租借vps" class="headerlink" title="租借vps"></a>租借vps</h1><p>虽然是一键脚本，但是使用脚本的前提还是你有个vps，和一个解析到vps的域名，首先来讲一下购买vps，现在可以购买vps的云平台很多，大家可以自行选择，下面我主要介绍使用vultr的方法。</p>
+<p><a href="https://www.vultr.com/?ref=8326584" target="_blank" rel="noopener">使用Vultr租借vps</a></p>
+<p>之前用的digitalocean,最主要的原因是因为可以随时删除重建服务器，等于可以随时更换被墙的IP，但是最近digitalocean貌似被墙了，无法登录设置页面。</p>
+<p>后来用Vultr了，因为发现除了和digitalocean一样可以随时换IP，重点是还有日本的节点，而且支持支付宝，大陆使用日本的节点可以说速度飞快了。</p>
+<h2 id="注册vultr账号"><a href="#注册vultr账号" class="headerlink" title="注册vultr账号"></a><strong>注册vultr账号</strong></h2><p><strong>这是我的推广链接，大家可以用这个：</strong><a href="https://www.vultr.com/?ref=8326584" target="_blank" rel="noopener">vultr注册</a></p>
+<p>注册好第一次进去会提示让你完善信息，首次使用之前需要充值最少5刀，之后会有10刀赠送。</p>
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>之后进入控制台界面，点击products，然后点右上角的加号添加server</p>
+<p><a href="http://luyiminggonnabeok.cn/images/pasted-41.png" target="_blank" rel="noopener"><img src="http://luyiminggonnabeok.cn/images/pasted-41.png" alt="upload successful"></a></p>
+<h2 id="选择服务器地址"><a href="#选择服务器地址" class="headerlink" title="选择服务器地址"></a>选择服务器地址</h2><p>如图配置，server选哪里的都可以，但是建议选日本的，真的比其他地方的快好多。</p>
+<p><a href="http://luyiminggonnabeok.cn/images/pasted-42.png" target="_blank" rel="noopener"><img src="http://luyiminggonnabeok.cn/images/pasted-42.png" alt="upload successful"></a></p>
+<h2 id="服务器系统版本选择（重要）"><a href="#服务器系统版本选择（重要）" class="headerlink" title="服务器系统版本选择（重要）"></a>服务器系统版本选择（重要）</h2><p>这里要注意了，默认系统是Centos8(Centos都出8了。。今天第一次发现), 脚本是Centos7环境下的，所以<strong>这里一定要选Centos7</strong>，之后配置选5刀的就可以，科学上网足够用了。</p>
+<p><a href="http://luyiminggonnabeok.cn/images/pasted-43.png" target="_blank" rel="noopener"><img src="http://luyiminggonnabeok.cn/images/pasted-43.png" alt="upload successful"></a></p>
+<p>##部署服务器</p>
+<p>选好了，点击左下方deploy now按钮就可以部署服务器；</p>
+<p>之后会自动跳转到products节目，这时候你的server是installing的状态，等大概一分钟，就会running。</p>
+<p>之后点右边的三个点（server刚起来也可能是叫manage，反正就是最右边的）进入server detail。（如果之后哪天ip真的被封了，也可以在这里点destroy然后重新建一个）</p>
+<p><a href="http://luyiminggonnabeok.cn/images/pasted-44.png" target="_blank" rel="noopener"><img src="http://luyiminggonnabeok.cn/images/pasted-44.png" alt="upload successful"></a></p>
+<h2 id="服务器使用信息查看"><a href="#服务器使用信息查看" class="headerlink" title="服务器使用信息查看"></a>服务器使用信息查看</h2><p>点击服务器名字进入详情页，大家可以看见这里月流量是1000G，</p>
+<p><a href="http://luyiminggonnabeok.cn/images/pasted-45.png" target="_blank" rel="noopener"><img src="http://luyiminggonnabeok.cn/images/pasted-45.png" alt="upload successful"></a></p>
+<p>这里是你的server的一些详细信息，<strong>记住你的ip address和password</strong>，密码需要点那个小眼睛才能看到。</p>
+<blockquote>
+<p>到这里vps就做好了，进入下一步。 </p>
+</blockquote>
+<h1 id="远程登陆服务器"><a href="#远程登陆服务器" class="headerlink" title="远程登陆服务器"></a>远程登陆服务器</h1><h2 id="下载本地连接服务器的工具"><a href="#下载本地连接服务器的工具" class="headerlink" title="下载本地连接服务器的工具"></a>下载本地连接服务器的工具</h2><p>sh客户端就是我们本地连接服务器的工具，windows下ssh客户端主要有Putty和xshell，我一般用putty，直接百度下载就好，用法都差不多。</p>
+<p><a href="https://www.putty.org/" target="_blank" rel="noopener">Putty下载地址</a></p>
+<h2 id="登录服务器"><a href="#登录服务器" class="headerlink" title="登录服务器"></a>登录服务器</h2><p><a href="http://luyiminggonnabeok.cn/images/pasted-20.png" target="_blank" rel="noopener"><img src="http://luyiminggonnabeok.cn/images/pasted-20.png" alt="upload successful"></a></p>
+<p>step1：打开putty出现下面的画面，hostname填刚才邮件的ip，点open</p>
+<p>step2:  会出现login的登陆画面，填root，然后回车。</p>
+<p>step3: 之后会要求出入密码，直接复制粘贴邮件里的密码,然后回车。(<strong>putty里粘贴直接在光标后面点鼠标右键就好</strong>)。</p>
+<p>成功页面如下：</p>
+<p><img src="https://cnzhx.net/wp-content/uploads/2013/08/putty-login-to-server.png" alt="在 PuTTY 中登录服务器"> </p>
+<blockquote>
+<p>之后就要安装ssrmu脚本了</p>
+</blockquote>
+<h2 id="通过ssrmu-sh脚本安装ShadowsocksR"><a href="#通过ssrmu-sh脚本安装ShadowsocksR" class="headerlink" title="通过ssrmu.sh脚本安装ShadowsocksR"></a>通过ssrmu.sh脚本安装ShadowsocksR</h2><p>先明确一点，我们是要安装shadowsocksr这个软件，ssrmu是一个便捷的安装配置ShadowsocksR的脚本。</p>
+<p>总之，通过上一步登录到我们的vps后我们直接复制黏贴下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssrmu.sh &amp;&amp; chmod +x ssrmu.sh &amp;&amp; bash ssrmu.sh</span><br></pre></td></tr></table></figure>
+<p>如果提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash: wget: command not found</span><br></pre></td></tr></table></figure>
+<p>的话，就先执行下面的再执行第一步的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget</span><br></pre></td></tr></table></figure>
+<p>然后就进入了ssrmu.sh脚本了，脚本有很多功能，小白的我们就一路回车就好了</p>
+<p>最后会出现配置完成的画面，复制好提示出现的ssr链接复制保存在剪贴板里，之后就要安装ssr客户端了。</p>
+<h2 id="安装SSR客户端，科学上网"><a href="#安装SSR客户端，科学上网" class="headerlink" title="安装SSR客户端，科学上网"></a>安装SSR客户端，科学上网</h2><ul>
+<li>windows</li>
+</ul>
+<p>windows下的ssr客户端数不胜数，百度一个下载就好。打开以后，在桌面右下角任务栏出现，点右键，点从粘贴板导入ssr链接，然后就是见证奇迹的时刻，我们成功了。</p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">shadowsocks-windows</a></p>
+<ul>
+<li>android</li>
+</ul>
+<p>安卓端的ssr工具也很多，自行下载安装包安装就好，用法都差不多。</p>
+<p><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">shadowsocks-android</a></p>
+<ul>
+<li>ios</li>
+</ul>
+<p>ios下，国内市场的ssr客户端都下架了，需要去美区App Store下载，美区账号在淘宝买就好，一般一两块钱一个，ios端推荐Shadowrocket，不过要花钱买，几块钱，用我们之前注册的PayPal就好，也有个免费的Patatso Lite。用法都差不多，从剪贴板导入ssr地址就好。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p><strong>ip被封了怎么办？</strong></p>
+<p>很简单，去到的控制台里，在我们创建的droplet最右边有三个点，点开点destory，几秒删除，在重新create一个droplet，从putty重新登录，安装脚本，熟练了两分钟就搞定，不怕被封ip了。</p>
+<p>自由万岁！</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://cnzhx.net/blog/putty-basic-usage/" target="_blank" rel="noopener">使用 PuTTY 远程登录管理服务器</a></p>
+<p><a href="http://luyiminggonnabeok.cn/2018/08/10/%E5%8D%81%E5%88%86%E9%92%9F%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84SSR%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%A2%AF%E5%AD%90/" target="_blank" rel="noopener">十分钟搭建自己的科学上网SSR梯子</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+        <div class="reward-container">
+  <div>坚持技术分享，您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="田迪生 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block;">
+        <img src="/images/ant.jpg" alt="田迪生 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/22/项目开发/提问的智慧/" rel="next" title="提问的智慧">
+                  <i class="fa fa-chevron-left"></i> 提问的智慧
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vps简要原理"><span class="nav-number">2.</span> <span class="nav-text">vps简要原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#租借vps"><span class="nav-number">3.</span> <span class="nav-text">租借vps</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册vultr账号"><span class="nav-number">3.1.</span> <span class="nav-text">注册vultr账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建项目"><span class="nav-number">3.2.</span> <span class="nav-text">新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择服务器地址"><span class="nav-number">3.3.</span> <span class="nav-text">选择服务器地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器系统版本选择（重要）"><span class="nav-number">3.4.</span> <span class="nav-text">服务器系统版本选择（重要）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器使用信息查看"><span class="nav-number">3.5.</span> <span class="nav-text">服务器使用信息查看</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程登陆服务器"><span class="nav-number">4.</span> <span class="nav-text">远程登陆服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载本地连接服务器的工具"><span class="nav-number">4.1.</span> <span class="nav-text">下载本地连接服务器的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录服务器"><span class="nav-number">4.2.</span> <span class="nav-text">登录服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过ssrmu-sh脚本安装ShadowsocksR"><span class="nav-number">4.3.</span> <span class="nav-text">通过ssrmu.sh脚本安装ShadowsocksR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装SSR客户端，科学上网"><span class="nav-number">4.4.</span> <span class="nav-text">安装SSR客户端，科学上网</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/金凰儿.png"
+      alt="田迪生">
+  <p class="site-author-name" itemprop="name">田迪生</p>
+  <div class="site-description" itemprop="description">田迪生的个人博客</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">169</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/tianxintiandisheng" title="GitHub &rarr; https://github.com/tianxintiandisheng" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1455701196@qq.com" title="E-Mail &rarr; 1455701196@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">田迪生</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">426k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">6:27</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://pisces.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

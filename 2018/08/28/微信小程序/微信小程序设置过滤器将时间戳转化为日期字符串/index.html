@@ -56,16 +56,15 @@
 </script>
 
   <meta name="description" content="在微信开发小程序时，后台传入的日期数据可能是时间戳 而不是日期, 或者需要把日期转换成时间戳来做出相应的处理时,我们将用到时间戳和日期的相互转换.">
-<meta name="keywords" content="wxs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微信小程序设置过滤器将时间戳转化为日期字符串">
+<meta property="og:title" content="微信小程序使用wxs设置过滤器将时间戳转化为日期字符串">
 <meta property="og:url" content="http://yoursite.com/2018/08/28/微信小程序/微信小程序设置过滤器将时间戳转化为日期字符串/index.html">
 <meta property="og:site_name" content="天心天地生">
 <meta property="og:description" content="在微信开发小程序时，后台传入的日期数据可能是时间戳 而不是日期, 或者需要把日期转换成时间戳来做出相应的处理时,我们将用到时间戳和日期的相互转换.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-08T05:20:36.602Z">
+<meta property="og:updated_time" content="2019-11-26T03:39:13.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微信小程序设置过滤器将时间戳转化为日期字符串">
+<meta name="twitter:title" content="微信小程序使用wxs设置过滤器将时间戳转化为日期字符串">
 <meta name="twitter:description" content="在微信开发小程序时，后台传入的日期数据可能是时间戳 而不是日期, 或者需要把日期转换成时间戳来做出相应的处理时,我们将用到时间戳和日期的相互转换.">
   <link rel="canonical" href="http://yoursite.com/2018/08/28/微信小程序/微信小程序设置过滤器将时间戳转化为日期字符串/">
 
@@ -81,7 +80,7 @@
   };
 </script>
 
-  <title>微信小程序设置过滤器将时间戳转化为日期字符串 | 天心天地生</title>
+  <title>微信小程序使用wxs设置过滤器将时间戳转化为日期字符串 | 天心天地生</title>
   
 
 
@@ -267,7 +266,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            微信小程序设置过滤器将时间戳转化为日期字符串
+            微信小程序使用wxs设置过滤器将时间戳转化为日期字符串
             
 
           
@@ -295,7 +294,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-03-08 13:20:36" itemprop="dateModified" datetime="2019-03-08T13:20:36+08:00">2019-03-08</time>
+                <time title="修改时间：2019-11-26 11:39:13" itemprop="dateModified" datetime="2019-11-26T11:39:13+08:00">2019-11-26</time>
               </span>
             
           
@@ -334,7 +333,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>667</span>
+              <span>627</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -362,8 +361,8 @@
 </blockquote>
 <a id="more"></a>
 <p>WXS是专供WXML调用的有独立作用域的JS模块（不是全功能的JS，感觉有所限制）,可以在在视图层对数据进行格式化处理,起到过滤器的作用。</p>
-<h1 id="js文件"><a href="#js文件" class="headerlink" title="js文件"></a>js文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    timestamp: 1522117395730</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="wxml文件"><a href="#wxml文件" class="headerlink" title="wxml文件"></a>wxml文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;wxs module=&quot;m1&quot;&gt;</span><br><span class="line">  function format(ts) &#123;</span><br><span class="line">    var d = getDate(ts)</span><br><span class="line">    return [d.getFullYear(), d.getMonth()+1, d.getDate()].join(&apos;-&apos;)</span><br><span class="line">      + &apos; &apos;</span><br><span class="line">      + [d.getHours(), d.getMinutes(), d.getSeconds()].join(&apos;:&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  module.exports.format = format</span><br><span class="line">&lt;/wxs&gt;</span><br><span class="line"></span><br><span class="line">&lt;view&gt;&#123;&#123; timestamp &#125;&#125;&lt;/view&gt;</span><br><span class="line">&lt;view&gt;&#123;&#123; m1.format(timestamp) &#125;&#125;&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="js文件"><a href="#js文件" class="headerlink" title="js文件"></a>js文件</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    timestamp: <span class="number">1522117395730</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="wxml文件"><a href="#wxml文件" class="headerlink" title="wxml文件"></a>wxml文件</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">wxs</span> <span class="attr">module</span>=<span class="string">"m1"</span>&gt;</span></span><br><span class="line">  function format(ts) &#123;</span><br><span class="line">    var d = getDate(ts)</span><br><span class="line">    return [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-')</span><br><span class="line">      + ' '</span><br><span class="line">      + [d.getHours(), d.getMinutes(), d.getSeconds()].join(':')</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  module.exports.format = format</span><br><span class="line"><span class="tag">&lt;/<span class="name">wxs</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123; timestamp &#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">view</span>&gt;</span>&#123;&#123; m1.format(timestamp) &#125;&#125;<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意:</strong>wxs 获取当前日期不可以使用 new Date()，而需要使用 getDate() 代替。</p>
 
     </div>
@@ -398,15 +397,6 @@
       
 
       <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/wxs/" rel="tag"># wxs</a>
-            
-          </div>
-        
 
         
 
@@ -490,7 +480,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">169</span>
+          <span class="site-state-item-count">170</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -503,7 +493,7 @@
             <a href="/categories/">
           
         
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -574,12 +564,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">426k</span>
+    <span title="站点总字数">443k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">6:27</span>
+    <span title="站点阅读时长">6:42</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.1
   </div>
